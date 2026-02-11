@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
 
     # CORS
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:8000"
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:8000,http://localhost:5500,http://localhost:8080,http://127.0.0.1:5500,http://127.0.0.1:8080"
 
     # API Keys
     CLOVA_OCR_API_KEY: str = ""

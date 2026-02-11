@@ -1,0 +1,509 @@
+/* ===========================
+   CSS Variables & Reset
+   =========================== */
+:root {
+    /* Colors - Korean Food Theme */
+    --bg-base: #FFF8F0;
+    --bg-card: #FFFFFF;
+    --accent-primary: #E85D3A;
+    --accent-secondary: #FF8A65;
+    --text-primary: #2C2C2C;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-light: #E0E0E0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+    /* Spice Level Colors */
+    --spice-0: #4CAF50;
+    --spice-1: #8BC34A;
+    --spice-2: #FFC107;
+    --spice-3: #FF9800;
+    --spice-4: #FF5722;
+    --spice-5: #F44336;
+
+    /* Fonts */
+    --font-korean: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-english: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-english);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Korean text */
+.korean-text,
+[lang="ko"] {
+    font-family: var(--font-korean);
+}
+
+/* ===========================
+   Loading Overlay
+   =========================== */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    gap: var(--spacing-md);
+}
+
+.loading-overlay p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border-light);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   Container & Layout
+   =========================== */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px;
+        padding: var(--spacing-lg);
+    }
+}
+
+/* ===========================
+   Header
+   =========================== */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ===========================
+   Search Box
+   =========================== */
+.search-box {
+    margin-bottom: var(--spacing-lg);
+}
+
+.search-input-wrapper {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.menu-input {
+    flex: 1;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--bg-card);
+    transition: all 0.2s ease;
+    font-family: var(--font-korean);
+}
+
+.menu-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(232, 93, 58, 0.1);
+}
+
+.menu-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-btn {
+    padding: var(--spacing-md);
+    font-size: 1.5rem;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 56px;
+}
+
+.search-btn:hover {
+    background: var(--accent-secondary);
+    transform: scale(1.05);
+}
+
+.search-btn:active {
+    transform: scale(0.95);
+}
+
+.search-hint {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* ===========================
+   Photo Upload (Disabled)
+   =========================== */
+.photo-upload {
+    margin-bottom: var(--spacing-lg);
+}
+
+.photo-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 2px dashed var(--border-light);
+    border-radius: 12px;
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    position: relative;
+}
+
+.coming-soon {
+    position: absolute;
+    top: -8px;
+    right: var(--spacing-sm);
+    background: var(--accent-primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* ===========================
+   Language Selector
+   =========================== */
+.language-selector {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.lang-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-btn.active {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.lang-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.lang-btn:not(.disabled):hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Popular Dishes
+   =========================== */
+.popular-dishes {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.dish-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.dish-tag {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-korean);
+}
+
+.dish-tag:hover {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.dish-tag:active {
+    transform: translateY(0);
+}
+
+/* ===========================
+   Results Section
+   =========================== */
+.results-section {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.back-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.results-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ===========================
+   Menu Card
+   =========================== */
+.menu-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu-name-ko {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    font-family: var(--font-korean);
+}
+
+.menu-name-en {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.menu-name-composed {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.menu-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: var(--spacing-md) 0;
+}
+
+.menu-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.menu-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.menu-allergens {
+    padding: var(--spacing-sm);
+    background: #FFF3E0;
+    border-left: 3px solid #FF9800;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.allergen-title {
+    font-weight: 600;
+    color: #E65100;
+    margin-bottom: 0.25rem;
+}
+
+.menu-concept {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.modifiers-section {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-light);
+}
+
+.modifiers-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.modifier-item {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.modifier-ko {
+    font-weight: 600;
+    color: var(--accent-primary);
+    font-family: var(--font-korean);
+}
+
+.modifier-en {
+    color: var(--text-secondary);
+}
+
+/* AI Discovery Card */
+.ai-discovery-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.ai-discovery-card .menu-name-ko {
+    color: white;
+}
+
+.ai-discovery-message {
+    font-size: 1rem;
+    margin-top: var(--spacing-md);
+    opacity: 0.9;
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+.hidden {
+    display: none !important;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
