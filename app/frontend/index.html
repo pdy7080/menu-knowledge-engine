@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understand any Korean menu in seconds - AI-powered menu translation">
+    <title>Menu Guide Korea - Korean Menu Translation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Analyzing menu...</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Landing Section -->
+        <section id="landingSection" class="landing-section">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">
+                    🍜 Menu Guide Korea
+                </div>
+                <p class="tagline">Understand any Korean menu in seconds</p>
+            </header>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <input
+                        type="text"
+                        id="menuInput"
+                        class="menu-input"
+                        placeholder="Enter Korean menu name (e.g., 김치찌개)"
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="search-btn" aria-label="Search">
+                        🔍
+                    </button>
+                </div>
+                <p class="search-hint">💡 Tip: Enter multiple menus separated by comma (,) or new lines</p>
+            </div>
+
+            <!-- Photo Upload (Coming Soon) -->
+            <div class="photo-upload disabled">
+                <button class="photo-btn" disabled>
+                    📷 Search by Photo
+                    <span class="coming-soon">Coming Soon</span>
+                </button>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">🌐 EN</button>
+                <button class="lang-btn disabled" data-lang="ja" disabled>日本語</button>
+                <button class="lang-btn disabled" data-lang="zh" disabled>中文</button>
+            </div>
+
+            <!-- Popular Dishes -->
+            <div class="popular-dishes">
+                <h2 class="section-title">🔥 Popular Dishes</h2>
+                <div class="dish-tags">
+                    <button class="dish-tag" data-menu="비빔밥">비빔밥</button>
+                    <button class="dish-tag" data-menu="김치찌개">김치찌개</button>
+                    <button class="dish-tag" data-menu="삼겹살">삼겹살</button>
+                    <button class="dish-tag" data-menu="떡볶이">떡볶이</button>
+                    <button class="dish-tag" data-menu="불고기">불고기</button>
+                    <button class="dish-tag" data-menu="냉면">냉면</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="results-section hidden">
+            <div class="results-header">
+                <button id="backBtn" class="back-btn">← Back</button>
+                <h2 class="results-title">Search Results</h2>
+            </div>
+            <div id="resultsContainer" class="results-container">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
