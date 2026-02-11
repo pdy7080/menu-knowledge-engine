@@ -1,0 +1,4012 @@
+{
+  "summary": {
+    "total": 300,
+    "success_count": 204,
+    "success_rate": 68.0,
+    "by_match_type": {
+      "exact": 104,
+      "modifier_decomposition": 100,
+      "ai_discovery_needed": 96,
+      "similarity": 0
+    },
+    "by_frequency": {
+      "상": {
+        "total": 75,
+        "exact": 73,
+        "modifier_decomposition": 0,
+        "ai_discovery_needed": 2
+      },
+      "중": {
+        "total": 157,
+        "exact": 31,
+        "modifier_decomposition": 67,
+        "ai_discovery_needed": 59
+      },
+      "하": {
+        "total": 68,
+        "exact": 0,
+        "modifier_decomposition": 33,
+        "ai_discovery_needed": 35
+      }
+    }
+  },
+  "failed_patterns_top20": [
+    {
+      "pattern": "중 - 찌개",
+      "count": 7
+    },
+    {
+      "pattern": "하 - 고기구이",
+      "count": 7
+    },
+    {
+      "pattern": "하 - 찌개",
+      "count": 6
+    },
+    {
+      "pattern": "하 - 탕",
+      "count": 6
+    },
+    {
+      "pattern": "중 - 찜",
+      "count": 5
+    },
+    {
+      "pattern": "중 - 고기구이",
+      "count": 5
+    },
+    {
+      "pattern": "중 - 정식/백반",
+      "count": 4
+    },
+    {
+      "pattern": "중 - 육류안주",
+      "count": 4
+    },
+    {
+      "pattern": "중 - 면류",
+      "count": 4
+    },
+    {
+      "pattern": "하 - 칼국수",
+      "count": 4
+    },
+    {
+      "pattern": "중 - 튀김",
+      "count": 3
+    },
+    {
+      "pattern": "중 - 고기볶음",
+      "count": 3
+    },
+    {
+      "pattern": "중 - 탕",
+      "count": 2
+    },
+    {
+      "pattern": "중 - 반찬류",
+      "count": 2
+    },
+    {
+      "pattern": "중 - 해물안주",
+      "count": 2
+    },
+    {
+      "pattern": "중 - 분식류",
+      "count": 2
+    },
+    {
+      "pattern": "중 - 국밥",
+      "count": 2
+    },
+    {
+      "pattern": "중 - 냉면",
+      "count": 2
+    },
+    {
+      "pattern": "하 - 순대",
+      "count": 2
+    },
+    {
+      "pattern": "하 - 국밥",
+      "count": 2
+    }
+  ],
+  "failed_cases": [
+    {
+      "menu_name_ko": "대왕교자",
+      "frequency_tier": "중",
+      "expected_concept": "튀김",
+      "modifiers_found": [
+        "대",
+        "왕"
+      ],
+      "notes": "대왕 + 교자"
+    },
+    {
+      "menu_name_ko": "스페셜정식",
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반",
+      "modifiers_found": [
+        "스페셜"
+      ],
+      "notes": "스페셜 + 정식"
+    },
+    {
+      "menu_name_ko": "점보순대",
+      "frequency_tier": "중",
+      "expected_concept": "순대",
+      "modifiers_found": [
+        "점보",
+        "순",
+        "대"
+      ],
+      "notes": "점보 + 순대"
+    },
+    {
+      "menu_name_ko": "미니전골",
+      "frequency_tier": "중",
+      "expected_concept": "전골",
+      "modifiers_found": [
+        "미니"
+      ],
+      "notes": "미니 + 전골"
+    },
+    {
+      "menu_name_ko": "달콤한불고기",
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음",
+      "modifiers_found": [
+        "달콤한",
+        "불"
+      ],
+      "notes": "달콤한 + 불고기"
+    },
+    {
+      "menu_name_ko": "매운우동",
+      "frequency_tier": "중",
+      "expected_concept": "국수",
+      "modifiers_found": [
+        "매운"
+      ],
+      "notes": "매운 + 우동"
+    },
+    {
+      "menu_name_ko": "새콤달콤탕수육",
+      "frequency_tier": "중",
+      "expected_concept": "육류안주",
+      "modifiers_found": [],
+      "notes": "새콤달콤 + 탕수육"
+    },
+    {
+      "menu_name_ko": "칼칼한쭈꾸미",
+      "frequency_tier": "중",
+      "expected_concept": "해물볶음",
+      "modifiers_found": [
+        "칼칼한"
+      ],
+      "notes": "칼칼한 + 쭈꾸미"
+    },
+    {
+      "menu_name_ko": "한우갈비탕",
+      "frequency_tier": "중",
+      "expected_concept": "탕",
+      "modifiers_found": [
+        "한우"
+      ],
+      "notes": "한우 + 갈비탕"
+    },
+    {
+      "menu_name_ko": "한우불고기",
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음",
+      "modifiers_found": [
+        "한우",
+        "불"
+      ],
+      "notes": "한우 + 불고기"
+    },
+    {
+      "menu_name_ko": "한우육회",
+      "frequency_tier": "중",
+      "expected_concept": "육류안주",
+      "modifiers_found": [
+        "한우"
+      ],
+      "notes": "한우 + 육회"
+    },
+    {
+      "menu_name_ko": "해물순두부찌개",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "순두부",
+        "해물"
+      ],
+      "notes": "해물 + 순두부찌개"
+    },
+    {
+      "menu_name_ko": "야채비빔밥",
+      "frequency_tier": "중",
+      "expected_concept": "비빔밥",
+      "modifiers_found": [
+        "야채"
+      ],
+      "notes": "야채 + 비빔밥"
+    },
+    {
+      "menu_name_ko": "야채볶음밥",
+      "frequency_tier": "중",
+      "expected_concept": "볶음밥",
+      "modifiers_found": [
+        "야채"
+      ],
+      "notes": "야채 + 볶음밥"
+    },
+    {
+      "menu_name_ko": "치즈돈까스",
+      "frequency_tier": "중",
+      "expected_concept": "덮밥",
+      "modifiers_found": [
+        "치즈"
+      ],
+      "notes": "치즈 + 돈까스"
+    },
+    {
+      "menu_name_ko": "치즈김밥",
+      "frequency_tier": "중",
+      "expected_concept": "김밥",
+      "modifiers_found": [
+        "치즈"
+      ],
+      "notes": "치즈 + 김밥"
+    },
+    {
+      "menu_name_ko": "묵은지김치찌개",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "묵은지"
+      ],
+      "notes": "묵은지 + 김치찌개"
+    },
+    {
+      "menu_name_ko": "묵은지감자탕",
+      "frequency_tier": "중",
+      "expected_concept": "탕",
+      "modifiers_found": [
+        "묵은지"
+      ],
+      "notes": "묵은지 + 감자탕"
+    },
+    {
+      "menu_name_ko": "계란말이",
+      "frequency_tier": "중",
+      "expected_concept": "반찬류",
+      "modifiers_found": [
+        "계란"
+      ],
+      "notes": "계란 + 말이"
+    },
+    {
+      "menu_name_ko": "계란찜",
+      "frequency_tier": "중",
+      "expected_concept": "반찬류",
+      "modifiers_found": [
+        "계란"
+      ],
+      "notes": "계란 + 찜"
+    },
+    {
+      "menu_name_ko": "모듬전",
+      "frequency_tier": "중",
+      "expected_concept": "전",
+      "modifiers_found": [
+        "모듬"
+      ],
+      "notes": "모듬 + 전"
+    },
+    {
+      "menu_name_ko": "모듬회",
+      "frequency_tier": "중",
+      "expected_concept": "해물안주",
+      "modifiers_found": [
+        "모듬"
+      ],
+      "notes": "모듬 + 회"
+    },
+    {
+      "menu_name_ko": "생선회",
+      "frequency_tier": "중",
+      "expected_concept": "해물안주",
+      "modifiers_found": [
+        "생"
+      ],
+      "notes": "생선 + 회"
+    },
+    {
+      "menu_name_ko": "날치알밥",
+      "frequency_tier": "하",
+      "expected_concept": "밥류",
+      "modifiers_found": [
+        "날치알"
+      ],
+      "notes": "날치알 + 밥"
+    },
+    {
+      "menu_name_ko": "한우갈비찜",
+      "frequency_tier": "중",
+      "expected_concept": "찜",
+      "modifiers_found": [
+        "한우"
+      ],
+      "notes": "한우 + 갈비찜"
+    },
+    {
+      "menu_name_ko": "돼지갈비",
+      "frequency_tier": "중",
+      "expected_concept": "고기구이",
+      "modifiers_found": [],
+      "notes": "돼지 + 갈비"
+    },
+    {
+      "menu_name_ko": "해물뚝배기",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "해물"
+      ],
+      "notes": "해물 + 뚝배기"
+    },
+    {
+      "menu_name_ko": "버섯뚝배기",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "버섯"
+      ],
+      "notes": "버섯 + 뚝배기"
+    },
+    {
+      "menu_name_ko": "야채만두",
+      "frequency_tier": "중",
+      "expected_concept": "튀김",
+      "modifiers_found": [
+        "야채"
+      ],
+      "notes": "야채 + 만두"
+    },
+    {
+      "menu_name_ko": "수제햄버거",
+      "frequency_tier": "중",
+      "expected_concept": "분식류",
+      "modifiers_found": [
+        "수제"
+      ],
+      "notes": "수제 + 햄버거"
+    },
+    {
+      "menu_name_ko": "통닭",
+      "frequency_tier": "중",
+      "expected_concept": "찜",
+      "modifiers_found": [
+        "통"
+      ],
+      "notes": "통 + 닭"
+    },
+    {
+      "menu_name_ko": "숯불오리",
+      "frequency_tier": "중",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "숯불"
+      ],
+      "notes": "숯불 + 오리"
+    },
+    {
+      "menu_name_ko": "직화구이",
+      "frequency_tier": "중",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "직화"
+      ],
+      "notes": "직화 + 구이"
+    },
+    {
+      "menu_name_ko": "수제비",
+      "frequency_tier": "중",
+      "expected_concept": "면류",
+      "modifiers_found": [
+        "수제"
+      ],
+      "notes": "수제 + 비 (하나의 요리명)"
+    },
+    {
+      "menu_name_ko": "수제피자",
+      "frequency_tier": "중",
+      "expected_concept": "분식류",
+      "modifiers_found": [
+        "수제"
+      ],
+      "notes": "수제 + 피자"
+    },
+    {
+      "menu_name_ko": "옛날통닭",
+      "frequency_tier": "중",
+      "expected_concept": "찜",
+      "modifiers_found": [
+        "옛날",
+        "통"
+      ],
+      "notes": "옛날 + 통닭"
+    },
+    {
+      "menu_name_ko": "옛날짜장면",
+      "frequency_tier": "중",
+      "expected_concept": "면류",
+      "modifiers_found": [
+        "옛날"
+      ],
+      "notes": "옛날 + 짜장면"
+    },
+    {
+      "menu_name_ko": "시골순두부",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "순두부",
+        "시골"
+      ],
+      "notes": "시골 + 순두부"
+    },
+    {
+      "menu_name_ko": "원조할매순대국",
+      "frequency_tier": "중",
+      "expected_concept": "국밥",
+      "modifiers_found": [
+        "할매",
+        "원조",
+        "순",
+        "대"
+      ],
+      "notes": "원조할매 + 순대국"
+    },
+    {
+      "menu_name_ko": "고향집된장찌개",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "고향"
+      ],
+      "notes": "고향집 + 된장찌개"
+    },
+    {
+      "menu_name_ko": "명품한우",
+      "frequency_tier": "중",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "명품",
+        "한우"
+      ],
+      "notes": "명품 + 한우"
+    },
+    {
+      "menu_name_ko": "맛있는순두부",
+      "frequency_tier": "하",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "맛있는",
+        "순두부"
+      ],
+      "notes": "맛있는 + 순두부 (흔치 않음)"
+    },
+    {
+      "menu_name_ko": "옛날도시락",
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반",
+      "modifiers_found": [
+        "옛날"
+      ],
+      "notes": "옛날 + 도시락"
+    },
+    {
+      "menu_name_ko": "시골밥상",
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반",
+      "modifiers_found": [
+        "시골"
+      ],
+      "notes": "시골 + 밥상"
+    },
+    {
+      "menu_name_ko": "평양냉면",
+      "frequency_tier": "중",
+      "expected_concept": "냉면",
+      "modifiers_found": [],
+      "notes": "평양 + 냉면"
+    },
+    {
+      "menu_name_ko": "함흥냉면",
+      "frequency_tier": "중",
+      "expected_concept": "냉면",
+      "modifiers_found": [],
+      "notes": "함흥 + 냉면"
+    },
+    {
+      "menu_name_ko": "춘천닭갈비",
+      "frequency_tier": "중",
+      "expected_concept": "찜",
+      "modifiers_found": [],
+      "notes": "춘천 + 닭갈비"
+    },
+    {
+      "menu_name_ko": "안동찜닭",
+      "frequency_tier": "중",
+      "expected_concept": "찜",
+      "modifiers_found": [],
+      "notes": "안동 + 찜닭"
+    },
+    {
+      "menu_name_ko": "강릉짬뽕순두부",
+      "frequency_tier": "중",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "순두부"
+      ],
+      "notes": "강릉 + 짬뽕순두부"
+    },
+    {
+      "menu_name_ko": "제주고등어",
+      "frequency_tier": "중",
+      "expected_concept": "생선구이",
+      "modifiers_found": [],
+      "notes": "제주 + 고등어"
+    },
+    {
+      "menu_name_ko": "속초오징어순대",
+      "frequency_tier": "하",
+      "expected_concept": "순대",
+      "modifiers_found": [
+        "순",
+        "대"
+      ],
+      "notes": "속초 + 오징어순대"
+    },
+    {
+      "menu_name_ko": "대구막창",
+      "frequency_tier": "중",
+      "expected_concept": "육류안주",
+      "modifiers_found": [
+        "대"
+      ],
+      "notes": "대구 + 막창"
+    },
+    {
+      "menu_name_ko": "광주식혜",
+      "frequency_tier": "하",
+      "expected_concept": "음료디저트",
+      "modifiers_found": [],
+      "notes": "광주 + 식혜"
+    },
+    {
+      "menu_name_ko": "경주빵",
+      "frequency_tier": "하",
+      "expected_concept": "떡/한과",
+      "modifiers_found": [],
+      "notes": "경주 + 빵"
+    },
+    {
+      "menu_name_ko": "전주콩나물국밥",
+      "frequency_tier": "중",
+      "expected_concept": "국밥",
+      "modifiers_found": [],
+      "notes": "전주 + 콩나물국밥"
+    },
+    {
+      "menu_name_ko": "부산어묵",
+      "frequency_tier": "중",
+      "expected_concept": "튀김",
+      "modifiers_found": [
+        "부산"
+      ],
+      "notes": "부산 + 어묵"
+    },
+    {
+      "menu_name_ko": "서울식삼계탕",
+      "frequency_tier": "하",
+      "expected_concept": "탕",
+      "modifiers_found": [],
+      "notes": "서울식 + 삼계탕"
+    },
+    {
+      "menu_name_ko": "인천짜장면",
+      "frequency_tier": "중",
+      "expected_concept": "면류",
+      "modifiers_found": [],
+      "notes": "인천 + 짜장면"
+    },
+    {
+      "menu_name_ko": "평양온반",
+      "frequency_tier": "하",
+      "expected_concept": "국밥",
+      "modifiers_found": [
+        "반"
+      ],
+      "notes": "평양 + 온반 (드묾)"
+    },
+    {
+      "menu_name_ko": "부산밀면",
+      "frequency_tier": "중",
+      "expected_concept": "면류",
+      "modifiers_found": [
+        "부산"
+      ],
+      "notes": "부산 + 밀면"
+    },
+    {
+      "menu_name_ko": "한우숯불갈비",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "숯불",
+        "한우"
+      ],
+      "notes": "한우 + 숯불 + 갈비"
+    },
+    {
+      "menu_name_ko": "한우직화구이",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "직화",
+        "한우"
+      ],
+      "notes": "한우 + 직화 + 구이"
+    },
+    {
+      "menu_name_ko": "프리미엄한우갈비",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "프리미엄",
+        "한우"
+      ],
+      "notes": "프리미엄 + 한우 + 갈비"
+    },
+    {
+      "menu_name_ko": "왕치즈돈까스",
+      "frequency_tier": "하",
+      "expected_concept": "덮밥",
+      "modifiers_found": [
+        "치즈",
+        "왕"
+      ],
+      "notes": "왕 + 치즈 + 돈까스"
+    },
+    {
+      "menu_name_ko": "얼큰묵은지감자탕",
+      "frequency_tier": "하",
+      "expected_concept": "탕",
+      "modifiers_found": [
+        "묵은지",
+        "얼큰"
+      ],
+      "notes": "얼큰 + 묵은지 + 감자탕"
+    },
+    {
+      "menu_name_ko": "수제한우불고기",
+      "frequency_tier": "하",
+      "expected_concept": "고기볶음",
+      "modifiers_found": [
+        "수제",
+        "한우",
+        "불"
+      ],
+      "notes": "수제 + 한우 + 불고기"
+    },
+    {
+      "menu_name_ko": "명품한우갈비탕",
+      "frequency_tier": "하",
+      "expected_concept": "탕",
+      "modifiers_found": [
+        "명품",
+        "한우"
+      ],
+      "notes": "명품 + 한우 + 갈비탕"
+    },
+    {
+      "menu_name_ko": "고향집시골된장찌개",
+      "frequency_tier": "하",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "시골",
+        "고향"
+      ],
+      "notes": "고향집 + 시골 + 된장찌개"
+    },
+    {
+      "menu_name_ko": "프리미엄숯불한우",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [
+        "프리미엄",
+        "숯불",
+        "한우"
+      ],
+      "notes": "프리미엄 + 숯불 + 한우"
+    },
+    {
+      "menu_name_ko": "고씨네묵은지감자탕",
+      "frequency_tier": "하",
+      "expected_concept": "탕",
+      "modifiers_found": [
+        "묵은지"
+      ],
+      "notes": "고씨네 + 묵은지감자탕"
+    },
+    {
+      "menu_name_ko": "김씨네칼국수",
+      "frequency_tier": "하",
+      "expected_concept": "칼국수",
+      "modifiers_found": [],
+      "notes": "김씨네 + 칼국수"
+    },
+    {
+      "menu_name_ko": "박씨네갈비",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [],
+      "notes": "박씨네 + 갈비"
+    },
+    {
+      "menu_name_ko": "이씨네떡볶이",
+      "frequency_tier": "하",
+      "expected_concept": "떡볶이",
+      "modifiers_found": [],
+      "notes": "이씨네 + 떡볶이"
+    },
+    {
+      "menu_name_ko": "강씨네순대국",
+      "frequency_tier": "하",
+      "expected_concept": "국밥",
+      "modifiers_found": [
+        "순",
+        "대"
+      ],
+      "notes": "강씨네 + 순대국"
+    },
+    {
+      "menu_name_ko": "최고집갈비탕",
+      "frequency_tier": "하",
+      "expected_concept": "탕",
+      "modifiers_found": [],
+      "notes": "최고집 + 갈비탕"
+    },
+    {
+      "menu_name_ko": "원조집김치찌개",
+      "frequency_tier": "하",
+      "expected_concept": "찌개",
+      "modifiers_found": [
+        "원조"
+      ],
+      "notes": "원조집 + 김치찌개"
+    },
+    {
+      "menu_name_ko": "맛나집비빔밥",
+      "frequency_tier": "하",
+      "expected_concept": "비빔밥",
+      "modifiers_found": [],
+      "notes": "맛나집 + 비빔밥"
+    },
+    {
+      "menu_name_ko": "우리집된장찌개",
+      "frequency_tier": "하",
+      "expected_concept": "찌개",
+      "modifiers_found": [],
+      "notes": "우리집 + 된장찌개"
+    },
+    {
+      "menu_name_ko": "동네칼국수",
+      "frequency_tier": "하",
+      "expected_concept": "칼국수",
+      "modifiers_found": [],
+      "notes": "동네 + 칼국수"
+    },
+    {
+      "menu_name_ko": "골목집순대",
+      "frequency_tier": "하",
+      "expected_concept": "순대",
+      "modifiers_found": [
+        "순",
+        "대"
+      ],
+      "notes": "골목집 + 순대"
+    },
+    {
+      "menu_name_ko": "마을회관갈비",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [],
+      "notes": "마을회관 + 갈비"
+    },
+    {
+      "menu_name_ko": "청와대삼계탕",
+      "frequency_tier": "하",
+      "expected_concept": "탕",
+      "modifiers_found": [
+        "대"
+      ],
+      "notes": "청와대 + 삼계탕 (브랜드)"
+    },
+    {
+      "menu_name_ko": "서울집냉면",
+      "frequency_tier": "하",
+      "expected_concept": "냉면",
+      "modifiers_found": [],
+      "notes": "서울집 + 냉면"
+    },
+    {
+      "menu_name_ko": "명동손칼국수",
+      "frequency_tier": "하",
+      "expected_concept": "칼국수",
+      "modifiers_found": [],
+      "notes": "명동 + 손칼국수"
+    },
+    {
+      "menu_name_ko": "강남식삼겹살",
+      "frequency_tier": "하",
+      "expected_concept": "고기구이",
+      "modifiers_found": [],
+      "notes": "강남식 + 삼겹살"
+    },
+    {
+      "menu_name_ko": "시장골목김치찌개",
+      "frequency_tier": "하",
+      "expected_concept": "찌개",
+      "modifiers_found": [],
+      "notes": "시장골목 + 김치찌개"
+    },
+    {
+      "menu_name_ko": "터미널식당칼국수",
+      "frequency_tier": "하",
+      "expected_concept": "칼국수",
+      "modifiers_found": [],
+      "notes": "터미널식당 + 칼국수"
+    },
+    {
+      "menu_name_ko": "어머니손맛김치찌개",
+      "frequency_tier": "하",
+      "expected_concept": "찌개",
+      "modifiers_found": [],
+      "notes": "어머니손맛 + 김치찌개"
+    },
+    {
+      "menu_name_ko": "닭갈비",
+      "frequency_tier": "상",
+      "expected_concept": "찜",
+      "modifiers_found": [],
+      "notes": "춘천 명물"
+    },
+    {
+      "menu_name_ko": "쌈밥",
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반",
+      "modifiers_found": [],
+      "notes": "채소쌈 포함"
+    },
+    {
+      "menu_name_ko": "보쌈",
+      "frequency_tier": "상",
+      "expected_concept": "육류안주",
+      "modifiers_found": [],
+      "notes": "술안주"
+    },
+    {
+      "menu_name_ko": "두루치기",
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음",
+      "modifiers_found": [],
+      "notes": "매콤한 볶음"
+    },
+    {
+      "menu_name_ko": "간장게장",
+      "frequency_tier": "중",
+      "expected_concept": "젓갈",
+      "modifiers_found": [],
+      "notes": "간장 양념 게"
+    },
+    {
+      "menu_name_ko": "양념게장",
+      "frequency_tier": "중",
+      "expected_concept": "젓갈",
+      "modifiers_found": [],
+      "notes": "고추장 양념 게"
+    },
+    {
+      "menu_name_ko": "오리고기",
+      "frequency_tier": "중",
+      "expected_concept": "고기구이",
+      "modifiers_found": [],
+      "notes": "오리 구이"
+    },
+    {
+      "menu_name_ko": "닭발",
+      "frequency_tier": "중",
+      "expected_concept": "육류안주",
+      "modifiers_found": [],
+      "notes": "매운 안주"
+    }
+  ],
+  "all_results": [
+    {
+      "menu_name_ko": "김치찌개",
+      "match_type": "exact",
+      "canonical": "김치찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "된장찌개",
+      "match_type": "exact",
+      "canonical": "된장찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "순두부찌개",
+      "match_type": "exact",
+      "canonical": "순두부찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "부대찌개",
+      "match_type": "exact",
+      "canonical": "부대찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "갈비탕",
+      "match_type": "exact",
+      "canonical": "갈비탕",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "삼계탕",
+      "match_type": "exact",
+      "canonical": "삼계탕",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "설렁탕",
+      "match_type": "exact",
+      "canonical": "설렁탕",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "곰탕",
+      "match_type": "exact",
+      "canonical": "곰탕",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "감자탕",
+      "match_type": "exact",
+      "canonical": "감자탕",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "해물탕",
+      "match_type": "exact",
+      "canonical": "해물탕",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "미역국",
+      "match_type": "exact",
+      "canonical": "미역국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "육개장",
+      "match_type": "exact",
+      "canonical": "육개장",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "콩나물국",
+      "match_type": "exact",
+      "canonical": "콩나물국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "북어국",
+      "match_type": "exact",
+      "canonical": "북어국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "뼈해장국",
+      "match_type": "exact",
+      "canonical": "뼈해장국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "해장국"
+    },
+    {
+      "menu_name_ko": "선지해장국",
+      "match_type": "exact",
+      "canonical": "선지해장국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "해장국"
+    },
+    {
+      "menu_name_ko": "청국장찌개",
+      "match_type": "exact",
+      "canonical": "청국장찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "참치찌개",
+      "match_type": "exact",
+      "canonical": "참치찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "돼지김치찌개",
+      "match_type": "exact",
+      "canonical": "돼지김치찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "고등어찌개",
+      "match_type": "exact",
+      "canonical": "고등어찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "버섯전골",
+      "match_type": "exact",
+      "canonical": "버섯전골",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전골"
+    },
+    {
+      "menu_name_ko": "해물전골",
+      "match_type": "exact",
+      "canonical": "해물전골",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전골"
+    },
+    {
+      "menu_name_ko": "콩나물해장국",
+      "match_type": "exact",
+      "canonical": "콩나물해장국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "해장국"
+    },
+    {
+      "menu_name_ko": "갈비해장국",
+      "match_type": "exact",
+      "canonical": "갈비해장국",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "곱창전골",
+      "match_type": "exact",
+      "canonical": "곱창전골",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "전골"
+    },
+    {
+      "menu_name_ko": "비빔밥",
+      "match_type": "exact",
+      "canonical": "비빔밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "돌솥비빔밥",
+      "match_type": "exact",
+      "canonical": "돌솥비빔밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "김치볶음밥",
+      "match_type": "exact",
+      "canonical": "김치볶음밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "볶음밥"
+    },
+    {
+      "menu_name_ko": "제육덮밥",
+      "match_type": "exact",
+      "canonical": "제육덮밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "불고기덮밥",
+      "match_type": "exact",
+      "canonical": "불고기덮밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "전복죽",
+      "match_type": "exact",
+      "canonical": "전복죽",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "죽"
+    },
+    {
+      "menu_name_ko": "팥죽",
+      "match_type": "exact",
+      "canonical": "팥죽",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "죽"
+    },
+    {
+      "menu_name_ko": "돼지국밥",
+      "match_type": "exact",
+      "canonical": "돼지국밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "순대국밥",
+      "match_type": "exact",
+      "canonical": "순대국밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "한정식",
+      "match_type": "exact",
+      "canonical": "한정식",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "정식/백반"
+    },
+    {
+      "menu_name_ko": "새우볶음밥",
+      "match_type": "exact",
+      "canonical": "새우볶음밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "볶음밥"
+    },
+    {
+      "menu_name_ko": "오므라이스",
+      "match_type": "exact",
+      "canonical": "오므라이스",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "볶음밥"
+    },
+    {
+      "menu_name_ko": "회덮밥",
+      "match_type": "exact",
+      "canonical": "회덮밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "전주비빔밥",
+      "match_type": "exact",
+      "canonical": "전주비빔밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "산채비빔밥",
+      "match_type": "exact",
+      "canonical": "산채비빔밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "냉면",
+      "match_type": "exact",
+      "canonical": "냉면",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "물냉면",
+      "match_type": "exact",
+      "canonical": "물냉면",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "비빔냉면",
+      "match_type": "exact",
+      "canonical": "비빔냉면",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "막국수",
+      "match_type": "exact",
+      "canonical": "막국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "칼국수",
+      "match_type": "exact",
+      "canonical": "칼국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "바지락칼국수",
+      "match_type": "exact",
+      "canonical": "바지락칼국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "잔치국수",
+      "match_type": "exact",
+      "canonical": "잔치국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국수"
+    },
+    {
+      "menu_name_ko": "비빔국수",
+      "match_type": "exact",
+      "canonical": "비빔국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "국수"
+    },
+    {
+      "menu_name_ko": "콩국수",
+      "match_type": "exact",
+      "canonical": "콩국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "국수"
+    },
+    {
+      "menu_name_ko": "라면",
+      "match_type": "exact",
+      "canonical": "라면",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "라면"
+    },
+    {
+      "menu_name_ko": "닭칼국수",
+      "match_type": "exact",
+      "canonical": "닭칼국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "해물칼국수",
+      "match_type": "exact",
+      "canonical": "해물칼국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "삼겹살",
+      "match_type": "exact",
+      "canonical": "삼겹살",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "목살",
+      "match_type": "exact",
+      "canonical": "목살",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "갈비",
+      "match_type": "exact",
+      "canonical": "갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "불고기",
+      "match_type": "exact",
+      "canonical": "불고기",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "LA갈비",
+      "match_type": "exact",
+      "canonical": "LA갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "항정살",
+      "match_type": "exact",
+      "canonical": "항정살",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "대패삼겹살",
+      "match_type": "exact",
+      "canonical": "대패삼겹살",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "소갈비",
+      "match_type": "exact",
+      "canonical": "소갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "양념갈비",
+      "match_type": "exact",
+      "canonical": "양념갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "고등어구이",
+      "match_type": "exact",
+      "canonical": "고등어구이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "갈치구이",
+      "match_type": "exact",
+      "canonical": "갈치구이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "삼치구이",
+      "match_type": "exact",
+      "canonical": "삼치구이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "조기구이",
+      "match_type": "exact",
+      "canonical": "조기구이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "가자미구이",
+      "match_type": "exact",
+      "canonical": "가자미구이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "왕갈비",
+      "match_type": "exact",
+      "canonical": "왕갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "갈비찜",
+      "match_type": "exact",
+      "canonical": "갈비찜",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "아구찜",
+      "match_type": "exact",
+      "canonical": "아구찜",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "닭찜",
+      "match_type": "exact",
+      "canonical": "닭찜",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "제육볶음",
+      "match_type": "exact",
+      "canonical": "제육볶음",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "오징어볶음",
+      "match_type": "exact",
+      "canonical": "오징어볶음",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "해물볶음"
+    },
+    {
+      "menu_name_ko": "낙지볶음",
+      "match_type": "exact",
+      "canonical": "낙지볶음",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "해물볶음"
+    },
+    {
+      "menu_name_ko": "잡채",
+      "match_type": "exact",
+      "canonical": "잡채",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "채소볶음"
+    },
+    {
+      "menu_name_ko": "김치전",
+      "match_type": "exact",
+      "canonical": "김치전",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전"
+    },
+    {
+      "menu_name_ko": "파전",
+      "match_type": "exact",
+      "canonical": "파전",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전"
+    },
+    {
+      "menu_name_ko": "해물파전",
+      "match_type": "exact",
+      "canonical": "해물파전",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전"
+    },
+    {
+      "menu_name_ko": "돼지갈비찜",
+      "match_type": "exact",
+      "canonical": "돼지갈비찜",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "해물찜",
+      "match_type": "exact",
+      "canonical": "해물찜",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "고등어조림",
+      "match_type": "exact",
+      "canonical": "고등어조림",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "조림"
+    },
+    {
+      "menu_name_ko": "쭈꾸미볶음",
+      "match_type": "exact",
+      "canonical": "쭈꾸미볶음",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "해물볶음"
+    },
+    {
+      "menu_name_ko": "동그랑땡",
+      "match_type": "exact",
+      "canonical": "동그랑땡",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "전"
+    },
+    {
+      "menu_name_ko": "떡볶이",
+      "match_type": "exact",
+      "canonical": "떡볶이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "순대",
+      "match_type": "exact",
+      "canonical": "순대",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "순대"
+    },
+    {
+      "menu_name_ko": "족발",
+      "match_type": "exact",
+      "canonical": "족발",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "호떡",
+      "match_type": "exact",
+      "canonical": "호떡",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "부침개"
+    },
+    {
+      "menu_name_ko": "빈대떡",
+      "match_type": "exact",
+      "canonical": "빈대떡",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "부침개"
+    },
+    {
+      "menu_name_ko": "만두",
+      "match_type": "exact",
+      "canonical": "만두",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "치즈떡볶이",
+      "match_type": "exact",
+      "canonical": "치즈떡볶이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "오징어튀김",
+      "match_type": "exact",
+      "canonical": "오징어튀김",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "왕갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "왕돈까스",
+      "match_type": "modifier_decomposition",
+      "canonical": "돈까스",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "왕만두",
+      "match_type": "modifier_decomposition",
+      "canonical": "만두",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "왕갈비",
+      "match_type": "exact",
+      "canonical": "왕갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "곱빼기국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "국수",
+      "modifiers": [
+        "곱빼기"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "국수"
+    },
+    {
+      "menu_name_ko": "곱빼기냉면",
+      "match_type": "modifier_decomposition",
+      "canonical": "냉면",
+      "modifiers": [
+        "곱빼기"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "곱빼기칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "칼국수",
+      "modifiers": [
+        "곱빼기"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "대갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "대"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "대왕교자",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "대",
+        "왕"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "점보김밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "김밥",
+      "modifiers": [
+        "점보"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "김밥"
+    },
+    {
+      "menu_name_ko": "미니돈까스",
+      "match_type": "modifier_decomposition",
+      "canonical": "돈까스",
+      "modifiers": [
+        "미니"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "미니김밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "김밥",
+      "modifiers": [
+        "미니"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "김밥"
+    },
+    {
+      "menu_name_ko": "반냉면",
+      "match_type": "modifier_decomposition",
+      "canonical": "냉면",
+      "modifiers": [
+        "반"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "반칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "칼국수",
+      "modifiers": [
+        "반"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "특갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "특"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "특삼겹살",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼겹살",
+      "modifiers": [
+        "특"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "왕뼈해장국",
+      "match_type": "modifier_decomposition",
+      "canonical": "뼈해장국",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "해장국"
+    },
+    {
+      "menu_name_ko": "왕냉면",
+      "match_type": "modifier_decomposition",
+      "canonical": "냉면",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "왕족발",
+      "match_type": "modifier_decomposition",
+      "canonical": "족발",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "대패김치찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "김치찌개",
+      "modifiers": [
+        "대패"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "프리미엄갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "프리미엄"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "스페셜정식",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "스페셜"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반"
+    },
+    {
+      "menu_name_ko": "점보순대",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "점보",
+        "순",
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "순대"
+    },
+    {
+      "menu_name_ko": "미니전골",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "미니"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "전골"
+    },
+    {
+      "menu_name_ko": "대해물탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물탕",
+      "modifiers": [
+        "대"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "왕해물칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물칼국수",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "곱빼기비빔밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "비빔밥",
+      "modifiers": [
+        "곱빼기"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "반비빔밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "비빔밥",
+      "modifiers": [
+        "반"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "왕돌솥비빔밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "돌솥비빔밥",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "대왕떡볶이",
+      "match_type": "modifier_decomposition",
+      "canonical": "떡볶이",
+      "modifiers": [
+        "왕",
+        "대"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "중",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "얼큰칼국수",
+      "match_type": "exact",
+      "canonical": "얼큰칼국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "얼큰순두부찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "순두부찌개",
+      "modifiers": [
+        "얼큰"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "얼큰해물탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물탕",
+      "modifiers": [
+        "얼큰"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "매운갈비찜",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비찜",
+      "modifiers": [
+        "매운"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "매운제육볶음",
+      "match_type": "modifier_decomposition",
+      "canonical": "제육볶음",
+      "modifiers": [
+        "매운"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "매운낙지볶음",
+      "match_type": "modifier_decomposition",
+      "canonical": "낙지볶음",
+      "modifiers": [
+        "매운"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "해물볶음"
+    },
+    {
+      "menu_name_ko": "순갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "순"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "순순두부찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "순두부찌개",
+      "modifiers": [
+        "순"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "담백한미역국",
+      "match_type": "modifier_decomposition",
+      "canonical": "미역국",
+      "modifiers": [
+        "담백한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "달콤한불고기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "달콤한",
+        "불"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "시원한콩나물국",
+      "match_type": "modifier_decomposition",
+      "canonical": "콩나물국",
+      "modifiers": [
+        "시원한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "칼칼한김치찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "김치찌개",
+      "modifiers": [
+        "칼칼한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "구수한된장찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "된장찌개",
+      "modifiers": [
+        "구수한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "매운떡볶이",
+      "match_type": "modifier_decomposition",
+      "canonical": "떡볶이",
+      "modifiers": [
+        "매운"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "순한떡볶이",
+      "match_type": "modifier_decomposition",
+      "canonical": "떡볶이",
+      "modifiers": [
+        "순한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "얼큰뼈해장국",
+      "match_type": "modifier_decomposition",
+      "canonical": "뼈해장국",
+      "modifiers": [
+        "얼큰"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "해장국"
+    },
+    {
+      "menu_name_ko": "칼칼한육개장",
+      "match_type": "modifier_decomposition",
+      "canonical": "육개장",
+      "modifiers": [
+        "칼칼한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "국"
+    },
+    {
+      "menu_name_ko": "매운우동",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "매운"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "국수"
+    },
+    {
+      "menu_name_ko": "순한김치찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "김치찌개",
+      "modifiers": [
+        "순한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "고소한잡채",
+      "match_type": "modifier_decomposition",
+      "canonical": "잡채",
+      "modifiers": [
+        "고소한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "채소볶음"
+    },
+    {
+      "menu_name_ko": "알싸한육회",
+      "match_type": "modifier_decomposition",
+      "canonical": "육회",
+      "modifiers": [
+        "알싸한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "짭짤한조기구이",
+      "match_type": "modifier_decomposition",
+      "canonical": "조기구이",
+      "modifiers": [
+        "짭짤한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "새콤달콤탕수육",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "칼칼한쭈꾸미",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "칼칼한"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "해물볶음"
+    },
+    {
+      "menu_name_ko": "얼큰한삼계탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼계탕",
+      "modifiers": [
+        "얼큰한"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "한우갈비탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "한우불고기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "한우",
+        "불"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "한우육회",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "해물순두부찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "순두부",
+        "해물"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "해물칼국수",
+      "match_type": "exact",
+      "canonical": "해물칼국수",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "해물파전",
+      "match_type": "exact",
+      "canonical": "해물파전",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전"
+    },
+    {
+      "menu_name_ko": "해물찜",
+      "match_type": "exact",
+      "canonical": "해물찜",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "야채비빔밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "야채"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "야채볶음밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "야채"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "볶음밥"
+    },
+    {
+      "menu_name_ko": "치즈돈까스",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "치즈"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "치즈떡볶이",
+      "match_type": "exact",
+      "canonical": "치즈떡볶이",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "치즈라면",
+      "match_type": "exact",
+      "canonical": "치즈라면",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "라면"
+    },
+    {
+      "menu_name_ko": "치즈김밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "치즈"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "김밥"
+    },
+    {
+      "menu_name_ko": "묵은지김치찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "묵은지"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "묵은지감자탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "묵은지"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "계란말이",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "계란"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "반찬류"
+    },
+    {
+      "menu_name_ko": "계란찜",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "계란"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "반찬류"
+    },
+    {
+      "menu_name_ko": "버섯전골",
+      "match_type": "exact",
+      "canonical": "버섯전골",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "전골"
+    },
+    {
+      "menu_name_ko": "버섯볶음",
+      "match_type": "exact",
+      "canonical": "버섯볶음",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "채소볶음"
+    },
+    {
+      "menu_name_ko": "모듬전",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "모듬"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "전"
+    },
+    {
+      "menu_name_ko": "모듬회",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "모듬"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "해물안주"
+    },
+    {
+      "menu_name_ko": "생선회",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "생"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "해물안주"
+    },
+    {
+      "menu_name_ko": "순두부찌개",
+      "match_type": "exact",
+      "canonical": "순두부찌개",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "날치알밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "날치알"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "밥류"
+    },
+    {
+      "menu_name_ko": "한우갈비찜",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "돼지갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "소갈비",
+      "match_type": "exact",
+      "canonical": "소갈비",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "해물뚝배기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "해물"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "버섯뚝배기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "버섯"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "야채만두",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "야채"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "숯불갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "숯불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "숯불삼겹살",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼겹살",
+      "modifiers": [
+        "숯불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "숯불불고기",
+      "match_type": "modifier_decomposition",
+      "canonical": "불고기",
+      "modifiers": [
+        "숯불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "불갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "불족발",
+      "match_type": "modifier_decomposition",
+      "canonical": "족발",
+      "modifiers": [
+        "불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "직화갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "직화"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "직화삼겹살",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼겹살",
+      "modifiers": [
+        "직화"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "수제돈까스",
+      "match_type": "modifier_decomposition",
+      "canonical": "돈까스",
+      "modifiers": [
+        "수제"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "수제만두",
+      "match_type": "modifier_decomposition",
+      "canonical": "만두",
+      "modifiers": [
+        "수제"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "수제햄버거",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "수제"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "분식류"
+    },
+    {
+      "menu_name_ko": "생삼겹살",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼겹살",
+      "modifiers": [
+        "생"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "생갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "생"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "통닭",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "통"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "통삼겹살",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼겹살",
+      "modifiers": [
+        "통"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "숯불오리",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "숯불"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "직화구이",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "직화"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "수제비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "수제"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "면류"
+    },
+    {
+      "menu_name_ko": "수제피자",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "수제"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "분식류"
+    },
+    {
+      "menu_name_ko": "불막창",
+      "match_type": "modifier_decomposition",
+      "canonical": "막창",
+      "modifiers": [
+        "불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "숯불곱창",
+      "match_type": "modifier_decomposition",
+      "canonical": "곱창",
+      "modifiers": [
+        "숯불"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "할머니칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "칼국수",
+      "modifiers": [
+        "할머니"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "할머니손칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "손칼국수",
+      "modifiers": [
+        "할머니"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "옛날통닭",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "옛날",
+        "통"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "옛날짜장면",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "옛날"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "면류"
+    },
+    {
+      "menu_name_ko": "옛날순대",
+      "match_type": "modifier_decomposition",
+      "canonical": "순대",
+      "modifiers": [
+        "옛날"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "순대"
+    },
+    {
+      "menu_name_ko": "시골된장찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "된장찌개",
+      "modifiers": [
+        "시골"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "시골순두부",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "순두부",
+        "시골"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "원조갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "원조"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "원조감자탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "감자탕",
+      "modifiers": [
+        "원조"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "원조할매순대국",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "할매",
+        "원조",
+        "순",
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "본가갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "본가"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "본가삼계탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼계탕",
+      "modifiers": [
+        "본가"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "엄마손칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "칼국수",
+      "modifiers": [
+        "엄마손"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "엄마손김치찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "김치찌개",
+      "modifiers": [
+        "엄마손"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "고향집된장찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "고향"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "전통갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "전통"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "전통삼계탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼계탕",
+      "modifiers": [
+        "전통"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "명품갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "명품"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "명품한우",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "명품",
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "맛있는순두부",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "맛있는",
+        "순두부"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "할머니떡볶이",
+      "match_type": "modifier_decomposition",
+      "canonical": "떡볶이",
+      "modifiers": [
+        "할머니"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "옛날도시락",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "옛날"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반"
+    },
+    {
+      "menu_name_ko": "시골밥상",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "시골"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반"
+    },
+    {
+      "menu_name_ko": "원조냉면",
+      "match_type": "modifier_decomposition",
+      "canonical": "냉면",
+      "modifiers": [
+        "원조"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "할매국밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "국밥",
+      "modifiers": [
+        "할매"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "부산돼지국밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "돼지국밥",
+      "modifiers": [
+        "부산"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "전주비빔밥",
+      "match_type": "exact",
+      "canonical": "전주비빔밥",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "상",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "평양냉면",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "함흥냉면",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "춘천닭갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "안동찜닭",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "강릉짬뽕순두부",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "순두부"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "제주고등어",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "생선구이"
+    },
+    {
+      "menu_name_ko": "속초오징어순대",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "순",
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "순대"
+    },
+    {
+      "menu_name_ko": "대구막창",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "광주식혜",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "음료디저트"
+    },
+    {
+      "menu_name_ko": "경주빵",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "떡/한과"
+    },
+    {
+      "menu_name_ko": "전주콩나물국밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "부산어묵",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "부산"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "튀김"
+    },
+    {
+      "menu_name_ko": "서울식삼계탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "인천짜장면",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "면류"
+    },
+    {
+      "menu_name_ko": "궁중떡볶이",
+      "match_type": "modifier_decomposition",
+      "canonical": "떡볶이",
+      "modifiers": [
+        "궁중"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "궁중갈비찜",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비찜",
+      "modifiers": [
+        "궁중"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "중",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "평양온반",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "반"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "부산밀면",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "부산"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "면류"
+    },
+    {
+      "menu_name_ko": "왕얼큰뼈해장국",
+      "match_type": "modifier_decomposition",
+      "canonical": "뼈해장국",
+      "modifiers": [
+        "얼큰",
+        "왕"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "해장국"
+    },
+    {
+      "menu_name_ko": "왕매운떡볶이",
+      "match_type": "modifier_decomposition",
+      "canonical": "떡볶이",
+      "modifiers": [
+        "매운",
+        "왕"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "특대갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "특",
+        "대"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "한우숯불갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "숯불",
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "한우직화구이",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "직화",
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "할머니손칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "손칼국수",
+      "modifiers": [
+        "할머니"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "원조할매국밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "국밥",
+      "modifiers": [
+        "할매",
+        "원조"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "옛날숯불갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "옛날",
+        "숯불"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "얼큰해물칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물칼국수",
+      "modifiers": [
+        "얼큰"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "매운해물찜",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물찜",
+      "modifiers": [
+        "매운"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "왕갈비해장국",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비해장국",
+      "modifiers": [
+        "왕"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "프리미엄한우갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "프리미엄",
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "특수제비빔밥",
+      "match_type": "modifier_decomposition",
+      "canonical": "비빔밥",
+      "modifiers": [
+        "수제",
+        "특"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "왕치즈돈까스",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "치즈",
+        "왕"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "덮밥"
+    },
+    {
+      "menu_name_ko": "곱빼기해물칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물칼국수",
+      "modifiers": [
+        "곱빼기"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "특대왕갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "특",
+        "왕",
+        "대"
+      ],
+      "confidence": 0.7999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "얼큰묵은지감자탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "묵은지",
+        "얼큰"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "수제한우불고기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "수제",
+        "한우",
+        "불"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "시골할머니칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "칼국수",
+      "modifiers": [
+        "할머니",
+        "시골"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "옛날전통순대",
+      "match_type": "modifier_decomposition",
+      "canonical": "순대",
+      "modifiers": [
+        "옛날",
+        "전통"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "순대"
+    },
+    {
+      "menu_name_ko": "명품한우갈비탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "명품",
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "본가전통삼계탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "삼계탕",
+      "modifiers": [
+        "본가",
+        "전통"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "왕곱빼기냉면",
+      "match_type": "modifier_decomposition",
+      "canonical": "냉면",
+      "modifiers": [
+        "곱빼기",
+        "왕"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "특대해물전골",
+      "match_type": "modifier_decomposition",
+      "canonical": "해물전골",
+      "modifiers": [
+        "특",
+        "대"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "전골"
+    },
+    {
+      "menu_name_ko": "매운얼큰김치찌개",
+      "match_type": "modifier_decomposition",
+      "canonical": "김치찌개",
+      "modifiers": [
+        "얼큰",
+        "매운"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "숯불직화갈비",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비",
+      "modifiers": [
+        "숯불",
+        "직화"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "원조할머니손칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "손칼국수",
+      "modifiers": [
+        "할머니",
+        "원조"
+      ],
+      "confidence": 0.85,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "고향집시골된장찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "시골",
+        "고향"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "왕특대갈비탕",
+      "match_type": "modifier_decomposition",
+      "canonical": "갈비탕",
+      "modifiers": [
+        "특",
+        "왕",
+        "대"
+      ],
+      "confidence": 0.7999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "프리미엄숯불한우",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "프리미엄",
+        "숯불",
+        "한우"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "고씨네묵은지감자탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "묵은지"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "김씨네칼국수",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "박씨네갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "이씨네떡볶이",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "떡볶이"
+    },
+    {
+      "menu_name_ko": "할매손칼국수",
+      "match_type": "modifier_decomposition",
+      "canonical": "손칼국수",
+      "modifiers": [
+        "할매"
+      ],
+      "confidence": 0.8999999999999999,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "강씨네순대국",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "순",
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "국밥"
+    },
+    {
+      "menu_name_ko": "최고집갈비탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "원조집김치찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "원조"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "맛나집비빔밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "비빔밥"
+    },
+    {
+      "menu_name_ko": "우리집된장찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "동네칼국수",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "골목집순대",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "순",
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "순대"
+    },
+    {
+      "menu_name_ko": "마을회관갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "청와대삼계탕",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [
+        "대"
+      ],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "탕"
+    },
+    {
+      "menu_name_ko": "서울집냉면",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "냉면"
+    },
+    {
+      "menu_name_ko": "명동손칼국수",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "강남식삼겹살",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "시장골목김치찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "터미널식당칼국수",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "칼국수"
+    },
+    {
+      "menu_name_ko": "어머니손맛김치찌개",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "하",
+      "expected_concept": "찌개"
+    },
+    {
+      "menu_name_ko": "닭갈비",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "상",
+      "expected_concept": "찜"
+    },
+    {
+      "menu_name_ko": "쌈밥",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "정식/백반"
+    },
+    {
+      "menu_name_ko": "보쌈",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "상",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "두루치기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기볶음"
+    },
+    {
+      "menu_name_ko": "간장게장",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "젓갈"
+    },
+    {
+      "menu_name_ko": "양념게장",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "젓갈"
+    },
+    {
+      "menu_name_ko": "막창",
+      "match_type": "exact",
+      "canonical": "막창",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "곱창",
+      "match_type": "exact",
+      "canonical": "곱창",
+      "modifiers": [],
+      "confidence": 1.0,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    },
+    {
+      "menu_name_ko": "오리고기",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "고기구이"
+    },
+    {
+      "menu_name_ko": "닭발",
+      "match_type": "ai_discovery_needed",
+      "canonical": null,
+      "modifiers": [],
+      "confidence": 0.0,
+      "frequency_tier": "중",
+      "expected_concept": "육류안주"
+    }
+  ]
+}
