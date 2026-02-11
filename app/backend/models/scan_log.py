@@ -31,11 +31,17 @@ class ScanLog(Base):
     ai_called = Column(Boolean, default=False)
     ai_new_entries = Column(Integer, default=0)
 
+    # Admin 관리 (Sprint 3 P1-1)
+    status = Column(String(20), default="pending")  # pending, confirmed, rejected
+    matched_canonical_id = Column(UUID(as_uuid=True), ForeignKey("canonical_menus.id"))
+
     # 시간
     scanned_at = Column(DateTime(timezone=True), server_default=func.now())
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # Relationships
     shop = relationship("Shop", backref="scan_logs")
+    matched_canonical = relationship("CanonicalMenu", backref="scan_logs")
 
     def __repr__(self):
         return f"<ScanLog {self.session_id}>"

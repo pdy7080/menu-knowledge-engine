@@ -15,10 +15,12 @@ class MenuVariant(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     canonical_id = Column(UUID(as_uuid=True), ForeignKey("canonical_menus.id"), nullable=False)
+    canonical_menu_id = Column(UUID(as_uuid=True), ForeignKey("canonical_menus.id"))  # Alias for QR menu
     shop_id = Column(UUID(as_uuid=True), ForeignKey("shops.id"))
 
     # 실제 표시 이름
     display_name_ko = Column(String(200), nullable=False)
+    menu_name_ko = Column(String(200))  # Alias for compatibility
     display_name_original = Column(Text)  # OCR 원본 텍스트
 
     # 수식어 연결
@@ -28,9 +30,12 @@ class MenuVariant(Base):
 
     # 식당별 정보
     price = Column(Integer)
+    price_display = Column(String(50))  # "15,000원" for QR menu
     description_ko = Column(Text)
     is_popular = Column(Boolean, default=False)
     is_seasonal = Column(Boolean, default=False)
+    is_active = Column(Boolean, default=True)  # QR menu filter
+    display_order = Column(Integer, default=0)  # QR menu sorting
 
     # 출처 & 신뢰도
     source = Column(String(30), nullable=False)  # b2b_upload, b2c_scan, manual, crawl

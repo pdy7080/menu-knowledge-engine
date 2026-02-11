@@ -46,6 +46,9 @@ class MatchResult:
 class MenuMatchingEngine:
     """메뉴 매칭 엔진"""
 
+    # 클래스 레벨 AI Discovery 캐시 (인메모리)
+    _ai_cache: Dict[str, Dict[str, Any]] = {}
+
     def __init__(self, db: AsyncSession):
         self.db = db
 
@@ -262,7 +265,20 @@ class MenuMatchingEngine:
         - OpenAI API로 새로운 메뉴 분석
         - 영문 번역 + 간단한 설명 생성
         - modifiers 추출 시도
+        - 인메모리 캐시 사용 (성능 최적화)
         """
+        # 캐시 확인
+        if menu_name in self._ai_cache:
+            cached = self._ai_cache[menu_name]
+            return MatchResult(
+                input_text=menu_name,
+                match_type=cached["match_type"],
+                canonical=cached["canonical"],
+                modifiers=cached["modifiers"],
+                confidence=cached["confidence"],
+                ai_called=False,  # 캐시에서 가져왔으므로 False
+            )
+
         # 먼저 수식어 추출 시도
         result = await self.db.execute(
             select(Modifier).order_by(func.length(Modifier.text_ko).desc())
@@ -357,7 +373,7 @@ Return JSON only:
                 "image_url": None,
             }
 
-            return MatchResult(
+            result = MatchResult(
                 input_text=menu_name,
                 match_type="ai_discovery",
                 canonical=ai_canonical,
@@ -365,6 +381,16 @@ Return JSON only:
                 confidence=0.6,  # AI 추론이므로 중간 신뢰도
                 ai_called=True,
             )
+
+            # 캐시에 저장 (다음 요청에서 재사용)
+            self._ai_cache[menu_name] = {
+                "match_type": "ai_discovery",
+                "canonical": ai_canonical,
+                "modifiers": found_modifiers,
+                "confidence": 0.6,
+            }
+
+            return result
 
         except Exception as e:
             print(f"AI Discovery error: {e}")
