@@ -49,7 +49,11 @@ class MenuVariant(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # Relationships
-    canonical_menu = relationship("CanonicalMenu", backref="variants")
+    canonical_menu = relationship(
+        "CanonicalMenu",
+        foreign_keys=[canonical_menu_id],  # Specify which FK to use
+        backref="variants"
+    )
     shop = relationship("Shop", backref="menu_variants")
 
     def __repr__(self):
