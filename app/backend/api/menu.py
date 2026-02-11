@@ -12,6 +12,9 @@ from services.matching_engine import MenuMatchingEngine
 from services.ocr_service import ocr_service
 import os
 import tempfile
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/v1", tags=["menu"])
 
@@ -170,9 +173,21 @@ async def recognize_menu_image(
             detail=f"Error processing image: {str(e)}"
         )
     finally:
-        # Clean up temp file
+        # Clean up temp file (Bug #3 Fix: Log errors instead of silent failure)
         if temp_path and os.path.exists(temp_path):
             try:
                 os.remove(temp_path)
-            except:
-                pass
+                logger.debug(f"Cleaned up temp file: {temp_path}")
+            except PermissionError as e:
+                logger.error(f"Permission denied when deleting temp file {temp_path}: {e}")
+                # On Windows, file might be locked. Try delayed cleanup
+                try:
+                    import atexit
+                    atexit.register(lambda: os.remove(temp_path) if os.path.exists(temp_path) else None)
+                    logger.info(f"Scheduled delayed cleanup for {temp_path}")
+                except Exception as cleanup_error:
+                    logger.error(f"Failed to schedule delayed cleanup: {cleanup_error}")
+            except Exception as e:
+                logger.error(f"Error deleting temp file {temp_path}: {e}")
+                # File remains on disk - log for manual cleanup
+                logger.warning(f"DISK LEAK WARNING: Temp file not deleted: {temp_path}")

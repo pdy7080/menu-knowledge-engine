@@ -42,7 +42,8 @@ async def get_qr_menu_page(
     shop = shop_result.scalars().first()
 
     if not shop:
-        raise HTTPException(status_code=404, detail=f"Shop not found: {shop_code}")
+        # Bug #2 Fix: Return user-friendly HTML instead of JSON error
+        return generate_404_html(shop_code, lang)
 
     # Get menu variants for this shop
     variants_result = await db.execute(
@@ -88,6 +89,161 @@ async def get_qr_menu_page(
         menus=menu_data,
         current_lang=lang
     )
+
+    return html
+
+
+def generate_404_html(shop_code: str, lang: str = "en") -> str:
+    """
+    Generate user-friendly 404 error page for missing shops (Bug #2 Fix)
+
+    Args:
+        shop_code: Shop code that was not found
+        lang: Display language
+
+    Returns:
+        HTML error page
+    """
+    lang_messages = {
+        "en": {
+            "title": "Restaurant Not Found",
+            "heading": "Oops! We can't find this restaurant",
+            "message": "The QR code you scanned might be outdated or incorrect.",
+            "code_label": "Shop Code",
+            "contact": "Please contact the restaurant staff for assistance.",
+        },
+        "ja": {
+            "title": "レストランが見つかりません",
+            "heading": "おっと！このレストランが見つかりません",
+            "message": "スキャンしたQRコードが古いか間違っている可能性があります。",
+            "code_label": "店舗コード",
+            "contact": "レストランのスタッフにお問い合わせください。",
+        },
+        "zh": {
+            "title": "找不到餐厅",
+            "heading": "哎呀！我们找不到这家餐厅",
+            "message": "您扫描的二维码可能已过时或不正确。",
+            "code_label": "店铺代码",
+            "contact": "请联系餐厅工作人员寻求帮助。",
+        },
+    }
+
+    messages = lang_messages.get(lang, lang_messages["en"])
+
+    html = f"""
+<!DOCTYPE html>
+<html lang="{lang}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{messages["title"]}</title>
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+
+        body {{
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1A1A1A;
+            line-height: 1.6;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }}
+
+        .container {{
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 3rem;
+            text-align: center;
+        }}
+
+        .error-icon {{
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }}
+
+        h1 {{
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 1rem;
+        }}
+
+        .message {{
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }}
+
+        .shop-code {{
+            background: #F5F5F5;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-family: 'Courier New', monospace;
+        }}
+
+        .shop-code-label {{
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }}
+
+        .shop-code-value {{
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+        }}
+
+        .contact {{
+            font-size: 0.95rem;
+            color: #666;
+            padding: 1.5rem;
+            background: #FFF8E1;
+            border-radius: 10px;
+            border-left: 4px solid #FFC107;
+        }}
+
+        .footer {{
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #E0E0E0;
+            font-size: 0.85rem;
+            color: #999;
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">🔍</div>
+        <h1>{messages["heading"]}</h1>
+        <p class="message">{messages["message"]}</p>
+
+        <div class="shop-code">
+            <div class="shop-code-label">{messages["code_label"]}:</div>
+            <div class="shop-code-value">{shop_code}</div>
+        </div>
+
+        <div class="contact">
+            {messages["contact"]}
+        </div>
+
+        <div class="footer">
+            Menu Knowledge Engine
+        </div>
+    </div>
+</body>
+</html>
+    """
 
     return html
 
