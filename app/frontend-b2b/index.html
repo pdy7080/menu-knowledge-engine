@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Knowledge Engine - B2B Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Processing...</div>
+        <div class="loading-progress" id="loadingProgress"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📋</span>
+                <h1>Menu Manager</h1>
+            </div>
+            <div class="header-subtitle">사장님용 메뉴판 관리 시스템</div>
+        </header>
+
+        <!-- Step 1: Upload Section -->
+        <section id="uploadSection" class="section">
+            <div class="section-header">
+                <h2>🖼️ Step 1: 메뉴판 사진 업로드</h2>
+                <p class="section-description">메뉴판을 촬영하거나 업로드해주세요. AI가 자동으로 메뉴를 인식합니다.</p>
+            </div>
+
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📷</div>
+                <h3>사진을 클릭하거나 드래그하세요</h3>
+                <p>JPG, PNG 형식 지원 (최대 10MB)</p>
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <button class="btn btn-primary" id="uploadBtn">사진 선택</button>
+            </div>
+
+            <!-- Preview -->
+            <div id="imagePreview" class="image-preview hidden">
+                <img id="previewImg" src="" alt="Menu preview">
+                <button class="btn btn-secondary" id="changeImageBtn">다른 사진 선택</button>
+            </div>
+        </section>
+
+        <!-- Step 2: Review Section -->
+        <section id="reviewSection" class="section hidden">
+            <div class="section-header">
+                <h2>✅ Step 2: 메뉴 확인 및 수정</h2>
+                <p class="section-description">AI가 인식한 메뉴를 확인하고 필요시 수정해주세요.</p>
+            </div>
+
+            <!-- OCR Raw Text -->
+            <div class="ocr-result" id="ocrResult">
+                <div class="ocr-header">
+                    <strong>📝 인식된 텍스트</strong>
+                    <span class="ocr-confidence" id="ocrConfidence"></span>
+                </div>
+                <div class="ocr-text" id="ocrText"></div>
+            </div>
+
+            <!-- Menu Items List -->
+            <div class="menu-items-container" id="menuItemsContainer">
+                <!-- Menu cards will be inserted here -->
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+                <button class="btn btn-secondary" id="backBtn">← 다시 업로드</button>
+                <button class="btn btn-primary btn-large" id="confirmAllBtn">
+                    전체 승인 및 등록 →
+                </button>
+            </div>
+        </section>
+
+        <!-- Step 3: Success Section -->
+        <section id="successSection" class="section hidden">
+            <div class="success-message">
+                <div class="success-icon">🎉</div>
+                <h2>등록 완료!</h2>
+                <p>메뉴가 성공적으로 등록되었습니다.</p>
+                <div class="success-stats" id="successStats"></div>
+                <button class="btn btn-primary" id="registerAnotherBtn">다른 메뉴판 등록하기</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
