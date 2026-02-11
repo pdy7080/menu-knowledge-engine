@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Menu Knowledge Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-logo">
+                <span class="logo-icon">🔧</span>
+                <h1>Menu Knowledge Engine</h1>
+                <span class="admin-badge">Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <button class="nav-tab active" data-tab="queue">신규 메뉴 큐</button>
+                <button class="nav-tab" data-tab="stats">통계</button>
+                <a href="index.html" class="nav-link">← B2B 업로드</a>
+            </nav>
+        </header>
+
+        <!-- Queue Tab -->
+        <section id="queueTab" class="admin-tab-content active">
+            <div class="tab-header">
+                <div class="tab-title">
+                    <h2>🎯 신규 메뉴 큐</h2>
+                    <span class="queue-count" id="queueCount">0건</span>
+                </div>
+                <div class="tab-actions">
+                    <button class="btn btn-refresh" id="refreshBtn">🔄 새로고침</button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label>상태:</label>
+                    <button class="filter-btn active" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter="pending">확인필요</button>
+                    <button class="filter-btn" data-filter="confirmed">승인완료</button>
+                    <button class="filter-btn" data-filter="rejected">거부됨</button>
+                </div>
+                <div class="filter-group">
+                    <label>소스:</label>
+                    <button class="source-filter active" data-source="all">전체</button>
+                    <button class="source-filter" data-source="b2c">B2C 스캔</button>
+                    <button class="source-filter" data-source="b2b">B2B 업로드</button>
+                </div>
+            </div>
+
+            <!-- Queue List -->
+            <div class="queue-list" id="queueList">
+                <!-- Queue items will be inserted here -->
+                <div class="empty-state">
+                    <div class="empty-icon">📭</div>
+                    <p>신규 메뉴가 없습니다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Tab -->
+        <section id="statsTab" class="admin-tab-content">
+            <div class="tab-header">
+                <h2>📊 엔진 통계</h2>
+                <span class="auto-refresh">🔄 5초마다 자동 갱신</span>
+            </div>
+
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats cards will be inserted here -->
+            </div>
+
+            <div class="charts-section">
+                <h3>📈 7일 추이</h3>
+                <div class="chart-placeholder">
+                    차트 구현 예정 (Chart.js)
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-section">
+                <h3>⚡ 실시간 통계</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Canonical 메뉴</span>
+                    <span class="stat-value" id="sidebarCanonical">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">수식어 사전</span>
+                    <span class="stat-value" id="sidebarModifiers">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">DB 히트율 (7일)</span>
+                    <span class="stat-value" id="sidebarHitRate">-%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">AI 비용 (7일)</span>
+                    <span class="stat-value" id="sidebarAICost">₩-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">미검토 큐</span>
+                    <span class="stat-value highlight" id="sidebarPending">-</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>📅 최근 활동</h3>
+                <div class="activity-feed" id="activityFeed">
+                    <div class="activity-item">
+                        <span class="activity-time">방금 전</span>
+                        <span class="activity-text">시스템 시작됨</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
