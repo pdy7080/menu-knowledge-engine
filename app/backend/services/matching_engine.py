@@ -297,4 +297,5 @@ class MenuMatchingEngine:
             "allergens": canonical.allergens,
             "spice_level": canonical.spice_level,
             "difficulty_score": canonical.difficulty_score,
+            "image_url": canonical.image_url,
         }
