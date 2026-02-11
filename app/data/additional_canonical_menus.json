@@ -1,0 +1,233 @@
+[
+  {
+    "name_ko": "비빔밥",
+    "name_en": "Bibimbap (Mixed Rice with Vegetables)",
+    "concept": "비빔밥",
+    "description_ko": "밥에 여러 가지 나물과 고기를 얹어 비벼 먹는 요리",
+    "description_en": "Mixed Rice with Vegetables",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "냉면",
+    "name_en": "Naengmyeon (Cold Noodles)",
+    "concept": "냉면",
+    "description_ko": "차가운 육수에 메밀면을 말아 먹는 여름 별미",
+    "description_en": "Cold Noodles",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "칼국수",
+    "name_en": "Kalguksu (Hand-cut Noodle Soup)",
+    "concept": "칼국수",
+    "description_ko": "칼로 썬 밀가루 면을 국물에 넣어 끓인 요리",
+    "description_en": "Hand-cut Noodle Soup",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "국수",
+    "name_en": "Noodles (Guksu)",
+    "concept": "면류",
+    "description_ko": "밀가루나 메밀로 만든 가늘고 긴 면 요리",
+    "description_en": "Guksu",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "돈까스",
+    "name_en": "Donkatsu (Pork Cutlet)",
+    "concept": "튀김",
+    "description_ko": "돼지고기를 튀긴 일본식 돈가스",
+    "description_en": "Pork Cutlet",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "육회",
+    "name_en": "Yukhoe (Korean Beef Tartare)",
+    "concept": "육류안주",
+    "description_ko": "생소고기를 채 썰어 양념한 요리",
+    "description_en": "Korean Beef Tartare",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "김밥",
+    "name_en": "Gimbap (Seaweed Rice Roll)",
+    "concept": "밥류",
+    "description_ko": "김에 밥과 여러 재료를 싸서 만 요리",
+    "description_en": "Seaweed Rice Roll",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "냉면",
+    "name_en": "냉면 (Korean)",
+    "concept": "냉면",
+    "description_ko": "냉면 요리",
+    "description_en": "냉면 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "칼국수",
+    "name_en": "칼국수 (Korean)",
+    "concept": "칼국수",
+    "description_ko": "칼국수 요리",
+    "description_en": "칼국수 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "비빔밥",
+    "name_en": "비빔밥 (Korean)",
+    "concept": "비빔밥",
+    "description_ko": "비빔밥 요리",
+    "description_en": "비빔밥 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "돈까스",
+    "name_en": "돈까스 (Korean)",
+    "concept": "덮밥",
+    "description_ko": "돈까스 요리",
+    "description_en": "돈까스 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "손칼국수",
+    "name_en": "손칼국수 (Korean)",
+    "concept": "칼국수",
+    "description_ko": "손칼국수 요리",
+    "description_en": "손칼국수 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "김밥",
+    "name_en": "김밥 (Korean)",
+    "concept": "김밥",
+    "description_ko": "김밥 요리",
+    "description_en": "김밥 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "고기",
+    "name_en": "고기 (Korean)",
+    "concept": "고기볶음",
+    "description_ko": "고기 요리",
+    "description_en": "고기 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "육회",
+    "name_en": "육회 (Korean)",
+    "concept": "육류안주",
+    "description_ko": "육회 요리",
+    "description_en": "육회 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "뚝배기",
+    "name_en": "뚝배기 (Korean)",
+    "concept": "찌개",
+    "description_ko": "뚝배기 요리",
+    "description_en": "뚝배기 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "구이",
+    "name_en": "구이 (Korean)",
+    "concept": "고기구이",
+    "description_ko": "구이 요리",
+    "description_en": "구이 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "막창",
+    "name_en": "막창 (Korean)",
+    "concept": "육류안주",
+    "description_ko": "막창 요리",
+    "description_en": "막창 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "곱창",
+    "name_en": "곱창 (Korean)",
+    "concept": "육류안주",
+    "description_ko": "곱창 요리",
+    "description_en": "곱창 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "집된장찌개",
+    "name_en": "집된장찌개 (Korean)",
+    "concept": "찌개",
+    "description_ko": "집된장찌개 요리",
+    "description_en": "집된장찌개 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  },
+  {
+    "name_ko": "국밥",
+    "name_en": "국밥 (Korean)",
+    "concept": "국밥",
+    "description_ko": "국밥 요리",
+    "description_en": "국밥 dish",
+    "primary_ingredients": [],
+    "allergens": [],
+    "spice_level": 0,
+    "difficulty_score": 1
+  }
+]

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: menu-postgres
+    environment:
+      POSTGRES_DB: menu_knowledge_db
+      POSTGRES_USER: menu_admin
+      POSTGRES_PASSWORD: menu_dev_2025
+    ports:
+      - "5432:5432"
+    volumes:
+      - menu_pgdata:/var/lib/postgresql/data
+    command: >
+      postgres
+      -c shared_preload_libraries=''
+      -c max_connections=100
+
+volumes:
+  menu_pgdata:

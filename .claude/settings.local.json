@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(pip:*)",
+      "Bash(docker-compose up:*)",
+      "Bash(docker-compose:*)",
+      "Bash(docker logout:*)",
+      "Bash(docker exec:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(taskkill:*)",
+      "Bash(/c/project/menu/app/data/real_menu_names_300.csv << 'EOF'\n닭갈비,찜,상,N,춘천 명물\n쌈밥,정식/백반,중,N,채소쌈 포함\n보쌈,육류안주,상,N,술안주\n두루치기,고기볶음,중,N,매콤한 볶음\n간장게장,젓갈,중,N,간장 양념 게\n양념게장,젓갈,중,N,고추장 양념 게\n막창,육류안주,중,N,곱창류\n곱창,육류안주,중,N,소곱창\n오리고기,고기구이,중,N,오리 구이\n닭발,육류안주,중,N,매운 안주\nEOF)",
+      "Bash(netstat:*)",
+      "Bash(find:*)",
+      "Bash(while read pid)",
+      "Bash(do taskkill //F //PID $pid)",
+      "Bash(done)",
+      "Bash(for pid in 11272 11912 66200 93144)",
+      "Bash(powershell:*)",
+      "Bash(xargs:*)",
+      "Bash(iconv:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
