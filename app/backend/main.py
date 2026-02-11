@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 from api.menu import router as menu_router
+from api.admin import router as admin_router
 
 app = FastAPI(
     title="Menu Knowledge Engine API",
@@ -24,6 +25,7 @@ app.add_middleware(
 
 # Routers
 app.include_router(menu_router)
+app.include_router(admin_router)
 
 
 @app.get("/health")
