@@ -2,12 +2,15 @@
 Menu Matching Engine - 3단계 매칭 파이프라인
 Step 1: Exact Match (DB 직접 매칭)
 Step 2: Modifier Decomposition (수식어 분해)
-Step 3: AI Discovery (fallback)
+Step 3: AI Discovery (GPT-4o fallback)
 """
 from typing import Dict, List, Optional, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from models import CanonicalMenu, Modifier
+from openai import OpenAI
+import json
+import os
 
 
 class MatchResult:
@@ -255,11 +258,12 @@ class MenuMatchingEngine:
 
     async def _ai_discovery(self, menu_name: str) -> MatchResult:
         """
-        Step 3: AI Discovery (placeholder)
-        - 실제 GPT-4o 연동은 Sprint 1 후반에 구현
-        - 지금은 ai_discovery_needed 상태로 반환
+        Step 3: AI Discovery (GPT-4o)
+        - OpenAI API로 새로운 메뉴 분석
+        - 영문 번역 + 간단한 설명 생성
+        - modifiers 추출 시도
         """
-        # 수식어만 추출 시도 (canonical은 찾지 못했지만 수식어는 기록)
+        # 먼저 수식어 추출 시도
         result = await self.db.execute(
             select(Modifier).order_by(func.length(Modifier.text_ko).desc())
         )
@@ -277,14 +281,102 @@ class MenuMatchingEngine:
                 })
                 remaining_text = remaining_text.replace(modifier.text_ko, "", 1)
 
-        return MatchResult(
-            input_text=menu_name,
-            match_type="ai_discovery_needed",
-            canonical=None,
-            modifiers=found_modifiers,
-            confidence=0.0,
-            ai_called=False,  # placeholder이므로 실제로 호출하지 않음
-        )
+        # OpenAI API 호출 (환경변수 확인)
+        openai_api_key = os.getenv("OPENAI_API_KEY")
+
+        if not openai_api_key:
+            # API 키가 없으면 기본 응답 반환
+            return MatchResult(
+                input_text=menu_name,
+                match_type="ai_discovery_needed",
+                canonical=None,
+                modifiers=found_modifiers,
+                confidence=0.0,
+                ai_called=False,
+            )
+
+        try:
+            client = OpenAI(api_key=openai_api_key)
+
+            # GPT-4o로 메뉴 분석
+            prompt = f"""You are a Korean food expert. Analyze this Korean menu name and provide information.
+
+Menu name (Korean): {menu_name}
+
+Please provide:
+1. English translation (simple, readable for tourists)
+2. Brief explanation (1-2 sentences, what is it?)
+3. Main ingredients (list)
+4. Allergens (if any: peanut, tree nuts, soy, wheat, milk, egg, fish, shellfish, beef, pork, chicken)
+5. Spice level (0-5, where 0=not spicy, 5=very spicy)
+6. Adventure level (1-3, where 1=familiar, 2=somewhat unusual, 3=very adventurous)
+
+Return JSON only:
+{{
+  "name_en": "...",
+  "explanation_short_en": "...",
+  "main_ingredients": ["...", "..."],
+  "allergens": ["...", "..."],
+  "spice_level": 0-5,
+  "difficulty_score": 1-3
+}}"""
+
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",  # Cost-effective
+                messages=[
+                    {"role": "system", "content": "You are a Korean food expert. Return only valid JSON."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.3,
+                max_tokens=500
+            )
+
+            content = response.choices[0].message.content.strip()
+
+            # Extract JSON from markdown code block
+            if content.startswith("```"):
+                content = content.split("```")[1]
+                if content.startswith("json"):
+                    content = content[4:]
+                content = content.strip()
+
+            ai_result = json.loads(content)
+
+            # AI가 분석한 내용을 canonical 형태로 구성
+            ai_canonical = {
+                "id": None,  # AI Discovery는 DB에 아직 없음
+                "name_ko": menu_name,
+                "name_en": ai_result.get("name_en", menu_name),
+                "explanation_short": {
+                    "en": ai_result.get("explanation_short_en", "No description available")
+                },
+                "main_ingredients": ai_result.get("main_ingredients", []),
+                "allergens": ai_result.get("allergens", []),
+                "spice_level": ai_result.get("spice_level", 0),
+                "difficulty_score": ai_result.get("difficulty_score", 1),
+                "image_url": None,
+            }
+
+            return MatchResult(
+                input_text=menu_name,
+                match_type="ai_discovery",
+                canonical=ai_canonical,
+                modifiers=found_modifiers,
+                confidence=0.6,  # AI 추론이므로 중간 신뢰도
+                ai_called=True,
+            )
+
+        except Exception as e:
+            print(f"AI Discovery error: {e}")
+            # AI 호출 실패 시 기본 응답
+            return MatchResult(
+                input_text=menu_name,
+                match_type="ai_discovery_needed",
+                canonical=None,
+                modifiers=found_modifiers,
+                confidence=0.0,
+                ai_called=False,
+            )
 
     def _canonical_to_dict(self, canonical: CanonicalMenu) -> Dict[str, Any]:
         """CanonicalMenu 모델을 딕셔너리로 변환"""

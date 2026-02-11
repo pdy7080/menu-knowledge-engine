@@ -1,0 +1,496 @@
+/**
+ * Menu Knowledge Engine - B2B Admin Styles
+ * For restaurant owners to upload and manage menu images
+ */
+
+/* ===========================
+   CSS Variables & Reset
+   =========================== */
+:root {
+    /* Korean Food Theme Colors */
+    --color-base: #FFF8F0;
+    --color-accent: #E85D3A;
+    --color-card: #FFFFFF;
+    --color-text-primary: #1A1A1A;
+    --color-text-secondary: #666666;
+    --color-border: #E0E0E0;
+
+    /* Status Colors */
+    --color-success: #4CAF50;
+    --color-warning: #FF9800;
+    --color-error: #F44336;
+    --color-info: #2196F3;
+
+    /* Confidence Badge Colors */
+    --confidence-high: #4CAF50;   /* >= 0.85 */
+    --confidence-mid: #FF9800;    /* 0.65-0.85 */
+    --confidence-low: #F44336;    /* < 0.65 */
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Fonts */
+    --font-korean: 'Noto Sans KR', sans-serif;
+    --font-english: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--font-korean);
+    background-color: var(--color-base);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+/* ===========================
+   Layout
+   =========================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+.section {
+    background: var(--color-card);
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+}
+
+.section-description {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ===========================
+   Header
+   =========================== */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.header-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+/* ===========================
+   Upload Area
+   =========================== */
+.upload-area {
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-area:hover {
+    border-color: var(--color-accent);
+    background: rgba(232, 93, 58, 0.02);
+}
+
+.upload-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.upload-area h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.upload-area p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Image Preview */
+.image-preview {
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ===========================
+   OCR Result
+   =========================== */
+.ocr-result {
+    background: #F5F5F5;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.ocr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.ocr-confidence {
+    background: var(--confidence-high);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.ocr-text {
+    font-family: var(--font-english);
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    color: var(--color-text-secondary);
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* ===========================
+   Menu Items
+   =========================== */
+.menu-items-container {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.menu-item-card {
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    transition: all 0.3s;
+}
+
+.menu-item-card.high-confidence {
+    border-color: var(--confidence-high);
+}
+
+.menu-item-card.mid-confidence {
+    border-color: var(--confidence-mid);
+}
+
+.menu-item-card.low-confidence {
+    border-color: var(--confidence-low);
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.menu-item-names {
+    flex: 1;
+}
+
+.menu-name-ko {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.menu-name-en {
+    font-family: var(--font-english);
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+}
+
+.menu-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.menu-item-details {
+    display: grid;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    min-width: 80px;
+}
+
+.modifiers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.modifier-tag {
+    background: var(--color-accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.confidence-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.confidence-badge.high {
+    background: var(--confidence-high);
+    color: white;
+}
+
+.confidence-badge.mid {
+    background: var(--confidence-mid);
+    color: white;
+}
+
+.confidence-badge.low {
+    background: var(--confidence-low);
+    color: white;
+}
+
+.menu-item-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-korean);
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #D14D2A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(232, 93, 58, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===========================
+   Actions Footer
+   =========================== */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--color-border);
+}
+
+/* ===========================
+   Success Message
+   =========================== */
+.success-message {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.success-icon {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.success-message h2 {
+    font-size: 2rem;
+    color: var(--color-success);
+    margin-bottom: var(--spacing-sm);
+}
+
+.success-stats {
+    background: #F5F5F5;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    font-size: 1rem;
+}
+
+/* ===========================
+   Loading Overlay
+   =========================== */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: var(--spacing-md);
+}
+
+.loading-progress {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+.hidden {
+    display: none !important;
+}
+
+.korean-text {
+    font-family: var(--font-korean);
+}
+
+.english-text {
+    font-family: var(--font-english);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+
+    .section {
+        padding: var(--spacing-md);
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .menu-item-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}

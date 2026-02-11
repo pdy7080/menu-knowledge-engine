@@ -1,7 +1,7 @@
 """
 Menu API Routes
 """
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
@@ -9,6 +9,9 @@ from pydantic import BaseModel
 from database import get_db
 from models import Concept, Modifier, CanonicalMenu
 from services.matching_engine import MenuMatchingEngine
+from services.ocr_service import ocr_service
+import os
+import tempfile
 
 router = APIRouter(prefix="/api/v1", tags=["menu"])
 
@@ -102,3 +105,74 @@ async def identify_menu(
     engine = MenuMatchingEngine(db)
     result = await engine.match_menu(request.menu_name_ko)
     return result.to_dict()
+
+
+@router.post("/menu/recognize")
+async def recognize_menu_image(
+    file: UploadFile = File(...),
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    OCR 메뉴 인식 API (Sprint 3 - P0-1)
+
+    Flow:
+    1. Upload menu image
+    2. CLOVA OCR → Extract text
+    3. GPT-4o → Parse menu items (name_ko, price_ko)
+    4. Return structured menu list
+
+    Returns:
+        {
+            "success": bool,
+            "menu_items": [{"name_ko": str, "price_ko": str}, ...],
+            "raw_text": str,
+            "ocr_confidence": float
+        }
+    """
+    # Validate file type
+    if not file.content_type or not file.content_type.startswith("image/"):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid file type. Expected image, got {file.content_type}"
+        )
+
+    # Save uploaded file temporarily
+    temp_path = None
+    try:
+        # Create temp file
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file.filename)[1]) as temp_file:
+            content = await file.read()
+            temp_file.write(content)
+            temp_path = temp_file.name
+
+        # Process with OCR service
+        result = ocr_service.recognize_menu_image(temp_path)
+
+        if not result["success"]:
+            raise HTTPException(
+                status_code=500,
+                detail=result.get("error", "OCR processing failed")
+            )
+
+        return {
+            "success": True,
+            "menu_items": result["menu_items"],
+            "raw_text": result.get("raw_text", ""),
+            "ocr_confidence": result.get("ocr_confidence", 0.0),
+            "count": len(result["menu_items"])
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error processing image: {str(e)}"
+        )
+    finally:
+        # Clean up temp file
+        if temp_path and os.path.exists(temp_path):
+            try:
+                os.remove(temp_path)
+            except:
+                pass
