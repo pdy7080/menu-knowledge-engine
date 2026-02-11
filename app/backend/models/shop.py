@@ -13,6 +13,7 @@ class Shop(Base):
     __tablename__ = "shops"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    shop_code = Column(String(50), unique=True)  # QR code identifier
     name_ko = Column(String(200), nullable=False)
     name_en = Column(String(200))
 
