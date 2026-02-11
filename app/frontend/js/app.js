@@ -193,7 +193,8 @@ function createMenuCard(result) {
         main_ingredients,
         allergens,
         spice_level,
-        difficulty_score
+        difficulty_score,
+        image_url
     } = canonical;
 
     const descriptionEn = explanation_short?.en || 'No description available';
@@ -209,8 +210,21 @@ function createMenuCard(result) {
         composedNameEn = name_en.split('(')[0].trim();
     }
 
+    // Food image HTML
+    const imageHtml = image_url ? `
+        <div class="menu-image-container">
+            <img src="${escapeHtml(image_url)}" 
+                 alt="${escapeHtml(name_en)}" 
+                 class="menu-image"
+                 loading="lazy"
+                 onerror="this.parentElement.classList.add('image-error'); this.style.display='none';">
+            <div class="image-credit">📷 Wikimedia Commons</div>
+        </div>
+    ` : '';
+
     let html = `
         <div class="menu-card">
+            ${imageHtml}
             <div class="menu-name-ko korean-text">${escapeHtml(name_ko)}</div>
             <div class="menu-name-en">${escapeHtml(name_en)}</div>
             <div class="menu-name-composed">${escapeHtml(composedNameEn)}</div>
@@ -259,6 +273,16 @@ function createMenuCard(result) {
         });
 
         html += `</div>`;
+    }
+
+    // Allergen disclaimer (shown when allergens exist)
+    if (allergens && allergens.length > 0) {
+        html += `
+            <div class="allergen-disclaimer">
+                ⚠️ Allergen info is based on general recipes and may not reflect the actual restaurant's ingredients. 
+                Always confirm with restaurant staff.
+            </div>
+        `;
     }
 
     // Confidence badge

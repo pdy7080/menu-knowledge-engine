@@ -14,6 +14,7 @@ from models import Concept, Modifier, CanonicalMenu
 from seeds.seed_concepts import get_concept_seeds
 from seeds.seed_modifiers import get_modifier_seeds
 from seeds.seed_canonical_menus import get_canonical_menu_seeds
+from seeds.image_urls import get_image_url_map, DEFAULT_FOOD_IMAGE
 
 
 async def seed_concepts():
@@ -105,8 +106,10 @@ async def seed_canonical_menus():
         concept_map = {c.name_ko: c.id for c in concepts}
 
         canonical_data = get_canonical_menu_seeds()
+        image_map = get_image_url_map()
 
         print(f"[*] Seeding Canonical Menus...")
+        image_count = 0
 
         for menu_dict in canonical_data:
             # concept_id 찾기
@@ -120,6 +123,11 @@ async def seed_canonical_menus():
                 {"en": ing} for ing in menu_dict["primary_ingredients"]
             ]
 
+            # 이미지 URL 매핑
+            image_url = image_map.get(menu_dict["name_ko"], None)
+            if image_url:
+                image_count += 1
+
             canonical = CanonicalMenu(
                 name_ko=menu_dict["name_ko"],
                 name_en=menu_dict["name_en"],
@@ -132,11 +140,13 @@ async def seed_canonical_menus():
                 allergens=menu_dict["allergens"],
                 spice_level=menu_dict["spice_level"],
                 difficulty_score=menu_dict["difficulty_score"],
+                image_url=image_url,
             )
             session.add(canonical)
 
         await session.commit()
-        print(f"[OK] Canonical Menus seeded: {len(canonical_data)} records\n")
+        print(f"[OK] Canonical Menus seeded: {len(canonical_data)} records")
+        print(f"[OK] Image URLs mapped: {image_count}/{len(canonical_data)} menus\n")
 
 
 async def main():

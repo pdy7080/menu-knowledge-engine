@@ -83,6 +83,7 @@ async def get_canonical_menus(db: AsyncSession = Depends(get_db)):
                 "allergens": cm.allergens,
                 "spice_level": cm.spice_level,
                 "difficulty_score": cm.difficulty_score,
+                "image_url": cm.image_url,
             }
             for cm in menus
         ],
