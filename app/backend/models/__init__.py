@@ -11,6 +11,7 @@ from .scan_log import ScanLog
 from .evidence import Evidence
 from .cultural_concept import CulturalConcept
 from .restaurant import Restaurant, RestaurantStatus
+from .menu_upload import MenuUploadTask, MenuUploadDetail, UploadStatus, MenuItemStatus
 
 __all__ = [
     "Concept",
@@ -24,4 +25,8 @@ __all__ = [
     "CulturalConcept",
     "Restaurant",
     "RestaurantStatus",
+    "MenuUploadTask",
+    "MenuUploadDetail",
+    "UploadStatus",
+    "MenuItemStatus",
 ]

@@ -1,0 +1,47 @@
+[
+  {
+    "name_ko": "김치볶음밥",
+    "ja_first_80": "[JA] Fried rice with kimchi",
+    "zh_first_80": "[ZH] Fried rice with kimchi",
+    "is_mock_ja": true,
+    "is_mock_zh": true,
+    "has_ja": true,
+    "has_zh": true
+  },
+  {
+    "name_ko": "고등어찌개",
+    "ja_first_80": "[JA] Spicy mackerel stew with radish",
+    "zh_first_80": "[ZH] Spicy mackerel stew with radish",
+    "is_mock_ja": true,
+    "is_mock_zh": true,
+    "has_ja": true,
+    "has_zh": true
+  },
+  {
+    "name_ko": "물냉면",
+    "ja_first_80": "[JA] Buckwheat noodles in cold broth",
+    "zh_first_80": "[ZH] Buckwheat noodles in cold broth",
+    "is_mock_ja": true,
+    "is_mock_zh": true,
+    "has_ja": true,
+    "has_zh": true
+  },
+  {
+    "name_ko": "불고기",
+    "ja_first_80": "[JA] Sweet marinated beef stir-fry",
+    "zh_first_80": "[ZH] Sweet marinated beef stir-fry",
+    "is_mock_ja": true,
+    "is_mock_zh": true,
+    "has_ja": true,
+    "has_zh": true
+  },
+  {
+    "name_ko": "순두부찌개",
+    "ja_first_80": "[JA] Spicy soft tofu stew often served bubbling hot",
+    "zh_first_80": "[ZH] Spicy soft tofu stew often served bubbling hot",
+    "is_mock_ja": true,
+    "is_mock_zh": true,
+    "has_ja": true,
+    "has_zh": true
+  }
+]
