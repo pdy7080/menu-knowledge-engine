@@ -113,7 +113,7 @@ class TranslationService:
             return {lang: result.get(lang, "") for lang in target_languages}
 
         except Exception as e:
-            print(f"  ❌ 번역 실패 ({menu_name_ko}): {e}")
+            print(f"  [FAIL] Translation error ({menu_name_ko}): {e}")
             self.error_count += 1
             return {lang: "" for lang in target_languages}
 
@@ -134,15 +134,15 @@ class TranslationService:
             max_retries: 최대 재시도 횟수
         """
 
-        print(f"\n🌍 배치 번역 시작 (GPT-4o)")
-        print(f"  📊 메뉴 개수: {len(menus)}")
-        print(f"  🗣️  목표 언어: {', '.join(target_languages)}")
-        print(f"  ⚡ 동시 처리: {batch_size}개/배치\n")
+        print(f"\n[START] Batch Translation (GPT-4o)")
+        print(f"  [MENUS] Total: {len(menus)}")
+        print(f"  [LANGS] Target: {', '.join(target_languages)}")
+        print(f"  [BATCH] Concurrent: {batch_size} menus/batch\n")
 
         # 배치로 나누기
         for i in range(0, len(menus), batch_size):
             batch = menus[i : i + batch_size]
-            print(f"📦 배치 {i // batch_size + 1}: {len(batch)}개 메뉴 번역 중...")
+            print(f"[BATCH {i // batch_size + 1}] Processing {len(batch)} menus...")
 
             # 동시 처리
             tasks = [
@@ -160,18 +160,20 @@ class TranslationService:
             for menu, result in zip(batch, results):
                 if any(result.values()):  # 최소 하나 이상 번역됨
                     self.translated_count += 1
+                    ja_status = 'OK' if result.get('ja') else 'FAIL'
+                    zh_status = 'OK' if result.get('zh') else 'FAIL'
                     print(
-                        f"  ✅ {menu['name_ko']}: "
-                        f"JA={'✓' if result.get('ja') else '✗'} "
-                        f"ZH={'✓' if result.get('zh') else '✗'}"
+                        f"  [OK] {menu['name_ko']}: "
+                        f"JA={ja_status} "
+                        f"ZH={zh_status}"
                     )
 
                     # 즉시 DB에 저장
                     yield menu, result
 
-        print(f"\n✅ 번역 완료: {self.translated_count}개 메뉴")
+        print(f"\n[COMPLETE] Translated: {self.translated_count} menus")
         if self.error_count:
-            print(f"⚠️  오류: {self.error_count}개")
+            print(f"[ERRORS] Failed: {self.error_count} menus")
 
     def save_to_database(self, menu_id: str, translations: Dict[str, str]):
         """DB에 번역 데이터 저장"""
@@ -181,13 +183,15 @@ class TranslationService:
             ).first()
 
             if menu:
-                # JSONB 컬럼 업데이트
-                if not menu.explanation_short:
-                    menu.explanation_short = {}
+                # JSONB 컬럼 업데이트 (SQLAlchemy 변경 감지를 위해 전체 재할당)
+                updated_dict = menu.explanation_short.copy() if menu.explanation_short else {}
 
                 for lang, text in translations.items():
                     if text:
-                        menu.explanation_short[lang] = text
+                        updated_dict[lang] = text
+
+                # 전체 딕셔너리 재할당 (이렇게 해야 SQLAlchemy가 변경 감지)
+                menu.explanation_short = updated_dict
 
                 session.commit()
 
@@ -235,7 +239,7 @@ async def main():
         if menu.explanation_short and menu.explanation_short.get("en")
     ]
 
-    print(f"📋 DB에서 로드한 메뉴: {len(menus_to_translate)}개")
+    print(f"[LOAD] Loaded menus from DB: {len(menus_to_translate)}")
 
     # 배치 번역 실행
     count = 0
@@ -251,16 +255,16 @@ async def main():
     # 통계
     elapsed = datetime.now() - service.start_time
     print(f"\n" + "=" * 60)
-    print(f"📊 번역 완료 통계")
+    print(f"[STATS] Translation Summary")
     print(f"=" * 60)
-    print(f"  ✅ 번역된 메뉴: {count}개")
-    print(f"  ⏱️  소요 시간: {elapsed.total_seconds():.1f}초")
-    print(f"  💰 예상 비용: ~₩{count * 50:,} (매우 저렴!)")
-    print(f"  📈 평균 속도: {count / elapsed.total_seconds():.1f} 메뉴/초")
+    print(f"  [RESULT] Translated: {count} menus")
+    print(f"  [TIME] Elapsed: {elapsed.total_seconds():.1f} seconds")
+    print(f"  [COST] Estimated: ~{count * 50:,} KRW (very affordable!)")
+    print(f"  [SPEED] Average: {count / elapsed.total_seconds():.1f} menus/sec")
     print(f"=" * 60)
 
-    print(f"\n✅ 모든 번역이 DB에 저장되었습니다!")
-    print(f"   다음 단계: I18n-Auditor 재검증")
+    print(f"\n[SUCCESS] All translations saved to DB!")
+    print(f"   Next: I18n-Auditor re-validation")
 
 
 if __name__ == "__main__":

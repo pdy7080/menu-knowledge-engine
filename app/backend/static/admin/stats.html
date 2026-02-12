@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Statistics - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-2xl font-bold text-gray-900">Menu Knowledge Engine</h1>
+                    </div>
+                    <div class="ml-6 flex space-x-8">
+                        <a href="index.html" class="border-transparent inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700">
+                            Dashboard
+                        </a>
+                        <a href="queue.html" class="border-transparent inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700">
+                            Menu Queue
+                        </a>
+                        <a href="stats.html" class="border-b-2 border-blue-500 inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900">
+                            Statistics
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-6">
+            <!-- Canonical Menus -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Canonical Menus</dt>
+                                <dd id="statCanonical" class="text-3xl font-semibold text-gray-900">-</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modifiers -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Modifiers</dt>
+                                <dd id="statModifiers" class="text-3xl font-semibold text-gray-900">-</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Queue -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Pending Queue</dt>
+                                <dd id="statPending" class="text-3xl font-semibold text-gray-900">-</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Cost (7d) -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">AI Cost (7d)</dt>
+                                <dd id="statAICost" class="text-3xl font-semibold text-gray-900">-</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <!-- DB Hit Rate -->
+            <div class="bg-white shadow rounded-lg p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">DB Hit Rate (Last 7 Days)</h3>
+                <div class="h-64 flex items-center justify-center">
+                    <div class="text-center">
+                        <div id="hitRateValue" class="text-6xl font-bold text-blue-600">-</div>
+                        <div class="text-sm text-gray-500 mt-2">Hit Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scans & Confidence -->
+            <div class="bg-white shadow rounded-lg p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Performance Metrics (Last 7 Days)</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Total Scans</span>
+                            <span id="statScans7d" class="text-sm font-semibold text-gray-900">-</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div id="scansBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Average Confidence</span>
+                            <span id="statConfidence" class="text-sm font-semibold text-gray-900">-</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div id="confidenceBar" class="bg-green-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Updated -->
+        <div class="mt-6 text-center text-sm text-gray-500">
+            Last updated: <span id="lastUpdated">-</span>
+            <button onclick="loadStats()" class="ml-2 text-blue-600 hover:text-blue-800">Refresh</button>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = 'http://localhost:8000';
+
+        // Load stats on page load
+        window.onload = function() {
+            loadStats();
+        };
+
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/admin/stats`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                renderStats(data);
+            } catch (error) {
+                console.error('Error loading stats:', error);
+                alert(`Error loading stats: ${error.message}`);
+            }
+        }
+
+        function renderStats(data) {
+            // Update stat cards
+            document.getElementById('statCanonical').textContent = data.canonical_count.toLocaleString();
+            document.getElementById('statModifiers').textContent = data.modifier_count.toLocaleString();
+            document.getElementById('statPending').textContent = data.pending_queue_count.toLocaleString();
+            document.getElementById('statAICost').textContent = `₩${data.ai_cost_7d.toLocaleString()}`;
+
+            // Update hit rate
+            const hitRate = (data.db_hit_rate_7d * 100).toFixed(1);
+            document.getElementById('hitRateValue').textContent = `${hitRate}%`;
+
+            // Update performance metrics
+            document.getElementById('statScans7d').textContent = data.scans_7d.toLocaleString();
+            document.getElementById('scansBar').style.width = `${Math.min(data.scans_7d / 10, 100)}%`;
+
+            const confidence = (data.avg_confidence_7d * 100).toFixed(1);
+            document.getElementById('statConfidence').textContent = `${confidence}%`;
+            document.getElementById('confidenceBar').style.width = `${confidence}%`;
+
+            // Update last updated time
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleString('ko-KR');
+        }
+    </script>
+</body>
+</html>
