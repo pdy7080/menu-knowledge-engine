@@ -1,0 +1,105 @@
+name: CD - Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+
+jobs:
+  deploy:
+    name: Deploy to Chargeap Server
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.CHARGEAP_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.CHARGEAP_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to Server
+        env:
+          HOST: ${{ secrets.CHARGEAP_HOST }}
+          USER: ${{ secrets.CHARGEAP_USER }}
+          DEPLOY_PATH: ${{ secrets.CHARGEAP_DEPLOY_PATH }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: |
+          ssh $USER@$HOST << 'ENDSSH'
+            set -e
+
+            echo "🚀 Starting deployment..."
+
+            # Navigate to deployment directory
+            cd ${{ secrets.CHARGEAP_DEPLOY_PATH }}
+
+            # Pull latest code
+            echo "📥 Pulling latest code..."
+            git fetch origin
+            git checkout main
+            git pull origin main
+
+            # Stop existing containers
+            echo "🛑 Stopping existing containers..."
+            cd app
+            docker-compose down || true
+
+            # Build new images
+            echo "🔨 Building new Docker images..."
+            docker-compose build --no-cache backend
+
+            # Start services
+            echo "🚀 Starting services..."
+            docker-compose up -d
+
+            # Wait for services to be healthy
+            echo "⏳ Waiting for services to be healthy..."
+            sleep 10
+
+            # Health check
+            echo "🏥 Running health check..."
+            curl -f http://localhost:8000/health || exit 1
+
+            # Show status
+            echo "✅ Deployment successful!"
+            docker-compose ps
+
+          ENDSSH
+
+      - name: Verify Deployment
+        env:
+          HOST: ${{ secrets.CHARGEAP_HOST }}
+          USER: ${{ secrets.CHARGEAP_USER }}
+        run: |
+          ssh $USER@$HOST << 'ENDSSH'
+            cd ${{ secrets.CHARGEAP_DEPLOY_PATH }}/app
+            docker-compose logs backend --tail 20
+          ENDSSH
+
+      - name: Notify Success
+        if: success()
+        run: |
+          echo "✅ Deployment to production completed successfully!"
+          echo "🔗 Health Check: http://${{ secrets.CHARGEAP_HOST }}:8000/health"
+
+      - name: Notify Failure
+        if: failure()
+        run: |
+          echo "❌ Deployment failed!"
+          echo "Please check the logs and rollback if necessary."
