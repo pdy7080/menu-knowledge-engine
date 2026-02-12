@@ -31,7 +31,12 @@
       "Bash(do python -X utf8 -c \"import requests; import time; start = time.time\\(\\); r = requests.post\\(''http://localhost:8000/api/v1/menu/identify'', json={''menu_name_ko'': ''김치찌개''}\\); elapsed = \\(time.time\\(\\) - start\\) * 1000; print\\(f''Try {i}: {elapsed:.2f}ms''\\)\")",
       "Bash(cmd.exe //c test_curl.bat)",
       "Bash(findstr:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "WebFetch(domain:developers.naver.com)",
+      "WebFetch(domain:www.ncloud.com)",
+      "Bash(python -c \"from config import settings; print\\(f''OPENAI_API_KEY loaded: {bool\\(settings.OPENAI_API_KEY\\)}''\\); print\\(f''Key prefix: {settings.OPENAI_API_KEY[:20] if settings.OPENAI_API_KEY else \"\"None\"\"}...''\\)\")",
+      "Bash(git checkout:*)",
+      "Bash(export PGPASSWORD='menu_dev_2025')"
     ]
   }
 }
