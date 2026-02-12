@@ -6,12 +6,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 import uuid
 
 from database import get_db
 from models.restaurant import Restaurant, RestaurantStatus
 from services.menu_upload_service import MenuUploadService
+from services.menu_approval_service import MenuApprovalService
+from services.qr_code_service import QRCodeService
 
 router = APIRouter(prefix="/api/v1/b2b", tags=["b2b"])
 
@@ -35,6 +37,12 @@ class RestaurantApprovalRequest(BaseModel):
     action: str  # "approve" or "reject"
     admin_user_id: str
     rejection_reason: Optional[str] = None
+
+
+class MenuApprovalRequest(BaseModel):
+    """메뉴 확정 승인 요청"""
+    admin_user_id: str
+    selected_menu_ids: List[str]  # UUID strings
 
 
 @router.post("/restaurants")
@@ -323,3 +331,85 @@ async def get_upload_task(
             for d in details
         ]
     }
+
+
+@router.post("/restaurants/{restaurant_id}/menus/approve")
+async def approve_restaurant_menus(
+    restaurant_id: str,
+    request: MenuApprovalRequest,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    B2B 메뉴 확정 승인 API
+
+    식당에서 업로드한 메뉴를 최종 검증 후 승인하고 QR 코드 생성
+
+    검증 항목:
+    1. Restaurant 존재 확인
+    2. Status = pending_approval 확인
+    3. 최소 1개 이상 메뉴 선택 확인
+    4. 모든 선택 메뉴의 번역 완료 확인 (KO, EN, JA, ZH)
+    5. 필수 필드 존재 확인
+    6. Price > 0 검증
+    7. 메뉴 이름 중복 확인
+    """
+    try:
+        # UUID 변환
+        restaurant_uuid = uuid.UUID(restaurant_id)
+        menu_uuids = [uuid.UUID(mid) for mid in request.selected_menu_ids]
+
+        # 1. 메뉴 승인 처리
+        approval_service = MenuApprovalService(db)
+        approval_result = await approval_service.approve_menus(
+            restaurant_uuid,
+            menu_uuids,
+            request.admin_user_id
+        )
+
+        restaurant = approval_result["restaurant"]
+        menus = approval_result["menus"]
+        approved_count = approval_result["approved_menu_count"]
+
+        # 2. QR 코드 생성
+        qr_service = QRCodeService()
+
+        # shop_code 생성 (restaurant_id 기반)
+        shop_code = f"SHOP{str(restaurant.id)[:8].upper()}"
+
+        qr_result = qr_service.generate_qr(
+            restaurant_id=restaurant.id,
+            shop_code=shop_code,
+            menu_count=approved_count,
+            languages=['ko', 'en', 'ja', 'zh']
+        )
+
+        # 3. 응답 반환
+        return {
+            "success": True,
+            "message": f"Restaurant '{restaurant.name}' approved with {approved_count} menus",
+            "restaurant": {
+                "id": str(restaurant.id),
+                "name": restaurant.name,
+                "status": restaurant.status,
+                "approved_at": restaurant.approved_at.isoformat() if restaurant.approved_at else None,
+                "approved_by": restaurant.approved_by,
+            },
+            "approved_menus": {
+                "count": approved_count,
+                "menu_ids": [str(m.id) for m in menus]
+            },
+            "qr_code": {
+                "shop_code": shop_code,
+                "qr_code_url": qr_result["qr_code_url"],
+                "qr_code_file_path": qr_result["qr_code_file_path"],
+                "activation_date": qr_result["activation_date"],
+                "languages": qr_result["languages"]
+            }
+        }
+
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f"Invalid UUID format: {str(e)}")
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Menu approval failed: {str(e)}")
