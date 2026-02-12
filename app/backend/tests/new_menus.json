@@ -1,0 +1,16 @@
+{
+  "menus": [
+    {
+      "name_ko": "JSON테스트1",
+      "name_en": "JSON Test 1",
+      "description_en": "Testing JSON upload format",
+      "price": 25000
+    },
+    {
+      "name_ko": "JSON테스트2",
+      "name_en": "JSON Test 2",
+      "description_en": "Another JSON test menu",
+      "price": 30000
+    }
+  ]
+}
