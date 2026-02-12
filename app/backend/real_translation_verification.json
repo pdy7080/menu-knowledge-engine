@@ -1,0 +1,26 @@
+[
+  {
+    "name_ko": "김치볶음밥",
+    "en": "Fried rice with kimchi",
+    "ja": "[JA] Fried rice with kimchi",
+    "zh": "[ZH] Fried rice with kimchi",
+    "is_mock_ja": true,
+    "is_mock_zh": true
+  },
+  {
+    "name_ko": "고등어찌개",
+    "en": "Spicy mackerel stew with radish",
+    "ja": "[JA] Spicy mackerel stew with radish",
+    "zh": "[ZH] Spicy mackerel stew with radish",
+    "is_mock_ja": true,
+    "is_mock_zh": true
+  },
+  {
+    "name_ko": "물냉면",
+    "en": "Buckwheat noodles in cold broth",
+    "ja": "[JA] Buckwheat noodles in cold broth",
+    "zh": "[ZH] Buckwheat noodles in cold broth",
+    "is_mock_ja": true,
+    "is_mock_zh": true
+  }
+]

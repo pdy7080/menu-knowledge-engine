@@ -1,0 +1,37 @@
+[
+  {
+    "name_ko": "김치볶음밥",
+    "name_en": "Kimchi Bokkeumbap (Kimchi Fried Rice)",
+    "en": "Fried rice with kimchi",
+    "ja": "[JA] Fried rice with kimchi",
+    "zh": "[ZH] Fried rice with kimchi"
+  },
+  {
+    "name_ko": "고등어찌개",
+    "name_en": "Godeungeo Jjigae (Mackerel Stew)",
+    "en": "Spicy mackerel stew with radish",
+    "ja": "[JA] Spicy mackerel stew with radish",
+    "zh": "[ZH] Spicy mackerel stew with radish"
+  },
+  {
+    "name_ko": "물냉면",
+    "name_en": "Mul Naengmyeon (Cold Noodles in Broth)",
+    "en": "Buckwheat noodles in cold broth",
+    "ja": "[JA] Buckwheat noodles in cold broth",
+    "zh": "[ZH] Buckwheat noodles in cold broth"
+  },
+  {
+    "name_ko": "불고기",
+    "name_en": "Bulgogi (Marinated Beef)",
+    "en": "Sweet marinated beef stir-fry",
+    "ja": "[JA] Sweet marinated beef stir-fry",
+    "zh": "[ZH] Sweet marinated beef stir-fry"
+  },
+  {
+    "name_ko": "순두부찌개",
+    "name_en": "Sundubu Jjigae (Soft Tofu Stew)",
+    "en": "Spicy soft tofu stew often served bubbling hot",
+    "ja": "[JA] Spicy soft tofu stew often served bubbling hot",
+    "zh": "[ZH] Spicy soft tofu stew often served bubbling hot"
+  }
+]

@@ -1,7 +1,7 @@
 """
 B2B API Routes - 식당 등록 및 관리
 """
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from pydantic import BaseModel, EmailStr
@@ -11,6 +11,7 @@ import uuid
 
 from database import get_db
 from models.restaurant import Restaurant, RestaurantStatus
+from services.menu_upload_service import MenuUploadService
 
 router = APIRouter(prefix="/api/v1/b2b", tags=["b2b"])
 
@@ -207,5 +208,118 @@ async def list_restaurants(
                 "created_at": r.created_at.isoformat() if r.created_at else None,
             }
             for r in restaurants
+        ]
+    }
+
+
+@router.post("/restaurants/{restaurant_id}/menus/upload")
+async def upload_menus(
+    restaurant_id: str,
+    file: UploadFile = File(...),
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    B2B 메뉴 일괄 업로드 API
+
+    CSV 또는 JSON 파일로 메뉴를 일괄 등록
+    - 자동 번역 (GPT-4o-mini)
+    - 중복 체크
+    - 에러 처리 및 재시도
+    """
+    try:
+        # MenuUploadService 인스턴스 생성
+        service = MenuUploadService(db)
+
+        # 파일 처리
+        upload_task = await service.process_upload(
+            restaurant_id=uuid.UUID(restaurant_id),
+            file=file
+        )
+
+        return {
+            "success": True,
+            "upload_task_id": str(upload_task.id),
+            "file_name": upload_task.file_name,
+            "file_type": upload_task.file_type,
+            "status": upload_task.status,
+            "total_menus": upload_task.total_menus,
+            "successful": upload_task.successful,
+            "failed": upload_task.failed,
+            "skipped": upload_task.skipped,
+            "created_at": upload_task.created_at.isoformat() if upload_task.created_at else None,
+            "started_at": upload_task.started_at.isoformat() if upload_task.started_at else None,
+            "completed_at": upload_task.completed_at.isoformat() if upload_task.completed_at else None,
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Menu upload failed: {str(e)}"
+        )
+
+
+@router.get("/restaurants/{restaurant_id}/menus/upload/{upload_task_id}")
+async def get_upload_task(
+    restaurant_id: str,
+    upload_task_id: str,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    업로드 작업 조회 API
+
+    업로드 진행 상황 및 결과 확인
+    """
+    from models.menu_upload import MenuUploadTask, MenuUploadDetail
+
+    # Upload Task 조회
+    result = await db.execute(
+        select(MenuUploadTask).where(
+            MenuUploadTask.id == uuid.UUID(upload_task_id),
+            MenuUploadTask.restaurant_id == uuid.UUID(restaurant_id)
+        )
+    )
+    upload_task = result.scalars().first()
+
+    if not upload_task:
+        raise HTTPException(status_code=404, detail="Upload task not found")
+
+    # Details 조회
+    details_result = await db.execute(
+        select(MenuUploadDetail).where(
+            MenuUploadDetail.upload_task_id == uuid.UUID(upload_task_id)
+        ).order_by(MenuUploadDetail.row_number)
+    )
+    details = details_result.scalars().all()
+
+    return {
+        "upload_task": {
+            "id": str(upload_task.id),
+            "restaurant_id": str(upload_task.restaurant_id),
+            "file_name": upload_task.file_name,
+            "file_type": upload_task.file_type,
+            "status": upload_task.status,
+            "total_menus": upload_task.total_menus,
+            "successful": upload_task.successful,
+            "failed": upload_task.failed,
+            "skipped": upload_task.skipped,
+            "error_log": upload_task.error_log,
+            "created_at": upload_task.created_at.isoformat() if upload_task.created_at else None,
+            "started_at": upload_task.started_at.isoformat() if upload_task.started_at else None,
+            "completed_at": upload_task.completed_at.isoformat() if upload_task.completed_at else None,
+        },
+        "details": [
+            {
+                "id": str(d.id),
+                "name_ko": d.name_ko,
+                "name_en": d.name_en,
+                "price": d.price,
+                "status": d.status,
+                "error_message": d.error_message,
+                "created_menu_id": str(d.created_menu_id) if d.created_menu_id else None,
+                "row_number": d.row_number,
+            }
+            for d in details
         ]
     }

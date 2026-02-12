@@ -1,0 +1,52 @@
+{
+  "menus": [
+    {
+      "name_ko": "김치찌개",
+      "name_en": "Kimchi Stew",
+      "description_en": "Spicy Korean stew with kimchi and pork",
+      "price": 8000
+    },
+    {
+      "name_ko": "불고기",
+      "name_en": "Bulgogi",
+      "description_en": "Marinated grilled beef",
+      "price": 12000
+    },
+    {
+      "name_ko": "비빔밥",
+      "name_en": "Bibimbap",
+      "description_en": "Mixed rice with vegetables and beef",
+      "price": 9000
+    },
+    {
+      "name_ko": "된장찌개",
+      "name_en": "Doenjang Jjigae",
+      "description_en": "Korean soybean paste stew",
+      "price": 7000
+    },
+    {
+      "name_ko": "갈비탕",
+      "name_en": "Galbitang",
+      "description_en": "Short rib soup",
+      "price": 15000
+    },
+    {
+      "name_ko": "잡채",
+      "name_en": "Japchae",
+      "description_en": "Stir-fried glass noodles with vegetables",
+      "price": 8000
+    },
+    {
+      "name_ko": "해물파전",
+      "name_en": "Seafood Pancake",
+      "description_en": "Korean seafood pancake",
+      "price": 12000
+    },
+    {
+      "name_ko": "삼겹살",
+      "name_en": "Samgyeopsal",
+      "description_en": "Grilled pork belly",
+      "price": 14000
+    }
+  ]
+}
