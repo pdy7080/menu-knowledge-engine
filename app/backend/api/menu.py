@@ -10,6 +10,7 @@ from database import get_db
 from models import Concept, Modifier, CanonicalMenu
 from services.matching_engine import MenuMatchingEngine
 from services.ocr_service import ocr_service
+from utils.image_validation import validate_image, ImageValidationError
 import os
 import tempfile
 import logging
@@ -132,19 +133,24 @@ async def recognize_menu_image(
             "ocr_confidence": float
         }
     """
-    # Validate file type
-    if not file.content_type or not file.content_type.startswith("image/"):
+    # Read file bytes
+    content = await file.read()
+
+    # Validate image format, size, dimensions
+    try:
+        img_format, width, height = validate_image(content)
+        logger.info(f"✅ Image validated: {img_format} {width}x{height}")
+    except ImageValidationError as e:
         raise HTTPException(
             status_code=400,
-            detail=f"Invalid file type. Expected image, got {file.content_type}"
+            detail=f"Invalid image: {str(e)}"
         )
 
     # Save uploaded file temporarily
     temp_path = None
     try:
-        # Create temp file
-        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file.filename)[1]) as temp_file:
-            content = await file.read()
+        # Create temp file with validated format
+        with tempfile.NamedTemporaryFile(delete=False, suffix=f".{img_format.lower()}") as temp_file:
             temp_file.write(content)
             temp_path = temp_file.name
 

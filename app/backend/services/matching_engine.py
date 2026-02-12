@@ -9,6 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from models import CanonicalMenu, Modifier
 from openai import OpenAI
+import asyncio
 import json
 import os
 
@@ -46,11 +47,15 @@ class MatchResult:
 class MenuMatchingEngine:
     """메뉴 매칭 엔진"""
 
-    # 클래스 레벨 AI Discovery 캐시 (인메모리)
+    # 클래스 레벨 AI Discovery 캐시 (인메모리, thread-safe)
     _ai_cache: Dict[str, Dict[str, Any]] = {}
+    _cache_lock: asyncio.Lock = None  # Lazy initialization
 
     def __init__(self, db: AsyncSession):
         self.db = db
+        # Lazy init Lock (클래스 레벨로 공유)
+        if MenuMatchingEngine._cache_lock is None:
+            MenuMatchingEngine._cache_lock = asyncio.Lock()
 
     async def match_menu(self, menu_name: str) -> MatchResult:
         """
@@ -265,9 +270,9 @@ class MenuMatchingEngine:
         - OpenAI API로 새로운 메뉴 분석
         - 영문 번역 + 간단한 설명 생성
         - modifiers 추출 시도
-        - 인메모리 캐시 사용 (성능 최적화)
+        - 인메모리 캐시 사용 (성능 최적화, thread-safe)
         """
-        # 캐시 확인
+        # Fast path: Read cache without lock
         if menu_name in self._ai_cache:
             cached = self._ai_cache[menu_name]
             return MatchResult(
@@ -382,13 +387,16 @@ Return JSON only:
                 ai_called=True,
             )
 
-            # 캐시에 저장 (다음 요청에서 재사용)
-            self._ai_cache[menu_name] = {
-                "match_type": "ai_discovery",
-                "canonical": ai_canonical,
-                "modifiers": found_modifiers,
-                "confidence": 0.6,
-            }
+            # 캐시에 저장 (다음 요청에서 재사용, thread-safe)
+            async with self._cache_lock:
+                # Double-check: 다른 태스크가 이미 캐싱했을 수 있음
+                if menu_name not in self._ai_cache:
+                    self._ai_cache[menu_name] = {
+                        "match_type": "ai_discovery",
+                        "canonical": ai_canonical,
+                        "modifiers": found_modifiers,
+                        "confidence": 0.6,
+                    }
 
             return result
 
