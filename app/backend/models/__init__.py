@@ -10,6 +10,7 @@ from .shop import Shop
 from .scan_log import ScanLog
 from .evidence import Evidence
 from .cultural_concept import CulturalConcept
+from .restaurant import Restaurant, RestaurantStatus
 
 __all__ = [
     "Concept",
@@ -21,4 +22,6 @@ __all__ = [
     "ScanLog",
     "Evidence",
     "CulturalConcept",
+    "Restaurant",
+    "RestaurantStatus",
 ]
