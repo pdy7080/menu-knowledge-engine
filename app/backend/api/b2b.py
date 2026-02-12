@@ -14,6 +14,7 @@ from models.restaurant import Restaurant, RestaurantStatus
 from services.menu_upload_service import MenuUploadService
 from services.menu_approval_service import MenuApprovalService
 from services.qr_code_service import QRCodeService
+from services.cache_service import cache_service, TTL_RESTAURANT_INFO
 
 router = APIRouter(prefix="/api/v1/b2b", tags=["b2b"])
 
@@ -101,7 +102,14 @@ async def get_restaurant(
     restaurant_id: str,
     db: AsyncSession = Depends(get_db)
 ):
-    """식당 정보 조회"""
+    """식당 정보 조회 (Redis 캐싱, TTL: 1시간)"""
+    # Check cache first
+    cache_key = f"restaurant:{restaurant_id}"
+    cached_data = await cache_service.get(cache_key)
+    if cached_data is not None:
+        return cached_data
+
+    # Query database
     result = await db.execute(
         select(Restaurant).where(Restaurant.id == uuid.UUID(restaurant_id))
     )
@@ -110,7 +118,7 @@ async def get_restaurant(
     if not restaurant:
         raise HTTPException(status_code=404, detail="Restaurant not found")
 
-    return {
+    restaurant_data = {
         "id": str(restaurant.id),
         "name": restaurant.name,
         "name_en": restaurant.name_en,
@@ -126,6 +134,11 @@ async def get_restaurant(
         "created_at": restaurant.created_at.isoformat() if restaurant.created_at else None,
         "approved_at": restaurant.approved_at.isoformat() if restaurant.approved_at else None,
     }
+
+    # Save to cache (1 hour TTL)
+    await cache_service.set(cache_key, restaurant_data, TTL_RESTAURANT_INFO)
+
+    return restaurant_data
 
 
 @router.post("/restaurants/{restaurant_id}/approve")
@@ -165,6 +178,10 @@ async def approve_restaurant(
         )
 
     await db.commit()
+
+    # Invalidate restaurant cache
+    cache_key = f"restaurant:{restaurant_id}"
+    await cache_service.delete(cache_key)
 
     return {
         "success": True,

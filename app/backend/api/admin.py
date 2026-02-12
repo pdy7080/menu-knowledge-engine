@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from datetime import datetime, timedelta
 from database import get_db
 from models import ScanLog, CanonicalMenu, Modifier, MenuVariant
+from services.cache_service import cache_service, TTL_ADMIN_STATS
 import uuid
 
 router = APIRouter(prefix="/api/v1/admin", tags=["admin"])
@@ -233,6 +234,12 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
             "avg_confidence_7d": float,   # 7일 평균 신뢰도
         }
     """
+    # Check cache first
+    cache_key = "admin:stats"
+    cached_stats = await cache_service.get(cache_key)
+    if cached_stats is not None:
+        return cached_stats
+
     # 1. Canonical count
     canonical_result = await db.execute(select(func.count(CanonicalMenu.id)))
     canonical_count = canonical_result.scalar()
@@ -298,7 +305,7 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
     ai_calls_7d = ai_calls_7d_result.scalar() or 0
     ai_cost_7d = ai_calls_7d * 0.00009 * 1300  # KRW
 
-    return {
+    stats = {
         "canonical_count": canonical_count,
         "modifier_count": modifier_count,
         "pending_queue_count": pending_count,
@@ -307,3 +314,8 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
         "avg_confidence_7d": round(float(avg_confidence_7d), 3),
         "ai_cost_7d": round(ai_cost_7d, 0),  # ₩
     }
+
+    # Save to cache (5 minutes TTL)
+    await cache_service.set(cache_key, stats, TTL_ADMIN_STATS)
+
+    return stats

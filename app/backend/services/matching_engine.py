@@ -8,6 +8,7 @@ from typing import Dict, List, Optional, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from models import CanonicalMenu, Modifier
+from services.cache_service import cache_service, TTL_MENU_TRANSLATION
 from openai import OpenAI
 import asyncio
 import json
@@ -61,19 +62,38 @@ class MenuMatchingEngine:
         """
         메뉴명 매칭 메인 함수
         3단계 파이프라인: Exact Match → Modifier Decomposition → AI Discovery
+        Redis 캐싱 적용 (TTL: 24시간)
         """
+        # Check Redis cache first
+        cache_key = f"menu:identify:{menu_name}"
+        cached_result = await cache_service.get(cache_key)
+        if cached_result is not None:
+            # Convert cached dict back to MatchResult
+            return MatchResult(
+                input_text=cached_result["input"],
+                match_type=cached_result["match_type"],
+                canonical=cached_result["canonical"],
+                modifiers=cached_result["modifiers"],
+                confidence=cached_result["confidence"],
+                ai_called=False,  # 캐시에서 가져왔으므로 False
+            )
+
         # Step 1: Exact Match
         result = await self._exact_match(menu_name)
         if result:
+            await cache_service.set(cache_key, result.to_dict(), TTL_MENU_TRANSLATION)
             return result
 
         # Step 2: Modifier Decomposition
         result = await self._modifier_decomposition(menu_name)
         if result:
+            await cache_service.set(cache_key, result.to_dict(), TTL_MENU_TRANSLATION)
             return result
 
-        # Step 3: AI Discovery (placeholder)
-        return await self._ai_discovery(menu_name)
+        # Step 3: AI Discovery
+        result = await self._ai_discovery(menu_name)
+        await cache_service.set(cache_key, result.to_dict(), TTL_MENU_TRANSLATION)
+        return result
 
     async def _exact_match(self, menu_name: str) -> Optional[MatchResult]:
         """
