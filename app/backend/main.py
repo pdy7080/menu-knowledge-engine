@@ -10,6 +10,7 @@ from api.menu import router as menu_router
 from api.admin import router as admin_router
 from api.qr_menu import router as qr_router
 from api.b2b import router as b2b_router
+from services.cache_service import cache_service
 
 app = FastAPI(
     title="Menu Knowledge Engine API",
@@ -17,6 +18,18 @@ app = FastAPI(
     version="0.1.0",
     debug=settings.DEBUG,
 )
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize services on application startup"""
+    await cache_service.connect()
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Cleanup services on application shutdown"""
+    await cache_service.disconnect()
 
 # CORS
 app.add_middleware(
