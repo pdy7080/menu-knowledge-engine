@@ -5,9 +5,25 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from sqlalchemy.orm import declarative_base
 from config import settings
 
+# Auto-detect database type and adjust URL
+def get_database_url() -> str:
+    """Get database URL with correct driver"""
+    url = settings.DATABASE_URL
+
+    # PostgreSQL: use asyncpg
+    if url.startswith("postgresql://"):
+        return url.replace("postgresql://", "postgresql+asyncpg://")
+
+    # SQLite: use aiosqlite
+    if url.startswith("sqlite:///"):
+        return url.replace("sqlite:///", "sqlite+aiosqlite:///")
+
+    # Already has driver specified
+    return url
+
 # Create async engine
 engine = create_async_engine(
-    settings.DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://"),
+    get_database_url(),
     echo=settings.DEBUG,
     future=True,
 )
