@@ -11,7 +11,7 @@ from typing import List, Dict, Optional
 import requests
 from openai import OpenAI
 
-from app.backend.config import settings
+from config import settings
 
 
 class OCRService:
