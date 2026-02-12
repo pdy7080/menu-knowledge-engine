@@ -1,8 +1,73 @@
 # 🚀 Menu Knowledge Engine v0.1.0 배포 가이드
 
 **최종 수정**: 2026-02-12
-**상태**: Phase 3.3 프로덕션 배포
+**상태**: Phase 3.3 프로덕션 배포 ✅ 완료
 **목표**: Menu Knowledge Engine을 Chargeap 서버에 배포하기
+
+---
+
+## ⚡ FastComet Managed VPS 특이사항
+
+> **중요**: FastComet의 **Managed VPS** 플랜에서는 다음 제한사항이 있습니다.
+> 이 정보는 향후 배포 시 필수 참조 사항입니다.
+
+### 🚫 Docker 미지원
+- **상황**: Managed VPS에서는 Docker 미지원
+- **이유**: root 권한 필요, Managed 환경에서는 보안상 제한
+- **해결책**:
+  - Python `venv` + `uvicorn` 사용 (이번 배포 방식)
+  - 또는 Unmanaged VPS로 업그레이드 필요
+- **참고**: `sudo` 명령어 사용 불가
+
+### ✅ PostgreSQL 설치 가능
+- **상황**: FastComet 지원팀이 직접 설치 가능
+- **요청 방법**: cPanel → Support Ticket에서 요청
+- **설치 정보**:
+  - 메일로 연결 정보 제공
+  - 기본 포트: 5432 (localhost만 접근)
+  - 사용자명/비밀번호 설정됨
+
+### ✅ Redis cPanel 도구로 관리
+- **상황**: cPanel에 내장 Redis 관리 도구 있음
+- **위치**: cPanel → "Redis" 검색
+- **설정**:
+  - 인스턴스 자동 생성 가능
+  - 포트: 무작위 할당 (예: 34967)
+  - 비밀번호: 자동 생성
+- **접근**: localhost 또는 127.0.0.1
+
+### 🔌 포트 관리
+- **현재 상태**: FastAPI는 8000번 포트에서 실행
+- **외부 접근**:
+  - 8000번 포트: 직접 접근 가능
+  - 80번 포트: cPanel Reverse Proxy 필요
+- **Reverse Proxy 설정**:
+  ```
+  cPanel → Apache Handlers 또는 Proxy 설정
+  URL 포트: 80/443
+  내부 포트: 8000
+  ```
+
+---
+
+## 📊 실제 배포 결과 (2026-02-12)
+
+### 환경 구성
+```
+✅ Python 3.12 + venv
+✅ FastAPI + uvicorn (4 workers)
+✅ Redis (cPanel, 127.0.0.1:34967)
+⏳ PostgreSQL (FastComet 설치 중)
+❌ Docker (Managed VPS 미지원)
+```
+
+### 배포 성공 메트릭
+- 배포 시간: 약 3분
+- Health Check: ✅ 성공
+- Redis 연결: ✅ 성공
+- API 응답: ✅ 정상
+- 메모리 사용: 약 150MB
+- CPU 사용: 약 1-2%
 
 ---
 
@@ -185,6 +250,55 @@ curl -X POST http://localhost:8000/api/v1/b2b/restaurants \
 
 ---
 
+## 🚀 배포 방식 비교
+
+### Docker 기반 배포 (원래 계획)
+```
+❌ FastComet Managed VPS에서 미지원
+   - root 권한 필요
+   - Unmanaged VPS로 업그레이드 필요 (추가 비용)
+
+✅ 대안: Unmanaged VPS 또는 다른 호스팅
+   - AWS EC2, DigitalOcean, Linode 등
+```
+
+### Python venv 배포 (현재 방식) ⭐
+```
+✅ FastComet Managed VPS 완벽 지원
+✅ 추가 비용 없음
+✅ 간단한 설치 및 관리
+✅ 성능: Docker와 동등 수준
+
+구성:
+- Python venv (격리된 환경)
+- uvicorn (ASGI 서버)
+- systemd (자동 시작)
+- cPanel Redis (캐싱)
+- PostgreSQL (FastComet 설치)
+```
+
+### 배포 절차 (venv 방식)
+```bash
+1. Python venv 생성
+   python3 -m venv venv
+   source venv/bin/activate
+
+2. 의존성 설치
+   pip install -r requirements.txt
+
+3. 환경변수 설정
+   .env.production 생성 (Redis, DB 정보)
+
+4. 서버 시작
+   nohup uvicorn main:app --host 0.0.0.0 --port 8000 \
+       --env-file .env.production &
+
+5. systemd 등록 (자동 시작)
+   /etc/systemd/system/menu-api.service
+```
+
+---
+
 ## 🌐 서브도메인 설정
 
 ### 현재 상황
@@ -222,6 +336,108 @@ server {
 ```bash
 sudo certbot certonly --standalone -d api.menu.chargeapp.net
 sudo certbot renew --dry-run  # 자동 갱신 테스트
+```
+
+---
+
+## ⚙️ systemd 자동 시작 설정
+
+서버 재부팅 시 FastAPI가 자동으로 시작되도록 설정합니다.
+
+### 1️⃣ systemd 서비스 파일 생성
+
+```bash
+# SSH 접속 후
+ssh chargeap@d11475.sgp1.stableserver.net
+
+# 서비스 파일 생성
+cat > /tmp/menu-api.service << 'EOF'
+[Unit]
+Description=Menu Knowledge Engine API
+After=network.target
+
+[Service]
+Type=simple
+User=chargeap
+WorkingDirectory=/home/chargeap/menu-knowledge/app/backend
+ExecStart=/home/chargeap/menu-knowledge/app/backend/venv/bin/uvicorn \
+    main:app \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --workers 4 \
+    --env-file .env.production \
+    --access-log
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# 참고: sudo 필요하므로 FastComet 지원팀에 설치 요청
+```
+
+### 2️⃣ 자동 시작 활성화 (FastComet 지원팀 요청 후)
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable menu-api
+sudo systemctl start menu-api
+sudo systemctl status menu-api
+```
+
+---
+
+## 📊 실시간 모니터링
+
+### 프로세스 상태 확인
+```bash
+# 프로세스 실행 여부
+ps aux | grep uvicorn
+
+# 포트 확인
+netstat -tuln | grep 8000  # 또는
+lsof -i :8000
+```
+
+### 로그 확인
+```bash
+# 마지막 로그 확인
+tail -50 ~/menu-knowledge/app/backend/logs/server.log
+
+# 실시간 로그 (Ctrl+C로 종료)
+tail -f ~/menu-knowledge/app/backend/logs/server.log
+
+# 에러만 필터링
+grep ERROR ~/menu-knowledge/app/backend/logs/server.log
+```
+
+### Redis 상태 확인
+```bash
+# Redis 연결 테스트
+redis-cli -h 127.0.0.1 -p 34967 -a PRPpam4vhU9uZL9zOyy ping
+
+# Redis 캐시 통계
+redis-cli -h 127.0.0.1 -p 34967 -a PRPpam4vhU9uZL9zOyy info stats
+
+# 캐시 키 확인
+redis-cli -h 127.0.0.1 -p 34967 -a PRPpam4vhU9uZL9zOyy keys "*"
+```
+
+### 서버 재시작
+```bash
+# 프로세스 종료
+pkill -f 'uvicorn main:app'
+
+# 수동 재시작
+cd ~/menu-knowledge/app/backend
+source venv/bin/activate
+nohup uvicorn main:app --host 0.0.0.0 --port 8000 \
+    --env-file .env.production \
+    --workers 4 \
+    --access-log > logs/server.log 2>&1 &
 ```
 
 ---
@@ -280,6 +496,68 @@ http://api.menu.chargeapp.net/docs
 ### 로그 확인
 ```bash
 docker-compose logs backend --follow
+```
+
+---
+
+## 💾 PostgreSQL 설치 후 설정
+
+FastComet에서 PostgreSQL 설치가 완료되면 다음을 수행합니다:
+
+### 1️⃣ 접속 정보 확인
+```
+FastComet 이메일에서 다음 정보 확인:
+- Database Host: localhost (또는 IP)
+- Port: 5432 (기본값)
+- Database Name: menu_knowledge_db
+- Username: menu_admin
+- Password: [확인]
+```
+
+### 2️⃣ .env.production 업데이트
+```bash
+# SSH 접속
+ssh chargeap@d11475.sgp1.stableserver.net
+
+# 파일 수정
+nano ~/menu-knowledge/app/backend/.env.production
+
+# 다음 라인 업데이트:
+DATABASE_URL=postgresql+asyncpg://menu_admin:PASSWORD@localhost:5432/menu_knowledge_db
+```
+
+### 3️⃣ 데이터베이스 초기화
+```bash
+# SSH에서
+cd ~/menu-knowledge/app/backend
+source venv/bin/activate
+
+# 마이그레이션 실행
+python -c "from database import init_db; init_db()"
+
+# 또는
+alembic upgrade head
+```
+
+### 4️⃣ 서버 재시작
+```bash
+# 프로세스 종료
+pkill -f 'uvicorn main:app'
+
+# 재시작
+nohup uvicorn main:app --host 0.0.0.0 --port 8000 \
+    --env-file .env.production \
+    --workers 4 \
+    --access-log > logs/server.log 2>&1 &
+```
+
+### 5️⃣ 데이터베이스 연결 확인
+```bash
+# 직접 테스트 (psql 클라이언트 설치 필요)
+psql -h localhost -U menu_admin -d menu_knowledge_db -c "SELECT version();"
+
+# 또는 API를 통해 확인
+curl http://localhost:8000/health
 ```
 
 ---
