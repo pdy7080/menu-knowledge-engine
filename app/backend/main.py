@@ -3,6 +3,8 @@ Menu Knowledge Engine - FastAPI Application
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from config import settings
 from api.menu import router as menu_router
 from api.admin import router as admin_router
@@ -28,6 +30,11 @@ app.add_middleware(
 app.include_router(menu_router)
 app.include_router(admin_router)
 app.include_router(qr_router)
+
+# Static Files (Admin UI)
+static_path = Path(__file__).parent / "static" / "admin"
+if static_path.exists():
+    app.mount("/admin", StaticFiles(directory=str(static_path), html=True), name="admin")
 
 
 @app.get("/health")
