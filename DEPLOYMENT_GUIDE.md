@@ -1,8 +1,24 @@
 # 🚀 Menu Knowledge Engine v0.1.0 배포 가이드
 
-**최종 수정**: 2026-02-12
+**최종 수정**: 2026-02-13
 **상태**: Phase 3.3 프로덕션 배포 ✅ 완료
 **목표**: Menu Knowledge Engine을 Chargeap 서버에 배포하기
+
+---
+
+## 📚 공통 참조 문서
+
+> 다른 프로젝트에서도 이 문서를 참조할 수 있습니다.
+
+| 문서 | 위치 | 용도 |
+|------|------|------|
+| **FastComet 배포 (전체)** | `dev-reference/docs/FASTCOMET_DEPLOYMENT_GUIDE.md` | Python venv, Node.js, Nginx, SSL 설정 |
+| **PostgreSQL 설정** | `dev-reference/docs/FASTCOMET_POSTGRESQL_SETUP.md` | ⭐ cPanel Database Wizard 사용 방법 |
+| **배포 빠른 시작** | `dev-reference/docs/FASTCOMET_DEPLOYMENT_QUICK_START.md` | 5분 안에 배포하기 |
+| **문제 해결** | `dev-reference/docs/FASTCOMET_DEPLOYMENT_TROUBLESHOOTING.md` | SSH, 에러 디버깅 |
+
+**새 프로젝트에서 DB가 필요한 경우:**
+→ `FASTCOMET_POSTGRESQL_SETUP.md`의 "다른 프로젝트에서 사용하기" 섹션 참조
 
 ---
 
