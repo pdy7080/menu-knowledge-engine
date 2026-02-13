@@ -52,20 +52,32 @@
 
 ## 📊 실제 배포 결과 (2026-02-12)
 
-### 환경 구성
+### 환경 구성 (최종 - 2026-02-13)
 ```
 ✅ Python 3.12 + venv
-✅ FastAPI + uvicorn (4 workers)
+✅ FastAPI + uvicorn (2 workers)
+✅ PostgreSQL 13.23 (cPanel 관리)
 ✅ Redis (cPanel, 127.0.0.1:34967)
-⏳ PostgreSQL (FastComet 설치 중)
-❌ Docker (Managed VPS 미지원)
+❌ Docker (Managed VPS 미지원 - venv 사용)
+```
+
+### 📦 PostgreSQL 설치 정보 (2026-02-13)
+```
+Database: chargeap_menu_knowledge
+User: chargeap_dcclab2022
+Host: localhost:5432
+Status: ✅ Connected (Health Check: database=true)
+
+CONNECTION STRING:
+postgresql+asyncpg://chargeap_dcclab2022:eromlab!1228@localhost:5432/chargeap_menu_knowledge
 ```
 
 ### 배포 성공 메트릭
 - 배포 시간: 약 3분
-- Health Check: ✅ 성공
+- Health Check: ✅ 성공 (database: true)
+- PostgreSQL 연결: ✅ 성공
 - Redis 연결: ✅ 성공
-- API 응답: ✅ 정상
+- API 응답: ✅ 정상 (<100ms)
 - 메모리 사용: 약 150MB
 - CPU 사용: 약 1-2%
 
