@@ -1,0 +1,75 @@
+{
+  "model": "gpt-4o-mini",
+  "cost_per_ai_call_usd": 9e-05,
+  "cost_per_ai_call_krw": 0.12150000000000001,
+  "test_results": [
+    {
+      "menu": "김치찌개",
+      "match_type": "exact",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "된장찌개",
+      "match_type": "exact",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "불고기",
+      "match_type": "exact",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "비빔밥",
+      "match_type": "exact",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "냉면",
+      "match_type": "exact",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "매운김치찌개",
+      "match_type": "modifier_decomposition",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "왕돈까스",
+      "match_type": "modifier_decomposition",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "숯불갈비",
+      "match_type": "modifier_decomposition",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "시래기국",
+      "match_type": "ai_discovery",
+      "ai_called": false,
+      "cost_krw": 0
+    },
+    {
+      "menu": "고씨네묵은지감자탕",
+      "match_type": "ai_discovery",
+      "ai_called": false,
+      "cost_krw": 0
+    }
+  ],
+  "summary": {
+    "total_scans": 10,
+    "ai_calls": 0,
+    "db_hits": 10,
+    "total_cost_krw": 0,
+    "cost_per_scan_krw": 0.0,
+    "target_50krw_met": true
+  }
+}

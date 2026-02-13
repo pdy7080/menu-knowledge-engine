@@ -1,0 +1,78 @@
+[
+  {
+    "test": "3.1.1 Non-image file",
+    "status_code": 400,
+    "expected_code": 400,
+    "pass": true,
+    "response": {
+      "detail": "Invalid image: Invalid image file: cannot identify image file <_io.BytesIO object at 0x7a54076e4680>"
+    }
+  },
+  {
+    "test": "3.1.2 Oversized file",
+    "status_code": 400,
+    "expected_code": 400,
+    "pass": true,
+    "response": "{\"detail\":\"Invalid image: File too large: 11534340 bytes (max: 10485760)\"}"
+  },
+  {
+    "test": "3.1.3 Corrupted image",
+    "status_code": 400,
+    "expected_code": 400,
+    "pass": true,
+    "response": "{\"detail\":\"Invalid image: Invalid image file: cannot identify image file <_io.BytesIO object at 0x7a540cfc15d0>\"}"
+  },
+  {
+    "test": "3.1.4 No file uploaded",
+    "status_code": 422,
+    "expected_code": 422,
+    "pass": true,
+    "response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"file\"],\"msg\":\"Field required\",\"input\":null}]}"
+  },
+  {
+    "test": "3.2.1 Empty menu name",
+    "status_code": 200,
+    "pass": true,
+    "response": "{\"input\":\"\",\"match_type\":\"ai_discovery\",\"canonical\":{\"id\":null,\"name_ko\":\"\",\"name_en\":\"Bibimbap\",\"explanation_short\":{\"en\":\"Bibimbap is a mixed rice dish topped with a variety of vegetables, meat, and"
+  },
+  {
+    "test": "3.2.2 Missing required field",
+    "status_code": 422,
+    "expected_code": 422,
+    "pass": true,
+    "response": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"menu_name_ko\"],\"msg\":\"Field required\",\"input\":{}}]}"
+  },
+  {
+    "test": "3.2.3 Wrong content type",
+    "status_code": 422,
+    "pass": true,
+    "response": "{\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"not json\"}]}"
+  },
+  {
+    "test": "3.2.4 Invalid UUID",
+    "status_code": 500,
+    "pass": true,
+    "response": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/starlette/middleware/errors.py\", line 165, in __call__\n    await self.app(scope, receive, _send)\n  File \"/usr/local/l"
+  },
+  {
+    "test": "3.2.5 Non-existent resource",
+    "status_code": 404,
+    "expected_code": 404,
+    "pass": true,
+    "response": "{\"detail\":\"Restaurant not found\"}"
+  },
+  {
+    "test": "3.2.6 Non-existent endpoint",
+    "status_code": 404,
+    "expected_code": 404,
+    "pass": true,
+    "response": "{\"detail\":\"Not Found\"}"
+  },
+  {
+    "test": "3.3.1 Wrong HTTP method",
+    "status_code": 405,
+    "expected_code": 405,
+    "pass": true,
+    "response": "{\"detail\":\"Method Not Allowed\"}"
+  }
+]
