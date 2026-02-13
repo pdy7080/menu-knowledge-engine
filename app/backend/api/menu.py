@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from database import get_db
 from models import Concept, Modifier, CanonicalMenu
 from services.matching_engine import MenuMatchingEngine
@@ -22,7 +22,7 @@ router = APIRouter(prefix="/api/v1", tags=["menu"])
 
 class MenuIdentifyRequest(BaseModel):
     """메뉴 식별 요청 모델"""
-    menu_name_ko: str
+    menu_name_ko: str = Field(..., min_length=1, description="Korean menu name (cannot be empty)")
 
 
 @router.get("/concepts")

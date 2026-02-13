@@ -54,9 +54,8 @@ def get_modifier_seeds() -> List[Dict[str, Any]]:
         {"text_ko": "명품", "type": "emotion", "semantic_key": "premium_brand", "translation_en": "Premium", "priority": 5},
     ]
 
-    # ingredient (재료 강조) - 10개
+    # ingredient (재료 강조) - 9개
     ingredient_modifiers = [
-        {"text_ko": "한우", "type": "ingredient", "semantic_key": "korean_beef", "translation_en": "Korean Beef (Hanwoo)", "priority": 20},
         {"text_ko": "해물", "type": "ingredient", "semantic_key": "seafood", "translation_en": "Seafood", "priority": 18},
         {"text_ko": "야채", "type": "ingredient", "semantic_key": "vegetable", "translation_en": "Vegetable", "priority": 15},
         {"text_ko": "순두부", "type": "ingredient", "semantic_key": "soft_tofu", "translation_en": "Soft Tofu", "priority": 18},
@@ -79,8 +78,9 @@ def get_modifier_seeds() -> List[Dict[str, Any]]:
         {"text_ko": "대패", "type": "cooking", "semantic_key": "thinly_sliced", "translation_en": "Thinly Sliced", "priority": 12},
     ]
 
-    # grade (등급) - 3개
+    # grade (등급) - 4개
     grade_modifiers = [
+        {"text_ko": "한우", "type": "grade", "semantic_key": "korean_beef", "translation_en": "Korean Beef (Hanwoo)", "priority": 20},
         {"text_ko": "특", "type": "grade", "semantic_key": "special_grade", "translation_en": "Special Grade", "priority": 10},
         {"text_ko": "프리미엄", "type": "grade", "semantic_key": "premium", "translation_en": "Premium", "priority": 10},
         {"text_ko": "스페셜", "type": "grade", "semantic_key": "special", "translation_en": "Special", "priority": 10},

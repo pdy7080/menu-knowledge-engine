@@ -140,8 +140,21 @@
         let currentAction = null;
         let currentQueueId = null;
 
-        // API base URL
-        const API_BASE = 'http://localhost:8000';
+        // API base URL (동적 설정)
+        const API_BASE = window.location.origin || 'http://localhost:8000';
+
+        // XSS 방지 함수
+        function escapeHtml(unsafe) {
+            if (!unsafe || typeof unsafe !== 'string') {
+                return '';
+            }
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
 
         // Load queue on page load
         window.onload = function() {
@@ -207,7 +220,7 @@
             tbody.innerHTML = data.data.map(item => `
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        ${item.menu_name_ko}
+                        ${escapeHtml(item.menu_name_ko)}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full badge-${item.source}">

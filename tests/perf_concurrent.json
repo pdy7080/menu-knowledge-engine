@@ -1,0 +1,13 @@
+{
+  "concurrency": 10,
+  "total_requests": 10,
+  "successful": 10,
+  "failed": 0,
+  "total_wall_time_ms": 3847.0470905303955,
+  "avg_ms": 512.0114803314209,
+  "p50_ms": 165.31896591186523,
+  "p95_ms": 3845.780611038208,
+  "min_ms": 21.383047103881836,
+  "max_ms": 3845.780611038208,
+  "stability": "STABLE"
+}

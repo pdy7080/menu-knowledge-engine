@@ -7,7 +7,7 @@
 // Configuration
 // ===========================
 const CONFIG = {
-    API_BASE_URL: 'http://localhost:8000',
+    API_BASE_URL: window.location.origin || 'http://localhost:8000',
     API_ENDPOINTS: {
         QUEUE: '/api/v1/admin/queue',
         STATS: '/api/v1/admin/stats',

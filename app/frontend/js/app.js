@@ -7,7 +7,8 @@
 // Configuration
 // ===========================
 const CONFIG = {
-    API_BASE_URL: 'http://localhost:8000',
+    // API_BASE_URL: 동적으로 환경에 맞게 자동 설정
+    API_BASE_URL: window.location.origin || 'http://localhost:8000',
     API_ENDPOINTS: {
         IDENTIFY: '/api/v1/menu/identify',
         HEALTH: '/health'
