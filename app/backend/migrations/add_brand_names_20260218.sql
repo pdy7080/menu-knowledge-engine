@@ -60,10 +60,10 @@ VALUES
 -- 패턴 4: "~네" (성씨 + 네, 축약형) - 5개
 INSERT INTO modifiers (id, text_ko, type, semantic_key, translation_en, priority, created_at)
 VALUES
-  (gen_random_uuid(), '어머니네', 'emotion', 'brand_mothers_home', "Mother's Home", 5, now()),
-  (gen_random_uuid(), '시어머니네', 'emotion', 'brand_mothers_in_law_home', "Mother-in-law's Home", 5, now()),
-  (gen_random_uuid(), '친구네', 'emotion', 'brand_friends_place', "Friend's Place", 5, now()),
-  (gen_random_uuid(), '이웃네', 'emotion', 'brand_neighbors_place', "Neighbor's Place", 5, now()),
+  (gen_random_uuid(), '어머니네', 'emotion', 'brand_mothers_home', 'Mother''s Home', 5, now()),
+  (gen_random_uuid(), '시어머니네', 'emotion', 'brand_mothers_in_law_home', 'Mother-in-law''s Home', 5, now()),
+  (gen_random_uuid(), '친구네', 'emotion', 'brand_friends_place', 'Friend''s Place', 5, now()),
+  (gen_random_uuid(), '이웃네', 'emotion', 'brand_neighbors_place', 'Neighbor''s Place', 5, now()),
   (gen_random_uuid(), '동네네', 'emotion', 'brand_neighborhood_place', 'Neighborhood Place', 5, now());
 
 -- 패턴 5: "~하우스" (영어 차용) - 5개
