@@ -153,27 +153,79 @@ class MenuMatchingEngine:
     async def _modifier_decomposition(self, menu_name: str) -> Optional[MatchResult]:
         """
         Step 2: Modifier Decomposition (개선됨)
+        - 먼저 입력 문자열의 부분 문자열이 canonical과 매칭되는지 확인 (NEW!)
         - modifiers 테이블에서 수식어 찾아서 제거
-        - 타입별 우선순위 적용 (ingredient는 마지막에)
+        - 타입별 우선순위 적용
         - 수식어를 누적해서 제거하면서 canonical 매칭 시도
         - 매칭 성공하는 조합만 유효
         """
-        # 2-1. 모든 수식어 조회
+        # 2-0. Canonical 우선 매칭 (NEW!)
+        # 입력 문자열의 모든 연속 부분 문자열이 canonical과 매칭되는지 확인
+        # 예: "한우불고기" → "불고기"가 canonical과 매칭되면, "한우"는 modifier
+        for length in range(len(menu_name), 1, -1):  # 긴 것부터 시도
+            for start in range(len(menu_name) - length + 1):
+                substring = menu_name[start:start + length]
+
+                # 이 부분 문자열이 canonical과 매칭되는가?
+                canonical = await self._try_canonical_match(substring)
+
+                if canonical:
+                    # 나머지 부분 추출
+                    prefix = menu_name[:start]
+                    suffix = menu_name[start + length:]
+                    remaining_text = (prefix + suffix).strip()
+
+                    # 나머지가 없으면 (전체가 canonical) 이미 Step 1에서 잡혔을 것
+                    if not remaining_text:
+                        continue
+
+                    # 나머지 부분이 modifier인지 확인
+                    result_mod = await self.db.execute(select(Modifier))
+                    all_mods = result_mod.scalars().all()
+
+                    found_modifiers = []
+                    temp_remaining = remaining_text
+
+                    for mod in all_mods:
+                        if mod.text_ko in temp_remaining:
+                            found_modifiers.append({
+                                "text_ko": mod.text_ko,
+                                "type": mod.type,
+                                "translation_en": mod.translation_en,
+                                "semantic_key": mod.semantic_key,
+                            })
+                            temp_remaining = temp_remaining.replace(mod.text_ko, "", 1).strip()
+
+                    # 모든 나머지 텍스트가 modifier로 설명되면 성공
+                    if not temp_remaining or temp_remaining == "":
+                        confidence = 0.95 - (len(found_modifiers) * 0.05)
+                        confidence = max(confidence, 0.7)
+
+                        return MatchResult(
+                            input_text=menu_name,
+                            match_type="modifier_decomposition",
+                            canonical=self._canonical_to_dict(canonical),
+                            modifiers=found_modifiers,
+                            confidence=confidence,
+                            ai_called=False,
+                        )
+
+        # 2-1. 모든 수식어 조회 (기존 알고리즘 폴백)
         result = await self.db.execute(select(Modifier))
         all_modifiers = result.scalars().all()
 
         # 2-1-1. 타입별 우선순위 정의 (숫자가 낮을수록 높은 우선순위)
         # emotion/cooking/grade/origin: 메뉴 외부 수식어 (브랜드, 감성) - 최우선
+        # ingredient: 재료 강조 - cooking 다음 (한우불고기, 해물짬뽕 등)
         # taste/size: 메뉴 내부 속성 - 그 다음
-        # ingredient: 핵심 재료 - 제외
         type_priority = {
             "emotion": 1,   # 최우선 (원조, 할매 등)
             "cooking": 2,
-            "grade": 3,
-            "origin": 4,
-            "taste": 5,
-            "size": 6,
-            "ingredient": 99,  # 가장 낮은 우선순위 (제외됨)
+            "ingredient": 3,  # cooking 다음 (한우, 해물 등)
+            "grade": 4,
+            "origin": 5,
+            "taste": 6,
+            "size": 7,
         }
 
         # 2-1-2. 타입 우선순위 → 길이 순 → priority 순으로 정렬
@@ -187,11 +239,10 @@ class MenuMatchingEngine:
         )
 
         # 2-2. 메뉴명에서 발견 가능한 수식어 목록 추출
-        # ingredient 타입은 제외 (핵심 재료이므로 수식어로 제거하면 안 됨)
+        # 모든 타입의 수식어를 포함 (ingredient 포함)
+        # 이유: "한우불고기" = "한우"(ingredient) + "불고기"(canonical)와 같은 경우를 처리하기 위함
         potential_modifiers = []
         for modifier in all_modifiers:
-            if modifier.type == "ingredient":
-                continue  # ingredient는 Step 2에서 제외
             if modifier.text_ko in menu_name:
                 potential_modifiers.append(modifier)
 
