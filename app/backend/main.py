@@ -46,12 +46,7 @@ app.include_router(admin_router)
 app.include_router(qr_router)
 app.include_router(b2b_router)
 
-# Static Files (Admin UI)
-static_path = Path(__file__).parent / "static" / "admin"
-if static_path.exists():
-    app.mount("/admin", StaticFiles(directory=str(static_path), html=True), name="admin")
-
-
+# Health check endpoint (before static files)
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
@@ -63,19 +58,16 @@ async def health_check():
     }
 
 
-@app.get("/")
-async def root():
-    """Root endpoint"""
-    return {
-        "message": "Menu Knowledge Engine API",
-        "docs": "/docs",
-        "health": "/health",
-        "api": {
-            "concepts": "/api/v1/concepts",
-            "modifiers": "/api/v1/modifiers",
-            "canonical-menus": "/api/v1/canonical-menus",
-        },
-    }
+# Static Files
+# Admin UI
+static_admin_path = Path(__file__).parent / "static" / "admin"
+if static_admin_path.exists():
+    app.mount("/admin", StaticFiles(directory=str(static_admin_path), html=True), name="admin")
+
+# Frontend Landing Page (mount last to avoid conflicts with API routes)
+frontend_path = Path(__file__).parent.parent / "frontend"
+if frontend_path.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_path), html=True), name="frontend")
 
 
 if __name__ == "__main__":
