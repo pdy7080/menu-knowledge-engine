@@ -4,14 +4,20 @@ Sprint 3A: Knowledge Graph 강화 검증
 """
 import pytest
 import asyncio
+import sys
+from pathlib import Path
 from sqlalchemy.ext.asyncio import AsyncSession
+
+# Add parent directory to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from database import AsyncSessionLocal, init_db
 from services.matching_engine import MenuMatchingEngine
-from test_cases.exact_match import EXACT_MATCH_CASES
-from test_cases.normalization import NORMALIZATION_CASES
-from test_cases.suffix_patterns import SUFFIX_CASES
-from test_cases.modifier_decomposition import MODIFIER_CASES
-from test_cases.similarity_match import SIMILARITY_CASES
+from tests.test_cases.exact_match import EXACT_MATCH_CASES
+from tests.test_cases.normalization import NORMALIZATION_CASES
+from tests.test_cases.suffix_patterns import SUFFIX_CASES
+from tests.test_cases.modifier_decomposition import MODIFIER_CASES
+from tests.test_cases.similarity_match import SIMILARITY_CASES
 
 
 # 전체 테스트 케이스 합치기
