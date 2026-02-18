@@ -117,13 +117,14 @@ class MenuMatchingEngine:
                 ai_called=False,
             )
 
-        # 1-2. pg_trgm 유사도 검색 (similarity >= 0.35)
+        # 1-2. pg_trgm 유사도 검색 (similarity >= 0.3)
         # PostgreSQL의 pg_trgm extension을 사용한 유사도 검색
         # 한글 오타 감지를 위해 threshold를 낮춤
         #   - 김치찌개 vs 김치찌게 = 0.43 (ㅐ vs ㅔ)
-        #   - 떡볶이 vs 떡복이 = ~0.38 (ㄲ vs ㄱ)
+        #   - 떡볶이 vs 떡복이 = ~0.3 (ㄲ vs ㄱ, 한글 자소 차이)
         # 길이 차이 제한: 오타 보정용이므로 길이가 동일한 경우만 허용
-        similarity_threshold = 0.35  # 0.4 → 0.35로 낮춤 (떡볶이/떡복이 커버)
+        # False positive 방지: 길이가 동일하므로 threshold 0.3도 안전
+        similarity_threshold = 0.3  # 0.35 → 0.3으로 낮춤 (한글 자소 오타 커버)
         max_length_diff = 0  # 길이가 동일한 경우만 (김치찌개 4글자 vs 김치찌게 4글자)
 
         result = await self.db.execute(
