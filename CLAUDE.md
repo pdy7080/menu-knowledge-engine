@@ -33,7 +33,9 @@
 
 ---
 
-## 설계 문서 위치
+## 설계 및 배포 문서 위치
+
+### 기획 & 설계 문서
 
 | 문서 | 경로 | 용도 |
 |------|------|------|
@@ -44,16 +46,29 @@
 | **MVP 범위** | `05_mvp_scope_definition.md` | v0.1에 포함할 기능 |
 | **개념 정의** | `01_concept_overview.md` | 엔진의 3단계 작동 원리 |
 
+### 배포 & 운영 문서 (🆕 v0.1.0 최종)
+
+| 문서 | 경로 | 용도 | 상태 |
+|------|------|------|------|
+| **최종 배포 완료** | `DEPLOYMENT_FINAL_V0.1.0_20260213.md` | **프로덕션 배포 완료** | ✅ |
+| **uvicorn 설정** | 포트 8001, 0.0.0.0 바인딩 | 외부 접근 가능 | ✅ |
+| **pg_trgm 설치** | PostgreSQL 확장 설치 완료 | 유사 검색 준비 | ✅ 2026-02-13 |
+| **데이터베이스** | 214 records 초기 로드 | concepts, modifiers, canonical_menus | ✅ |
+| **FastComet 가이드** | `C:\project\dev-reference\docs\FASTCOMET_DEPLOYMENT_GUIDE.md` | **다른 프로젝트도 참고 가능** | ✅ 최신화 |
+
 ---
 
 ## 기술 스택
 
 ### Backend
-- **Python**: 3.11+ (현재 3.13.5)
+- **Python**: 3.11+ (현재 로컬: 3.13.5 / 서버: 3.13)
 - **프레임워크**: FastAPI (비동기 지원)
 - **ORM**: SQLAlchemy (async)
-- **DB**: PostgreSQL 16+
-- **DB 확장**: pg_trgm (유사 검색), pgvector (v0.2에서 활성화)
+- **ASGI 서버**: uvicorn (0.0.0.0:8001, 2 workers)
+- **DB**: PostgreSQL 13.23 (FastComet Managed VPS)
+- **DB 확장**:
+  - ✅ **pg_trgm** (설치 완료 2026-02-13) - 유사 검색 준비 완료
+  - pgvector (v0.2에서 활성화 예정)
 
 ### AI/ML
 - **OCR**: CLOVA OCR (네이버)
@@ -97,13 +112,35 @@ async def get_menu(menu_id: UUID) -> Optional[dict]:
 ## DB 규칙
 
 ### 확장 (Extensions)
-```sql
--- 필수 확장
-CREATE EXTENSION IF NOT EXISTS pg_trgm;        -- 유사 검색
 
--- v0.2에서 활성화 (지금은 설치만)
+#### ✅ 설치 완료 (v0.1.0)
+```sql
+-- 유사 검색 (2026-02-13 FastComet 지원팀에서 설치 완료)
+CREATE EXTENSION IF NOT EXISTS pg_trgm;        -- 버전: 1.6
+
+-- 테스트
+SELECT similarity('김치찌개', '김치찌게');    -- 0.857 (85.7%)
+```
+
+#### 🔮 예정 (v0.2)
+```sql
+-- 임베딩 기반 검색
 CREATE EXTENSION IF NOT EXISTS vector;         -- pgvector
 ```
+
+#### 📝 설치 요청 방법 (FastComet)
+
+FastComet 지원팀에 이메일로 요청:
+```
+Subject: Install PostgreSQL Extension [extension_name]
+
+Content:
+- Database: chargeap_menu_knowledge
+- Extension: pg_trgm (또는 필요한 확장명)
+- Purpose: [용도]
+```
+
+**응답 시간**: 1-2일 (실제 사례: pg_trgm 설치 2026-02-13 완료)
 
 ### 테이블 우선순위
 1. **concepts** — 개념 트리 (대분류/중분류)
@@ -201,5 +238,6 @@ pytest
 
 ---
 
-**최종 수정**: 2025-02-11
+**최종 수정**: 2026-02-13 (v0.1.0 배포 완료)
 **관리**: Menu Knowledge Engine 개발팀
+**배포 상태**: 🟢 프로덕션 운영 중
