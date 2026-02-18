@@ -14,6 +14,7 @@ from models import Concept, Modifier, CanonicalMenu
 from seeds.seed_concepts import get_concept_seeds
 from seeds.seed_modifiers import get_modifier_seeds
 from seeds.seed_canonical_menus import get_canonical_menu_seeds
+from seeds.seed_canonical_menus_ext import get_canonical_menu_extension
 from seeds.image_urls import get_image_url_map, DEFAULT_FOOD_IMAGE
 
 
@@ -97,7 +98,7 @@ async def seed_modifiers():
 
 
 async def seed_canonical_menus():
-    """Canonical Menu 시드 데이터 입력 (112개)"""
+    """Canonical Menu 시드 데이터 입력 (123 + 177 = 300개)"""
     async with AsyncSessionLocal() as session:
         # Concept ID 매핑을 위해 모든 concept 조회
         from sqlalchemy import select
@@ -105,10 +106,11 @@ async def seed_canonical_menus():
         concepts = result.scalars().all()
         concept_map = {c.name_ko: c.id for c in concepts}
 
-        canonical_data = get_canonical_menu_seeds()
+        # 기본 메뉴 + 확장 메뉴 병합
+        canonical_data = get_canonical_menu_seeds() + get_canonical_menu_extension()
         image_map = get_image_url_map()
 
-        print(f"[*] Seeding Canonical Menus...")
+        print(f"[*] Seeding Canonical Menus (base + extension)...")
         image_count = 0
 
         for menu_dict in canonical_data:
