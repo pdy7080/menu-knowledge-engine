@@ -7,11 +7,15 @@ import os
 import json
 import base64
 import uuid
+import logging
 from typing import List, Dict, Optional
 import requests
 from openai import OpenAI
 
 from config import settings
+from utils.image_preprocessing import preprocess_menu_image
+
+logger = logging.getLogger(__name__)
 
 
 class OCRService:
@@ -28,12 +32,17 @@ class OCRService:
         self.clova_secret = settings.CLOVA_OCR_SECRET
         self.openai_client = OpenAI(api_key=settings.OPENAI_API_KEY) if settings.OPENAI_API_KEY else None
 
-    def recognize_menu_image(self, image_path: str) -> Dict:
+    def recognize_menu_image(
+        self,
+        image_path: str,
+        enable_preprocessing: bool = True
+    ) -> Dict:
         """
         Main entry point: Image → Menu items
 
         Args:
             image_path: Path to menu image file
+            enable_preprocessing: Whether to apply image preprocessing (default True)
 
         Returns:
             {
@@ -44,8 +53,16 @@ class OCRService:
             }
         """
         try:
-            # Step 1: CLOVA OCR
-            ocr_result = self._call_clova_ocr(image_path)
+            # Step 1: Preprocessing (optional)
+            if enable_preprocessing:
+                try:
+                    preprocessed_path = preprocess_menu_image(image_path)
+                    ocr_result = self._call_clova_ocr(preprocessed_path)
+                except Exception as e:
+                    logger.warning(f"Preprocessing failed: {e}, using original")
+                    ocr_result = self._call_clova_ocr(image_path)
+            else:
+                ocr_result = self._call_clova_ocr(image_path)
 
             if not ocr_result["success"]:
                 return ocr_result
