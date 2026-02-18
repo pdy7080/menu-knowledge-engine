@@ -1,6 +1,9 @@
 """
 B2B API Routes - 식당 등록 및 관리
 """
+import json
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
@@ -10,6 +13,9 @@ from typing import Optional, List
 import uuid
 
 from database import get_db
+
+logger = logging.getLogger(__name__)
+
 from models.restaurant import Restaurant, RestaurantStatus
 from services.menu_upload_service import MenuUploadService
 from services.menu_approval_service import MenuApprovalService
@@ -430,3 +436,152 @@ async def approve_restaurant_menus(
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Menu approval failed: {str(e)}")
+
+
+@router.post("/restaurants/{restaurant_id}/menus/upload-images")
+async def bulk_upload_menu_images(
+    restaurant_id: str,
+    files: List[UploadFile] = File(...),
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    B2B 메뉴 이미지 벌크 업로드 API (Sprint 3B)
+
+    식당에서 다중 메뉴 이미지를 한 번에 업로드
+
+    Flow:
+    1. 각 이미지 검증 (format, size, dimensions)
+    2. 이미지 전처리 (preprocess_menu_image)
+    3. OCR 인식 (ocr_service.recognize_menu_image)
+    4. ScanLog에 저장
+    5. MenuUploadTask로 진행 상황 추적
+
+    Args:
+        restaurant_id: 식당 UUID
+        files: 업로드할 이미지 파일 리스트
+
+    Returns:
+        {
+            "success": bool,
+            "task_id": str,
+            "total": int,
+            "successful": int,
+            "failed": int,
+            "errors": [...]
+        }
+    """
+    import tempfile
+    import os
+    from datetime import timezone
+    from models.menu_upload import MenuUploadTask
+    from models.scan_log import ScanLog
+    from services.ocr_service import ocr_service
+    from utils.image_validation import validate_image, ImageValidationError
+
+    # 1. 업로드 작업 생성
+    task = MenuUploadTask(
+        id=uuid.uuid4(),
+        restaurant_id=uuid.UUID(restaurant_id),
+        file_name=f"bulk_upload_{len(files)}_images.zip",
+        file_type="images",
+        total_menus=len(files),
+        status="processing",
+        started_at=datetime.now(timezone.utc)
+    )
+    db.add(task)
+    await db.commit()
+
+    successful = 0
+    failed = 0
+    errors = []
+
+    # 2. 각 이미지 처리
+    for idx, file in enumerate(files):
+        temp_path = None
+
+        try:
+            # 2-1. 파일 읽기
+            content = await file.read()
+
+            # 2-2. 이미지 검증
+            try:
+                img_format, width, height = validate_image(content)
+            except ImageValidationError as e:
+                failed += 1
+                errors.append({
+                    "file": file.filename,
+                    "error": f"Invalid image: {str(e)}"
+                })
+                continue
+
+            # 2-3. 임시 파일 저장
+            with tempfile.NamedTemporaryFile(
+                delete=False,
+                suffix=f".{img_format.lower()}"
+            ) as temp_file:
+                temp_file.write(content)
+                temp_path = temp_file.name
+
+            # 2-4. OCR 인식 (전처리 포함)
+            result = ocr_service.recognize_menu_image(temp_path, enable_preprocessing=True)
+
+            if result["success"]:
+                # 2-5. 각 메뉴 아이템을 ScanLog에 저장
+                for item in result["menu_items"]:
+                    scan_log = ScanLog(
+                        id=uuid.uuid4(),
+                        session_id=f"b2b_upload_{task.id}",
+                        language="ko",
+                        menu_name_ko=item["name_ko"],
+                        ocr_raw_text=result["raw_text"],
+                        confidence=result.get("ocr_confidence", 0.0),
+                        shop_id=uuid.UUID(restaurant_id),
+                        status="pending",
+                        evidences={
+                            "source": "b2b_bulk_upload",
+                            "file_name": file.filename,
+                            "price_ko": item.get("price_ko", "")
+                        }
+                    )
+                    db.add(scan_log)
+
+                successful += 1
+            else:
+                failed += 1
+                errors.append({
+                    "file": file.filename,
+                    "error": result.get("error", "OCR failed")
+                })
+
+        except Exception as e:
+            failed += 1
+            errors.append({
+                "file": file.filename,
+                "error": str(e)
+            })
+
+        finally:
+            # Cleanup
+            if temp_path and os.path.exists(temp_path):
+                try:
+                    os.remove(temp_path)
+                except Exception as e:
+                    logger.warning(f"Failed to remove temp file {temp_path}: {e}")
+
+    # 3. 작업 완료 업데이트
+    task.successful = successful
+    task.failed = failed
+    task.status = "completed"
+    task.completed_at = datetime.now(timezone.utc)
+    task.error_log = json.dumps(errors) if errors else None
+
+    await db.commit()
+
+    return {
+        "success": True,
+        "task_id": str(task.id),
+        "total": len(files),
+        "successful": successful,
+        "failed": failed,
+        "errors": errors
+    }

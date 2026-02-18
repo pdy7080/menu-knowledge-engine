@@ -3,13 +3,15 @@ QR Menu API Routes - Sprint 3 P2-1
 Dynamic multi-language menu page generation
 """
 from fastapi import APIRouter, Depends, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import Optional
 from database import get_db
 from models import Shop, MenuVariant, CanonicalMenu
 import uuid
+import qrcode
+from io import BytesIO
 
 router = APIRouter(prefix="/qr", tags=["qr"])
 
@@ -493,3 +495,46 @@ def generate_qr_menu_html(
     """
 
     return html
+
+
+# ===========================
+# QR Code Image Generation
+# ===========================
+@router.get("/generate/{shop_code}")
+async def generate_qr_code(shop_code: str):
+    """
+    QR 코드 이미지 생성 API (Sprint 3B)
+
+    식당별 QR 코드를 PNG 이미지로 생성하여 반환
+
+    Args:
+        shop_code: 식당 고유 코드 (예: "test-shop", "SHOP12345678")
+
+    Returns:
+        PNG 이미지 (StreamingResponse)
+
+    Example:
+        curl http://localhost:8001/api/v1/qr/generate/test-shop > qr.png
+    """
+    # QR 코드 내용: 식당별 메뉴 페이지 URL
+    qr_url = f"https://menu.chargeapp.net/qr/{shop_code}"
+
+    # QR 코드 생성
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(qr_url)
+    qr.make(fit=True)
+
+    # 이미지 생성
+    img = qr.make_image(fill_color="black", back_color="white")
+
+    # BytesIO로 변환
+    buf = BytesIO()
+    img.save(buf, format='PNG')
+    buf.seek(0)
+
+    return StreamingResponse(buf, media_type="image/png")
