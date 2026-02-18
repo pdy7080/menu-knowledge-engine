@@ -58,6 +58,47 @@ class MenuMatchingEngine:
         if MenuMatchingEngine._cache_lock is None:
             MenuMatchingEngine._cache_lock = asyncio.Lock()
 
+    def _normalize_menu_name(self, menu_name: str) -> str:
+        """메뉴명 정규화 (공백/특수문자/번호 제거)"""
+        import re
+        s = menu_name.strip()
+
+        # 1. 메뉴 번호 제거: "1. 김치찌개", "1) 김치찌개", "1- 김치찌개"
+        s = re.sub(r'^\d+[\.\)\-\s]+', '', s)
+
+        # 2. 괄호 내용 제거: "삼겹살(200g)", "김치찌개(辛)"
+        s = re.sub(r'\(.*?\)', '', s)
+        s = re.sub(r'\[.*?\]', '', s)
+
+        # 3. 공백 제거: "김치 찌개", "뼈 해장국"
+        s = re.sub(r'\s+', '', s)
+
+        # 4. 특수문자 제거
+        s = re.sub(r'[~!@#$%^&*_+=|\\<>?/:;"\']', '', s)
+
+        return s.strip()
+
+    def _strip_suffixes(self, menu_name: str) -> tuple:
+        """접미사 패턴 제거"""
+        SUFFIX_PATTERNS = [
+            "정식", "세트", "셋트",
+            "1인분", "2인분", "3인분", "4인분",
+            "1인", "2인", "3인", "4인",
+            "한상", "상차림",
+            "(대)", "(중)", "(소)",
+            "스페셜", "특선",
+        ]
+
+        found_suffixes = []
+        cleaned = menu_name
+
+        for suffix in SUFFIX_PATTERNS:
+            if cleaned.endswith(suffix):
+                cleaned = cleaned[:-len(suffix)].strip()
+                found_suffixes.append(suffix)
+
+        return cleaned, found_suffixes
+
     async def match_menu(self, menu_name: str) -> MatchResult:
         """
         메뉴명 매칭 메인 함수
@@ -78,19 +119,24 @@ class MenuMatchingEngine:
                 ai_called=False,  # 캐시에서 가져왔으므로 False
             )
 
-        # Step 1: Exact Match
-        result = await self._exact_match(menu_name)
+        # 정규화
+        normalized_name = self._normalize_menu_name(menu_name)
+
+        # Step 1: Exact Match (정규화된 이름으로)
+        result = await self._exact_match(normalized_name)
         if result:
+            result.input_text = menu_name  # 원본 이름 보존
             await cache_service.set(cache_key, result.to_dict(), TTL_MENU_TRANSLATION)
             return result
 
-        # Step 2: Modifier Decomposition
-        result = await self._modifier_decomposition(menu_name)
+        # Step 2: Modifier Decomposition (정규화된 이름으로)
+        result = await self._modifier_decomposition(normalized_name)
         if result:
+            result.input_text = menu_name  # 원본 이름 보존
             await cache_service.set(cache_key, result.to_dict(), TTL_MENU_TRANSLATION)
             return result
 
-        # Step 3: AI Discovery
+        # Step 3: AI Discovery (원본 이름 사용 - 문맥 보존)
         result = await self._ai_discovery(menu_name)
         await cache_service.set(cache_key, result.to_dict(), TTL_MENU_TRANSLATION)
         return result
@@ -122,10 +168,10 @@ class MenuMatchingEngine:
         # 한글 오타 감지를 위해 threshold를 낮춤
         #   - 김치찌개 vs 김치찌게 = 0.43 (ㅐ vs ㅔ)
         #   - 떡볶이 vs 떡복이 = ~0.3 (ㄲ vs ㄱ, 한글 자소 차이)
-        # 길이 차이 제한: 오타 보정용이므로 길이가 동일한 경우만 허용
-        # False positive 방지: 길이가 동일하므로 threshold 0.3도 안전
+        # 길이 차이 제한: 공백 1개 차이까지 허용 (0 → 1로 완화)
+        #   - "뼈해장국" vs "뼈 해장국" (공백 1개 차이) 매칭 가능
         similarity_threshold = 0.3  # 0.35 → 0.3으로 낮춤 (한글 자소 오타 커버)
-        max_length_diff = 0  # 길이가 동일한 경우만 (김치찌개 4글자 vs 김치찌게 4글자)
+        max_length_diff = 1  # 길이 차이 1까지 허용 (공백 등)
 
         result = await self.db.execute(
             select(
@@ -156,26 +202,46 @@ class MenuMatchingEngine:
     async def _modifier_decomposition(self, menu_name: str) -> Optional[MatchResult]:
         """
         Step 2: Modifier Decomposition (개선됨)
+        - 접미사 제거 시도 (NEW!)
         - 먼저 입력 문자열의 부분 문자열이 canonical과 매칭되는지 확인 (NEW!)
         - modifiers 테이블에서 수식어 찾아서 제거
         - 타입별 우선순위 적용
         - 수식어를 누적해서 제거하면서 canonical 매칭 시도
         - 매칭 성공하는 조합만 유효
         """
-        # 2-0. Canonical 우선 매칭 (NEW!)
+        # 2-0-1. 접미사 제거 시도 (NEW!)
+        cleaned_name, found_suffixes = self._strip_suffixes(menu_name)
+
+        # 접미사 제거 후 정확 매칭 시도
+        if cleaned_name != menu_name and cleaned_name:
+            canonical = await self._try_canonical_match(cleaned_name)
+            if canonical:
+                return MatchResult(
+                    input_text=menu_name,
+                    match_type="modifier_decomposition",
+                    canonical=self._canonical_to_dict(canonical),
+                    modifiers=[],
+                    confidence=0.95,  # 접미사만 제거한 경우 높은 신뢰도
+                    ai_called=False,
+                )
+
+        # 접미사 제거 후 이름을 기본으로 사용
+        working_name = cleaned_name if cleaned_name else menu_name
+
+        # 2-0-2. Canonical 우선 매칭
         # 입력 문자열의 모든 연속 부분 문자열이 canonical과 매칭되는지 확인
         # 예: "한우불고기" → "불고기"가 canonical과 매칭되면, "한우"는 modifier
-        for length in range(len(menu_name), 1, -1):  # 긴 것부터 시도
-            for start in range(len(menu_name) - length + 1):
-                substring = menu_name[start:start + length]
+        for length in range(len(working_name), 1, -1):  # 긴 것부터 시도
+            for start in range(len(working_name) - length + 1):
+                substring = working_name[start:start + length]
 
                 # 이 부분 문자열이 canonical과 매칭되는가?
                 canonical = await self._try_canonical_match(substring)
 
                 if canonical:
                     # 나머지 부분 추출
-                    prefix = menu_name[:start]
-                    suffix = menu_name[start + length:]
+                    prefix = working_name[:start]
+                    suffix = working_name[start + length:]
                     remaining_text = (prefix + suffix).strip()
 
                     # 나머지가 없으면 (전체가 canonical) 이미 Step 1에서 잡혔을 것
@@ -246,7 +312,7 @@ class MenuMatchingEngine:
         # 이유: "한우불고기" = "한우"(ingredient) + "불고기"(canonical)와 같은 경우를 처리하기 위함
         potential_modifiers = []
         for modifier in all_modifiers:
-            if modifier.text_ko in menu_name:
+            if modifier.text_ko in working_name:
                 potential_modifiers.append(modifier)
 
         # 수식어가 하나도 없으면 실패
@@ -256,7 +322,7 @@ class MenuMatchingEngine:
         # 2-3. Greedy accumulative matching
         # 수식어를 하나씩 누적해서 제거하면서 canonical 매칭을 시도
         found_modifiers = []
-        remaining_text = menu_name
+        remaining_text = working_name
 
         for modifier in potential_modifiers:
             # 현재 남은 텍스트에 이 수식어가 있는지 확인
