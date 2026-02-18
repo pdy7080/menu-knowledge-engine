@@ -46,11 +46,11 @@ VALUES
 -- 패턴 3: "~집" (명사 + 집) - 10개
 INSERT INTO modifiers (id, text_ko, type, semantic_key, translation_en, priority, created_at)
 VALUES
-  (gen_random_uuid(), '엄마집', 'emotion', 'brand_moms_place', "Mom's Place", 5, now()),
-  (gen_random_uuid(), '할머니집', 'emotion', 'brand_grandmas_place', "Grandma's Place", 5, now()),
-  (gen_random_uuid(), '이모집', 'emotion', 'brand_aunts_place', "Aunt's Place", 5, now()),
-  (gen_random_uuid(), '할아버지집', 'emotion', 'brand_granddads_place', "Grandpa's Place", 5, now()),
-  (gen_random_uuid(), '아빠집', 'emotion', 'brand_dads_place', "Dad's Place", 5, now()),
+  (gen_random_uuid(), '엄마집', 'emotion', 'brand_moms_place', 'Mom''s Place', 5, now()),
+  (gen_random_uuid(), '할머니집', 'emotion', 'brand_grandmas_place', 'Grandma''s Place', 5, now()),
+  (gen_random_uuid(), '이모집', 'emotion', 'brand_aunts_place', 'Aunt''s Place', 5, now()),
+  (gen_random_uuid(), '할아버지집', 'emotion', 'brand_granddads_place', 'Grandpa''s Place', 5, now()),
+  (gen_random_uuid(), '아빠집', 'emotion', 'brand_dads_place', 'Dad''s Place', 5, now()),
   (gen_random_uuid(), '고향집', 'emotion', 'brand_hometown_place', 'Hometown Place', 5, now()),
   (gen_random_uuid(), '시골집', 'emotion', 'brand_countryside_place', 'Countryside Place', 5, now()),
   (gen_random_uuid(), '농촌집', 'emotion', 'brand_rural_place', 'Rural Place', 5, now()),
