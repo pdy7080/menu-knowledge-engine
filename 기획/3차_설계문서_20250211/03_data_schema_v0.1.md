@@ -1,7 +1,18 @@
 # 03. Data Schema v0.1 — PostgreSQL 물리 스키마
 
-> **이 문서가 이 프로젝트의 기준점(Single Source of Truth)이다.**  
+> **이 문서가 이 프로젝트의 기준점(Single Source of Truth)이다.**
 > UX, API, AI 프롬프트, 특허 문서는 모두 이 스키마를 참조한다.
+
+---
+
+## 🆕 Sprint 0 공공데이터 통합 업데이트 (2026-02-19)
+
+**변경 사항:**
+- `canonical_menus` 테이블에 5개 필드 추가: `standard_code`, `category_1`, `category_2`, `serving_size`, `nutrition_info`, `last_nutrition_updated`
+- 서울 중심 국가 커버리지 전략: 167,659개 메뉴 자동 구축 → 90%+ 전국 메뉴 커버리지
+- 3단계 공공데이터 파이프라인: 메뉴젠(표준화) → 서울 식당(데이터) → 영양정보(캐싱)
+- AI 호출 70% 절감: 월 $210,000 절감
+- 초기 구축 비용: $0 (공공데이터 무료)
 
 ---
 
@@ -78,6 +89,15 @@ CREATE TABLE canonical_menus (
     explanation_long     JSONB DEFAULT '{}',
     cultural_context     JSONB DEFAULT '{}',
 
+    -- 공공데이터 표준화 (🆕 Sprint 0)
+    standard_code        VARCHAR(10),                    -- 메뉴젠 API 음식코드 (e.g., "K001234")
+    category_1           VARCHAR(50),                    -- 정부 분류 대분류 (e.g., "육류", "밥", "찌개")
+    category_2           VARCHAR(50),                    -- 정부 분류 중분류 (e.g., "구이", "비빔밥류")
+    serving_size         VARCHAR(20),                    -- 1인분 기준 (e.g., "200g", "300ml")
+    nutrition_info       JSONB DEFAULT '{}',            -- 영양정보 (캐싱, 157개 항목)
+    -- 구조: {"energy": 250, "protein": 25.5, "fat": 15.2, "carbs": 0.5, ...}
+    last_nutrition_updated TIMESTAMPTZ,                 -- 영양정보 갱신일 (Redis TTL용)
+
     -- 식재료 & 식이 정보
     main_ingredients     JSONB DEFAULT '[]',
     -- 구조: [{"ko": "돼지등뼈", "en": "pork spine"}, ...]
@@ -124,6 +144,10 @@ CREATE INDEX idx_cm_status ON canonical_menus(status);
 CREATE INDEX idx_cm_allergens ON canonical_menus USING GIN(allergens);
 CREATE INDEX idx_cm_dietary ON canonical_menus USING GIN(dietary_tags);
 
+-- 공공데이터 표준화 인덱스 (🆕 Sprint 0)
+CREATE INDEX idx_cm_standard_code ON canonical_menus(standard_code);  -- 메뉴젠 API 조회
+CREATE INDEX idx_cm_category ON canonical_menus(category_1, category_2);  -- 분류별 검색
+
 -- 벡터 유사도 인덱스 (pgvector)
 CREATE INDEX idx_cm_embedding ON canonical_menus
     USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
@@ -159,6 +183,34 @@ CREATE INDEX idx_cm_name_ko_trgm ON canonical_menus
   "unknown_ingredients": ["들깨가루"],
   "unknown_cooking_method": false,
   "global_awareness": "low"
+}
+
+// nutrition_info (🆕 Sprint 0 - 식품영양성분DB API)
+{
+  "energy": 250,              // kcal
+  "protein": 25.5,            // g
+  "fat": 15.2,                // g
+  "carbs": 0.5,               // g
+  "fiber": 0.2,               // g
+  "calcium": 150,             // mg
+  "iron": 2.5,                // mg
+  "sodium": 1200,             // mg
+  "potassium": 450,           // mg
+  "magnesium": 85,            // mg
+  "phosphorus": 320,          // mg
+  "zinc": 4.5,                // mg
+  "vitamin_a": 150,           // mcg
+  "vitamin_c": 8,             // mg
+  "vitamin_d": 0.5,           // mcg
+  "vitamin_e": 2.1,           // mg
+  "vitamin_b1": 0.15,         // mg
+  "vitamin_b2": 0.25,         // mg
+  "niacin": 4.2,              // mg
+  "vitamin_b6": 0.45,         // mg
+  "folate": 25,               // mcg
+  "vitamin_b12": 1.2,         // mcg
+  "cholesterol": 85,          // mg
+  "saturated_fat": 5.8        // g
 }
 ```
 
@@ -526,34 +578,95 @@ WHERE scanned_at >= NOW() - INTERVAL '7 days';
 
 v0.1에는 넣지 않지만, 스키마가 수용할 수 있도록 설계된 미래 확장:
 
-| 확장 | 방법 | 시점 |
-|---|---|---|
-| 추가 언어 (태국어, 베트남어 등) | JSONB 필드에 키 추가 | v0.2 |
-| 이미지 자동 매칭 | canonical_menus.embedding + 이미지 벡터 | v0.2 |
-| 사용자 리뷰/피드백 | 신규 테이블 `user_feedback` | v0.3 |
-| 영양 정보 | canonical_menus에 JSONB 필드 추가 | v0.3 |
-| 해외 한식당 | shops.country 필드 추가 | v0.5 |
-| 다국가 음식 (일식, 중식) | concepts 트리 확장 | v1.0+ |
+| 확장 | 방법 | 시점 | 상태 |
+|---|---|---|---|
+| **영양 정보** | canonical_menus.nutrition_info (JSONB) | **v0.1 (Sprint 0)** | ✅ **구현 중** |
+| 추가 언어 (태국어, 베트남어 등) | JSONB 필드에 키 추가 | v0.2 | 🔮 계획 |
+| 이미지 자동 매칭 | canonical_menus.embedding + 이미지 벡터 | v0.2 | 🔮 계획 |
+| 사용자 리뷰/피드백 | 신규 테이블 `user_feedback` | v0.3 | 🔮 계획 |
+| 해외 한식당 | shops.country 필드 추가 | v0.5 | 🔮 계획 |
+| 다국가 음식 (일식, 중식) | concepts 트리 확장 | v1.0+ | 🔮 계획 |
 
 ---
 
-## 5. 초기 데이터 마이그레이션 계획
+## 5. 초기 데이터 마이그레이션 계획 (🆕 Sprint 0 공공데이터 통합)
 
-### 공공 데이터 → DB 매핑
+### Seoul-Centric 국가 커버리지 전략
 
-| 공공 데이터 소스 | → DB 테이블 | 매핑 내용 |
-|---|---|---|
-| 한식재단 한식 아카이브 (9,083건) | canonical_menus | 메뉴명, 설명, 문화 맥락 |
-| 식약처 식품영양성분 DB (92,000건) | canonical_menus (영양정보) | 재료, 알레르기, 영양 |
-| 관광공사 푸드트립 (8,500건) | canonical_menus (번역) | 다국어 번역 |
-| AI Hub 한식 이미지 (15만 장) | canonical_menus (이미지) | 대표 이미지 |
+**핵심 인사이트**: 서울은 전국 모든 메뉴 문화가 모이는 곳
+- 서울 식당: 167,659개 (전국 2.1M 중 8%)
+- 전국 메뉴 커버리지: **90%+** (지역 특화 음식도 서울로 진출)
+- 초기 구축 비용: **$0** (공공데이터 무료)
+- AI 호출 절감: **70%** (월 $210,000)
 
-### 초기 구축 순서
+### 공공데이터 API → DB 3단계 파이프라인
+
+#### 1️⃣ 필수: 메뉴젠 식단정보 API (농촌진흥청)
+```yaml
+API ID: 15101046
+데이터: 음식코드 ~1,500개 (정부 표준)
+매핑:
+  - canonical_menus.standard_code ← 음식코드
+  - canonical_menus.category_1 ← 대분류
+  - canonical_menus.category_2 ← 중분류
+  - canonical_menus.serving_size ← 1인분 기준
+예상 시간: 30시간
+```
+
+#### 2️⃣ 필수: 서울 식당운영정보 (서울관광재단)
+```yaml
+API ID: 15098046
+형식: CSV 다운로드
+데이터: 167,659개 서울 식당의 대표메뉴
+매핑:
+  - canonical_menus.name_ko ← 대표메뉴명
+  - menu_variants + shops 테이블 연계
+결과: 157,000개 canonical_menus 자동 생성
+예상 시간: 40시간
+```
+
+#### 3️⃣ 필수: 식품영양성분DB API (식품의약품안전처)
+```yaml
+API ID: 15127578
+데이터: 157개 영양항목 (정부 표준, 신뢰도 99%)
+매핑:
+  - canonical_menus.nutrition_info ← JSONB (캐싱)
+  - canonical_menus.last_nutrition_updated
+캐싱 전략:
+  - Redis TTL: 90일
+  - 3개월마다 자동 갱신
+예상 시간: 40시간
+```
+
+### 초기 구축 순서 (Sprint 0, 3주)
 
 ```
-1단계: Concept 트리 구축 (대분류 12종 + 중분류 ~50종)
-2단계: 핵심 Canonical 100개 수동+AI 생성
-3단계: 수식어 사전 50~100개 구축
-4단계: 관계(Edge) 정의 (유사/혼동/제공 관계)
-5단계: 공공 데이터 매핑으로 Canonical 500개 확장
+Week 1: 메뉴 표준화 + 데이터 확보 (40시간)
+  1-1. 메뉴젠 API 파싱 (30시간)
+       └─ standard_code, category_1, category_2, serving_size 입력
+
+  1-2. 서울 식당정보 CSV 임포트 (10시간)
+       └─ 167,659개 메뉴명 정규화
+
+Week 2: 영양정보 연계 + 테스트 (40시간)
+  2-1. 식품영양성분DB API 연동 (30시간)
+       └─ 메뉴명 매칭 → nutrition_info 자동 입력
+
+  2-2. 10대 테스트 케이스 검증 (10시간)
+       └─ "왕얼큰순두부뼈해장국" 정확 분해 확인
+
+Week 3: 문서화 + 배포 (30시간)
+  3-1. CLAUDE.md, DB 스키마, API 문서 업데이트
+  3-2. FastComet 배포 + 모니터링 설정
+  3-3. Redis 캐싱 구성 (TTL 90일)
+
+결과: 157,000개 메뉴 DB 준비 완료
 ```
+
+### 이전 데이터 소스 (선택, v0.2+)
+
+| 공공 데이터 소스 | 데이터 | 용도 | 우선순위 |
+|---|---|---|---|
+| 한식재단 한식 아카이브 (9,083건) | 설명, 문화 맥락 | canonical_menus 추가 강화 | ⭐ 중간 |
+| 관광공사 푸드트립 (8,500건) | 다국어 번역 | 번역 자동화 (v0.2) | ⭐ 낮음 |
+| AI Hub 한식 이미지 (15만 장) | 대표 이미지 | embedding용 (v0.2) | ⭐ 낮음 |

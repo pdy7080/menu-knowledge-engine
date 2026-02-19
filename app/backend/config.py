@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     CLOVA_OCR_API_KEY: str = ""
     CLOVA_OCR_SECRET: str = ""
     OPENAI_API_KEY: str = ""
+    GOOGLE_API_KEY: str = ""
     PAPAGO_CLIENT_ID: str = ""
     PAPAGO_CLIENT_SECRET: str = ""
 
