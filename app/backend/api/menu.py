@@ -4,8 +4,9 @@ Menu API Routes
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from typing import List
+from typing import List, Optional, Dict, Any
 from pydantic import BaseModel, Field
+from uuid import UUID
 from database import get_db
 from models import Concept, Modifier, CanonicalMenu
 from services.matching_engine import MenuMatchingEngine
@@ -23,6 +24,70 @@ router = APIRouter(prefix="/api/v1", tags=["menu"])
 class MenuIdentifyRequest(BaseModel):
     """메뉴 식별 요청 모델"""
     menu_name_ko: str = Field(..., min_length=1, description="Korean menu name (cannot be empty)")
+
+
+def _serialize_canonical_menu(cm: CanonicalMenu, include_enriched: bool = False) -> Dict[str, Any]:
+    """
+    Serialize CanonicalMenu model to dict
+
+    Args:
+        cm: CanonicalMenu instance
+        include_enriched: If True, include Sprint 2 Phase 1 enriched fields
+
+    Returns:
+        Serialized menu dict
+    """
+    base_fields = {
+        "id": str(cm.id),
+        "name_ko": cm.name_ko,
+        "name_en": cm.name_en,
+        "name_ja": cm.name_ja,
+        "name_zh_cn": cm.name_zh_cn,
+        "name_zh_tw": cm.name_zh_tw,
+        "romanization": cm.romanization,
+        "concept_id": str(cm.concept_id) if cm.concept_id else None,
+        "explanation_short": cm.explanation_short,
+        "explanation_long": cm.explanation_long,
+        "cultural_context": cm.cultural_context,
+        "main_ingredients": cm.main_ingredients,
+        "allergens": cm.allergens,
+        "dietary_tags": cm.dietary_tags,
+        "spice_level": cm.spice_level,
+        "serving_style": cm.serving_style,
+        "typical_price_min": cm.typical_price_min,
+        "typical_price_max": cm.typical_price_max,
+        "image_url": cm.image_url,  # Legacy field
+        "difficulty_score": cm.difficulty_score,
+        "difficulty_factors": cm.difficulty_factors,
+        "ai_confidence": cm.ai_confidence,
+        "verified_by": cm.verified_by,
+        "status": cm.status,
+        # Sprint 0: 공공데이터 필드
+        "standard_code": cm.standard_code,
+        "category_1": cm.category_1,
+        "category_2": cm.category_2,
+        "serving_size": cm.serving_size,
+        "has_nutrition": bool(cm.nutrition_info and cm.nutrition_info != {}),
+    }
+
+    if include_enriched:
+        # Sprint 2 Phase 1 enriched fields
+        enriched_fields = {
+            "primary_image": cm.primary_image,
+            "images": cm.images or [],
+            "description_long_ko": cm.description_long_ko,
+            "description_long_en": cm.description_long_en,
+            "regional_variants": cm.regional_variants,
+            "preparation_steps": cm.preparation_steps,
+            "nutrition_detail": cm.nutrition_detail,
+            "flavor_profile": cm.flavor_profile,
+            "visitor_tips": cm.visitor_tips,
+            "similar_dishes": cm.similar_dishes or [],
+            "content_completeness": float(cm.content_completeness) if cm.content_completeness else 0.0,
+        }
+        base_fields.update(enriched_fields)
+
+    return base_fields
 
 
 @router.get("/concepts")
@@ -72,28 +137,97 @@ async def get_modifiers(db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/canonical-menus")
-async def get_canonical_menus(db: AsyncSession = Depends(get_db)):
-    """Get all canonical menus (표준 메뉴 조회)"""
+async def get_canonical_menus(
+    db: AsyncSession = Depends(get_db),
+    include_enriched: bool = False
+):
+    """
+    Get all canonical menus (표준 메뉴 조회)
+
+    Query Parameters:
+        include_enriched: If True, include Sprint 2 Phase 1 enriched fields
+    """
     result = await db.execute(select(CanonicalMenu).order_by(CanonicalMenu.name_ko))
     menus = result.scalars().all()
 
     return {
         "total": len(menus),
         "data": [
-            {
-                "id": str(cm.id),
-                "name_ko": cm.name_ko,
-                "name_en": cm.name_en,
-                "concept_id": str(cm.concept_id),
-                "explanation_short": cm.explanation_short,
-                "main_ingredients": cm.main_ingredients,
-                "allergens": cm.allergens,
-                "spice_level": cm.spice_level,
-                "difficulty_score": cm.difficulty_score,
-                "image_url": cm.image_url,
-            }
+            _serialize_canonical_menu(cm, include_enriched=include_enriched)
             for cm in menus
         ],
+    }
+
+
+@router.get("/canonical-menus/{menu_id}")
+async def get_canonical_menu_by_id(
+    menu_id: UUID,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Get single canonical menu by ID with full enriched content
+
+    Sprint 2 Phase 1: Returns all fields including:
+    - primary_image, images
+    - description_long_ko, description_long_en
+    - regional_variants, preparation_steps, nutrition_detail
+    - flavor_profile, visitor_tips, similar_dishes
+    - content_completeness
+    """
+    result = await db.execute(
+        select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
+    )
+    menu = result.scalar_one_or_none()
+
+    if not menu:
+        raise HTTPException(status_code=404, detail=f"Menu not found: {menu_id}")
+
+    return _serialize_canonical_menu(menu, include_enriched=True)
+
+
+@router.get("/canonical-menus/{menu_id}/images")
+async def get_canonical_menu_images(
+    menu_id: UUID,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Get images only for a canonical menu (Sprint 2 Phase 1)
+
+    Useful for gallery views, image carousels, etc.
+
+    Returns:
+        {
+            "menu_id": "uuid",
+            "menu_name_ko": "김치찌개",
+            "primary_image": {...},
+            "images": [{...}, {...}],
+            "total_images": 3,
+            "legacy_image_url": "..." (for backward compatibility)
+        }
+    """
+    result = await db.execute(
+        select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
+    )
+    menu = result.scalar_one_or_none()
+
+    if not menu:
+        raise HTTPException(status_code=404, detail=f"Menu not found: {menu_id}")
+
+    # Count total images
+    total_images = 0
+    if menu.primary_image:
+        total_images += 1
+    if menu.images:
+        total_images += len(menu.images)
+
+    return {
+        "menu_id": str(menu.id),
+        "menu_name_ko": menu.name_ko,
+        "menu_name_en": menu.name_en,
+        "primary_image": menu.primary_image,
+        "images": menu.images or [],
+        "total_images": total_images,
+        "legacy_image_url": menu.image_url,  # Backward compatibility
     }
 
 
