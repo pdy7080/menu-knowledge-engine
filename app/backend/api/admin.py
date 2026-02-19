@@ -343,15 +343,28 @@ async def get_ocr_metrics():
             "last_updated": str               # 마지막 업데이트 시간 (ISO 8601)
         }
     """
+    metrics = await ocr_orchestrator.get_metrics()
+
+    # Default values if no metrics yet
+    if not metrics:
+        metrics = {
+            "tier_1_count": 0,
+            "tier_2_count": 0,
+            "total_count": 0,
+            "avg_processing_time_ms": 0,
+            "price_error_count": 0,
+            "handwriting_count": 0,
+        }
+
     return {
-        "tier_1_count": ocr_orchestrator.metrics.get("tier_1_count", 0),
-        "tier_2_count": ocr_orchestrator.metrics.get("tier_2_count", 0),
-        "total_count": ocr_orchestrator.metrics.get("total_count", 0),
-        "tier_1_success_rate": f"{ocr_orchestrator.metrics.get('tier_1_success_rate', 0):.1f}%",
-        "tier_2_fallback_rate": f"{ocr_orchestrator.metrics.get('tier_2_fallback_rate', 0):.1f}%",
-        "avg_processing_time_ms": ocr_orchestrator.metrics.get("avg_processing_time_ms", 0),
-        "price_error_count": ocr_orchestrator.metrics.get("price_error_count", 0),
-        "price_error_rate": f"{ocr_orchestrator.metrics.get('price_error_rate', 0):.1f}%",
-        "handwriting_detection_rate": f"{ocr_orchestrator.metrics.get('handwriting_detection_rate', 0):.1f}%",
-        "last_updated": ocr_orchestrator.metrics.get("last_updated", datetime.utcnow().isoformat() + "Z"),
+        "tier_1_count": metrics.get("tier_1_count", 0),
+        "tier_2_count": metrics.get("tier_2_count", 0),
+        "total_count": metrics.get("total_count", 0),
+        "tier_1_success_rate": metrics.get("tier_1_success_rate", "0.0%"),
+        "tier_2_fallback_rate": metrics.get("tier_2_fallback_rate", "0.0%"),
+        "avg_processing_time_ms": metrics.get("avg_processing_time_ms", 0),
+        "price_error_count": metrics.get("price_error_count", 0),
+        "price_error_rate": metrics.get("price_error_rate", "0.0%"),
+        "handwriting_detection_rate": metrics.get("handwriting_detection_rate", "0.0%"),
+        "last_updated": metrics.get("last_updated", datetime.utcnow().isoformat() + "Z"),
     }
