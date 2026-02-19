@@ -1,0 +1,2866 @@
+[
+  {
+    "name_ko": "유부우동",
+    "base_name": "유부우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 154,
+    "rest_area_count": 150,
+    "avg_price": 5922,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "유부우동"
+    ]
+  },
+  {
+    "name_ko": "꼬치어묵우동",
+    "base_name": "꼬치어묵우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 118,
+    "rest_area_count": 116,
+    "avg_price": 6826,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "꼬치어묵우동"
+    ]
+  },
+  {
+    "name_ko": "치즈돈가스",
+    "base_name": "돈가스",
+    "modifiers": [
+      {
+        "text": "치즈",
+        "type": "ingredient",
+        "key": "cheese"
+      }
+    ],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 123,
+    "rest_area_count": 91,
+    "avg_price": 11435,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "치즈돈가스",
+      "치즈돈까스"
+    ]
+  },
+  {
+    "name_ko": "떡만두라면",
+    "base_name": "떡만두라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 83,
+    "rest_area_count": 82,
+    "avg_price": 5397,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "떡만두라면"
+    ]
+  },
+  {
+    "name_ko": "떡라면",
+    "base_name": "떡라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 61,
+    "rest_area_count": 60,
+    "avg_price": 5155,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "떡라면"
+    ]
+  },
+  {
+    "name_ko": "짜장면",
+    "base_name": "짜장면",
+    "modifiers": [],
+    "category_1": "중식",
+    "category_2": "중식",
+    "occurrence_count": 85,
+    "rest_area_count": 51,
+    "avg_price": 6475,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "자장면",
+      "짜장면"
+    ]
+  },
+  {
+    "name_ko": "해물순두부찌개",
+    "base_name": "순두부찌개",
+    "modifiers": [
+      {
+        "text": "해물",
+        "type": "ingredient",
+        "key": "seafood"
+      }
+    ],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 51,
+    "rest_area_count": 51,
+    "avg_price": 9176,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "해물순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "우동",
+    "base_name": "우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 96,
+    "rest_area_count": 50,
+    "avg_price": 5483,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "실속우동",
+      "우동"
+    ]
+  },
+  {
+    "name_ko": "등심돈가스",
+    "base_name": "돈가스",
+    "modifiers": [
+      {
+        "text": "등심",
+        "type": "ingredient",
+        "key": "sirloin"
+      }
+    ],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 59,
+    "rest_area_count": 50,
+    "avg_price": 10102,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "등심돈가스",
+      "등심돈까스"
+    ]
+  },
+  {
+    "name_ko": "라면",
+    "base_name": "라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 168,
+    "rest_area_count": 44,
+    "avg_price": 4075,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "EX라면",
+      "ex-라면",
+      "EX-라면",
+      "ex라면",
+      "라면",
+      "실속라면"
+    ]
+  },
+  {
+    "name_ko": "새우튀김우동",
+    "base_name": "튀김우동",
+    "modifiers": [
+      {
+        "text": "새우",
+        "type": "ingredient",
+        "key": "shrimp"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 45,
+    "rest_area_count": 44,
+    "avg_price": 7666,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "새우튀김우동"
+    ]
+  },
+  {
+    "name_ko": "육개장",
+    "base_name": "육개장",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 39,
+    "rest_area_count": 38,
+    "avg_price": 9833,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "육개장"
+    ]
+  },
+  {
+    "name_ko": "왕돈가스",
+    "base_name": "돈가스",
+    "modifiers": [
+      {
+        "text": "왕",
+        "type": "size",
+        "key": "x_large"
+      }
+    ],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 44,
+    "rest_area_count": 37,
+    "avg_price": 12125,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "왕돈가스",
+      "왕돈까스"
+    ]
+  },
+  {
+    "name_ko": "제육덮밥",
+    "base_name": "제육덮밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "덮밥",
+    "occurrence_count": 37,
+    "rest_area_count": 37,
+    "avg_price": 9716,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "제육덮밥"
+    ]
+  },
+  {
+    "name_ko": "된장찌개",
+    "base_name": "된장찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 34,
+    "rest_area_count": 34,
+    "avg_price": 7264,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "된장찌개"
+    ]
+  },
+  {
+    "name_ko": "뚝배기불고기",
+    "base_name": "불고기",
+    "modifiers": [
+      {
+        "text": "뚝배기",
+        "type": "cooking",
+        "key": "earthen_pot"
+      }
+    ],
+    "category_1": "구이/고기",
+    "category_2": "구이",
+    "occurrence_count": 32,
+    "rest_area_count": 32,
+    "avg_price": 10606,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "뚝배기불고기"
+    ]
+  },
+  {
+    "name_ko": "돈가스",
+    "base_name": "돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 41,
+    "rest_area_count": 31,
+    "avg_price": 9725,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "돈가스",
+      "돈까스"
+    ]
+  },
+  {
+    "name_ko": "순두부찌개",
+    "base_name": "순두부찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 31,
+    "rest_area_count": 30,
+    "avg_price": 9145,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "야채튀김우동",
+    "base_name": "튀김우동",
+    "modifiers": [
+      {
+        "text": "야채",
+        "type": "ingredient",
+        "key": "vegetable"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 30,
+    "rest_area_count": 29,
+    "avg_price": 6733,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "야채튀김우동"
+    ]
+  },
+  {
+    "name_ko": "치즈라면",
+    "base_name": "라면",
+    "modifiers": [
+      {
+        "text": "치즈",
+        "type": "ingredient",
+        "key": "cheese"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 29,
+    "rest_area_count": 29,
+    "avg_price": 5241,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "치즈라면"
+    ]
+  },
+  {
+    "name_ko": "김치찌개",
+    "base_name": "김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 29,
+    "rest_area_count": 28,
+    "avg_price": 9403,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "김치찌개"
+    ]
+  },
+  {
+    "name_ko": "잔치국수",
+    "base_name": "잔치국수",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 28,
+    "rest_area_count": 28,
+    "avg_price": 6535,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "잔치국수"
+    ]
+  },
+  {
+    "name_ko": "돌솥비빔밥",
+    "base_name": "비빔밥",
+    "modifiers": [
+      {
+        "text": "돌솥",
+        "type": "cooking",
+        "key": "stone_pot"
+      }
+    ],
+    "category_1": "밥류",
+    "category_2": "비빔밥",
+    "occurrence_count": 28,
+    "rest_area_count": 28,
+    "avg_price": 9857,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "돌솥비빔밥"
+    ]
+  },
+  {
+    "name_ko": "차돌된장찌개",
+    "base_name": "차돌된장찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 26,
+    "rest_area_count": 26,
+    "avg_price": 9211,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "차돌된장찌개"
+    ]
+  },
+  {
+    "name_ko": "어묵우동",
+    "base_name": "어묵우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 25,
+    "rest_area_count": 23,
+    "avg_price": 7076,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "어묵우동"
+    ]
+  },
+  {
+    "name_ko": "소고기국밥",
+    "base_name": "소고기국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 24,
+    "rest_area_count": 23,
+    "avg_price": 9012,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "소고기국밥"
+    ]
+  },
+  {
+    "name_ko": "돼지고기김치찌개",
+    "base_name": "돼지고기김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 23,
+    "rest_area_count": 23,
+    "avg_price": 8930,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "돼지고기김치찌개"
+    ]
+  },
+  {
+    "name_ko": "남산왕돈까스",
+    "base_name": "남산왕돈까스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 23,
+    "rest_area_count": 23,
+    "avg_price": 13478,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "남산왕돈까스"
+    ]
+  },
+  {
+    "name_ko": "충무김밥",
+    "base_name": "충무김밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "김밥",
+    "occurrence_count": 25,
+    "rest_area_count": 22,
+    "avg_price": 5320,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "충무김밥"
+    ]
+  },
+  {
+    "name_ko": "왕새우튀김우동",
+    "base_name": "튀김우동",
+    "modifiers": [
+      {
+        "text": "왕",
+        "type": "size",
+        "key": "x_large"
+      },
+      {
+        "text": "새우",
+        "type": "ingredient",
+        "key": "shrimp"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 22,
+    "rest_area_count": 22,
+    "avg_price": 6954,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "왕새우튀김우동"
+    ]
+  },
+  {
+    "name_ko": "남산치즈돈까스",
+    "base_name": "남산치즈돈까스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 20,
+    "rest_area_count": 20,
+    "avg_price": 13975,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "남산치즈돈까스"
+    ]
+  },
+  {
+    "name_ko": "소떡소떡",
+    "base_name": "소떡소떡",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 25,
+    "rest_area_count": 19,
+    "avg_price": 3928,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "소떡소떡"
+    ]
+  },
+  {
+    "name_ko": "김치우동",
+    "base_name": "김치우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 19,
+    "rest_area_count": 19,
+    "avg_price": 6605,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "김치우동"
+    ]
+  },
+  {
+    "name_ko": "콩나물해장라면",
+    "base_name": "콩나물해장라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 19,
+    "rest_area_count": 18,
+    "avg_price": 5526,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "콩나물해장라면"
+    ]
+  },
+  {
+    "name_ko": "냉모밀",
+    "base_name": "냉모밀",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 18,
+    "rest_area_count": 17,
+    "avg_price": 8100,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "냉모밀"
+    ]
+  },
+  {
+    "name_ko": "돼지김치찌개",
+    "base_name": "돼지김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 17,
+    "rest_area_count": 17,
+    "avg_price": 9411,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "돼지김치찌개"
+    ]
+  },
+  {
+    "name_ko": "설렁탕",
+    "base_name": "설렁탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 17,
+    "rest_area_count": 16,
+    "avg_price": 10441,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "설렁탕"
+    ]
+  },
+  {
+    "name_ko": "호두과자",
+    "base_name": "호두과자",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 20,
+    "rest_area_count": 15,
+    "avg_price": 4610,
+    "is_best": true,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "호두과자"
+    ]
+  },
+  {
+    "name_ko": "통감자",
+    "base_name": "통감자",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 18,
+    "rest_area_count": 15,
+    "avg_price": 3800,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "통감자"
+    ]
+  },
+  {
+    "name_ko": "부산어묵우동",
+    "base_name": "부산어묵우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 16,
+    "rest_area_count": 15,
+    "avg_price": 7093,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "부산어묵우동"
+    ]
+  },
+  {
+    "name_ko": "황태해장국",
+    "base_name": "황태해장국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 16,
+    "rest_area_count": 15,
+    "avg_price": 8343,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "황태해장국"
+    ]
+  },
+  {
+    "name_ko": "떡볶이",
+    "base_name": "떡볶이",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 15,
+    "rest_area_count": 14,
+    "avg_price": 3873,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "떡볶이"
+    ]
+  },
+  {
+    "name_ko": "장터국밥",
+    "base_name": "장터국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 14,
+    "rest_area_count": 14,
+    "avg_price": 9528,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "장터국밥"
+    ]
+  },
+  {
+    "name_ko": "콩나물국밥",
+    "base_name": "콩나물국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 14,
+    "rest_area_count": 14,
+    "avg_price": 7178,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "콩나물국밥"
+    ]
+  },
+  {
+    "name_ko": "바삭어포",
+    "base_name": "바삭어포",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 14,
+    "rest_area_count": 13,
+    "avg_price": 3728,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "바삭어포"
+    ]
+  },
+  {
+    "name_ko": "라면정식",
+    "base_name": "라면정식",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 12,
+    "rest_area_count": 12,
+    "avg_price": 5691,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "라면정식"
+    ]
+  },
+  {
+    "name_ko": "남산매운돈까스",
+    "base_name": "남산매운돈까스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 12,
+    "rest_area_count": 12,
+    "avg_price": 13500,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "남산매운돈까스"
+    ]
+  },
+  {
+    "name_ko": "강원나물밥",
+    "base_name": "강원나물밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 12,
+    "rest_area_count": 12,
+    "avg_price": 9583,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "강원나물밥"
+    ]
+  },
+  {
+    "name_ko": "새우볶음밥",
+    "base_name": "볶음밥",
+    "modifiers": [
+      {
+        "text": "새우",
+        "type": "ingredient",
+        "key": "shrimp"
+      }
+    ],
+    "category_1": "밥류",
+    "category_2": "덮밥",
+    "occurrence_count": 12,
+    "rest_area_count": 11,
+    "avg_price": 9533,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "새우볶음밥"
+    ]
+  },
+  {
+    "name_ko": "소고기미역국",
+    "base_name": "소고기미역국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "소고기미역국"
+    ]
+  },
+  {
+    "name_ko": "떡만두국",
+    "base_name": "떡만두국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 9000,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "떡만두국"
+    ]
+  },
+  {
+    "name_ko": "떡만두라면정식",
+    "base_name": "떡만두라면정식",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 6581,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "떡만두라면정식"
+    ]
+  },
+  {
+    "name_ko": "옛날돈가스",
+    "base_name": "옛날돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 10209,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "옛날돈가스"
+    ]
+  },
+  {
+    "name_ko": "옛날핫도그",
+    "base_name": "옛날핫도그",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 12,
+    "rest_area_count": 10,
+    "avg_price": 3941,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "옛날핫도그"
+    ]
+  },
+  {
+    "name_ko": "우렁된장찌개",
+    "base_name": "우렁된장찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 8900,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "우렁된장찌개"
+    ]
+  },
+  {
+    "name_ko": "치킨팝콘",
+    "base_name": "치킨팝콘",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 3660,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "치킨팝콘"
+    ]
+  },
+  {
+    "name_ko": "꼬치어묵",
+    "base_name": "꼬치어묵",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 3940,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "꼬치어묵"
+    ]
+  },
+  {
+    "name_ko": "어묵라면",
+    "base_name": "어묵라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 5400,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "어묵라면"
+    ]
+  },
+  {
+    "name_ko": "놀부부대찌개",
+    "base_name": "놀부부대찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 10600,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "놀부부대찌개"
+    ]
+  },
+  {
+    "name_ko": "소고기장터국밥",
+    "base_name": "소고기장터국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 9600,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "소고기장터국밥"
+    ]
+  },
+  {
+    "name_ko": "추어탕",
+    "base_name": "추어탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 10900,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "추어탕"
+    ]
+  },
+  {
+    "name_ko": "갈비탕",
+    "base_name": "갈비탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 11700,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "갈비탕"
+    ]
+  },
+  {
+    "name_ko": "들깨미역국",
+    "base_name": "들깨미역국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 6900,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "들깨미역국"
+    ]
+  },
+  {
+    "name_ko": "핫도그",
+    "base_name": "핫도그",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 4000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "핫도그"
+    ]
+  },
+  {
+    "name_ko": "얼큰순대국",
+    "base_name": "순대국",
+    "modifiers": [
+      {
+        "text": "얼큰",
+        "type": "taste",
+        "key": "spicy_hearty"
+      }
+    ],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 10800,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "얼큰순대국"
+    ]
+  },
+  {
+    "name_ko": "버섯된장찌개",
+    "base_name": "버섯된장찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 7330,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "버섯된장찌개"
+    ]
+  },
+  {
+    "name_ko": "물냉면",
+    "base_name": "물냉면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 9490,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "물냉면"
+    ]
+  },
+  {
+    "name_ko": "해물순두부",
+    "base_name": "순두부",
+    "modifiers": [
+      {
+        "text": "해물",
+        "type": "ingredient",
+        "key": "seafood"
+      }
+    ],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 9055,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "해물순두부"
+    ]
+  },
+  {
+    "name_ko": "흑돼지김치찌개",
+    "base_name": "흑돼지김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 9777,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "흑돼지김치찌개"
+    ]
+  },
+  {
+    "name_ko": "해물바",
+    "base_name": "바",
+    "modifiers": [
+      {
+        "text": "해물",
+        "type": "ingredient",
+        "key": "seafood"
+      }
+    ],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 3833,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "해물바"
+    ]
+  },
+  {
+    "name_ko": "매직핫도그",
+    "base_name": "매직핫도그",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 5166,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "매직핫도그"
+    ]
+  },
+  {
+    "name_ko": "통등심돈가스",
+    "base_name": "통등심돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 10500,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "통등심돈가스"
+    ]
+  },
+  {
+    "name_ko": "콩나물해장국",
+    "base_name": "콩나물해장국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "콩나물해장국"
+    ]
+  },
+  {
+    "name_ko": "옥수수",
+    "base_name": "옥수수",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 3644,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "옥수수"
+    ]
+  },
+  {
+    "name_ko": "오뎅꼬치우동",
+    "base_name": "오뎅꼬치우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 7333,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "오뎅꼬치우동"
+    ]
+  },
+  {
+    "name_ko": "옛날돈까스",
+    "base_name": "옛날돈까스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 11312,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "옛날돈까스"
+    ]
+  },
+  {
+    "name_ko": "짬뽕밥",
+    "base_name": "짬뽕밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10125,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "짬뽕밥"
+    ]
+  },
+  {
+    "name_ko": "돈가스우동정식",
+    "base_name": "돈가스우동정식",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10937,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "돈가스우동정식"
+    ]
+  },
+  {
+    "name_ko": "맑은나주곰탕",
+    "base_name": "맑은나주곰탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10875,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "맑은나주곰탕"
+    ]
+  },
+  {
+    "name_ko": "튀김우동",
+    "base_name": "튀김우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 7125,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "튀김우동"
+    ]
+  },
+  {
+    "name_ko": "산채비빔밥",
+    "base_name": "산채비빔밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "비빔밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 8937,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "산채비빔밥"
+    ]
+  },
+  {
+    "name_ko": "냄비우동",
+    "base_name": "냄비우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 7625,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "냄비우동"
+    ]
+  },
+  {
+    "name_ko": "불고기비빔밥",
+    "base_name": "불고기비빔밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "비빔밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 9812,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "불고기비빔밥"
+    ]
+  },
+  {
+    "name_ko": "제육볶음",
+    "base_name": "제육볶음",
+    "modifiers": [],
+    "category_1": "중식",
+    "category_2": "중식",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 8750,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "제육볶음"
+    ]
+  },
+  {
+    "name_ko": "야채김밥",
+    "base_name": "김밥",
+    "modifiers": [
+      {
+        "text": "야채",
+        "type": "ingredient",
+        "key": "vegetable"
+      }
+    ],
+    "category_1": "밥류",
+    "category_2": "김밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 3875,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "야채김밥"
+    ]
+  },
+  {
+    "name_ko": "옛날우동",
+    "base_name": "옛날우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 8,
+    "rest_area_count": 7,
+    "avg_price": 5625,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "옛날우동"
+    ]
+  },
+  {
+    "name_ko": "순대국밥",
+    "base_name": "순대국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 8,
+    "rest_area_count": 7,
+    "avg_price": 10487,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "순대국밥"
+    ]
+  },
+  {
+    "name_ko": "비빔냉면",
+    "base_name": "비빔냉면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 8,
+    "rest_area_count": 7,
+    "avg_price": 9987,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "비빔냉면"
+    ]
+  },
+  {
+    "name_ko": "새집추어탕",
+    "base_name": "새집추어탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 12000,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "새집추어탕"
+    ]
+  },
+  {
+    "name_ko": "한우소머리곰탕",
+    "base_name": "한우소머리곰탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 12642,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "한우소머리곰탕"
+    ]
+  },
+  {
+    "name_ko": "회오리감자",
+    "base_name": "회오리감자",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 4428,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "회오리감자"
+    ]
+  },
+  {
+    "name_ko": "만두라면",
+    "base_name": "만두라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5071,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "만두라면"
+    ]
+  },
+  {
+    "name_ko": "해장라면",
+    "base_name": "해장라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5357,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "해장라면"
+    ]
+  },
+  {
+    "name_ko": "바우네나주곰탕",
+    "base_name": "바우네나주곰탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 10642,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "바우네나주곰탕"
+    ]
+  },
+  {
+    "name_ko": "고기만두",
+    "base_name": "고기만두",
+    "modifiers": [],
+    "category_1": "빵/간식",
+    "category_2": "간식",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5642,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "고기만두"
+    ]
+  },
+  {
+    "name_ko": "얼큰곰탕",
+    "base_name": "곰탕",
+    "modifiers": [
+      {
+        "text": "얼큰",
+        "type": "taste",
+        "key": "spicy_hearty"
+      }
+    ],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 10142,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "얼큰곰탕"
+    ]
+  },
+  {
+    "name_ko": "해물짬뽕라면",
+    "base_name": "짬뽕라면",
+    "modifiers": [
+      {
+        "text": "해물",
+        "type": "ingredient",
+        "key": "seafood"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5714,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "해물짬뽕라면"
+    ]
+  },
+  {
+    "name_ko": "열무국수",
+    "base_name": "열무국수",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 8142,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "열무국수"
+    ]
+  },
+  {
+    "name_ko": "짬뽕",
+    "base_name": "짬뽕",
+    "modifiers": [],
+    "category_1": "중식",
+    "category_2": "중식",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 8571,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "짬뽕"
+    ]
+  },
+  {
+    "name_ko": "함박스테이크",
+    "base_name": "함박스테이크",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 11000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "함박스테이크"
+    ]
+  },
+  {
+    "name_ko": "해물된장찌개",
+    "base_name": "된장찌개",
+    "modifiers": [
+      {
+        "text": "해물",
+        "type": "ingredient",
+        "key": "seafood"
+      }
+    ],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 7714,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "해물된장찌개"
+    ]
+  },
+  {
+    "name_ko": "얼큰우동",
+    "base_name": "우동",
+    "modifiers": [
+      {
+        "text": "얼큰",
+        "type": "taste",
+        "key": "spicy_hearty"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 6857,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "얼큰우동"
+    ]
+  },
+  {
+    "name_ko": "대파육개장",
+    "base_name": "파육개장",
+    "modifiers": [
+      {
+        "text": "대",
+        "type": "size",
+        "key": "large"
+      }
+    ],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 10142,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "대파육개장"
+    ]
+  },
+  {
+    "name_ko": "돼지고기 김치찌개",
+    "base_name": "돼지고기 김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 9357,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "돼지고기 김치찌개"
+    ]
+  },
+  {
+    "name_ko": "신라면",
+    "base_name": "신라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 5000,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "신라면"
+    ]
+  },
+  {
+    "name_ko": "순대국",
+    "base_name": "순대국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 10000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "순대국"
+    ]
+  },
+  {
+    "name_ko": "실속돈가스",
+    "base_name": "실속돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 9642,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "실속돈가스"
+    ]
+  },
+  {
+    "name_ko": "모듬튀김우동",
+    "base_name": "모듬튀김우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 7571,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "모듬튀김우동"
+    ]
+  },
+  {
+    "name_ko": "한우국밥",
+    "base_name": "한우국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 11000,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "한우국밥"
+    ]
+  },
+  {
+    "name_ko": "옛날돼지고기김치찌개",
+    "base_name": "옛날돼지고기김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9733,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "옛날돼지고기김치찌개"
+    ]
+  },
+  {
+    "name_ko": "매콤제육덮밥",
+    "base_name": "매콤제육덮밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "덮밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9700,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "매콤제육덮밥"
+    ]
+  },
+  {
+    "name_ko": "차돌박이된장찌개",
+    "base_name": "차돌박이된장찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9250,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "차돌박이된장찌개"
+    ]
+  },
+  {
+    "name_ko": "흑돼지 김치찌개",
+    "base_name": "흑돼지 김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9583,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "흑돼지 김치찌개"
+    ]
+  },
+  {
+    "name_ko": "만두국",
+    "base_name": "만두국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9250,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "만두국"
+    ]
+  },
+  {
+    "name_ko": "황태미역국",
+    "base_name": "황태미역국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 7333,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "황태미역국"
+    ]
+  },
+  {
+    "name_ko": "꼬지어묵우동",
+    "base_name": "꼬지어묵우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 6916,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "꼬지어묵우동"
+    ]
+  },
+  {
+    "name_ko": "참치김치찌개",
+    "base_name": "참치김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9750,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "참치김치찌개"
+    ]
+  },
+  {
+    "name_ko": "돈가스제육덮밥",
+    "base_name": "돈가스제육덮밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "덮밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 11000,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "돈가스제육덮밥"
+    ]
+  },
+  {
+    "name_ko": "몽글순두부찌개",
+    "base_name": "몽글순두부찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "몽글순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "콩나물황태해장국",
+    "base_name": "콩나물황태해장국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "콩나물황태해장국"
+    ]
+  },
+  {
+    "name_ko": "부대라면",
+    "base_name": "부대라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 6000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "부대라면"
+    ]
+  },
+  {
+    "name_ko": "비빔밥",
+    "base_name": "비빔밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "비빔밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9750,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "비빔밥"
+    ]
+  },
+  {
+    "name_ko": "김치만두",
+    "base_name": "김치만두",
+    "modifiers": [],
+    "category_1": "빵/간식",
+    "category_2": "간식",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 5916,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "김치만두"
+    ]
+  },
+  {
+    "name_ko": "해장라면정식",
+    "base_name": "해장라면정식",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 6166,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "해장라면정식"
+    ]
+  },
+  {
+    "name_ko": "선지해장국",
+    "base_name": "선지해장국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 10666,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "선지해장국"
+    ]
+  },
+  {
+    "name_ko": "치즈돈가스+사이다세트",
+    "base_name": "돈가스+사이다세트",
+    "modifiers": [
+      {
+        "text": "치즈",
+        "type": "ingredient",
+        "key": "cheese"
+      }
+    ],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 11666,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": false,
+    "raw_names": [
+      "치즈돈가스+사이다세트"
+    ]
+  },
+  {
+    "name_ko": "남산돈까스",
+    "base_name": "남산돈까스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 10166,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "남산돈까스"
+    ]
+  },
+  {
+    "name_ko": "당면짬뽕밥",
+    "base_name": "당면짬뽕밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 7966,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "당면짬뽕밥"
+    ]
+  },
+  {
+    "name_ko": "해물냄비우동",
+    "base_name": "냄비우동",
+    "modifiers": [
+      {
+        "text": "해물",
+        "type": "ingredient",
+        "key": "seafood"
+      }
+    ],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 5916,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "해물냄비우동"
+    ]
+  },
+  {
+    "name_ko": "케이크소세지",
+    "base_name": "케이크소세지",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 7,
+    "rest_area_count": 5,
+    "avg_price": 3871,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "케이크소세지"
+    ]
+  },
+  {
+    "name_ko": "케네디소시지",
+    "base_name": "케네디소시지",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 6,
+    "rest_area_count": 5,
+    "avg_price": 4100,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "케네디소시지"
+    ]
+  },
+  {
+    "name_ko": "꼬치어묵라면",
+    "base_name": "꼬치어묵라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 6,
+    "rest_area_count": 5,
+    "avg_price": 5583,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "꼬치어묵라면"
+    ]
+  },
+  {
+    "name_ko": "농심유부우동",
+    "base_name": "농심유부우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 6100,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "농심유부우동"
+    ]
+  },
+  {
+    "name_ko": "바지락미역국",
+    "base_name": "바지락미역국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "바지락미역국"
+    ]
+  },
+  {
+    "name_ko": "김치볶음밥",
+    "base_name": "김치볶음밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "덮밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "김치볶음밥"
+    ]
+  },
+  {
+    "name_ko": "가락자장면",
+    "base_name": "가락자장면",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "가락자장면"
+    ]
+  },
+  {
+    "name_ko": "사골우거지국밥",
+    "base_name": "사골우거지국밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8000,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "사골우거지국밥"
+    ]
+  },
+  {
+    "name_ko": "고추장불고기",
+    "base_name": "고추장불고기",
+    "modifiers": [],
+    "category_1": "구이/고기",
+    "category_2": "구이",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9860,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "고추장불고기"
+    ]
+  },
+  {
+    "name_ko": "계란떡라면",
+    "base_name": "계란떡라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 5600,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "계란떡라면"
+    ]
+  },
+  {
+    "name_ko": "사골우거지국",
+    "base_name": "사골우거지국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "사골우거지국"
+    ]
+  },
+  {
+    "name_ko": "수제어묵바",
+    "base_name": "수제어묵바",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3940,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "수제어묵바"
+    ]
+  },
+  {
+    "name_ko": "명동칼국수",
+    "base_name": "명동칼국수",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8900,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "명동칼국수"
+    ]
+  },
+  {
+    "name_ko": "순두부짬뽕밥",
+    "base_name": "순두부짬뽕밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9580,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "순두부짬뽕밥"
+    ]
+  },
+  {
+    "name_ko": "델리만쥬",
+    "base_name": "델리만쥬",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3660,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "델리만쥬"
+    ]
+  },
+  {
+    "name_ko": "고등어구이",
+    "base_name": "고등어구이",
+    "modifiers": [],
+    "category_1": "구이/고기",
+    "category_2": "구이",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 11500,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "고등어구이"
+    ]
+  },
+  {
+    "name_ko": "돈육김치찌개",
+    "base_name": "돈육김치찌개",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "찌개",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8400,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "돈육김치찌개"
+    ]
+  },
+  {
+    "name_ko": "얼큰육개장",
+    "base_name": "육개장",
+    "modifiers": [
+      {
+        "text": "얼큰",
+        "type": "taste",
+        "key": "spicy_hearty"
+      }
+    ],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9600,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "얼큰육개장"
+    ]
+  },
+  {
+    "name_ko": "미니츄러스",
+    "base_name": "미니츄러스",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3860,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "미니츄러스"
+    ]
+  },
+  {
+    "name_ko": "도깨비핫도그",
+    "base_name": "도깨비핫도그",
+    "modifiers": [],
+    "category_1": "분식",
+    "category_2": "분식",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 4080,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "도깨비핫도그"
+    ]
+  },
+  {
+    "name_ko": "사골떡만두국",
+    "base_name": "사골떡만두국",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8600,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "사골떡만두국"
+    ]
+  },
+  {
+    "name_ko": "고등어구이정식",
+    "base_name": "고등어구이정식",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "기타밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 12600,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "고등어구이정식"
+    ]
+  },
+  {
+    "name_ko": "군만두",
+    "base_name": "군만두",
+    "modifiers": [],
+    "category_1": "빵/간식",
+    "category_2": "간식",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7100,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "군만두"
+    ]
+  },
+  {
+    "name_ko": "콩국수",
+    "base_name": "콩국수",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8400,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "콩국수"
+    ]
+  },
+  {
+    "name_ko": "어린이돈가스",
+    "base_name": "어린이돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7300,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "어린이돈가스"
+    ]
+  },
+  {
+    "name_ko": "제육돈가스",
+    "base_name": "제육돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 12360,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "제육돈가스"
+    ]
+  },
+  {
+    "name_ko": "짬뽕순두부",
+    "base_name": "짬뽕순두부",
+    "modifiers": [],
+    "category_1": "중식",
+    "category_2": "중식",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9100,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "짬뽕순두부"
+    ]
+  },
+  {
+    "name_ko": "곰탕",
+    "base_name": "곰탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 10200,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "곰탕"
+    ]
+  },
+  {
+    "name_ko": "전주비빔밥",
+    "base_name": "전주비빔밥",
+    "modifiers": [],
+    "category_1": "밥류",
+    "category_2": "비빔밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9200,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "전주비빔밥"
+    ]
+  },
+  {
+    "name_ko": "이해윤추어탕",
+    "base_name": "이해윤추어탕",
+    "modifiers": [],
+    "category_1": "국/찌개/탕",
+    "category_2": "탕",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 11000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "이해윤추어탕"
+    ]
+  },
+  {
+    "name_ko": "냉메밀",
+    "base_name": "냉메밀",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7500,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "냉메밀"
+    ]
+  },
+  {
+    "name_ko": "전복꼬치어묵우동",
+    "base_name": "전복꼬치어묵우동",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "전복꼬치어묵우동"
+    ]
+  },
+  {
+    "name_ko": "파김치",
+    "base_name": "파김치",
+    "modifiers": [],
+    "category_1": "기타",
+    "category_2": "기타",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 2600,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "파김치"
+    ]
+  },
+  {
+    "name_ko": "햄치즈라면",
+    "base_name": "햄치즈라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 6500,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "햄치즈라면"
+    ]
+  },
+  {
+    "name_ko": "샘밭막국수",
+    "base_name": "샘밭막국수",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9000,
+    "is_best": true,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "샘밭막국수"
+    ]
+  },
+  {
+    "name_ko": "경양식돈가스",
+    "base_name": "경양식돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9700,
+    "is_best": true,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "경양식돈가스"
+    ]
+  },
+  {
+    "name_ko": "짬뽕라면",
+    "base_name": "짬뽕라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 6400,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "짬뽕라면"
+    ]
+  },
+  {
+    "name_ko": "그냥라면",
+    "base_name": "그냥라면",
+    "modifiers": [],
+    "category_1": "면류",
+    "category_2": "라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3500,
+    "is_best": false,
+    "is_recommend": false,
+    "is_canonical": true,
+    "raw_names": [
+      "그냥라면"
+    ]
+  },
+  {
+    "name_ko": "남산치즈돈가스",
+    "base_name": "남산치즈돈가스",
+    "modifiers": [],
+    "category_1": "돈가스/튀김",
+    "category_2": "돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 13900,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": true,
+    "raw_names": [
+      "남산치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "야채비빔밥",
+    "base_name": "비빔밥",
+    "modifiers": [
+      {
+        "text": "야채",
+        "type": "ingredient",
+        "key": "vegetable"
+      }
+    ],
+    "category_1": "밥류",
+    "category_2": "비빔밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8400,
+    "is_best": false,
+    "is_recommend": true,
+    "is_canonical": false,
+    "raw_names": [
+      "야채비빔밥"
+    ]
+  }
+]

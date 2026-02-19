@@ -1,11 +1,18 @@
 """
 공공데이터 API 클라이언트
-3개 API 통합: 메뉴젠, 서울 식당정보, 식품영양성분DB
+2개 포털 통합: data.go.kr (식품영양성분DB) + data.ex.co.kr (고속도로 휴게소)
 
 API 목록:
-- 메뉴젠 (15101046): 음식명 표준화, 음식코드 매핑
-- 서울 식당정보 (15098046): 서울 소재 식당의 메뉴 데이터
-- 식품영양성분DB (15127578): 영양정보 (에너지, 단백질 등 24항목)
+- 식품영양성분DB (data.go.kr/15127578): 영양정보 (에너지, 단백질 등)
+  URL: apis.data.go.kr/1471000/FoodNtrCpntDbInfo02/getFoodNtrCpntDbInq02
+  인증: serviceKey (data.go.kr 포털 발급)
+- 고속도로 휴게소 음식 (data.ex.co.kr): 메뉴명, 가격, 휴게소 정보
+  URL: data.ex.co.kr/openapi/restinfo/restBestfoodList
+  인증: key (data.ex.co.kr 포털 발급)
+
+주의: 두 포털의 인증키는 별도 발급 필요
+- data.go.kr: Base64 인코딩된 긴 문자열 (serviceKey)
+- data.ex.co.kr: 숫자 10자리 (key)
 
 Author: Claude (Senior Developer)
 Date: 2026-02-19
@@ -17,162 +24,116 @@ from config import settings
 
 logger = logging.getLogger(__name__)
 
-# 공공데이터 API 기본 설정
-BASE_URL = "https://apis.data.go.kr"
-
-# API 서비스 키 (공공데이터포털에서 발급)
-# config.py에 PUBLIC_DATA_API_KEY 추가 필요
+# API 키 (config.py → .env에서 로드)
 PUBLIC_DATA_API_KEY = getattr(settings, 'PUBLIC_DATA_API_KEY', '')
+# data.go.kr 별도 키가 설정되지 않으면 PUBLIC_DATA_API_KEY 사용
+DATA_GO_KR_API_KEY = getattr(settings, 'DATA_GO_KR_API_KEY', '') or PUBLIC_DATA_API_KEY
 
 
 class PublicDataClient:
     """공공데이터 API 통합 클라이언트"""
 
-    def __init__(self, api_key: str = ""):
-        self.api_key = api_key or PUBLIC_DATA_API_KEY
+    def __init__(self, api_key: str = "", data_go_kr_key: str = ""):
+        self.api_key = api_key or PUBLIC_DATA_API_KEY  # data.ex.co.kr
+        self.data_go_kr_key = data_go_kr_key or DATA_GO_KR_API_KEY  # data.go.kr
         self.timeout = 10.0
 
-    async def _request(self, url: str, params: Dict[str, Any]) -> Optional[Dict]:
-        """공통 HTTP GET 요청"""
-        params["serviceKey"] = self.api_key
+    async def _request_ex(self, url: str, params: Dict[str, Any]) -> Optional[Dict]:
+        """data.ex.co.kr 전용 HTTP GET 요청"""
+        params["key"] = self.api_key
         params["type"] = "json"
 
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
                 response = await client.get(url, params=params)
                 response.raise_for_status()
-
-                data = response.json()
-                return data
-
+                return response.json()
         except httpx.TimeoutException:
-            logger.error(f"[PublicData] Timeout: {url}")
+            logger.error(f"[ExData] Timeout: {url}")
             return None
         except httpx.HTTPStatusError as e:
-            logger.error(f"[PublicData] HTTP {e.response.status_code}: {url}")
+            logger.error(f"[ExData] HTTP {e.response.status_code}: {url}")
             return None
         except Exception as e:
-            logger.error(f"[PublicData] Error: {e}")
+            logger.error(f"[ExData] Error: {e}")
             return None
 
-    # ========== 1. 메뉴젠 API (음식명 표준화) ==========
-
-    async def search_menuzen(self, food_name: str, page: int = 1, per_page: int = 10) -> Optional[Dict]:
-        """
-        메뉴젠 API - 음식명으로 표준 음식코드 검색
-
-        Args:
-            food_name: 검색할 음식명 (한글)
-            page: 페이지 번호
-            per_page: 페이지당 결과 수
-
-        Returns:
-            {"total": int, "items": [{"food_code": str, "food_name": str, "category_1": str, ...}]}
-        """
-        url = f"{BASE_URL}/1471000/FoodNtrCpService/getFoodNtrCpInfo"
-
-        params = {
-            "food_name": food_name,
-            "pageNo": page,
-            "numOfRows": per_page,
-        }
-
-        data = await self._request(url, params)
-        if not data:
-            return None
+    async def _request_go(self, url: str, params: Dict[str, Any]) -> Optional[Dict]:
+        """data.go.kr 전용 HTTP GET 요청"""
+        params["serviceKey"] = self.data_go_kr_key
+        params["type"] = "json"
 
         try:
-            body = data.get("body", {})
-            items = body.get("items", [])
-            if isinstance(items, dict):
-                items = items.get("item", [])
-            if isinstance(items, dict):
-                items = [items]
-
-            return {
-                "total": body.get("totalCount", 0),
-                "items": [
-                    {
-                        "food_code": item.get("FOOD_CD", ""),
-                        "food_name": item.get("FOOD_NM_KR", ""),
-                        "category_1": item.get("FOOD_CAT1_NM", ""),
-                        "category_2": item.get("FOOD_CAT2_NM", ""),
-                        "serving_size": item.get("SERVING_SIZE", ""),
-                        "energy": item.get("AMT_NUM1", ""),
-                    }
-                    for item in items
-                ],
-            }
+            async with httpx.AsyncClient(timeout=self.timeout) as client:
+                response = await client.get(url, params=params)
+                response.raise_for_status()
+                return response.json()
+        except httpx.TimeoutException:
+            logger.error(f"[GoData] Timeout: {url}")
+            return None
+        except httpx.HTTPStatusError as e:
+            logger.error(f"[GoData] HTTP {e.response.status_code}: {url}")
+            return None
         except Exception as e:
-            logger.error(f"[MenuZen] Parse error: {e}")
+            logger.error(f"[GoData] Error: {e}")
             return None
 
-    # ========== 2. 서울 식당정보 API ==========
+    # ========== 1. 고속도로 휴게소 음식 API (data.ex.co.kr) ==========
 
-    async def search_seoul_restaurants(
+    async def search_highway_food(
         self,
-        menu_name: str = "",
-        district: str = "",
+        food_name: str = "",
         page: int = 1,
         per_page: int = 20,
     ) -> Optional[Dict]:
         """
-        서울 식당정보 API - 메뉴명 또는 지역으로 식당 검색
+        고속도로 휴게소 음식 메뉴 검색 (확인됨, 작동 중)
 
         Args:
-            menu_name: 메뉴명 검색 (선택)
-            district: 구/동 (선택)
+            food_name: 음식명 검색 (선택)
             page: 페이지 번호
             per_page: 페이지당 결과 수
 
         Returns:
-            {"total": int, "items": [{"restaurant_name": str, "menu": str, ...}]}
+            {"total": int, "items": [{"food_name": str, "price": int, ...}]}
         """
-        url = f"{BASE_URL}/6260000/FoodService/getFoodKr"
+        url = "https://data.ex.co.kr/openapi/restinfo/restBestfoodList"
 
         params = {
-            "pageNo": page,
             "numOfRows": per_page,
+            "pageNo": page,
+        }
+        if food_name:
+            params["foodNm"] = food_name
+
+        data = await self._request_ex(url, params)
+        if not data or data.get("code") != "SUCCESS":
+            return None
+
+        items = data.get("list", [])
+        return {
+            "total": data.get("count", 0),
+            "items": [
+                {
+                    "food_name": item.get("foodNm", ""),
+                    "price": int(item.get("foodCost", "0") or "0"),
+                    "rest_area": item.get("stdRestNm", ""),
+                    "route": item.get("routeNm", ""),
+                    "is_best": item.get("bestfoodyn") == "Y",
+                    "is_recommend": item.get("recommendyn") == "Y",
+                }
+                for item in items
+            ],
         }
 
-        if menu_name:
-            params["MENU"] = menu_name
-        if district:
-            params["ADDR"] = district
-
-        data = await self._request(url, params)
-        if not data:
-            return None
-
-        try:
-            body = data.get("body", {})
-            items = body.get("items", [])
-            if isinstance(items, dict):
-                items = items.get("item", [])
-            if isinstance(items, dict):
-                items = [items]
-
-            return {
-                "total": body.get("totalCount", 0),
-                "items": [
-                    {
-                        "restaurant_name": item.get("BIZPLC_NM", ""),
-                        "menu": item.get("MENU_NM", ""),
-                        "address": item.get("REFINE_ROADNM_ADDR", ""),
-                        "district": item.get("SIGUN_NM", ""),
-                    }
-                    for item in items
-                ],
-            }
-        except Exception as e:
-            logger.error(f"[SeoulRestaurant] Parse error: {e}")
-            return None
-
-    # ========== 3. 식품영양성분DB API ==========
+    # ========== 2. 식품영양성분DB API (data.go.kr) ==========
 
     async def get_nutrition_info(self, food_name: str, page: int = 1, per_page: int = 5) -> Optional[Dict]:
         """
         식품영양성분DB API - 음식명으로 영양정보 조회
+        URL: apis.data.go.kr/1471000/FoodNtrCpntDbInfo02/getFoodNtrCpntDbInq02
+
+        주의: data.go.kr 인증키 필요 (data.ex.co.kr 키와 별도)
 
         Args:
             food_name: 음식명 (한글)
@@ -182,7 +143,7 @@ class PublicDataClient:
         Returns:
             {"total": int, "items": [{"food_name": str, "nutrition": {...}}]}
         """
-        url = f"{BASE_URL}/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1"
+        url = "https://apis.data.go.kr/1471000/FoodNtrCpntDbInfo02/getFoodNtrCpntDbInq02"
 
         params = {
             "FOOD_NM_KR": food_name,
@@ -190,12 +151,18 @@ class PublicDataClient:
             "numOfRows": per_page,
         }
 
-        data = await self._request(url, params)
+        data = await self._request_go(url, params)
         if not data:
             return None
 
         try:
+            # 응답 구조: header + body 또는 response > header + body
             body = data.get("body", {})
+            if not body and "response" in data:
+                body = data["response"].get("body", {})
+            if not body and "header" in data:
+                body = data.get("body", {})
+
             items = body.get("items", [])
             if isinstance(items, dict):
                 items = items.get("item", [])
@@ -208,6 +175,8 @@ class PublicDataClient:
                     {
                         "food_name": item.get("FOOD_NM_KR", ""),
                         "food_code": item.get("FOOD_CD", ""),
+                        "category_1": item.get("FOOD_CAT1_NM", ""),
+                        "category_2": item.get("FOOD_CAT2_NM", ""),
                         "serving_size": item.get("SERVING_SIZE", ""),
                         "nutrition": self._parse_nutrition(item),
                     }
@@ -254,46 +223,50 @@ class PublicDataClient:
     async def enrich_menu(self, menu_name_ko: str) -> Dict[str, Any]:
         """
         메뉴명으로 공공데이터 통합 조회
-        3개 API를 순차적으로 호출하여 메뉴 정보 구축
+        1. 고속도로 휴게소 API (가격, 인기도)
+        2. 식품영양성분DB (영양정보) — data.go.kr 키 필요
 
         Args:
             menu_name_ko: 한글 메뉴명
 
         Returns:
             {
-                "standard_code": str,
                 "category_1": str,
                 "category_2": str,
                 "serving_size": str,
                 "nutrition_info": dict,
+                "avg_price": int,
+                "is_popular": bool,
                 "source": str,
             }
         """
         result = {
-            "standard_code": None,
             "category_1": None,
             "category_2": None,
             "serving_size": None,
             "nutrition_info": {},
+            "avg_price": 0,
+            "is_popular": False,
             "source": "public_data",
         }
 
-        # Step 1: 메뉴젠에서 표준코드 + 분류 조회
-        menuzen = await self.search_menuzen(menu_name_ko)
-        if menuzen and menuzen["items"]:
-            first = menuzen["items"][0]
-            result["standard_code"] = first.get("food_code")
-            result["category_1"] = first.get("category_1")
-            result["category_2"] = first.get("category_2")
-            result["serving_size"] = first.get("serving_size")
+        # Step 1: 고속도로 휴게소에서 가격/인기도 조회 (항상 작동)
+        highway = await self.search_highway_food(food_name=menu_name_ko)
+        if highway and highway["items"]:
+            prices = [i["price"] for i in highway["items"] if i["price"] > 0]
+            if prices:
+                result["avg_price"] = sum(prices) // len(prices)
+            result["is_popular"] = any(i.get("is_best") for i in highway["items"])
 
-        # Step 2: 영양정보 조회
-        nutrition = await self.get_nutrition_info(menu_name_ko)
-        if nutrition and nutrition["items"]:
-            first = nutrition["items"][0]
-            result["nutrition_info"] = first.get("nutrition", {})
-            if not result["serving_size"] and first.get("serving_size"):
-                result["serving_size"] = first["serving_size"]
+        # Step 2: 영양정보 조회 (data.go.kr 키 필요)
+        if self.data_go_kr_key:
+            nutrition = await self.get_nutrition_info(menu_name_ko)
+            if nutrition and nutrition["items"]:
+                first = nutrition["items"][0]
+                result["nutrition_info"] = first.get("nutrition", {})
+                result["serving_size"] = first.get("serving_size")
+                result["category_1"] = first.get("category_1")
+                result["category_2"] = first.get("category_2")
 
         return result
 
