@@ -1,7 +1,17 @@
 # 06. API Specification v0.1 — Menu Knowledge Engine 엔드포인트
 
-> **이 문서는 03_data_schema에서 자동으로 도출된다.**  
+> **이 문서는 03_data_schema에서 자동으로 도출된다.**
 > 스키마가 바뀌면 이 문서도 바뀐다.
+
+---
+
+## 🆕 Sprint 0 공공데이터 API 추가 (2026-02-19)
+
+**새 엔드포인트:**
+- `GET /api/v1/menu/nutrition/{canonical_id}` — 영양정보 조회 (식품영양성분DB)
+- `GET /api/v1/menu/category-search` — 정부 표준 분류로 메뉴 검색 (메뉴젠)
+- `GET /api/v1/menu/by-standard-code/{code}` — 음식코드로 메뉴 조회
+- `POST /api/v1/public-data/sync` — 공공데이터 동기화 (내부 관리자용)
 
 ---
 
@@ -182,6 +192,209 @@ Response 200:
       "ja": { "..." },
       "zh_cn": { "..." }
     }
+  }
+}
+```
+
+---
+
+## 🆕 1-4. `GET /api/v1/menu/nutrition/{canonical_id}`
+
+**목적:** 특정 메뉴의 영양정보 조회 (식품영양성분DB API 캐싱)
+
+```
+Request:
+  GET /api/v1/menu/nutrition/canon_042?lang=en
+
+Response 200:
+{
+  "canonical_id": "canon_042",
+  "name_ko": "뼈해장국",
+  "name_en": "Pork Bone Hangover Soup",
+  "serving_size": "1인분 (300ml)",
+  "nutrition_info": {
+    "energy": 250,                    // kcal
+    "protein": 25.5,                  // g
+    "fat": 15.2,                      // g
+    "carbs": 0.5,                     // g
+    "fiber": 0.2,                     // g
+    "calcium": 150,                   // mg
+    "iron": 2.5,                      // mg
+    "sodium": 1200,                   // mg
+    "potassium": 450,                 // mg
+    "magnesium": 85,                  // mg
+    "phosphorus": 320,                // mg
+    "zinc": 4.5,                      // mg
+    "vitamin_a": 150,                 // mcg
+    "vitamin_c": 8,                   // mg
+    "vitamin_d": 0.5,                 // mcg
+    "vitamin_e": 2.1,                 // mg
+    "vitamin_b1": 0.15,               // mg
+    "vitamin_b2": 0.25,               // mg
+    "niacin": 4.2,                    // mg
+    "vitamin_b6": 0.45,               // mg
+    "folate": 25,                     // mcg
+    "vitamin_b12": 1.2,               // mcg
+    "cholesterol": 85,                // mg
+    "saturated_fat": 5.8              // g
+  },
+  "cache_info": {
+    "cached_at": "2026-02-19T10:30:00Z",
+    "expires_at": "2026-05-19T10:30:00Z",  // TTL 90일
+    "source": "public_data"
+  },
+  "allergens": ["pork"],
+  "dietary_tags": ["contains_pork", "spicy_mild"]
+}
+```
+
+---
+
+## 🆕 1-5. `GET /api/v1/menu/category-search`
+
+**목적:** 정부 표준 분류(메뉴젠)로 메뉴 검색
+
+```
+Request:
+  GET /api/v1/menu/category-search?category_1=육류&category_2=구이&limit=20&lang=en
+
+Response 200:
+{
+  "search": {
+    "category_1": "육류",
+    "category_2": "구이",
+    "total_results": 156
+  },
+  "results": [
+    {
+      "id": "canon_042",
+      "name_ko": "불고기",
+      "name_en": "Bulgogi",
+      "standard_code": "K001234",
+      "category_1": "육류",
+      "category_2": "구이",
+      "serving_size": "200g",
+      "spice_level": 1,
+      "difficulty_score": 2,
+      "image_url": "https://cdn.example.com/images/canon_042.jpg",
+      "variant_count": 45,        // 현재 DB에 등록된 변형 메뉴 수
+      "shops_with_menu": 28       // 이 메뉴를 제공하는 등록 식당 수
+    },
+    {
+      "id": "canon_043",
+      "name_ko": "소불고기",
+      "name_en": "Beef Bulgogi",
+      ...
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 20,
+    "total": 156
+  }
+}
+```
+
+---
+
+## 🆕 1-6. `GET /api/v1/menu/by-standard-code/{code}`
+
+**목적:** 정부 음식코드로 메뉴 조회 (메뉴젠 API)
+
+```
+Request:
+  GET /api/v1/menu/by-standard-code/K001234?lang=en
+
+Response 200:
+{
+  "standard_code": "K001234",
+  "government_source": "menu-gen-api",  // 농촌진흥청
+  "canonical": {
+    "id": "canon_042",
+    "name_ko": "불고기",
+    "name_en": "Bulgogi",
+    "category_1": "육류",
+    "category_2": "구이",
+    "serving_size": "200g",
+    "explanation_short": "Grilled marinated thin beef slices, a classic Korean dish",
+    "spice_level": 1,
+    "difficulty_score": 2,
+    "allergens": ["soy"],
+    "dietary_tags": ["contains_soy", "contains_beef"]
+  },
+  "nutrition_info": {
+    "energy": 280,
+    "protein": 28.5,
+    "fat": 18.2,
+    ...
+  },
+  "variants_in_seoul": 45,      // 서울 식당에서 발견된 변형 메뉴
+  "shops_in_seoul": 28
+}
+```
+
+---
+
+## 🆕 1-7. `POST /api/v1/public-data/sync` (내부용, 관리자만)
+
+**목적:** 공공데이터 API와 로컬 DB 동기화
+
+> 이 엔드포인트는 **내부 관리자만** 호출 가능 (별도 인증 필요)
+
+```
+Request:
+  Content-Type: application/json
+  Headers: X-Admin-Key: admin_secret_key
+  Body:
+  {
+    "source": "menu-gen" | "seoul-restaurants" | "nutrition-db" | "all",
+    "force_refresh": false,    // true면 캐시 무시하고 다시 동기화
+    "dry_run": false           // true면 미리보기만
+  }
+
+Response 200:
+{
+  "job_id": "sync_job_20260219_001",
+  "status": "processing",
+  "source": "all",
+  "started_at": "2026-02-19T10:45:30Z",
+  "estimated_completion": "2026-02-19T11:30:00Z",
+  "progress": {
+    "menu_gen": {
+      "status": "completed",
+      "records_added": 45,
+      "records_updated": 12,
+      "records_deleted": 0,
+      "completed_at": "2026-02-19T10:50:00Z"
+    },
+    "seoul_restaurants": {
+      "status": "processing",
+      "records_processed": 125000,
+      "records_total": 167659,
+      "estimated_remaining": "35min"
+    },
+    "nutrition_db": {
+      "status": "pending",
+      "records_total": 157
+    }
+  }
+}
+```
+
+**Polling 엔드포인트:** `GET /api/v1/public-data/sync/{job_id}`
+
+```
+Response 200:
+{
+  "job_id": "sync_job_20260219_001",
+  "status": "completed",  // pending, processing, completed, failed
+  "started_at": "2026-02-19T10:45:30Z",
+  "completed_at": "2026-02-19T11:28:15Z",
+  "summary": {
+    "canonical_menus_added": 157000,
+    "nutrition_records_cached": 157,
+    "indexes_rebuilt": true,
+    "cache_invalidated": true
   }
 }
 ```
@@ -426,13 +639,19 @@ Response 200:
 |---|---|---|
 | 400 | `invalid_image` | 이미지 형식 오류 또는 인식 불가 |
 | 400 | `no_menu_detected` | OCR에서 메뉴 텍스트를 추출 못함 |
+| 400 | `invalid_category` | 존재하지 않는 분류(메뉴젠) |
+| 400 | `invalid_standard_code` | 존재하지 않는 음식코드 |
 | 401 | `invalid_api_key` | B2B API 키 무효 |
+| 401 | `invalid_admin_key` | 관리자 키 무효 (공공데이터 동기화) |
 | 404 | `shop_not_found` | 식당 ID 없음 |
 | 404 | `canonical_not_found` | 메뉴 ID 없음 |
+| 404 | `nutrition_not_found` | 해당 메뉴의 영양정보 없음 |
 | 429 | `rate_limit_exceeded` | 요청 한도 초과 |
 | 500 | `ocr_service_error` | CLOVA OCR 서비스 장애 |
 | 500 | `ai_service_error` | GPT-4o API 장애 |
+| 500 | `public_data_sync_error` | 공공데이터 동기화 오류 |
 | 503 | `service_unavailable` | 서버 점검 중 |
+| 503 | `public_data_api_unavailable` | 공공데이터 API 응답 없음 |
 
 ---
 
@@ -440,7 +659,14 @@ Response 200:
 
 | 구분 | 제한 | 비고 |
 |---|---|---|
+| **사용자 API** | | |
 | B2B (API key 기준) | 100 req/hour | 식당당 |
 | B2C (IP 기준) | 30 req/hour | 익명 사용자 |
 | recognize (OCR) | 10 req/min | OCR 비용 관리 |
 | AI Discovery | 50 req/day | 전체 시스템 |
+| **공공데이터 API (Sprint 0)** | | |
+| nutrition 조회 | 무제한 | 캐싱됨 (Redis TTL 90일) |
+| category-search | 무제한 | 로컬 DB 조회 |
+| by-standard-code | 무제한 | 로컬 DB 조회 |
+| **관리 API** | | |
+| public-data/sync | 1 req/10min | 관리자만, 동기화 작업 보호 |

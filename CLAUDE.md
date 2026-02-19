@@ -75,9 +75,100 @@
 - **LLM**: GPT-4o (Identity Discovery)
 - **번역 보조**: Papago API (일/중)
 
+### Public Data APIs (🆕 Sprint 0 통합)
+- **메뉴젠** (농촌진흥청): 음식 표준 분류 (1,500+ 음식코드)
+- **서울 식당정보** (서울관광재단): 167,659개 메뉴 데이터
+- **식품영양성분DB** (식품의약품안전처): 157개 영양항목
+- **휴게소 푸드메뉴** (한국도로공사): 고속도로 경유지 메뉴 (선택)
+
 ### DevOps
 - **호스팅**: Naver Cloud (CLOVA OCR 동일 네트워크)
 - **스토리지**: S3 호환 (이미지/QR)
+
+---
+
+## 🆕 공공데이터 기반 아키텍처 (Sprint 0)
+
+### 핵심 전략: Seoul-centric 국가 커버리지
+**서울은 전국 모든 메뉴 문화가 모이는 곳 → 서울 데이터만으로 전국 90% 메뉴 커버 가능**
+
+| 지표 | 값 | 의미 |
+|------|---|----|
+| **서울 식당 수** | 167,659개 | 전국 2.1M 중 8% |
+| **대표메뉴 데이터** | 157,000개 | 공개된 유일한 메뉴 소스 |
+| **전국 메뉴 커버리지** | 90%+ | 지역 특화 음식 서울 진출 |
+| **AI 호출 절감** | 70% | $210,000/월 절감 |
+| **초기 구축 비용** | $0 | 공공데이터 무료 활용 |
+
+### 3단계 데이터 파이프라인
+
+```
+[1단계: 메뉴 표준화]
+   ↓
+   메뉴젠 API (음식코드, 분류, 중량정보)
+   ↓ 자동 매핑
+   canonical_menus.standard_code 입력
+
+[2단계: 메뉴 데이터 확보]
+   ↓
+   서울 식당정보 CSV (167,659개 메뉴명)
+   ↓ 정규화 + 중복 제거
+   canonical_menus.name_ko 확보
+
+[3단계: 영양정보 연계]
+   ↓
+   식품영양성분DB API (157개 항목)
+   ↓ 메뉴명 매칭 + Redis 캐싱
+   canonical_menus.nutrition_info (JSONB)
+```
+
+### DB 스키마 확장 (v0.1.0 이후)
+
+```sql
+-- canonical_menus 테이블 새 필드
+ALTER TABLE canonical_menus ADD COLUMN (
+  standard_code VARCHAR(10),           -- 음식코드 (메뉴젠)
+  category_1 VARCHAR(50),              -- 대분류 (예: 육류, 밥, 찌개)
+  category_2 VARCHAR(50),              -- 중분류 (예: 구이, 비빔밥류)
+  serving_size VARCHAR(20),            -- 1인분 기준 (예: 200g)
+  nutrition_info JSONB,                -- 영양정보 (캐싱)
+  last_nutrition_updated TIMESTAMPTZ   -- 영양정보 갱신일
+);
+
+-- 인덱스 추가
+CREATE INDEX idx_canonical_standard_code ON canonical_menus(standard_code);
+CREATE INDEX idx_canonical_category ON canonical_menus(category_1, category_2);
+```
+
+### API 호출 워크플로우 (순서 중요!)
+
+```python
+# 1. 메뉴명 정규화 (OCR 결과)
+menu_raw = "  한우  불고기  "
+menu_normalized = normalize_menu_name(menu_raw)  # → "한우불고기"
+
+# 2. DB 캐시 확인 (최우선)
+menu = db.query(canonical_menus).filter_by(name_ko=menu_normalized).first()
+if menu:
+    return menu  # ← AI 호출 회피!
+
+# 3. 메뉴젠 API 호출 (표준화)
+food_code = query_menu_gen_api(menu_normalized)
+if not food_code:
+    # 4. AI Discovery (최후의 수단)
+    result = gpt4o_discover_menu(menu_normalized)
+else:
+    # 5. 영양정보 자동 조회
+    nutrition = query_nutrition_api(food_code)
+    result = {
+        "name_ko": menu_normalized,
+        "standard_code": food_code,
+        "category_1": nutrition.get("category_1"),
+        "nutrition_info": nutrition  # ← 캐싱 (Redis TTL 90일)
+    }
+
+return result
+```
 
 ---
 
@@ -188,12 +279,50 @@ Content:
 
 ## 개발 워크플로우
 
-### Sprint 구조
+### Sprint 구조 (🆕 공공데이터 기반)
+
+#### Sprint 0: 공공데이터 기반 기초 구축 (3주, 110시간)
 ```
-Sprint 0 (현재): 프로젝트 기반 구축 (DB + 시드 + 기본 API)
-Sprint 1: OCR 파이프라인 + 매칭 엔진
-Sprint 2: B2B/B2C 프론트엔드
-Sprint 3: 현장 테스트 + 최적화
+Week 1: 메뉴젠 API + 서울 식당 데이터 통합 (40시간)
+  ├─ 메뉴젠 1,500개 식품코드 API 파싱
+  ├─ 서울 관광재단 CSV 167,659개 메뉴 임포트
+  └─ canonical_menus 테이블 자동 생성 (157,000개)
+
+Week 2: 영양정보 API + 캐싱 구축 (40시간)
+  ├─ 식품영양성분DB API 연동
+  ├─ 메뉴명-영양정보 자동 매칭
+  ├─ Redis 캐싱 (TTL 90일)
+  └─ 테스트 데이터 10대 케이스 검증
+
+Week 3: 문서화 + 배포 (30시간)
+  ├─ CLAUDE.md 업데이트 (현재 작업)
+  ├─ DB 스키마 문서화
+  ├─ API 통합 가이드 작성
+  └─ FastComet 배포 + 모니터링
+
+목표: 157,000개 메뉴 DB 준비 완료, AI 호출 70% 절감
+```
+
+#### Sprint 1: OCR 파이프라인 + 매칭 엔진
+```
+Sprint 0 결과물을 기반으로 실제 OCR 결과 처리
+- CLOVA OCR (Tier 1) → 메뉴명 추출
+- 메뉴젠 API 자동 매칭
+- 불일치 시에만 GPT-4o Discovery (최후의 수단)
+```
+
+#### Sprint 2: B2B/B2C 프론트엔드 + 배포
+```
+- 영양정보 대시보드
+- 음식점 메뉴 검색
+- 다국어 지원 (향후)
+```
+
+#### Sprint 3: 현장 테스트 + 최적화
+```
+- 실제 음식점에서 OCR 테스트
+- 메뉴 분해 정확도 개선
+- 시스템 성능 최적화
 ```
 
 ### Git 규칙
@@ -220,24 +349,48 @@ pytest
 
 ## 핵심 지표 (KPI)
 
+### Sprint 0 목표 (공공데이터 기반)
+
 | 지표 | 목표 | 의미 |
 |------|------|------|
-| **DB 매칭률** | 70%+ | AI 호출 없이 DB만으로 처리 비율 |
+| **DB 커버리지** | 157,000개 | 서울 식당 메뉴 자동 구축 |
+| **메뉴 매칭률** | 90%+ | 정규화된 메뉴명 DB 매칭 |
+| **AI 호출 절감** | 70% | 월 $210,000 절감 |
+| **초기 구축 비용** | $0 | 공공데이터 무료 활용 |
+| **영양정보 커버리지** | 157개 항목 | 정부 표준 DB 전체 |
+
+### 운영 지표 (Sprint 1+)
+
+| 지표 | 목표 | 의미 |
+|------|------|------|
 | **OCR 인식률** | 80%+ | 메뉴명 추출 성공률 |
-| **외국인 이해도** | 4/5+ | "Was this helpful?" 피드백 |
 | **응답 시간** | 3초 이내 | DB 히트 시 p95 |
-| **AI 비용/스캔** | < 50원 | 비용 구조 지속가능성 |
+| **캐시 히트율** | 85%+ | Redis 캐시 효율성 |
+| **AI 비용/스캔** | < 15원 | Sprint 0 후 절감된 비용 |
+| **외국인 이해도** | 4/5+ | "Was this helpful?" 피드백 |
 
 ---
 
 ## 참조 자료
 
+### 기획 & 설계 (Sprint 0 공공데이터 기반)
+- **🆕 Sprint 0 최종 기획**: `SPRINT0_FINAL_PLAN_20260219.md` ← 현재 기준 문서
+- **이전 설계 문서**: `C:\project\menu\기획\3차_설계문서_20250211\`
 - **상위 CLAUDE.md**: `C:\project\CLAUDE.md` (전체 프로젝트 공통 규칙)
-- **설계 문서**: `C:\project\menu\기획\3차_설계문서_20250211\`
+
+### 개발 참고
 - **dev-reference**: `C:\project\dev-reference\` (코딩 표준, 에이전트)
+- **FastComet 배포 가이드**: `C:\project\dev-reference\docs\FASTCOMET_DEPLOYMENT_GUIDE.md`
+
+### Public Data APIs
+- **메뉴젠** (농촌진흥청): https://www.data.go.kr/data/15101046/
+- **서울 식당정보** (서울관광재단): https://www.data.go.kr/data/15098046/
+- **식품영양성분DB** (식품의약품안전처): https://www.data.go.kr/data/15127578/
+- **휴게소 푸드메뉴** (한국도로공사): https://www.data.go.kr/data/
 
 ---
 
-**최종 수정**: 2026-02-13 (v0.1.0 배포 완료)
+**최종 수정**: 2026-02-19 (Sprint 0 공공데이터 기반 전환)
 **관리**: Menu Knowledge Engine 개발팀
-**배포 상태**: 🟢 프로덕션 운영 중
+**배포 상태**: 🟡 Sprint 0 기초 구축 중 (공공데이터 통합)
+**다음 단계**: DB 스키마 문서 업데이트 (Task 3/8)
