@@ -26,6 +26,7 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: str = ""
     PAPAGO_CLIENT_ID: str = ""
     PAPAGO_CLIENT_SECRET: str = ""
+    PUBLIC_DATA_API_KEY: str = ""  # data.go.kr 공공데이터 포털 API 키
 
     # Storage
     S3_ENDPOINT: str = ""

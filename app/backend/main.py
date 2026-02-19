@@ -10,6 +10,7 @@ from api.menu import router as menu_router
 from api.admin import router as admin_router
 from api.qr_menu import router as qr_router
 from api.b2b import router as b2b_router
+from api.public_data import router as public_data_router
 from services.cache_service import cache_service
 
 app = FastAPI(
@@ -45,6 +46,7 @@ app.include_router(menu_router)
 app.include_router(admin_router)
 app.include_router(qr_router)
 app.include_router(b2b_router)
+app.include_router(public_data_router)
 
 # Health check endpoint (before static files)
 @app.get("/health")
