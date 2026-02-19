@@ -19,7 +19,6 @@ from utils.image_validation import validate_image
 from utils.image_preprocessing import preprocess_menu_image
 from services.ocr_service import ocr_service
 from services.ocr_orchestrator import ocr_orchestrator
-from services.matching_engine import matching_engine
 
 logger = logging.getLogger(__name__)
 
