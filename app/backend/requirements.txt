@@ -19,6 +19,9 @@ httpx==0.28.1
 opencv-python==4.10.0.84
 numpy==2.2.5
 
+# Cloud Storage (CloudFlare R2 - S3 compatible)
+boto3==1.35.0
+
 # Utilities
 python-dotenv==1.0.1
 python-multipart==0.0.20
