@@ -18,6 +18,7 @@ from database import get_db
 from utils.image_validation import validate_image
 from utils.image_preprocessing import preprocess_menu_image
 from services.ocr_service import ocr_service
+from services.ocr_orchestrator import ocr_orchestrator
 from services.matching_engine import matching_engine
 
 logger = logging.getLogger(__name__)
@@ -297,173 +298,6 @@ async def upload_menus(
         )
 
 
-@router.post("/restaurants/{restaurant_id}/menus/upload-images")
-async def bulk_upload_menu_images(
-    restaurant_id: str,
-    files: List[UploadFile] = File(...),
-    db: AsyncSession = Depends(get_db)
-):
-    """
-    B2B 메뉴 이미지 벌크 업로드 API (Sprint 3B)
-
-    메뉴판 사진 여러 개를 업로드하면 각각:
-    1. 이미지 검증
-    2. 임시 저장
-    3. 이미지 전처리 (OpenCV)
-    4. CLOVA OCR 처리
-    5. Matching Engine으로 표준화
-    6. ScanLog 저장
-
-    Args:
-        restaurant_id: 식당 UUID
-        files: 메뉴판 이미지 파일들
-
-    Returns:
-        {
-            "success": bool,
-            "task_id": str,
-            "total": int,
-            "successful": int,
-            "failed": int,
-            "errors": [{"file": str, "error": str}]
-        }
-    """
-    import tempfile
-    import os
-    from utils.image_validation import validate_image
-    from utils.image_preprocessing import preprocess_menu_image
-    from services.ocr_service import ocr_service
-    from services.matching_engine import matching_engine
-    from models import ScanLog
-
-    task_id = str(uuid.uuid4())
-    temp_files = []
-    results = []
-
-    try:
-        # Validate restaurant
-        restaurant_result = await db.execute(
-            select(Restaurant).where(Restaurant.id == uuid.UUID(restaurant_id))
-        )
-        restaurant = restaurant_result.scalars().first()
-        if not restaurant:
-            raise HTTPException(status_code=404, detail="Restaurant not found")
-
-        # Process each image
-        for idx, file in enumerate(files, 1):
-            try:
-                # 1. Validate image
-                error = validate_image(file)
-                if error:
-                    results.append({
-                        "file": file.filename,
-                        "status": "failed",
-                        "error": f"Invalid image: {error}"
-                    })
-                    continue
-
-                # 2. Save to temporary file
-                with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
-                    content = await file.read()
-                    tmp.write(content)
-                    tmp_path = tmp.name
-                    temp_files.append(tmp_path)
-
-                # 3. Image preprocessing (OpenCV)
-                try:
-                    preprocessed_path = preprocess_menu_image(tmp_path)
-                    image_to_process = preprocessed_path
-                except Exception as e:
-                    logger.warning(f"Preprocessing failed for {file.filename}: {e}. Using original image.")
-                    image_to_process = tmp_path
-
-                # 4. OCR recognition
-                ocr_result = ocr_service.recognize_menu_image(
-                    image_to_process,
-                    enable_preprocessing=False  # Already preprocessed
-                )
-
-                if not ocr_result.get("success"):
-                    results.append({
-                        "file": file.filename,
-                        "status": "failed",
-                        "error": f"OCR failed: {ocr_result.get('error', 'Unknown error')}"
-                    })
-                    continue
-
-                # 5. Matching & save ScanLog
-                ocr_text = ocr_result.get("menu_items", [])
-                match_result = await matching_engine.match_menu(ocr_text) if ocr_text else None
-
-                scan_log = ScanLog(
-                    id=uuid.uuid4(),
-                    session_id=f"b2b_upload_{task_id}",
-                    restaurant_id=uuid.UUID(restaurant_id),
-                    image_path=tmp_path,
-                    ocr_text=json.dumps(ocr_text),
-                    matched_canonical_id=match_result.get("id") if match_result else None,
-                    confidence=match_result.get("confidence", 0) if match_result else 0,
-                    match_type=match_result.get("match_type", "none") if match_result else "none",
-                )
-                db.add(scan_log)
-
-                results.append({
-                    "file": file.filename,
-                    "status": "success",
-                    "ocr_text": ocr_text,
-                    "matched_canonical": match_result.get("name_en") if match_result else None,
-                    "confidence": match_result.get("confidence", 0) if match_result else 0,
-                    "scan_id": str(scan_log.id)
-                })
-
-            except Exception as e:
-                logger.error(f"Error processing {file.filename}: {e}", exc_info=True)
-                results.append({
-                    "file": file.filename,
-                    "status": "failed",
-                    "error": str(e)
-                })
-
-        # Commit all ScanLogs
-        await db.commit()
-
-        # Count results
-        successful = sum(1 for r in results if r["status"] == "success")
-        failed = sum(1 for r in results if r["status"] == "failed")
-
-        return {
-            "success": True,
-            "task_id": task_id,
-            "total": len(files),
-            "successful": successful,
-            "failed": failed,
-            "results": results
-        }
-
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Bulk upload failed: {e}", exc_info=True)
-        raise HTTPException(
-            status_code=500,
-            detail=f"Bulk upload failed: {str(e)}"
-        )
-
-    finally:
-        # Cleanup temp files
-        for tmp_path in temp_files:
-            try:
-                if os.path.exists(tmp_path):
-                    os.remove(tmp_path)
-                # Also cleanup preprocessed files
-                base, _ = os.path.splitext(tmp_path)
-                preprocessed = f"{base}_preprocessed.jpg"
-                if os.path.exists(preprocessed):
-                    os.remove(preprocessed)
-            except Exception as e:
-                logger.warning(f"Failed to cleanup {tmp_path}: {e}")
-
-
 @router.get("/restaurants/{restaurant_id}/menus/upload/{upload_task_id}")
 async def get_upload_task(
     restaurant_id: str,
@@ -618,14 +452,16 @@ async def bulk_upload_menu_images(
     db: AsyncSession = Depends(get_db)
 ):
     """
-    B2B 메뉴 이미지 벌크 업로드 API (Sprint 3B)
+    B2B 메뉴 이미지 벌크 업로드 API (Sprint 4 - OCR Tier Router)
 
     식당에서 다중 메뉴 이미지를 한 번에 업로드
 
-    Flow:
+    Flow (Tier-based OCR):
     1. 각 이미지 검증 (format, size, dimensions)
-    2. 이미지 전처리 (preprocess_menu_image)
-    3. OCR 인식 (ocr_service.recognize_menu_image)
+    2. OCR 분석 (Tier Router: GPT Vision → CLOVA fallback)
+       - Tier 1: GPT-4o mini Vision (빠른 처리, JSON 구조화)
+       - Tier 2: CLOVA OCR (Tier 1 실패 시, 한글 특화)
+    3. 결과 캐싱 (해시 기반, 30일 TTL)
     4. ScanLog에 저장
     5. MenuUploadTask로 진행 상황 추적
 
@@ -640,16 +476,24 @@ async def bulk_upload_menu_images(
             "total": int,
             "successful": int,
             "failed": int,
-            "errors": [...]
+            "results": [
+                {
+                    "file": str,
+                    "status": "success" | "failed",
+                    "provider": "gpt_vision" | "clova" | null,
+                    "menu_count": int,
+                    "confidence": float,
+                    "fallback_triggered": bool,
+                    "processing_time_ms": int,
+                    "error": str (if failed)
+                }
+            ]
         }
     """
-    import tempfile
-    import os
     from datetime import timezone
     from models.menu_upload import MenuUploadTask
     from models.scan_log import ScanLog
-    from services.ocr_service import ocr_service
-    from utils.image_validation import validate_image, ImageValidationError
+    from utils.image_validation import ImageValidationError
 
     # 1. 업로드 작업 생성
     task = MenuUploadTask(
@@ -666,7 +510,7 @@ async def bulk_upload_menu_images(
 
     successful = 0
     failed = 0
-    errors = []
+    results = []
 
     # 2. 각 이미지 처리
     for idx, file in enumerate(files):
@@ -681,8 +525,9 @@ async def bulk_upload_menu_images(
                 img_format, width, height = validate_image(content)
             except ImageValidationError as e:
                 failed += 1
-                errors.append({
+                results.append({
                     "file": file.filename,
+                    "status": "failed",
                     "error": f"Invalid image: {str(e)}"
                 })
                 continue
@@ -695,41 +540,62 @@ async def bulk_upload_menu_images(
                 temp_file.write(content)
                 temp_path = temp_file.name
 
-            # 2-4. OCR 인식 (전처리 포함)
-            result = ocr_service.recognize_menu_image(temp_path, enable_preprocessing=True)
+            # 2-4. OCR 분석 (Tier Router 사용)
+            ocr_result = await ocr_orchestrator.extract_menu(
+                image_path=temp_path,
+                enable_preprocessing=True,
+                use_cache=True  # 캐싱 활성화
+            )
 
-            if result["success"]:
-                # 2-5. 각 메뉴 아이템을 ScanLog에 저장
-                for item in result["menu_items"]:
+            # 2-5. 결과 처리
+            if ocr_result.success and ocr_result.menu_items:
+                # 각 메뉴 아이템을 ScanLog에 저장
+                for item in ocr_result.menu_items:
                     scan_log = ScanLog(
                         id=uuid.uuid4(),
                         session_id=f"b2b_upload_{task.id}",
                         language="ko",
-                        menu_name_ko=item["name_ko"],
-                        ocr_raw_text=result["raw_text"],
-                        confidence=result.get("ocr_confidence", 0.0),
+                        menu_name_ko=item.name_ko,
+                        ocr_raw_text=ocr_result.raw_text,
+                        confidence=ocr_result.confidence,
                         shop_id=uuid.UUID(restaurant_id),
                         status="pending",
                         evidences={
                             "source": "b2b_bulk_upload",
                             "file_name": file.filename,
-                            "price_ko": item.get("price_ko", "")
+                            "price": item.price,
+                            "ocr_provider": ocr_result.provider.value if ocr_result.provider else None,
+                            "fallback_triggered": ocr_result.triggered_fallback,
+                            "fallback_reason": ocr_result.fallback_reason,
                         }
                     )
                     db.add(scan_log)
 
                 successful += 1
+                results.append({
+                    "file": file.filename,
+                    "status": "success",
+                    "provider": ocr_result.provider.value if ocr_result.provider else None,
+                    "menu_count": len(ocr_result.menu_items),
+                    "confidence": float(ocr_result.confidence),
+                    "fallback_triggered": ocr_result.triggered_fallback,
+                    "processing_time_ms": ocr_result.processing_time_ms,
+                })
+
             else:
                 failed += 1
-                errors.append({
+                results.append({
                     "file": file.filename,
-                    "error": result.get("error", "OCR failed")
+                    "status": "failed",
+                    "error": f"OCR failed: {ocr_result.raw_text or 'Unknown error'}"
                 })
 
         except Exception as e:
             failed += 1
-            errors.append({
+            logger.error(f"Error processing {file.filename}: {e}", exc_info=True)
+            results.append({
                 "file": file.filename,
+                "status": "failed",
                 "error": str(e)
             })
 
@@ -738,15 +604,20 @@ async def bulk_upload_menu_images(
             if temp_path and os.path.exists(temp_path):
                 try:
                     os.remove(temp_path)
+                    # 전처리된 이미지도 정리
+                    base, _ = os.path.splitext(temp_path)
+                    preprocessed = f"{base}_preprocessed.jpg"
+                    if os.path.exists(preprocessed):
+                        os.remove(preprocessed)
                 except Exception as e:
-                    logger.warning(f"Failed to remove temp file {temp_path}: {e}")
+                    logger.warning(f"Failed to cleanup {temp_path}: {e}")
 
     # 3. 작업 완료 업데이트
     task.successful = successful
     task.failed = failed
     task.status = "completed"
     task.completed_at = datetime.now(timezone.utc)
-    task.error_log = json.dumps(errors) if errors else None
+    task.error_log = json.dumps([r for r in results if r["status"] == "failed"]) if failed > 0 else None
 
     await db.commit()
 
@@ -756,5 +627,5 @@ async def bulk_upload_menu_images(
         "total": len(files),
         "successful": successful,
         "failed": failed,
-        "errors": errors
+        "results": results
     }
