@@ -383,6 +383,7 @@ def upload_to_r2(all_images: dict) -> dict:
     print("-" * 40)
 
     try:
+        sys.path.insert(0, str(BACKEND_DIR))
         from utils.s3_uploader import S3Uploader
         uploader = S3Uploader(
             provider="r2",
@@ -418,10 +419,11 @@ def upload_to_r2(all_images: dict) -> dict:
             continue
 
         try:
+            from urllib.parse import quote
             url = uploader.upload_image(
                 local_path,
                 r2_key,
-                metadata={"menu_name": name, "source": source},
+                metadata={"menu_name": quote(name), "source": source},
             )
             info["public_url"] = url
             info["r2_key"] = r2_key

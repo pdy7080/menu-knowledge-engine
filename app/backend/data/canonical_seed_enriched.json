@@ -38,9 +38,9 @@
     "nutrition_api_name": "오뚜기유부우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/유부우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/유부우동.jpg"
   },
   {
     "name_ko": "꼬치어묵우동",
@@ -81,9 +81,9 @@
     "nutrition_api_name": "본고장 어묵우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬치어묵우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/꼬치어묵우동.jpg"
   },
   {
     "name_ko": "치즈돈가스",
@@ -131,9 +131,9 @@
     "nutrition_api_name": "치즈돈가스",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "양념육류(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치즈돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/치즈돈가스.jpg"
   },
   {
     "name_ko": "떡만두라면",
@@ -174,9 +174,9 @@
     "nutrition_api_name": "라면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡만두라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/떡만두라면.jpg"
   },
   {
     "name_ko": "떡라면",
@@ -217,9 +217,9 @@
     "nutrition_api_name": "떡라면",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/떡라면.jpg"
   },
   {
     "name_ko": "짜장면",
@@ -261,9 +261,9 @@
     "nutrition_api_name": "짜장면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jajangmyeon_by_KFoodaddict.jpg/500px-Jajangmyeon_by_KFoodaddict.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짜장면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/짜장면.jpg"
   },
   {
     "name_ko": "해물순두부찌개",
@@ -310,9 +310,9 @@
     "nutrition_api_name": "해물순두부찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물순두부찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해물순두부찌개.jpg"
   },
   {
     "name_ko": "우동",
@@ -354,9 +354,9 @@
     "nutrition_api_name": "우동_일식",
     "api_category_1": "면 및 만두류",
     "api_category_2": "일식",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/우동.jpg"
   },
   {
     "name_ko": "등심돈가스",
@@ -404,9 +404,9 @@
     "nutrition_api_name": "등심돈가스",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/등심돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/등심돈가스.jpg"
   },
   {
     "name_ko": "라면",
@@ -452,9 +452,9 @@
     "nutrition_api_name": "라면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/라면.jpg"
   },
   {
     "name_ko": "새우튀김우동",
@@ -501,9 +501,9 @@
     "nutrition_api_name": "새우튀김우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/새우튀김우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/새우튀김우동.jpg"
   },
   {
     "name_ko": "육개장",
@@ -544,9 +544,9 @@
     "nutrition_api_name": "육개장",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/육개장.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/육개장.jpg"
   },
   {
     "name_ko": "왕돈가스",
@@ -594,9 +594,9 @@
     "nutrition_api_name": "굿쉐프 왕돈가스소스",
     "api_category_1": "조미식품",
     "api_category_2": "소스류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/왕돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/왕돈가스.jpg"
   },
   {
     "name_ko": "제육덮밥",
@@ -637,9 +637,9 @@
     "nutrition_api_name": "당뇨케어 매콤오징어제육덮밥",
     "api_category_1": "특수의료용도식품",
     "api_category_2": "식단형 식사관리식품",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/제육덮밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/제육덮밥.jpg"
   },
   {
     "name_ko": "된장찌개",
@@ -680,9 +680,9 @@
     "nutrition_api_name": "된장찌개",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/된장찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/된장찌개.jpg"
   },
   {
     "name_ko": "뚝배기불고기",
@@ -729,9 +729,9 @@
     "nutrition_api_name": "뚝배기불고기",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Bulgogi-01.jpg/500px-Korean.cuisine-Bulgogi-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/뚝배기불고기.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/뚝배기불고기.jpg"
   },
   {
     "name_ko": "돈가스",
@@ -773,9 +773,9 @@
     "nutrition_api_name": "돈가스",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돈가스.jpg"
   },
   {
     "name_ko": "순두부찌개",
@@ -816,9 +816,9 @@
     "nutrition_api_name": "순두부찌개_김치",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "김치",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순두부찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/순두부찌개.jpg"
   },
   {
     "name_ko": "야채튀김우동",
@@ -865,9 +865,9 @@
     "nutrition_api_name": "튀김우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/야채튀김우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/야채튀김우동.jpg"
   },
   {
     "name_ko": "치즈라면",
@@ -914,9 +914,9 @@
     "nutrition_api_name": "오뚜기리얼치즈라면",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치즈라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/치즈라면.jpg"
   },
   {
     "name_ko": "김치찌개",
@@ -957,9 +957,9 @@
     "nutrition_api_name": "김치찌개_꽁치",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "꽁치",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/김치찌개.jpg"
   },
   {
     "name_ko": "잔치국수",
@@ -1000,9 +1000,9 @@
     "nutrition_api_name": "잔치국수",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Janchi-guksu.jpg/500px-Janchi-guksu.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/잔치국수.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/잔치국수.jpg"
   },
   {
     "name_ko": "돌솥비빔밥",
@@ -1049,9 +1049,9 @@
     "nutrition_api_name": "오푸드돌솥비빔밥고추장",
     "api_category_1": "장류",
     "api_category_2": "해당없음(장류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Vegan_hot_stone_pot_bibimbap_%28Dolsot-bibimbap%29_-_Kogi_2023-10-16.jpg/500px-Vegan_hot_stone_pot_bibimbap_%28Dolsot-bibimbap%29_-_Kogi_2023-10-16.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돌솥비빔밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돌솥비빔밥.jpg"
   },
   {
     "name_ko": "차돌된장찌개",
@@ -1092,9 +1092,9 @@
     "nutrition_api_name": "교동 차돌된장찌개",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/차돌된장찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/차돌된장찌개.jpg"
   },
   {
     "name_ko": "어묵우동",
@@ -1135,9 +1135,9 @@
     "nutrition_api_name": "본고장 어묵우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/어묵우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/어묵우동.jpg"
   },
   {
     "name_ko": "소고기국밥",
@@ -1178,9 +1178,9 @@
     "nutrition_api_name": "소고기국밥",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sogogi-gukbap_3.jpg/500px-Sogogi-gukbap_3.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소고기국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/소고기국밥.jpg"
   },
   {
     "name_ko": "돼지고기김치찌개",
@@ -1221,9 +1221,9 @@
     "nutrition_api_name": "돼지고기김치찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돼지고기김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돼지고기김치찌개.jpg"
   },
   {
     "name_ko": "남산왕돈까스",
@@ -1264,9 +1264,9 @@
     "nutrition_api_name": "남산왕돈까스",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "양념육류(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산왕돈까스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/남산왕돈까스.jpg"
   },
   {
     "name_ko": "충무김밥",
@@ -1307,9 +1307,9 @@
     "nutrition_api_name": "충무김밥",
     "api_category_1": "밥류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/충무김밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/충무김밥.jpg"
   },
   {
     "name_ko": "왕새우튀김우동",
@@ -1361,9 +1361,9 @@
     "nutrition_api_name": "튀김우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/왕새우튀김우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/왕새우튀김우동.jpg"
   },
   {
     "name_ko": "남산치즈돈까스",
@@ -1404,9 +1404,9 @@
     "nutrition_api_name": "우복당 치즈돈까스",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "양념육류(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산치즈돈까스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/남산치즈돈까스.jpg"
   },
   {
     "name_ko": "소떡소떡",
@@ -1447,9 +1447,9 @@
     "nutrition_api_name": "떡강정_매콤치즈 소떡소떡",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sotteoksotteok_in_Dookki1.jpg/500px-Sotteoksotteok_in_Dookki1.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소떡소떡.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/소떡소떡.jpg"
   },
   {
     "name_ko": "김치우동",
@@ -1490,9 +1490,9 @@
     "nutrition_api_name": "김치우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/김치우동.jpg"
   },
   {
     "name_ko": "콩나물해장라면",
@@ -1533,9 +1533,9 @@
     "nutrition_api_name": "중앙해장라면 용기",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물해장라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/콩나물해장라면.jpg"
   },
   {
     "name_ko": "냉모밀",
@@ -1576,9 +1576,9 @@
     "nutrition_api_name": "냉모밀",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg/500px-Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/냉모밀.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/냉모밀.jpg"
   },
   {
     "name_ko": "돼지김치찌개",
@@ -1619,9 +1619,9 @@
     "nutrition_api_name": "돼지김치찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돼지김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돼지김치찌개.jpg"
   },
   {
     "name_ko": "설렁탕",
@@ -1662,9 +1662,9 @@
     "nutrition_api_name": "설렁탕",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Korean.food-Seolleongtang-01.jpg/500px-Korean.food-Seolleongtang-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/설렁탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/설렁탕.jpg"
   },
   {
     "name_ko": "호두과자",
@@ -1705,9 +1705,9 @@
     "nutrition_api_name": "팥빵_호두과자",
     "api_category_1": "빵 및 과자류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Walnut_chocolate_chip_cookies%2C_May_2009.jpg/500px-Walnut_chocolate_chip_cookies%2C_May_2009.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/호두과자.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/호두과자.jpg"
   },
   {
     "name_ko": "통감자",
@@ -1748,9 +1748,9 @@
     "nutrition_api_name": "통감자",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/PIIGS_Mk_4_map.png/500px-PIIGS_Mk_4_map.png",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/통감자.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/통감자.jpg"
   },
   {
     "name_ko": "부산어묵우동",
@@ -1791,9 +1791,9 @@
     "nutrition_api_name": "본고장 어묵우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/부산어묵우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/부산어묵우동.jpg"
   },
   {
     "name_ko": "황태해장국",
@@ -1834,9 +1834,9 @@
     "nutrition_api_name": "황태해장국",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/황태해장국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/황태해장국.jpg"
   },
   {
     "name_ko": "떡볶이",
@@ -1877,9 +1877,9 @@
     "nutrition_api_name": "떡볶이",
     "api_category_1": "볶음류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Chicken_Rice_Pasta_-_Korpan.jpg/500px-Chicken_Rice_Pasta_-_Korpan.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡볶이.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/떡볶이.jpg"
   },
   {
     "name_ko": "장터국밥",
@@ -1920,9 +1920,9 @@
     "nutrition_api_name": "장터국밥",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gugil_Ttaro_gukbap.jpg/500px-Gugil_Ttaro_gukbap.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/장터국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/장터국밥.jpg"
   },
   {
     "name_ko": "콩나물국밥",
@@ -1963,9 +1963,9 @@
     "nutrition_api_name": "전주콩나물국밥누룽지",
     "api_category_1": "농산가공식품류",
     "api_category_2": "기타 농산가공품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kongnamul_gukbap_20230408_001.jpg/500px-Kongnamul_gukbap_20230408_001.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/콩나물국밥.jpg"
   },
   {
     "name_ko": "바삭어포",
@@ -2006,9 +2006,9 @@
     "nutrition_api_name": "바삭바삭어포1",
     "api_category_1": "수산가공식품류",
     "api_category_2": "어육가공품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Typical_North_Korean_snack_%28%EC%95%88%EC%A3%BC%29_at_the_Rakwon_Paradise_Microbrewery_%2811416187434%29.jpg/500px-Typical_North_Korean_snack_%28%EC%95%88%EC%A3%BC%29_at_the_Rakwon_Paradise_Microbrewery_%2811416187434%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/바삭어포.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/바삭어포.jpg"
   },
   {
     "name_ko": "라면정식",
@@ -2049,9 +2049,9 @@
     "nutrition_api_name": "토핑라면정식(스팸마요&콩나물라면)",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/라면정식.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/라면정식.jpg"
   },
   {
     "name_ko": "남산매운돈까스",
@@ -2092,9 +2092,9 @@
     "nutrition_api_name": "스미카츠 매운돈까스소스",
     "api_category_1": "조미식품",
     "api_category_2": "소스류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산매운돈까스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/남산매운돈까스.jpg"
   },
   {
     "name_ko": "강원나물밥",
@@ -2135,9 +2135,9 @@
     "nutrition_api_name": "강원나물밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sanchae-bibim-bap.jpg/500px-Sanchae-bibim-bap.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/강원나물밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/강원나물밥.jpg"
   },
   {
     "name_ko": "새우볶음밥",
@@ -2183,9 +2183,9 @@
     "nutrition_source": "data.go.kr",
     "nutrition_api_name": "볶음밥_새우볶음밥",
     "api_category_1": "밥류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fried_rice_%2845722%29.jpg/500px-Fried_rice_%2845722%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/새우볶음밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/새우볶음밥.jpg"
   },
   {
     "name_ko": "소고기미역국",
@@ -2226,9 +2226,9 @@
     "nutrition_api_name": "한우소고기미역국",
     "api_category_1": "특수영양식품",
     "api_category_2": "영·유아용 이유식",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소고기미역국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/소고기미역국.jpg"
   },
   {
     "name_ko": "떡만두국",
@@ -2269,9 +2269,9 @@
     "nutrition_api_name": "떡만두국",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tteok-mandu-guk.jpg/500px-Tteok-mandu-guk.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡만두국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/떡만두국.jpg"
   },
   {
     "name_ko": "떡만두라면정식",
@@ -2288,9 +2288,9 @@
     "raw_names": [
       "떡만두라면정식"
     ],
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡만두라면정식.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/떡만두라면정식.jpg"
   },
   {
     "name_ko": "옛날돈가스",
@@ -2331,9 +2331,9 @@
     "nutrition_api_name": "썸탈꺼닭닭가슴살도시락옛날돈가스맛",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/옛날돈가스.jpg"
   },
   {
     "name_ko": "옛날핫도그",
@@ -2374,9 +2374,9 @@
     "nutrition_api_name": "옛날핫도그",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날핫도그.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/옛날핫도그.jpg"
   },
   {
     "name_ko": "우렁된장찌개",
@@ -2417,9 +2417,9 @@
     "nutrition_api_name": "우렁된장찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/우렁된장찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/우렁된장찌개.jpg"
   },
   {
     "name_ko": "치킨팝콘",
@@ -2460,9 +2460,9 @@
     "nutrition_api_name": "식자재왕 치킨팝콘",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "양념육류(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Korean_fried_chicken_240206.jpg/500px-Korean_fried_chicken_240206.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치킨팝콘.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/치킨팝콘.jpg"
   },
   {
     "name_ko": "꼬치어묵",
@@ -2503,9 +2503,9 @@
     "nutrition_api_name": "꼬치어묵",
     "api_category_1": "수산가공식품류",
     "api_category_2": "어육가공품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg/500px-Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬치어묵.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/꼬치어묵.jpg"
   },
   {
     "name_ko": "어묵라면",
@@ -2546,9 +2546,9 @@
     "nutrition_api_name": "부산매운어묵라면",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/어묵라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/어묵라면.jpg"
   },
   {
     "name_ko": "놀부부대찌개",
@@ -2589,9 +2589,9 @@
     "nutrition_api_name": "햄가득 놀부부대찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Budae_jjigae_indonesia.jpg/500px-Budae_jjigae_indonesia.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/놀부부대찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/놀부부대찌개.jpg"
   },
   {
     "name_ko": "소고기장터국밥",
@@ -2632,9 +2632,9 @@
     "nutrition_api_name": "김종구 소고기장터국밥",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gugil_Ttaro_gukbap.jpg/500px-Gugil_Ttaro_gukbap.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소고기장터국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/소고기장터국밥.jpg"
   },
   {
     "name_ko": "추어탕",
@@ -2675,9 +2675,9 @@
     "nutrition_api_name": "추어탕",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/추어탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/추어탕.jpg"
   },
   {
     "name_ko": "갈비탕",
@@ -2718,9 +2718,9 @@
     "nutrition_api_name": "갈비탕",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg/500px-Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/갈비탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/갈비탕.jpg"
   },
   {
     "name_ko": "들깨미역국",
@@ -2761,9 +2761,9 @@
     "nutrition_api_name": "한끼즉석국밥 들깨미역국밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/들깨미역국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/들깨미역국.jpg"
   },
   {
     "name_ko": "핫도그",
@@ -2804,9 +2804,9 @@
     "nutrition_api_name": "버거_스위트 핫도그",
     "api_category_1": "빵 및 과자류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/핫도그.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/핫도그.jpg"
   },
   {
     "name_ko": "얼큰순대국",
@@ -2853,9 +2853,9 @@
     "nutrition_api_name": "얼큰순대국",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰순대국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/얼큰순대국.jpg"
   },
   {
     "name_ko": "버섯된장찌개",
@@ -2896,9 +2896,9 @@
     "nutrition_api_name": "된장찌개_간편조리세트_구수한 버섯된장찌개",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/버섯된장찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/버섯된장찌개.jpg"
   },
   {
     "name_ko": "물냉면",
@@ -2939,9 +2939,9 @@
     "nutrition_api_name": "물냉면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/KOCIS_Mul-naengmyeon%2C_Chilled_Buckwheat_Noodle_Soup_%284594756202%29.jpg/500px-KOCIS_Mul-naengmyeon%2C_Chilled_Buckwheat_Noodle_Soup_%284594756202%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/물냉면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/물냉면.jpg"
   },
   {
     "name_ko": "해물순두부",
@@ -2988,9 +2988,9 @@
     "nutrition_api_name": "해물순두부",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물순두부.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해물순두부.jpg"
   },
   {
     "name_ko": "흑돼지김치찌개",
@@ -3031,9 +3031,9 @@
     "nutrition_api_name": "제주식 흑돼지김치찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/흑돼지김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/흑돼지김치찌개.jpg"
   },
   {
     "name_ko": "해물바",
@@ -3080,9 +3080,9 @@
     "nutrition_api_name": "맛있는해물바",
     "api_category_1": "수산가공식품류",
     "api_category_2": "어육가공품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Crispy_Rice_Cakes_in_Chinese-style_Seafood_Stir-fry_-_Horoki_%28924521466%29.jpg/500px-Crispy_Rice_Cakes_in_Chinese-style_Seafood_Stir-fry_-_Horoki_%28924521466%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물바.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해물바.jpg"
   },
   {
     "name_ko": "매직핫도그",
@@ -3123,9 +3123,9 @@
     "nutrition_api_name": "알뜰델리매직핫도그",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/매직핫도그.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/매직핫도그.jpg"
   },
   {
     "name_ko": "통등심돈가스",
@@ -3166,9 +3166,9 @@
     "nutrition_api_name": "돈가스_간편조리세트_부타이로스카츠 (통등심돈가스)",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/통등심돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/통등심돈가스.jpg"
   },
   {
     "name_ko": "콩나물해장국",
@@ -3209,9 +3209,9 @@
     "nutrition_api_name": "맛난 콩나물해장국스프",
     "api_category_1": "조미식품",
     "api_category_2": "소스류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물해장국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/콩나물해장국.jpg"
   },
   {
     "name_ko": "옥수수",
@@ -3252,9 +3252,9 @@
     "nutrition_api_name": "옥수수_찐옥수수",
     "api_category_1": "찜류",
     "api_category_2": "찐옥수수",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Seoul-Street.food-01.jpg/500px-Seoul-Street.food-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옥수수.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/옥수수.jpg"
   },
   {
     "name_ko": "오뎅꼬치우동",
@@ -3295,9 +3295,9 @@
     "nutrition_api_name": "코바코 오뎅꼬치우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/오뎅꼬치우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/오뎅꼬치우동.jpg"
   },
   {
     "name_ko": "옛날돈까스",
@@ -3338,9 +3338,9 @@
     "nutrition_api_name": "식자재왕 옛날돈까스소스",
     "api_category_1": "조미식품",
     "api_category_2": "소스류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날돈까스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/옛날돈까스.jpg"
   },
   {
     "name_ko": "짬뽕밥",
@@ -3381,9 +3381,9 @@
     "nutrition_api_name": "짬뽕밥",
     "api_category_1": "밥류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/짬뽕밥.jpg"
   },
   {
     "name_ko": "돈가스우동정식",
@@ -3400,9 +3400,9 @@
     "raw_names": [
       "돈가스우동정식"
     ],
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈가스우동정식.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돈가스우동정식.jpg"
   },
   {
     "name_ko": "맑은나주곰탕",
@@ -3443,9 +3443,9 @@
     "nutrition_api_name": "맑은나주곰탕",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/맑은나주곰탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/맑은나주곰탕.jpg"
   },
   {
     "name_ko": "튀김우동",
@@ -3486,9 +3486,9 @@
     "nutrition_api_name": "튀김우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/튀김우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/튀김우동.jpg"
   },
   {
     "name_ko": "산채비빔밥",
@@ -3529,9 +3529,9 @@
     "nutrition_api_name": "산채비빔밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/산채비빔밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/산채비빔밥.jpg"
   },
   {
     "name_ko": "냄비우동",
@@ -3572,9 +3572,9 @@
     "nutrition_api_name": "삼양냄비우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/냄비우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/냄비우동.jpg"
   },
   {
     "name_ko": "불고기비빔밥",
@@ -3615,9 +3615,9 @@
     "nutrition_api_name": "버섯불고기비빔밥",
     "api_category_1": "특수의료용도식품",
     "api_category_2": "식단형 식사관리식품",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/불고기비빔밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/불고기비빔밥.jpg"
   },
   {
     "name_ko": "제육볶음",
@@ -3658,9 +3658,9 @@
     "nutrition_api_name": "제육볶음",
     "api_category_1": "볶음류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jeyuk-bokkeum_2.jpg/500px-Jeyuk-bokkeum_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/제육볶음.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/제육볶음.jpg"
   },
   {
     "name_ko": "야채김밥",
@@ -3707,9 +3707,9 @@
     "nutrition_api_name": "야채김밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/야채김밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/야채김밥.jpg"
   },
   {
     "name_ko": "옛날우동",
@@ -3750,9 +3750,9 @@
     "nutrition_api_name": "역전우동 옛날우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/옛날우동.jpg"
   },
   {
     "name_ko": "순대국밥",
@@ -3793,9 +3793,9 @@
     "nutrition_api_name": "국밥_순대국밥",
     "api_category_1": "밥류",
     "api_category_2": "순대국밥",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순대국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/순대국밥.jpg"
   },
   {
     "name_ko": "비빔냉면",
@@ -3836,9 +3836,9 @@
     "nutrition_api_name": "비빔냉면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bibim_Naengmyeon_in_Beijing%2C_China_%2820230207165730%29.jpg/500px-Bibim_Naengmyeon_in_Beijing%2C_China_%2820230207165730%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/비빔냉면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/비빔냉면.jpg"
   },
   {
     "name_ko": "새집추어탕",
@@ -3879,9 +3879,9 @@
     "nutrition_api_name": "추어탕",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/새집추어탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/새집추어탕.jpg"
   },
   {
     "name_ko": "한우소머리곰탕",
@@ -3922,9 +3922,9 @@
     "nutrition_api_name": "한우소머리곰탕",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/한우소머리곰탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/한우소머리곰탕.jpg"
   },
   {
     "name_ko": "회오리감자",
@@ -3965,9 +3965,9 @@
     "nutrition_api_name": "회오리감자",
     "api_category_1": "농산가공식품류",
     "api_category_2": "기타 농산가공품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Annotopia-Vischering-04672.jpg/500px-Annotopia-Vischering-04672.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/회오리감자.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/회오리감자.jpg"
   },
   {
     "name_ko": "만두라면",
@@ -4008,9 +4008,9 @@
     "nutrition_api_name": "라면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/만두라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/만두라면.jpg"
   },
   {
     "name_ko": "해장라면",
@@ -4051,9 +4051,9 @@
     "nutrition_api_name": "중앙해장라면 용기",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해장라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해장라면.jpg"
   },
   {
     "name_ko": "바우네나주곰탕",
@@ -4094,9 +4094,9 @@
     "nutrition_api_name": "나주곰탕",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/바우네나주곰탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/바우네나주곰탕.jpg"
   },
   {
     "name_ko": "고기만두",
@@ -4137,9 +4137,9 @@
     "nutrition_api_name": "고기만두",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고기만두.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/고기만두.jpg"
   },
   {
     "name_ko": "얼큰곰탕",
@@ -4186,9 +4186,9 @@
     "nutrition_api_name": "곰탕",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰곰탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/얼큰곰탕.jpg"
   },
   {
     "name_ko": "해물짬뽕라면",
@@ -4235,9 +4235,9 @@
     "nutrition_api_name": "짬뽕라면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물짬뽕라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해물짬뽕라면.jpg"
   },
   {
     "name_ko": "열무국수",
@@ -4278,9 +4278,9 @@
     "nutrition_api_name": "열무국수 국물",
     "api_category_1": "조미식품",
     "api_category_2": "소스류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Korean_noodles-Kongguksu-01.jpg/500px-Korean_noodles-Kongguksu-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/열무국수.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/열무국수.jpg"
   },
   {
     "name_ko": "짬뽕",
@@ -4321,9 +4321,9 @@
     "nutrition_api_name": "짬뽕",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/짬뽕.jpg"
   },
   {
     "name_ko": "함박스테이크",
@@ -4364,9 +4364,9 @@
     "nutrition_api_name": "함박스테이크",
     "api_category_1": "구이류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hamburg_and_Croquette_Bento.jpg/500px-Hamburg_and_Croquette_Bento.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/함박스테이크.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/함박스테이크.jpg"
   },
   {
     "name_ko": "해물된장찌개",
@@ -4413,9 +4413,9 @@
     "nutrition_api_name": "해물된장찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물된장찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해물된장찌개.jpg"
   },
   {
     "name_ko": "얼큰우동",
@@ -4462,9 +4462,9 @@
     "nutrition_api_name": "얼큰우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/얼큰우동.jpg"
   },
   {
     "name_ko": "대파육개장",
@@ -4511,9 +4511,9 @@
     "nutrition_api_name": "맑은물에대파육개장",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/대파육개장.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/대파육개장.jpg"
   },
   {
     "name_ko": "돼지고기 김치찌개",
@@ -4554,9 +4554,9 @@
     "nutrition_api_name": "돼지고기 김치찌개",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돼지고기김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돼지고기김치찌개.jpg"
   },
   {
     "name_ko": "신라면",
@@ -4597,9 +4597,9 @@
     "nutrition_api_name": "신라면",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/신라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/신라면.jpg"
   },
   {
     "name_ko": "순대국",
@@ -4640,9 +4640,9 @@
     "nutrition_api_name": "순대국",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순대국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/순대국.jpg"
   },
   {
     "name_ko": "실속돈가스",
@@ -4683,9 +4683,9 @@
     "nutrition_api_name": "돈가스",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/실속돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/실속돈가스.jpg"
   },
   {
     "name_ko": "모듬튀김우동",
@@ -4726,9 +4726,9 @@
     "nutrition_api_name": "튀김우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/모듬튀김우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/모듬튀김우동.jpg"
   },
   {
     "name_ko": "한우국밥",
@@ -4769,9 +4769,9 @@
     "nutrition_api_name": "한우국밥",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sugure-gukbap.png/500px-Sugure-gukbap.png",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/한우국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/한우국밥.jpg"
   },
   {
     "name_ko": "옛날돼지고기김치찌개",
@@ -4812,9 +4812,9 @@
     "nutrition_api_name": "돼지고기김치찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날돼지고기김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/옛날돼지고기김치찌개.jpg"
   },
   {
     "name_ko": "매콤제육덮밥",
@@ -4855,9 +4855,9 @@
     "nutrition_api_name": "매콤제육덮밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/매콤제육덮밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/매콤제육덮밥.jpg"
   },
   {
     "name_ko": "차돌박이된장찌개",
@@ -4898,9 +4898,9 @@
     "nutrition_api_name": "차돌박이된장찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/차돌박이된장찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/차돌박이된장찌개.jpg"
   },
   {
     "name_ko": "흑돼지 김치찌개",
@@ -4941,9 +4941,9 @@
     "nutrition_api_name": "제주식 흑돼지김치찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/흑돼지김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/흑돼지김치찌개.jpg"
   },
   {
     "name_ko": "만두국",
@@ -4984,9 +4984,9 @@
     "nutrition_api_name": "만두국",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bowl_of_mandooguk_from_Han_Kki_restaurant.jpg/500px-Bowl_of_mandooguk_from_Han_Kki_restaurant.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/만두국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/만두국.jpg"
   },
   {
     "name_ko": "황태미역국",
@@ -5027,9 +5027,9 @@
     "nutrition_api_name": "황태미역국",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/황태미역국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/황태미역국.jpg"
   },
   {
     "name_ko": "꼬지어묵우동",
@@ -5070,9 +5070,9 @@
     "nutrition_api_name": "본고장 어묵우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬지어묵우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/꼬지어묵우동.jpg"
   },
   {
     "name_ko": "참치김치찌개",
@@ -5113,9 +5113,9 @@
     "nutrition_api_name": "묵은지참치김치찌개",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/참치김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/참치김치찌개.jpg"
   },
   {
     "name_ko": "돈가스제육덮밥",
@@ -5156,9 +5156,9 @@
     "nutrition_api_name": "덮밥_낙지",
     "api_category_1": "밥류",
     "api_category_2": "낙지",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈가스제육덮밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돈가스제육덮밥.jpg"
   },
   {
     "name_ko": "몽글순두부찌개",
@@ -5199,9 +5199,9 @@
     "nutrition_api_name": "순두부찌개_김치",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "김치",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/몽글순두부찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/몽글순두부찌개.jpg"
   },
   {
     "name_ko": "콩나물황태해장국",
@@ -5242,9 +5242,9 @@
     "nutrition_api_name": "황태해장국",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물황태해장국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/콩나물황태해장국.jpg"
   },
   {
     "name_ko": "부대라면",
@@ -5285,9 +5285,9 @@
     "nutrition_api_name": "토핑라면정식(치즈부대라면&밥)",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/부대라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/부대라면.jpg"
   },
   {
     "name_ko": "비빔밥",
@@ -5328,9 +5328,9 @@
     "nutrition_api_name": "비빔밥",
     "api_category_1": "밥류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/비빔밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/비빔밥.jpg"
   },
   {
     "name_ko": "김치만두",
@@ -5371,9 +5371,9 @@
     "nutrition_api_name": "김치만두",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치만두.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/김치만두.jpg"
   },
   {
     "name_ko": "해장라면정식",
@@ -5414,9 +5414,9 @@
     "nutrition_api_name": "중앙해장라면 용기",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해장라면정식.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해장라면정식.jpg"
   },
   {
     "name_ko": "선지해장국",
@@ -5457,9 +5457,9 @@
     "nutrition_api_name": "선지해장국",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/선지해장국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/선지해장국.jpg"
   },
   {
     "name_ko": "치즈돈가스+사이다세트",
@@ -5549,9 +5549,9 @@
     "nutrition_api_name": "101번지 남산돈까스 전용유",
     "api_category_1": "식용유지류",
     "api_category_2": "식용유지가공품",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산돈까스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/남산돈까스.jpg"
   },
   {
     "name_ko": "당면짬뽕밥",
@@ -5592,9 +5592,9 @@
     "nutrition_api_name": "짬뽕밥",
     "api_category_1": "밥류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/당면짬뽕밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/당면짬뽕밥.jpg"
   },
   {
     "name_ko": "해물냄비우동",
@@ -5641,9 +5641,9 @@
     "nutrition_api_name": "삼양냄비우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물냄비우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/해물냄비우동.jpg"
   },
   {
     "name_ko": "케이크소세지",
@@ -5684,9 +5684,9 @@
     "nutrition_api_name": "소세지빵_감자샐러드 소세지빵",
     "api_category_1": "빵 및 과자류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sausages_on_skewers.jpg/500px-Sausages_on_skewers.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/케이크소세지.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/케이크소세지.jpg"
   },
   {
     "name_ko": "케네디소시지",
@@ -5727,9 +5727,9 @@
     "nutrition_api_name": "케네디소시지",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "소시지류(*축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Korean.food-Sundae-01.jpg/500px-Korean.food-Sundae-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/케네디소시지.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/케네디소시지.jpg"
   },
   {
     "name_ko": "꼬치어묵라면",
@@ -5770,9 +5770,9 @@
     "nutrition_api_name": "부산매운어묵라면",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬치어묵라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/꼬치어묵라면.jpg"
   },
   {
     "name_ko": "농심유부우동",
@@ -5813,9 +5813,9 @@
     "nutrition_api_name": "오뚜기유부우동",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/농심유부우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/농심유부우동.jpg"
   },
   {
     "name_ko": "바지락미역국",
@@ -5856,9 +5856,9 @@
     "nutrition_api_name": "바지락미역국",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/바지락미역국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/바지락미역국.jpg"
   },
   {
     "name_ko": "김치볶음밥",
@@ -5897,9 +5897,9 @@
     "food_code": "D201-059200000-0001",
     "nutrition_source": "data.go.kr",
     "nutrition_api_name": "김치 볶음밥_치즈오븐김치볶음밥",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kimchi-bokkeum-bap_%28Kimchi_fried_rice%29_-_Kogi_2023-09-11.jpg/500px-Kimchi-bokkeum-bap_%28Kimchi_fried_rice%29_-_Kogi_2023-09-11.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치볶음밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/김치볶음밥.jpg"
   },
   {
     "name_ko": "가락자장면",
@@ -5940,9 +5940,9 @@
     "nutrition_api_name": "자장면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jajangmyeon_by_KFoodaddict.jpg/500px-Jajangmyeon_by_KFoodaddict.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/가락자장면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/가락자장면.jpg"
   },
   {
     "name_ko": "사골우거지국밥",
@@ -5983,9 +5983,9 @@
     "nutrition_api_name": "국밥",
     "api_category_1": "밥류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/250207_%EA%B3%B0%ED%83%95.jpg/500px-250207_%EA%B3%B0%ED%83%95.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/사골우거지국밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/사골우거지국밥.jpg"
   },
   {
     "name_ko": "고추장불고기",
@@ -6026,9 +6026,9 @@
     "nutrition_api_name": "피자_고추장불고기 피자",
     "api_category_1": "빵 및 과자류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Bulgogi-01.jpg/500px-Korean.cuisine-Bulgogi-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고추장불고기.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/고추장불고기.jpg"
   },
   {
     "name_ko": "계란떡라면",
@@ -6069,9 +6069,9 @@
     "nutrition_api_name": "떡라면",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/계란떡라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/계란떡라면.jpg"
   },
   {
     "name_ko": "사골우거지국",
@@ -6112,9 +6112,9 @@
     "nutrition_api_name": "사골우거지국",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/250207_%EA%B3%B0%ED%83%95.jpg/500px-250207_%EA%B3%B0%ED%83%95.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/사골우거지국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/사골우거지국.jpg"
   },
   {
     "name_ko": "수제어묵바",
@@ -6155,9 +6155,9 @@
     "nutrition_api_name": "탱탱어묵바",
     "api_category_1": "수산가공식품류",
     "api_category_2": "어육가공품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg/500px-Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/수제어묵바.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/수제어묵바.jpg"
   },
   {
     "name_ko": "명동칼국수",
@@ -6198,9 +6198,9 @@
     "nutrition_api_name": "마포 생명동칼국수",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kalguksu_20230408_001.jpg/500px-Kalguksu_20230408_001.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/명동칼국수.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/명동칼국수.jpg"
   },
   {
     "name_ko": "순두부짬뽕밥",
@@ -6217,9 +6217,9 @@
     "raw_names": [
       "순두부짬뽕밥"
     ],
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순두부짬뽕밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/순두부짬뽕밥.jpg"
   },
   {
     "name_ko": "델리만쥬",
@@ -6260,9 +6260,9 @@
     "nutrition_api_name": "델리만쥬 감자빵",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%EB%8D%B8%EB%A6%AC%EB%A7%8C%EC%A5%AC_%EC%82%AC%EC%A7%84.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/델리만쥬.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/델리만쥬.jpg"
   },
   {
     "name_ko": "고등어구이",
@@ -6303,9 +6303,9 @@
     "nutrition_api_name": "고등어구이",
     "api_category_1": "구이류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_cuisine-Godeungeo_gui-01.jpg/500px-Korean_cuisine-Godeungeo_gui-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고등어구이.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/고등어구이.jpg"
   },
   {
     "name_ko": "돈육김치찌개",
@@ -6346,9 +6346,9 @@
     "nutrition_api_name": "김치찌개_꽁치",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "꽁치",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈육김치찌개.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/돈육김치찌개.jpg"
   },
   {
     "name_ko": "얼큰육개장",
@@ -6395,9 +6395,9 @@
     "nutrition_api_name": "얼큰육개장",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "식육추출가공품(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰육개장.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/얼큰육개장.jpg"
   },
   {
     "name_ko": "미니츄러스",
@@ -6438,9 +6438,9 @@
     "nutrition_api_name": "미니츄러스",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Kue_Churros_Korea_Selatan.jpg/500px-Kue_Churros_Korea_Selatan.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/미니츄러스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/미니츄러스.jpg"
   },
   {
     "name_ko": "도깨비핫도그",
@@ -6481,9 +6481,9 @@
     "nutrition_api_name": "도깨비핫도그",
     "api_category_1": "과자류·빵류 또는 떡류",
     "api_category_2": "해당없음(과자류, 빵류 또는 떡류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/도깨비핫도그.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/도깨비핫도그.jpg"
   },
   {
     "name_ko": "사골떡만두국",
@@ -6524,9 +6524,9 @@
     "nutrition_api_name": "강남면옥사골떡만두국",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tteok-mandu-guk.jpg/500px-Tteok-mandu-guk.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/사골떡만두국.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/사골떡만두국.jpg"
   },
   {
     "name_ko": "고등어구이정식",
@@ -6567,9 +6567,9 @@
     "nutrition_api_name": "고등어구이",
     "api_category_1": "구이류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_cuisine-Godeungeo_gui-01.jpg/500px-Korean_cuisine-Godeungeo_gui-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고등어구이정식.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/고등어구이정식.jpg"
   },
   {
     "name_ko": "군만두",
@@ -6610,9 +6610,9 @@
     "nutrition_api_name": "군만두",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/군만두.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/군만두.jpg"
   },
   {
     "name_ko": "콩국수",
@@ -6653,9 +6653,9 @@
     "nutrition_api_name": "콩국수",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kong-guksu_made_from_Paju_Jangdan_Beans.jpg/500px-Kong-guksu_made_from_Paju_Jangdan_Beans.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩국수.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/콩국수.jpg"
   },
   {
     "name_ko": "어린이돈가스",
@@ -6696,9 +6696,9 @@
     "nutrition_api_name": "돈가스",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/어린이돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/어린이돈가스.jpg"
   },
   {
     "name_ko": "제육돈가스",
@@ -6739,9 +6739,9 @@
     "nutrition_api_name": "돈가스",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/제육돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/제육돈가스.jpg"
   },
   {
     "name_ko": "짬뽕순두부",
@@ -6782,9 +6782,9 @@
     "nutrition_api_name": "순두부찌개_간편조리세트_짬뽕순두부찌개",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕순두부.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/짬뽕순두부.jpg"
   },
   {
     "name_ko": "곰탕",
@@ -6825,9 +6825,9 @@
     "nutrition_api_name": "곰탕",
     "api_category_1": "국 및 탕류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/곰탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/곰탕.jpg"
   },
   {
     "name_ko": "전주비빔밥",
@@ -6868,9 +6868,9 @@
     "nutrition_api_name": "전주비빔밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/전주비빔밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/전주비빔밥.jpg"
   },
   {
     "name_ko": "이해윤추어탕",
@@ -6911,9 +6911,9 @@
     "nutrition_api_name": "추어탕",
     "api_category_1": "찌개 및 전골류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/이해윤추어탕.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/이해윤추어탕.jpg"
   },
   {
     "name_ko": "냉메밀",
@@ -6954,9 +6954,9 @@
     "nutrition_api_name": "냉메밀소바",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg/500px-Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/냉메밀.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/냉메밀.jpg"
   },
   {
     "name_ko": "전복꼬치어묵우동",
@@ -6997,9 +6997,9 @@
     "nutrition_api_name": "우동_일식",
     "api_category_1": "면 및 만두류",
     "api_category_2": "일식",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/전복꼬치어묵우동.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/전복꼬치어묵우동.jpg"
   },
   {
     "name_ko": "파김치",
@@ -7040,9 +7040,9 @@
     "nutrition_api_name": "파김치",
     "api_category_1": "김치류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Various_kimchi.jpg/500px-Various_kimchi.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/파김치.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/파김치.jpg"
   },
   {
     "name_ko": "햄치즈라면",
@@ -7083,9 +7083,9 @@
     "nutrition_api_name": "오뚜기리얼치즈라면",
     "api_category_1": "면류",
     "api_category_2": "해당없음(면류)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/햄치즈라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/햄치즈라면.jpg"
   },
   {
     "name_ko": "샘밭막국수",
@@ -7126,9 +7126,9 @@
     "nutrition_api_name": "막국수",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean.food-Makguksu-01.jpg/500px-Korean.food-Makguksu-01.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/샘밭막국수.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/샘밭막국수.jpg"
   },
   {
     "name_ko": "경양식돈가스",
@@ -7169,9 +7169,9 @@
     "nutrition_api_name": "돈가스",
     "api_category_1": "튀김류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/경양식돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/경양식돈가스.jpg"
   },
   {
     "name_ko": "짬뽕라면",
@@ -7212,9 +7212,9 @@
     "nutrition_api_name": "짬뽕라면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/짬뽕라면.jpg"
   },
   {
     "name_ko": "그냥라면",
@@ -7255,9 +7255,9 @@
     "nutrition_api_name": "라면",
     "api_category_1": "면 및 만두류",
     "api_category_2": "해당없음",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/그냥라면.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/그냥라면.jpg"
   },
   {
     "name_ko": "남산치즈돈가스",
@@ -7298,9 +7298,9 @@
     "nutrition_api_name": "치즈돈가스",
     "api_category_1": "식육가공품 및 포장육",
     "api_category_2": "양념육류(축산물가공품)",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산치즈돈가스.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/남산치즈돈가스.jpg"
   },
   {
     "name_ko": "야채비빔밥",
@@ -7347,8 +7347,8 @@
     "nutrition_api_name": "참치야채비빔밥",
     "api_category_1": "즉석식품류",
     "api_category_2": "즉석섭취·편의식품류",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
+    "image_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/야채비빔밥.jpg",
     "image_source": "wiki",
-    "image_r2_key": null
+    "image_r2_key": "menu-images/wiki/야채비빔밥.jpg"
   }
 ]

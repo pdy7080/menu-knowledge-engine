@@ -1,1192 +1,1178 @@
 {
-  "generated_at": "2026-02-19T14:46:10.351717",
-  "total_images": 169,
+  "generated_at": "2026-02-19T15:11:48.868052",
+  "total_images": 167,
   "by_source": {
-    "wiki": 169
+    "wiki": 167
   },
   "images": {
-    "유부우동": {
+    "가락자장면": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "꼬치어묵우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "치즈돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "떡만두라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "떡라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "짜장면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jajangmyeon_by_KFoodaddict.jpg/500px-Jajangmyeon_by_KFoodaddict.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jajangmyeon_by_KFoodaddict.jpg/500px-Jajangmyeon_by_KFoodaddict.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해물순두부찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "등심돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "새우튀김우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "육개장": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "왕돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "제육덮밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "된장찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "뚝배기불고기": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Bulgogi-01.jpg/500px-Korean.cuisine-Bulgogi-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Bulgogi-01.jpg/500px-Korean.cuisine-Bulgogi-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "순두부찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "야채튀김우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "치즈라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "잔치국수": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Janchi-guksu.jpg/500px-Janchi-guksu.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Janchi-guksu.jpg/500px-Janchi-guksu.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돌솥비빔밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Vegan_hot_stone_pot_bibimbap_%28Dolsot-bibimbap%29_-_Kogi_2023-10-16.jpg/500px-Vegan_hot_stone_pot_bibimbap_%28Dolsot-bibimbap%29_-_Kogi_2023-10-16.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Vegan_hot_stone_pot_bibimbap_%28Dolsot-bibimbap%29_-_Kogi_2023-10-16.jpg/500px-Vegan_hot_stone_pot_bibimbap_%28Dolsot-bibimbap%29_-_Kogi_2023-10-16.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "차돌된장찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "어묵우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "소고기국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sogogi-gukbap_3.jpg/500px-Sogogi-gukbap_3.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sogogi-gukbap_3.jpg/500px-Sogogi-gukbap_3.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돼지고기김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "남산왕돈까스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "충무김밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "왕새우튀김우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "남산치즈돈까스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "소떡소떡": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sotteoksotteok_in_Dookki1.jpg/500px-Sotteoksotteok_in_Dookki1.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sotteoksotteok_in_Dookki1.jpg/500px-Sotteoksotteok_in_Dookki1.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "김치우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "콩나물해장라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "냉모밀": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg/500px-Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg/500px-Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돼지김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "설렁탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Korean.food-Seolleongtang-01.jpg/500px-Korean.food-Seolleongtang-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Korean.food-Seolleongtang-01.jpg/500px-Korean.food-Seolleongtang-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "호두과자": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Walnut_chocolate_chip_cookies%2C_May_2009.jpg/500px-Walnut_chocolate_chip_cookies%2C_May_2009.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Walnut_chocolate_chip_cookies%2C_May_2009.jpg/500px-Walnut_chocolate_chip_cookies%2C_May_2009.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "통감자": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/PIIGS_Mk_4_map.png/500px-PIIGS_Mk_4_map.png",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/PIIGS_Mk_4_map.png/500px-PIIGS_Mk_4_map.png",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "부산어묵우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "황태해장국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "떡볶이": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Chicken_Rice_Pasta_-_Korpan.jpg/500px-Chicken_Rice_Pasta_-_Korpan.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Chicken_Rice_Pasta_-_Korpan.jpg/500px-Chicken_Rice_Pasta_-_Korpan.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "장터국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gugil_Ttaro_gukbap.jpg/500px-Gugil_Ttaro_gukbap.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gugil_Ttaro_gukbap.jpg/500px-Gugil_Ttaro_gukbap.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "콩나물국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kongnamul_gukbap_20230408_001.jpg/500px-Kongnamul_gukbap_20230408_001.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kongnamul_gukbap_20230408_001.jpg/500px-Kongnamul_gukbap_20230408_001.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "바삭어포": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Typical_North_Korean_snack_%28%EC%95%88%EC%A3%BC%29_at_the_Rakwon_Paradise_Microbrewery_%2811416187434%29.jpg/500px-Typical_North_Korean_snack_%28%EC%95%88%EC%A3%BC%29_at_the_Rakwon_Paradise_Microbrewery_%2811416187434%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Typical_North_Korean_snack_%28%EC%95%88%EC%A3%BC%29_at_the_Rakwon_Paradise_Microbrewery_%2811416187434%29.jpg/500px-Typical_North_Korean_snack_%28%EC%95%88%EC%A3%BC%29_at_the_Rakwon_Paradise_Microbrewery_%2811416187434%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "라면정식": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "남산매운돈까스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "강원나물밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sanchae-bibim-bap.jpg/500px-Sanchae-bibim-bap.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sanchae-bibim-bap.jpg/500px-Sanchae-bibim-bap.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "새우볶음밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fried_rice_%2845722%29.jpg/500px-Fried_rice_%2845722%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fried_rice_%2845722%29.jpg/500px-Fried_rice_%2845722%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "소고기미역국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "떡만두국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tteok-mandu-guk.jpg/500px-Tteok-mandu-guk.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tteok-mandu-guk.jpg/500px-Tteok-mandu-guk.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "떡만두라면정식": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "옛날돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "옛날핫도그": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "우렁된장찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "치킨팝콘": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Korean_fried_chicken_240206.jpg/500px-Korean_fried_chicken_240206.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Korean_fried_chicken_240206.jpg/500px-Korean_fried_chicken_240206.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "꼬치어묵": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg/500px-Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg/500px-Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "어묵라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "놀부부대찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Budae_jjigae_indonesia.jpg/500px-Budae_jjigae_indonesia.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Budae_jjigae_indonesia.jpg/500px-Budae_jjigae_indonesia.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "소고기장터국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gugil_Ttaro_gukbap.jpg/500px-Gugil_Ttaro_gukbap.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gugil_Ttaro_gukbap.jpg/500px-Gugil_Ttaro_gukbap.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "추어탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/가락자장면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/가락자장면.jpg",
+      "size_kb": 42
     },
     "갈비탕": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg/500px-Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg/500px-Galbitang_%EA%B0%88%EB%B9%84%ED%83%95_beeniru.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "들깨미역국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "핫도그": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "얼큰순대국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "버섯된장찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "물냉면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/KOCIS_Mul-naengmyeon%2C_Chilled_Buckwheat_Noodle_Soup_%284594756202%29.jpg/500px-KOCIS_Mul-naengmyeon%2C_Chilled_Buckwheat_Noodle_Soup_%284594756202%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/KOCIS_Mul-naengmyeon%2C_Chilled_Buckwheat_Noodle_Soup_%284594756202%29.jpg/500px-KOCIS_Mul-naengmyeon%2C_Chilled_Buckwheat_Noodle_Soup_%284594756202%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해물순두부": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "흑돼지김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해물바": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Crispy_Rice_Cakes_in_Chinese-style_Seafood_Stir-fry_-_Horoki_%28924521466%29.jpg/500px-Crispy_Rice_Cakes_in_Chinese-style_Seafood_Stir-fry_-_Horoki_%28924521466%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Crispy_Rice_Cakes_in_Chinese-style_Seafood_Stir-fry_-_Horoki_%28924521466%29.jpg/500px-Crispy_Rice_Cakes_in_Chinese-style_Seafood_Stir-fry_-_Horoki_%28924521466%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "매직핫도그": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "통등심돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "콩나물해장국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "옥수수": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Seoul-Street.food-01.jpg/500px-Seoul-Street.food-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Seoul-Street.food-01.jpg/500px-Seoul-Street.food-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "오뎅꼬치우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "옛날돈까스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "짬뽕밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돈가스우동정식": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "맑은나주곰탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "튀김우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "산채비빔밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "냄비우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "불고기비빔밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "제육볶음": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jeyuk-bokkeum_2.jpg/500px-Jeyuk-bokkeum_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jeyuk-bokkeum_2.jpg/500px-Jeyuk-bokkeum_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "야채김밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gimbap_%28pixabay%29.jpg/500px-Gimbap_%28pixabay%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "옛날우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "순대국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "비빔냉면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bibim_Naengmyeon_in_Beijing%2C_China_%2820230207165730%29.jpg/500px-Bibim_Naengmyeon_in_Beijing%2C_China_%2820230207165730%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bibim_Naengmyeon_in_Beijing%2C_China_%2820230207165730%29.jpg/500px-Bibim_Naengmyeon_in_Beijing%2C_China_%2820230207165730%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "새집추어탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "한우소머리곰탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "회오리감자": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Annotopia-Vischering-04672.jpg/500px-Annotopia-Vischering-04672.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Annotopia-Vischering-04672.jpg/500px-Annotopia-Vischering-04672.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "만두라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해장라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "바우네나주곰탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "고기만두": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "얼큰곰탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해물짬뽕라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "열무국수": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Korean_noodles-Kongguksu-01.jpg/500px-Korean_noodles-Kongguksu-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Korean_noodles-Kongguksu-01.jpg/500px-Korean_noodles-Kongguksu-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "짬뽕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "함박스테이크": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hamburg_and_Croquette_Bento.jpg/500px-Hamburg_and_Croquette_Bento.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hamburg_and_Croquette_Bento.jpg/500px-Hamburg_and_Croquette_Bento.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해물된장찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "얼큰우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "대파육개장": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돼지고기 김치찌개": {
-      "source": "wiki",
-      "public_url": null,
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/갈비탕.jpg",
       "wiki_thumb_url": null,
-      "r2_key": null,
-      "size_kb": null
+      "r2_key": "menu-images/wiki/갈비탕.jpg",
+      "size_kb": 52
     },
-    "신라면": {
+    "강원나물밥": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "순대국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Korean_soup_Sundae_gukbap_01.jpg/500px-Korean_soup_Sundae_gukbap_01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "실속돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "모듬튀김우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "한우국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sugure-gukbap.png/500px-Sugure-gukbap.png",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sugure-gukbap.png/500px-Sugure-gukbap.png",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "옛날돼지고기김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "매콤제육덮밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "차돌박이된장찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Doenjang-jjigae_2.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "흑돼지 김치찌개": {
-      "source": "wiki",
-      "public_url": null,
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/강원나물밥.jpg",
       "wiki_thumb_url": null,
-      "r2_key": null,
-      "size_kb": null
-    },
-    "만두국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bowl_of_mandooguk_from_Han_Kki_restaurant.jpg/500px-Bowl_of_mandooguk_from_Han_Kki_restaurant.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bowl_of_mandooguk_from_Han_Kki_restaurant.jpg/500px-Bowl_of_mandooguk_from_Han_Kki_restaurant.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "황태미역국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "꼬지어묵우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "참치김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돈가스제육덮밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/%EC%A0%9C%EC%9C%A1_%EB%B3%B6%EC%9D%8C.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "몽글순두부찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg/500px-Sundubu-jjigae_with_beef_in_Annandale%2C_Virginia.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "콩나물황태해장국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "부대라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "비빔밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "김치만두": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해장라면정식": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "선지해장국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_soup-Bogeo_haejangguk-01.jpg/500px-Korean_soup-Bogeo_haejangguk-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "치즈돈가스+사이다세트": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "남산돈까스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "당면짬뽕밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "해물냄비우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "케이크소세지": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sausages_on_skewers.jpg/500px-Sausages_on_skewers.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sausages_on_skewers.jpg/500px-Sausages_on_skewers.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "케네디소시지": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Korean.food-Sundae-01.jpg/500px-Korean.food-Sundae-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Korean.food-Sundae-01.jpg/500px-Korean.food-Sundae-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "꼬치어묵라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "농심유부우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "바지락미역국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg/500px-Maultaschen-%EB%AF%B8%EC%97%AD%EA%B5%AD.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "김치볶음밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kimchi-bokkeum-bap_%28Kimchi_fried_rice%29_-_Kogi_2023-09-11.jpg/500px-Kimchi-bokkeum-bap_%28Kimchi_fried_rice%29_-_Kogi_2023-09-11.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kimchi-bokkeum-bap_%28Kimchi_fried_rice%29_-_Kogi_2023-09-11.jpg/500px-Kimchi-bokkeum-bap_%28Kimchi_fried_rice%29_-_Kogi_2023-09-11.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "가락자장면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jajangmyeon_by_KFoodaddict.jpg/500px-Jajangmyeon_by_KFoodaddict.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jajangmyeon_by_KFoodaddict.jpg/500px-Jajangmyeon_by_KFoodaddict.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "사골우거지국밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/250207_%EA%B3%B0%ED%83%95.jpg/500px-250207_%EA%B3%B0%ED%83%95.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/250207_%EA%B3%B0%ED%83%95.jpg/500px-250207_%EA%B3%B0%ED%83%95.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "고추장불고기": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Bulgogi-01.jpg/500px-Korean.cuisine-Bulgogi-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Korean.cuisine-Bulgogi-01.jpg/500px-Korean.cuisine-Bulgogi-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "계란떡라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "사골우거지국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/250207_%EA%B3%B0%ED%83%95.jpg/500px-250207_%EA%B3%B0%ED%83%95.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/250207_%EA%B3%B0%ED%83%95.jpg/500px-250207_%EA%B3%B0%ED%83%95.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "수제어묵바": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg/500px-Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg/500px-Korea_fish_cake_soup-Eomuk-Tang_%EC%96%B4%EB%AC%B5%ED%83%95-_%286768498759%29.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "명동칼국수": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kalguksu_20230408_001.jpg/500px-Kalguksu_20230408_001.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kalguksu_20230408_001.jpg/500px-Kalguksu_20230408_001.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "순두부짬뽕밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "델리만쥬": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%EB%8D%B8%EB%A6%AC%EB%A7%8C%EC%A5%AC_%EC%82%AC%EC%A7%84.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%EB%8D%B8%EB%A6%AC%EB%A7%8C%EC%A5%AC_%EC%82%AC%EC%A7%84.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "고등어구이": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_cuisine-Godeungeo_gui-01.jpg/500px-Korean_cuisine-Godeungeo_gui-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_cuisine-Godeungeo_gui-01.jpg/500px-Korean_cuisine-Godeungeo_gui-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "돈육김치찌개": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg/500px-Kimchi_jjigae_-_Kogi%2C_Brighton_2023-11-15.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "얼큰육개장": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yukgaejang-Moscow.JPG/500px-Yukgaejang-Moscow.JPG",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "미니츄러스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Kue_Churros_Korea_Selatan.jpg/500px-Kue_Churros_Korea_Selatan.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Kue_Churros_Korea_Selatan.jpg/500px-Kue_Churros_Korea_Selatan.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "도깨비핫도그": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg/500px-Korean_corn_dog_%26_fried_dumplings_-_KOGI_to-go_Korean_kitchen.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "사골떡만두국": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tteok-mandu-guk.jpg/500px-Tteok-mandu-guk.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tteok-mandu-guk.jpg/500px-Tteok-mandu-guk.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "고등어구이정식": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_cuisine-Godeungeo_gui-01.jpg/500px-Korean_cuisine-Godeungeo_gui-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Korean_cuisine-Godeungeo_gui-01.jpg/500px-Korean_cuisine-Godeungeo_gui-01.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "군만두": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pan_dumplings.jpg/500px-Pan_dumplings.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "콩국수": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kong-guksu_made_from_Paju_Jangdan_Beans.jpg/500px-Kong-guksu_made_from_Paju_Jangdan_Beans.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kong-guksu_made_from_Paju_Jangdan_Beans.jpg/500px-Kong-guksu_made_from_Paju_Jangdan_Beans.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "어린이돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "제육돈가스": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "짬뽕순두부": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Jjamppong_4.jpg/500px-Jjamppong_4.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "곰탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kkori-gomtang_1.jpg/500px-Kkori-gomtang_1.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "전주비빔밥": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "이해윤추어탕": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg/500px-Chueotang%2C_Gangjin%2C_Jeollanam-do.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "냉메밀": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg/500px-Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg/500px-Sansai_hiyashi_soba_by_jetalone_in_Hanno%2C_Saitama.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "전복꼬치어묵우동": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg/500px-Udon_noodle_Bowl_%28Nongshim%29_20210701_003.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "파김치": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Various_kimchi.jpg/500px-Various_kimchi.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Various_kimchi.jpg/500px-Various_kimchi.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "햄치즈라면": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
-    },
-    "샘밭막국수": {
-      "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean.food-Makguksu-01.jpg/500px-Korean.food-Makguksu-01.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Korean.food-Makguksu-01.jpg/500px-Korean.food-Makguksu-01.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "r2_key": "menu-images/wiki/강원나물밥.jpg",
+      "size_kb": 71
     },
     "경양식돈가스": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/경양식돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/경양식돈가스.jpg",
+      "size_kb": 46
     },
-    "짬뽕라면": {
+    "계란떡라면": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/계란떡라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/계란떡라면.jpg",
+      "size_kb": 77
+    },
+    "고기만두": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고기만두.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/고기만두.jpg",
+      "size_kb": 28
+    },
+    "고등어구이": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고등어구이.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/고등어구이.jpg",
+      "size_kb": 47
+    },
+    "고등어구이정식": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고등어구이정식.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/고등어구이정식.jpg",
+      "size_kb": 47
+    },
+    "고추장불고기": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/고추장불고기.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/고추장불고기.jpg",
+      "size_kb": 74
+    },
+    "곰탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/곰탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/곰탕.jpg",
+      "size_kb": 46
+    },
+    "군만두": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/군만두.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/군만두.jpg",
+      "size_kb": 28
     },
     "그냥라면": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Intant_ramyeon_Vending_machine_in_korea.jpg/500px-Intant_ramyeon_Vending_machine_in_korea.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/그냥라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/그냥라면.jpg",
+      "size_kb": 77
+    },
+    "김치만두": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치만두.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/김치만두.jpg",
+      "size_kb": 28
+    },
+    "김치볶음밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치볶음밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/김치볶음밥.jpg",
+      "size_kb": 46
+    },
+    "김치우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/김치우동.jpg",
+      "size_kb": 52
+    },
+    "김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/김치찌개.jpg",
+      "size_kb": 38
+    },
+    "꼬지어묵우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬지어묵우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/꼬지어묵우동.jpg",
+      "size_kb": 52
+    },
+    "꼬치어묵": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬치어묵.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/꼬치어묵.jpg",
+      "size_kb": 81
+    },
+    "꼬치어묵라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬치어묵라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/꼬치어묵라면.jpg",
+      "size_kb": 77
+    },
+    "꼬치어묵우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/꼬치어묵우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/꼬치어묵우동.jpg",
+      "size_kb": 52
+    },
+    "남산돈까스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산돈까스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/남산돈까스.jpg",
+      "size_kb": 46
+    },
+    "남산매운돈까스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산매운돈까스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/남산매운돈까스.jpg",
+      "size_kb": 46
+    },
+    "남산왕돈까스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산왕돈까스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/남산왕돈까스.jpg",
+      "size_kb": 46
     },
     "남산치즈돈가스": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tonkatsu_mashita_spb.jpg/500px-Tonkatsu_mashita_spb.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산치즈돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/남산치즈돈가스.jpg",
+      "size_kb": 46
+    },
+    "남산치즈돈까스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/남산치즈돈까스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/남산치즈돈까스.jpg",
+      "size_kb": 46
+    },
+    "냄비우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/냄비우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/냄비우동.jpg",
+      "size_kb": 52
+    },
+    "냉메밀": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/냉메밀.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/냉메밀.jpg",
+      "size_kb": 72
+    },
+    "냉모밀": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/냉모밀.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/냉모밀.jpg",
+      "size_kb": 72
+    },
+    "놀부부대찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/놀부부대찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/놀부부대찌개.jpg",
+      "size_kb": 135
+    },
+    "농심유부우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/농심유부우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/농심유부우동.jpg",
+      "size_kb": 52
+    },
+    "당면짬뽕밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/당면짬뽕밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/당면짬뽕밥.jpg",
+      "size_kb": 35
+    },
+    "대파육개장": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/대파육개장.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/대파육개장.jpg",
+      "size_kb": 60
+    },
+    "델리만쥬": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/델리만쥬.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/델리만쥬.jpg",
+      "size_kb": 45
+    },
+    "도깨비핫도그": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/도깨비핫도그.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/도깨비핫도그.jpg",
+      "size_kb": 94
+    },
+    "돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돈가스.jpg",
+      "size_kb": 46
+    },
+    "돈가스우동정식": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈가스우동정식.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돈가스우동정식.jpg",
+      "size_kb": 46
+    },
+    "돈가스제육덮밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈가스제육덮밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돈가스제육덮밥.jpg",
+      "size_kb": 128
+    },
+    "돈육김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돈육김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돈육김치찌개.jpg",
+      "size_kb": 38
+    },
+    "돌솥비빔밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돌솥비빔밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돌솥비빔밥.jpg",
+      "size_kb": 50
+    },
+    "돼지고기김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돼지고기김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돼지고기김치찌개.jpg",
+      "size_kb": 38
+    },
+    "돼지김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/돼지김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/돼지김치찌개.jpg",
+      "size_kb": 38
+    },
+    "된장찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/된장찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/된장찌개.jpg",
+      "size_kb": 54
+    },
+    "들깨미역국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/들깨미역국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/들깨미역국.jpg",
+      "size_kb": 28
+    },
+    "등심돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/등심돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/등심돈가스.jpg",
+      "size_kb": 46
+    },
+    "떡라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/떡라면.jpg",
+      "size_kb": 77
+    },
+    "떡만두국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡만두국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/떡만두국.jpg",
+      "size_kb": 65
+    },
+    "떡만두라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡만두라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/떡만두라면.jpg",
+      "size_kb": 77
+    },
+    "떡만두라면정식": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡만두라면정식.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/떡만두라면정식.jpg",
+      "size_kb": 77
+    },
+    "떡볶이": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/떡볶이.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/떡볶이.jpg",
+      "size_kb": 98
+    },
+    "뚝배기불고기": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/뚝배기불고기.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/뚝배기불고기.jpg",
+      "size_kb": 74
+    },
+    "라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/라면.jpg",
+      "size_kb": 77
+    },
+    "라면정식": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/라면정식.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/라면정식.jpg",
+      "size_kb": 77
+    },
+    "만두국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/만두국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/만두국.jpg",
+      "size_kb": 45
+    },
+    "만두라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/만두라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/만두라면.jpg",
+      "size_kb": 77
+    },
+    "맑은나주곰탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/맑은나주곰탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/맑은나주곰탕.jpg",
+      "size_kb": 46
+    },
+    "매직핫도그": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/매직핫도그.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/매직핫도그.jpg",
+      "size_kb": 94
+    },
+    "매콤제육덮밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/매콤제육덮밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/매콤제육덮밥.jpg",
+      "size_kb": 128
+    },
+    "명동칼국수": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/명동칼국수.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/명동칼국수.jpg",
+      "size_kb": 84
+    },
+    "모듬튀김우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/모듬튀김우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/모듬튀김우동.jpg",
+      "size_kb": 52
+    },
+    "몽글순두부찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/몽글순두부찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/몽글순두부찌개.jpg",
+      "size_kb": 75
+    },
+    "물냉면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/물냉면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/물냉면.jpg",
+      "size_kb": 43
+    },
+    "미니츄러스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/미니츄러스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/미니츄러스.jpg",
+      "size_kb": 88
+    },
+    "바삭어포": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/바삭어포.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/바삭어포.jpg",
+      "size_kb": 31
+    },
+    "바우네나주곰탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/바우네나주곰탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/바우네나주곰탕.jpg",
+      "size_kb": 46
+    },
+    "바지락미역국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/바지락미역국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/바지락미역국.jpg",
+      "size_kb": 28
+    },
+    "버섯된장찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/버섯된장찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/버섯된장찌개.jpg",
+      "size_kb": 54
+    },
+    "부대라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/부대라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/부대라면.jpg",
+      "size_kb": 77
+    },
+    "부산어묵우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/부산어묵우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/부산어묵우동.jpg",
+      "size_kb": 52
+    },
+    "불고기비빔밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/불고기비빔밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/불고기비빔밥.jpg",
+      "size_kb": 80
+    },
+    "비빔냉면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/비빔냉면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/비빔냉면.jpg",
+      "size_kb": 67
+    },
+    "비빔밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/비빔밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/비빔밥.jpg",
+      "size_kb": 80
+    },
+    "사골떡만두국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/사골떡만두국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/사골떡만두국.jpg",
+      "size_kb": 65
+    },
+    "사골우거지국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/사골우거지국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/사골우거지국.jpg",
+      "size_kb": 52
+    },
+    "사골우거지국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/사골우거지국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/사골우거지국밥.jpg",
+      "size_kb": 52
+    },
+    "산채비빔밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/산채비빔밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/산채비빔밥.jpg",
+      "size_kb": 80
+    },
+    "새우볶음밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/새우볶음밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/새우볶음밥.jpg",
+      "size_kb": 93
+    },
+    "새우튀김우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/새우튀김우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/새우튀김우동.jpg",
+      "size_kb": 52
+    },
+    "새집추어탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/새집추어탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/새집추어탕.jpg",
+      "size_kb": 40
+    },
+    "샘밭막국수": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/샘밭막국수.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/샘밭막국수.jpg",
+      "size_kb": 54
+    },
+    "선지해장국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/선지해장국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/선지해장국.jpg",
+      "size_kb": 38
+    },
+    "설렁탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/설렁탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/설렁탕.jpg",
+      "size_kb": 56
+    },
+    "소고기국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소고기국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/소고기국밥.jpg",
+      "size_kb": 88
+    },
+    "소고기미역국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소고기미역국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/소고기미역국.jpg",
+      "size_kb": 28
+    },
+    "소고기장터국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소고기장터국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/소고기장터국밥.jpg",
+      "size_kb": 64
+    },
+    "소떡소떡": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/소떡소떡.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/소떡소떡.jpg",
+      "size_kb": 48
+    },
+    "수제어묵바": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/수제어묵바.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/수제어묵바.jpg",
+      "size_kb": 81
+    },
+    "순대국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순대국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/순대국.jpg",
+      "size_kb": 21
+    },
+    "순대국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순대국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/순대국밥.jpg",
+      "size_kb": 21
+    },
+    "순두부짬뽕밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순두부짬뽕밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/순두부짬뽕밥.jpg",
+      "size_kb": 35
+    },
+    "순두부찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/순두부찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/순두부찌개.jpg",
+      "size_kb": 75
+    },
+    "신라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/신라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/신라면.jpg",
+      "size_kb": 77
+    },
+    "실속돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/실속돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/실속돈가스.jpg",
+      "size_kb": 46
+    },
+    "야채김밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/야채김밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/야채김밥.jpg",
+      "size_kb": 58
     },
     "야채비빔밥": {
       "source": "wiki",
-      "public_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "wiki_thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg/500px-Bokkeum_Bibimbap_and_Little_Piggy_Bao_Bun_by_Bao_Bun_Brighton.jpg",
-      "r2_key": null,
-      "size_kb": null
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/야채비빔밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/야채비빔밥.jpg",
+      "size_kb": 80
+    },
+    "야채튀김우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/야채튀김우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/야채튀김우동.jpg",
+      "size_kb": 52
+    },
+    "어린이돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/어린이돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/어린이돈가스.jpg",
+      "size_kb": 46
+    },
+    "어묵라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/어묵라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/어묵라면.jpg",
+      "size_kb": 77
+    },
+    "어묵우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/어묵우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/어묵우동.jpg",
+      "size_kb": 52
+    },
+    "얼큰곰탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰곰탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/얼큰곰탕.jpg",
+      "size_kb": 46
+    },
+    "얼큰순대국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰순대국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/얼큰순대국.jpg",
+      "size_kb": 21
+    },
+    "얼큰우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/얼큰우동.jpg",
+      "size_kb": 52
+    },
+    "얼큰육개장": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/얼큰육개장.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/얼큰육개장.jpg",
+      "size_kb": 60
+    },
+    "열무국수": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/열무국수.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/열무국수.jpg",
+      "size_kb": 24
+    },
+    "옛날돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/옛날돈가스.jpg",
+      "size_kb": 46
+    },
+    "옛날돈까스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날돈까스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/옛날돈까스.jpg",
+      "size_kb": 46
+    },
+    "옛날돼지고기김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날돼지고기김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/옛날돼지고기김치찌개.jpg",
+      "size_kb": 38
+    },
+    "옛날우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/옛날우동.jpg",
+      "size_kb": 52
+    },
+    "옛날핫도그": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옛날핫도그.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/옛날핫도그.jpg",
+      "size_kb": 94
+    },
+    "오뎅꼬치우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/오뎅꼬치우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/오뎅꼬치우동.jpg",
+      "size_kb": 52
+    },
+    "옥수수": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/옥수수.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/옥수수.jpg",
+      "size_kb": 79
+    },
+    "왕돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/왕돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/왕돈가스.jpg",
+      "size_kb": 46
+    },
+    "왕새우튀김우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/왕새우튀김우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/왕새우튀김우동.jpg",
+      "size_kb": 52
+    },
+    "우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/우동.jpg",
+      "size_kb": 52
+    },
+    "우렁된장찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/우렁된장찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/우렁된장찌개.jpg",
+      "size_kb": 54
+    },
+    "유부우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/유부우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/유부우동.jpg",
+      "size_kb": 52
+    },
+    "육개장": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/육개장.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/육개장.jpg",
+      "size_kb": 60
+    },
+    "이해윤추어탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/이해윤추어탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/이해윤추어탕.jpg",
+      "size_kb": 40
+    },
+    "잔치국수": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/잔치국수.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/잔치국수.jpg",
+      "size_kb": 55
+    },
+    "장터국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/장터국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/장터국밥.jpg",
+      "size_kb": 64
+    },
+    "전복꼬치어묵우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/전복꼬치어묵우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/전복꼬치어묵우동.jpg",
+      "size_kb": 52
+    },
+    "전주비빔밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/전주비빔밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/전주비빔밥.jpg",
+      "size_kb": 80
+    },
+    "제육덮밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/제육덮밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/제육덮밥.jpg",
+      "size_kb": 128
+    },
+    "제육돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/제육돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/제육돈가스.jpg",
+      "size_kb": 46
+    },
+    "제육볶음": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/제육볶음.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/제육볶음.jpg",
+      "size_kb": 73
+    },
+    "짜장면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짜장면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/짜장면.jpg",
+      "size_kb": 42
+    },
+    "짬뽕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/짬뽕.jpg",
+      "size_kb": 35
+    },
+    "짬뽕라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/짬뽕라면.jpg",
+      "size_kb": 77
+    },
+    "짬뽕밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/짬뽕밥.jpg",
+      "size_kb": 35
+    },
+    "짬뽕순두부": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/짬뽕순두부.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/짬뽕순두부.jpg",
+      "size_kb": 35
+    },
+    "차돌된장찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/차돌된장찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/차돌된장찌개.jpg",
+      "size_kb": 54
+    },
+    "차돌박이된장찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/차돌박이된장찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/차돌박이된장찌개.jpg",
+      "size_kb": 54
+    },
+    "참치김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/참치김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/참치김치찌개.jpg",
+      "size_kb": 38
+    },
+    "추어탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/추어탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/추어탕.jpg",
+      "size_kb": 40
+    },
+    "충무김밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/충무김밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/충무김밥.jpg",
+      "size_kb": 58
+    },
+    "치즈돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치즈돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/치즈돈가스.jpg",
+      "size_kb": 46
+    },
+    "치즈돈가스사이다세트": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치즈돈가스사이다세트.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/치즈돈가스사이다세트.jpg",
+      "size_kb": 46
+    },
+    "치즈라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치즈라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/치즈라면.jpg",
+      "size_kb": 77
+    },
+    "치킨팝콘": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/치킨팝콘.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/치킨팝콘.jpg",
+      "size_kb": 32
+    },
+    "케네디소시지": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/케네디소시지.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/케네디소시지.jpg",
+      "size_kb": 58
+    },
+    "케이크소세지": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/케이크소세지.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/케이크소세지.jpg",
+      "size_kb": 95
+    },
+    "콩국수": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩국수.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/콩국수.jpg",
+      "size_kb": 50
+    },
+    "콩나물국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/콩나물국밥.jpg",
+      "size_kb": 61
+    },
+    "콩나물해장국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물해장국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/콩나물해장국.jpg",
+      "size_kb": 38
+    },
+    "콩나물해장라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물해장라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/콩나물해장라면.jpg",
+      "size_kb": 77
+    },
+    "콩나물황태해장국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/콩나물황태해장국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/콩나물황태해장국.jpg",
+      "size_kb": 38
+    },
+    "통감자": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/통감자.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/통감자.jpg",
+      "size_kb": 105
+    },
+    "통등심돈가스": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/통등심돈가스.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/통등심돈가스.jpg",
+      "size_kb": 46
+    },
+    "튀김우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/튀김우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/튀김우동.jpg",
+      "size_kb": 52
+    },
+    "파김치": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/파김치.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/파김치.jpg",
+      "size_kb": 49
+    },
+    "한우국밥": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/한우국밥.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/한우국밥.jpg",
+      "size_kb": 331
+    },
+    "한우소머리곰탕": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/한우소머리곰탕.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/한우소머리곰탕.jpg",
+      "size_kb": 46
+    },
+    "함박스테이크": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/함박스테이크.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/함박스테이크.jpg",
+      "size_kb": 78
+    },
+    "핫도그": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/핫도그.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/핫도그.jpg",
+      "size_kb": 94
+    },
+    "해물냄비우동": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물냄비우동.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해물냄비우동.jpg",
+      "size_kb": 52
+    },
+    "해물된장찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물된장찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해물된장찌개.jpg",
+      "size_kb": 54
+    },
+    "해물바": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물바.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해물바.jpg",
+      "size_kb": 44
+    },
+    "해물순두부": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물순두부.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해물순두부.jpg",
+      "size_kb": 75
+    },
+    "해물순두부찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물순두부찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해물순두부찌개.jpg",
+      "size_kb": 75
+    },
+    "해물짬뽕라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해물짬뽕라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해물짬뽕라면.jpg",
+      "size_kb": 77
+    },
+    "해장라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해장라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해장라면.jpg",
+      "size_kb": 77
+    },
+    "해장라면정식": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/해장라면정식.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/해장라면정식.jpg",
+      "size_kb": 77
+    },
+    "햄치즈라면": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/햄치즈라면.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/햄치즈라면.jpg",
+      "size_kb": 77
+    },
+    "호두과자": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/호두과자.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/호두과자.jpg",
+      "size_kb": 35
+    },
+    "황태미역국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/황태미역국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/황태미역국.jpg",
+      "size_kb": 28
+    },
+    "황태해장국": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/황태해장국.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/황태해장국.jpg",
+      "size_kb": 38
+    },
+    "회오리감자": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/회오리감자.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/회오리감자.jpg",
+      "size_kb": 57
+    },
+    "흑돼지김치찌개": {
+      "source": "wiki",
+      "public_url": "https://pub-2c9d60886c6341bf9d63aac1f98e8598.r2.dev/menu-images/wiki/흑돼지김치찌개.jpg",
+      "wiki_thumb_url": null,
+      "r2_key": "menu-images/wiki/흑돼지김치찌개.jpg",
+      "size_kb": 38
     }
   }
 }
