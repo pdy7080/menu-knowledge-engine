@@ -67,19 +67,29 @@ def parse_nutrition(item: dict) -> dict:
 
 
 async def search_nutrition(client: httpx.AsyncClient, food_name: str) -> dict | None:
-    """API에서 음식명으로 영양정보 검색"""
-    # 직접 검색
+    """API에서 음식명으로 영양정보 검색 (다단계 fallback)"""
+    # 공백 제거 버전도 시도
+    clean_name = food_name.replace(" ", "")
+
+    # 1단계: 직접 검색
     result = await _fetch_nutrition(client, food_name)
     if result:
         return result
 
-    # 검색어 변형: 마지막 글자 제거 (예: "유부우동" → "유부우동" 안 되면 "우동")
-    # 일반적 매칭: 핵심 키워드로 재검색
-    base_words = _extract_base_word(food_name)
-    if base_words and base_words != food_name:
-        result = await _fetch_nutrition(client, base_words)
+    # 공백 제거 버전
+    if clean_name != food_name:
+        result = await _fetch_nutrition(client, clean_name)
         if result:
             return result
+
+    # 2단계: 수식어/브랜드 제거 후 재검색
+    candidates = _generate_search_candidates(clean_name)
+    for candidate in candidates:
+        if candidate != food_name and candidate != clean_name:
+            result = await _fetch_nutrition(client, candidate)
+            if result:
+                return result
+            await asyncio.sleep(0.15)
 
     return None
 
@@ -141,22 +151,74 @@ async def _fetch_nutrition(client: httpx.AsyncClient, food_name: str) -> dict | 
         return None
 
 
-def _extract_base_word(name: str) -> str:
-    """복합 메뉴명에서 핵심 키워드 추출"""
-    # 수식어 제거
-    prefixes = ["왕", "특", "대", "매운", "얼큰", "해물", "치즈", "새우", "야채",
-                 "등심", "돌솥", "뚝배기", "숯불", "차돌", "통", "옛날"]
+def _generate_search_candidates(name: str) -> list[str]:
+    """검색 실패 시 다양한 변형 검색어 생성"""
+    candidates = []
+
+    # '+' 또는 '&' 분리 (치즈돈가스+사이다세트 → 치즈돈가스)
+    if "+" in name:
+        candidates.append(name.split("+")[0].strip())
+    if "&" in name:
+        candidates.append(name.split("&")[0].strip())
+
+    # 정식/세트 접미사 제거
+    for suffix in ["정식", "세트"]:
+        if name.endswith(suffix) and len(name) > len(suffix) + 2:
+            candidates.append(name[:-len(suffix)])
+
+    # 브랜드/상호명 제거
+    brand_prefixes = ["남산", "바우네", "새집", "이해윤", "샘밭", "농심",
+                      "놀부", "명동", "부산", "전주", "전복", "도깨비",
+                      "마포", "강남", "경양식", "실속", "몽글", "그냥",
+                      "어린이", "미니", "수제"]
+    for prefix in brand_prefixes:
+        if name.startswith(prefix) and len(name) > len(prefix) + 1:
+            candidates.append(name[len(prefix):])
+
+    # 일반 수식어 제거
+    mod_prefixes = ["왕", "특", "대", "매운", "얼큰", "해물", "치즈", "새우", "야채",
+                    "등심", "돌솥", "뚝배기", "숯불", "차돌", "통", "옛날", "흑돼지",
+                    "한우", "돈육", "소고기", "돼지고기", "콩나물", "당면", "계란",
+                    "햄", "모듬", "가락", "꼬치", "꼬지"]
     result = name
-    for prefix in prefixes:
+    for prefix in mod_prefixes:
         if result.startswith(prefix) and len(result) > len(prefix) + 1:
-            result = result[len(prefix):]
-    return result
+            stripped = result[len(prefix):]
+            candidates.append(stripped)
+            result = stripped
+
+    # 복합 메뉴 분해: 뒤에서부터 핵심 음식명 추출
+    # 예: "떡만두라면" → "라면", "꼬치어묵우동" → "우동"
+    food_suffixes = ["우동", "라면", "찌개", "국밥", "국수", "볶음밥", "비빔밥",
+                     "덮밥", "짬뽕", "냉면", "돈가스", "돈까스", "김밥", "만두",
+                     "해장국", "곰탕", "추어탕", "설렁탕", "갈비탕", "미역국",
+                     "김치찌개", "된장찌개", "순두부찌개", "부대찌개",
+                     "핫도그", "소시지", "소세지", "막국수", "칼국수",
+                     "불고기", "구이", "볶음", "탕"]
+    for suffix in sorted(food_suffixes, key=len, reverse=True):
+        idx = name.find(suffix)
+        if idx > 0 and idx + len(suffix) == len(name):
+            # 접미 음식명만 추출
+            candidates.append(suffix)
+            break
+
+    # 중복 제거, 원본과 동일한 것 제외
+    seen = set()
+    unique = []
+    for c in candidates:
+        c = c.strip()
+        if c and c != name and c not in seen and len(c) >= 2:
+            seen.add(c)
+            unique.append(c)
+
+    return unique
 
 
 async def main():
     parser = argparse.ArgumentParser(description="canonical 메뉴 영양정보 매핑")
     parser.add_argument("--dry-run", action="store_true", help="API 호출만, 저장 안함")
     parser.add_argument("--limit", type=int, default=0, help="처리할 메뉴 수 제한")
+    parser.add_argument("--retry-failed", action="store_true", help="기존 enriched에서 실패한 것만 재처리")
     args = parser.parse_args()
 
     print("=" * 60)
@@ -172,15 +234,25 @@ async def main():
         return
 
     # 1. canonical 시드 데이터 로드
+    enriched_file = DATA_DIR / "canonical_seed_enriched.json"
     seed_file = DATA_DIR / "canonical_seed_data.json"
-    if not seed_file.exists():
-        print(f"\n[ERROR] {seed_file} 파일이 없습니다. generate_canonical_seed.py를 먼저 실행하세요.")
-        return
 
-    with open(seed_file, 'r', encoding='utf-8') as f:
-        seed_data = json.load(f)
+    if args.retry_failed and enriched_file.exists():
+        # 기존 enriched 데이터에서 실패한 것만 재처리
+        with open(enriched_file, 'r', encoding='utf-8') as f:
+            all_data = json.load(f)
+        seed_data = [m for m in all_data if "nutrition_info" not in m]
+        total_menus = len(all_data)
+        print(f"\n[1] RETRY MODE: {total_menus}개 중 미매칭 {len(seed_data)}개 재처리")
+    else:
+        if not seed_file.exists():
+            print(f"\n[ERROR] {seed_file} 파일이 없습니다. generate_canonical_seed.py를 먼저 실행하세요.")
+            return
+        with open(seed_file, 'r', encoding='utf-8') as f:
+            seed_data = json.load(f)
+        all_data = None
+        total_menus = len(seed_data)
 
-    total_menus = len(seed_data)
     if args.limit > 0:
         seed_data = seed_data[:args.limit]
     print(f"\n[1] 시드 데이터: {total_menus}개 (처리 대상: {len(seed_data)}개)")
@@ -236,20 +308,30 @@ async def main():
     print(f"  에러: {errors}개")
 
     if not args.dry_run:
+        # retry 모드면 기존 성공 데이터와 합침
+        if args.retry_failed and all_data:
+            retry_map = {m["name_ko"]: m for m in seed_data if "nutrition_info" in m}
+            for i, m in enumerate(all_data):
+                if m["name_ko"] in retry_map:
+                    all_data[i] = retry_map[m["name_ko"]]
+            save_data = all_data
+        else:
+            save_data = seed_data
+
         # 영양정보 포함된 시드 데이터 저장
-        enriched_file = DATA_DIR / "canonical_seed_enriched.json"
         with open(enriched_file, 'w', encoding='utf-8') as f:
-            json.dump(seed_data, f, ensure_ascii=False, indent=2)
+            json.dump(save_data, f, ensure_ascii=False, indent=2)
         print(f"\n  [SAVED] {enriched_file.name}")
 
         # 영양정보 UPDATE SQL 생성
         sql_file = Path(__file__).parent.parent / "migrations" / "sprint0_update_nutrition.sql"
+        total_matched = sum(1 for m in save_data if "nutrition_info" in m)
         sql_lines = [
             f"-- canonical_menus 영양정보 UPDATE",
             f"-- 생성일: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
-            f"-- 매칭: {matched}/{len(seed_data)}개\n",
+            f"-- 매칭: {total_matched}/{len(save_data)}개\n",
         ]
-        for menu in seed_data:
+        for menu in save_data:
             if "nutrition_info" in menu and menu.get("nutrition_source"):
                 nutrition_json = json.dumps(menu["nutrition_info"], ensure_ascii=False)
                 serving = menu.get("serving_size", "")
