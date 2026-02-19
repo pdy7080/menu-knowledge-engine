@@ -1,0 +1,7269 @@
+[
+  {
+    "name_ko": "유부우동",
+    "occurrence_count": 154,
+    "rest_area_count": 150,
+    "avg_price": 5922,
+    "min_price": 4500,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해제2지선",
+      "논산천안선,호남선",
+      "동해선",
+      "무안광주선",
+      "밀양울산선",
+      "부산외곽순환선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "완주장수선",
+      "인천국제공항선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "유부우동",
+      "(실속상품)유부우동",
+      "용우동_유부우동"
+    ]
+  },
+  {
+    "name_ko": "꼬치어묵우동",
+    "occurrence_count": 118,
+    "rest_area_count": 116,
+    "avg_price": 6826,
+    "min_price": 4500,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "논산천안선,호남선",
+      "동해선",
+      "무안광주선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "완주장수선",
+      "인천국제공항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "꼬치어묵우동",
+      "꼬치어묵우동(신관)",
+      "용우동_꼬치어묵우동"
+    ]
+  },
+  {
+    "name_ko": "치즈돈가스",
+    "occurrence_count": 91,
+    "rest_area_count": 91,
+    "avg_price": 11153,
+    "min_price": 8000,
+    "max_price": 14000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선(영암순천)",
+      "논산천안선,호남선",
+      "동해선",
+      "무안광주선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서천공주선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "인천국제공항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "★치즈돈가스",
+      "치즈돈가스",
+      "(코바코)치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "떡만두라면",
+    "occurrence_count": 83,
+    "rest_area_count": 82,
+    "avg_price": 5397,
+    "min_price": 4000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "논산천안선,호남선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서해안선",
+      "세종포천선",
+      "순천완주선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "떡만두라면",
+      "떡만두라면(라면)"
+    ]
+  },
+  {
+    "name_ko": "떡라면",
+    "occurrence_count": 61,
+    "rest_area_count": 60,
+    "avg_price": 5155,
+    "min_price": 4000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "남해제2지선",
+      "논산천안선,호남선",
+      "동해선",
+      "밀양울산선",
+      "부산외곽순환선",
+      "서산영덕선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "완주장수선",
+      "인천국제공항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "라면_떡라면",
+      "떡라면",
+      "떡라면(라면)"
+    ]
+  },
+  {
+    "name_ko": "실속우동",
+    "occurrence_count": 55,
+    "rest_area_count": 50,
+    "avg_price": 5454,
+    "min_price": 3000,
+    "max_price": 5500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선(영암순천)",
+      "동해선",
+      "무안광주선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "영동선",
+      "완주장수선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "실속우동",
+      "(실속상품)실속우동",
+      "(실속)실속우동"
+    ]
+  },
+  {
+    "name_ko": "자장면",
+    "occurrence_count": 51,
+    "rest_area_count": 51,
+    "avg_price": 6303,
+    "min_price": 5000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "남해제2지선",
+      "동해선",
+      "무안광주선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "영동선",
+      "완주장수선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "농심가락우동_자장면",
+      "자장면"
+    ]
+  },
+  {
+    "name_ko": "등심돈가스",
+    "occurrence_count": 51,
+    "rest_area_count": 50,
+    "avg_price": 10205,
+    "min_price": 9000,
+    "max_price": 13000,
+    "routes": [
+      "경부선",
+      "남해선(영암순천)",
+      "무안광주선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "울산포항선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "등심돈가스",
+      "(실속)등심돈가스",
+      "(실속상품)등심돈가스"
+    ]
+  },
+  {
+    "name_ko": "해물순두부찌개",
+    "occurrence_count": 51,
+    "rest_area_count": 51,
+    "avg_price": 9176,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "서울양양선",
+      "서해안선",
+      "수도권제1순환선",
+      "순천완주선",
+      "완주장수선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "해물순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "새우튀김우동",
+    "occurrence_count": 45,
+    "rest_area_count": 44,
+    "avg_price": 7666,
+    "min_price": 7000,
+    "max_price": 11500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해제2지선",
+      "동해선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서울양양선",
+      "서해안선",
+      "세종포천선",
+      "영동선",
+      "완주장수선",
+      "중부내륙선",
+      "중앙선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "새우튀김우동",
+      "새우튀김우동(신관)",
+      "용우동_새우튀김우동"
+    ]
+  },
+  {
+    "name_ko": "EX라면",
+    "occurrence_count": 44,
+    "rest_area_count": 44,
+    "avg_price": 4000,
+    "min_price": 4000,
+    "max_price": 4000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "무안광주선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서해안선",
+      "세종포천선",
+      "순천완주선",
+      "영동선",
+      "완주장수선",
+      "중부내륙선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "라면_EX라면",
+      "EX라면",
+      "(실속)EX라면"
+    ]
+  },
+  {
+    "name_ko": "ex-라면",
+    "occurrence_count": 44,
+    "rest_area_count": 42,
+    "avg_price": 4000,
+    "min_price": 4000,
+    "max_price": 4000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "동해선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "ex-라면",
+      "(실속상품)ex-라면",
+      "(실속)ex-라면"
+    ]
+  },
+  {
+    "name_ko": "우동",
+    "occurrence_count": 41,
+    "rest_area_count": 41,
+    "avg_price": 5512,
+    "min_price": 5500,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선(영암순천)",
+      "동해선",
+      "무안광주선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서해안선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속)우동",
+      "우동",
+      "(실속상품)우동"
+    ]
+  },
+  {
+    "name_ko": "왕돈가스",
+    "occurrence_count": 39,
+    "rest_area_count": 37,
+    "avg_price": 12051,
+    "min_price": 10000,
+    "max_price": 15000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "밀양울산선",
+      "부산외곽순환선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "순천완주선",
+      "영동선",
+      "인천국제공항선",
+      "중앙선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "왕돈가스",
+      "왕돈가스(로제소스)",
+      "왕돈가스(매운소스)"
+    ]
+  },
+  {
+    "name_ko": "육개장",
+    "occurrence_count": 39,
+    "rest_area_count": 38,
+    "avg_price": 9833,
+    "min_price": 7500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "동해선",
+      "무안광주선",
+      "서산영덕선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "육개장(호텔컬렉션)",
+      "(기사식당)육개장",
+      "(유가네)육개장"
+    ]
+  },
+  {
+    "name_ko": "EX-라면",
+    "occurrence_count": 37,
+    "rest_area_count": 37,
+    "avg_price": 4000,
+    "min_price": 4000,
+    "max_price": 4000,
+    "routes": [
+      "경부선",
+      "남해선(영암순천)",
+      "동해선",
+      "부산외곽순환선",
+      "서산영덕선",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "EX-라면",
+      "(실속상품)EX-라면",
+      "(실속)EX-라면"
+    ]
+  },
+  {
+    "name_ko": "제육덮밥",
+    "occurrence_count": 37,
+    "rest_area_count": 37,
+    "avg_price": 9716,
+    "min_price": 8000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "남해제2지선",
+      "논산천안선,호남선",
+      "부산외곽순환선",
+      "서산영덕선",
+      "서해안선",
+      "세종포천선",
+      "순천완주선",
+      "영동선",
+      "울산포항선",
+      "인천국제공항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "제육덮밥"
+    ]
+  },
+  {
+    "name_ko": "된장찌개",
+    "occurrence_count": 34,
+    "rest_area_count": 34,
+    "avg_price": 7264,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해선(영암순천)",
+      "동해선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속)된장찌개",
+      "(실속상품)된장찌개",
+      "된장찌개"
+    ]
+  },
+  {
+    "name_ko": "짜장면",
+    "occurrence_count": 34,
+    "rest_area_count": 33,
+    "avg_price": 6647,
+    "min_price": 5500,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "서산영덕선",
+      "서해안선",
+      "세종포천선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "짜장면",
+      "짜장면(곱)",
+      "짜장면(향미암)"
+    ]
+  },
+  {
+    "name_ko": "공기밥",
+    "occurrence_count": 34,
+    "rest_area_count": 26,
+    "avg_price": 1985,
+    "min_price": 1000,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "밀양울산선",
+      "서산영덕선",
+      "서울양양선",
+      "서해안선",
+      "세종포천선",
+      "영동선",
+      "완주장수선",
+      "울산포항선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "공기밥",
+      "공기밥(추가)",
+      "얼큰황태순두부_공기밥"
+    ]
+  },
+  {
+    "name_ko": "뚝배기불고기",
+    "occurrence_count": 32,
+    "rest_area_count": 32,
+    "avg_price": 10606,
+    "min_price": 9000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해제2지선",
+      "동해선",
+      "무안광주선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서해안선",
+      "수도권제1순환선",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중앙선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "뚝배기불고기"
+    ]
+  },
+  {
+    "name_ko": "치즈돈까스",
+    "occurrence_count": 32,
+    "rest_area_count": 31,
+    "avg_price": 11718,
+    "min_price": 9500,
+    "max_price": 14000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서산영덕선",
+      "서울양양선",
+      "서해안선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "치즈돈까스",
+      "(실속상품)치즈돈까스"
+    ]
+  },
+  {
+    "name_ko": "순두부찌개",
+    "occurrence_count": 31,
+    "rest_area_count": 30,
+    "avg_price": 9145,
+    "min_price": 7000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해제2지선",
+      "부산외곽순환선",
+      "새만금포항선(대구~포항)",
+      "서울양양선",
+      "서해안선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "순두부찌개",
+      "(실속상품)순두부찌개",
+      "순두부찌개(매운맛/순한맛)"
+    ]
+  },
+  {
+    "name_ko": "돈가스",
+    "occurrence_count": 31,
+    "rest_area_count": 31,
+    "avg_price": 9851,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "동해선",
+      "밀양울산선",
+      "서해안선",
+      "세종포천선",
+      "순천완주선",
+      "영동선",
+      "중부선",
+      "중앙선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "★(실속상품)돈가스",
+      "(실속상품)돈가스",
+      "돈가스"
+    ]
+  },
+  {
+    "name_ko": "야채튀김우동",
+    "occurrence_count": 30,
+    "rest_area_count": 29,
+    "avg_price": 6733,
+    "min_price": 5500,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "남해제2지선",
+      "논산천안선,호남선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "세종포천선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "야채튀김우동",
+      "야채튀김우동(향미암)",
+      "(종료)야채튀김우동"
+    ]
+  },
+  {
+    "name_ko": "ex라면",
+    "occurrence_count": 29,
+    "rest_area_count": 29,
+    "avg_price": 4000,
+    "min_price": 4000,
+    "max_price": 4000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해제2지선",
+      "동해선",
+      "무안광주선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "순천완주선",
+      "완주장수선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속상품)ex라면",
+      "ex라면",
+      "(실속상품) ex라면"
+    ]
+  },
+  {
+    "name_ko": "치즈라면",
+    "occurrence_count": 29,
+    "rest_area_count": 29,
+    "avg_price": 5241,
+    "min_price": 4000,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "논산천안선,호남선",
+      "부산외곽순환선",
+      "서해안선",
+      "영동선",
+      "인천국제공항선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "치즈라면",
+      "치즈라면(라면)",
+      "치즈라면(진)"
+    ]
+  },
+  {
+    "name_ko": "김치찌개",
+    "occurrence_count": 29,
+    "rest_area_count": 28,
+    "avg_price": 9403,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해제2지선",
+      "동해선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "김치찌개",
+      "김치찌개(공기밥포함)"
+    ]
+  },
+  {
+    "name_ko": "잔치국수",
+    "occurrence_count": 28,
+    "rest_area_count": 28,
+    "avg_price": 6535,
+    "min_price": 5500,
+    "max_price": 7500,
+    "routes": [
+      "경부선",
+      "서산영덕선",
+      "서울양양선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "★잔치국수",
+      "잔치국수",
+      "(용우동)잔치국수"
+    ]
+  },
+  {
+    "name_ko": "돌솥비빔밥",
+    "occurrence_count": 28,
+    "rest_area_count": 28,
+    "avg_price": 9857,
+    "min_price": 8500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "무안광주선",
+      "서해안선",
+      "순천완주선",
+      "영동선",
+      "완주장수선",
+      "중부내륙선",
+      "중앙선",
+      "평택제천선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "돌솥비빔밥",
+      "(매송한상)돌솥비빔밥"
+    ]
+  },
+  {
+    "name_ko": "차돌된장찌개",
+    "occurrence_count": 26,
+    "rest_area_count": 26,
+    "avg_price": 9211,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "남해선(영암순천)",
+      "밀양울산선",
+      "부산외곽순환선",
+      "서산영덕선",
+      "서해안선",
+      "완주장수선",
+      "울산포항선",
+      "중부내륙선",
+      "중부선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "차돌된장찌개",
+      "(실속상품)차돌된장찌개"
+    ]
+  },
+  {
+    "name_ko": "어묵우동",
+    "occurrence_count": 25,
+    "rest_area_count": 23,
+    "avg_price": 7076,
+    "min_price": 6000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해선(영암순천)",
+      "동해선",
+      "서산영덕선",
+      "서해안선",
+      "수도권제1순환선",
+      "울산포항선",
+      "중부내륙선",
+      "중앙선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "어묵우동"
+    ]
+  },
+  {
+    "name_ko": "충무김밥",
+    "occurrence_count": 25,
+    "rest_area_count": 22,
+    "avg_price": 5320,
+    "min_price": 3500,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "논산천안선,호남선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "충무김밥",
+      "충무김밥(포장)",
+      "충무김밥(우동)"
+    ]
+  },
+  {
+    "name_ko": "소떡소떡",
+    "occurrence_count": 25,
+    "rest_area_count": 19,
+    "avg_price": 3928,
+    "min_price": 3500,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해제2지선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "소떡소떡(소떡매장)",
+      "(알뜰간식)소떡소떡",
+      "소떡소떡"
+    ]
+  },
+  {
+    "name_ko": "소고기국밥",
+    "occurrence_count": 24,
+    "rest_area_count": 23,
+    "avg_price": 9012,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "남해선(영암순천)",
+      "새만금포항선(대구~포항)",
+      "서울양양선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "소고기국밥",
+      "(실속상품)소고기국밥",
+      "(실속)소고기국밥"
+    ]
+  },
+  {
+    "name_ko": "돼지고기김치찌개",
+    "occurrence_count": 23,
+    "rest_area_count": 23,
+    "avg_price": 8930,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서산영덕선",
+      "서해안선",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중앙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "돼지고기김치찌개"
+    ]
+  },
+  {
+    "name_ko": "남산왕돈까스",
+    "occurrence_count": 23,
+    "rest_area_count": 23,
+    "avg_price": 13478,
+    "min_price": 13000,
+    "max_price": 13500,
+    "routes": [
+      "남해선",
+      "남해제2지선",
+      "서산영덕선",
+      "서해안선",
+      "순천완주선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "남산왕돈까스",
+      "남산왕돈까스(101번지)"
+    ]
+  },
+  {
+    "name_ko": "왕새우튀김우동",
+    "occurrence_count": 22,
+    "rest_area_count": 22,
+    "avg_price": 6954,
+    "min_price": 5000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "논산천안선,호남선",
+      "상주영천선",
+      "서산영덕선",
+      "서울양양선",
+      "서천공주선",
+      "서해안선",
+      "영동선",
+      "중앙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "왕새우튀김우동",
+      "(코바코)왕새우튀김우동"
+    ]
+  },
+  {
+    "name_ko": "호두과자",
+    "occurrence_count": 20,
+    "rest_area_count": 15,
+    "avg_price": 4610,
+    "min_price": 3000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해제2지선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "울산포항선",
+      "중부내륙선의 지선",
+      "중부선"
+    ],
+    "is_best": true,
+    "is_recommend": false,
+    "raw_names": [
+      "호두과자(3,000 ~ 24,000원)",
+      "호두과자(10개입)",
+      "호두과자(20개입)"
+    ]
+  },
+  {
+    "name_ko": "남산치즈돈까스",
+    "occurrence_count": 20,
+    "rest_area_count": 20,
+    "avg_price": 13975,
+    "min_price": 13500,
+    "max_price": 14000,
+    "routes": [
+      "남해선",
+      "서산영덕선",
+      "서해안선",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "남산치즈돈까스",
+      "남산치즈돈까스(101번지)"
+    ]
+  },
+  {
+    "name_ko": "콩나물해장라면",
+    "occurrence_count": 19,
+    "rest_area_count": 18,
+    "avg_price": 5526,
+    "min_price": 4500,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "밀양울산선",
+      "부산외곽순환선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "콩나물해장라면"
+    ]
+  },
+  {
+    "name_ko": "김치우동",
+    "occurrence_count": 19,
+    "rest_area_count": 19,
+    "avg_price": 6605,
+    "min_price": 6000,
+    "max_price": 7500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "통영대전선",
+      "평택제천선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "김치우동",
+      "김치우동(향미암)"
+    ]
+  },
+  {
+    "name_ko": "냉모밀",
+    "occurrence_count": 18,
+    "rest_area_count": 17,
+    "avg_price": 8100,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "밀양울산선",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중앙선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "★냉모밀",
+      "냉모밀",
+      "(계절메뉴)냉모밀"
+    ]
+  },
+  {
+    "name_ko": "통감자",
+    "occurrence_count": 18,
+    "rest_area_count": 15,
+    "avg_price": 3800,
+    "min_price": 3000,
+    "max_price": 5000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)통감자(소)",
+      "통감자(대)",
+      "(알뜰간식)통감자"
+    ]
+  },
+  {
+    "name_ko": "돼지김치찌개",
+    "occurrence_count": 17,
+    "rest_area_count": 17,
+    "avg_price": 9411,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "돼지김치찌개",
+      "(실속상품)돼지김치찌개"
+    ]
+  },
+  {
+    "name_ko": "설렁탕",
+    "occurrence_count": 17,
+    "rest_area_count": 16,
+    "avg_price": 10441,
+    "min_price": 8000,
+    "max_price": 14000,
+    "routes": [
+      "남해제2지선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "통영대전선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "(6.유가네)설렁탕",
+      "설렁탕",
+      "설렁탕(유가네)"
+    ]
+  },
+  {
+    "name_ko": "부산어묵우동",
+    "occurrence_count": 16,
+    "rest_area_count": 15,
+    "avg_price": 7093,
+    "min_price": 6000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "논산천안선,호남선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "부산어묵우동",
+      "부산어묵우동(곱배기)"
+    ]
+  },
+  {
+    "name_ko": "황태해장국",
+    "occurrence_count": 16,
+    "rest_area_count": 15,
+    "avg_price": 8343,
+    "min_price": 7000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서산영덕선",
+      "세종포천선",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "황태해장국",
+      "황태해장국(조식)",
+      "(실속상품)황태해장국"
+    ]
+  },
+  {
+    "name_ko": "떡볶이",
+    "occurrence_count": 15,
+    "rest_area_count": 14,
+    "avg_price": 3873,
+    "min_price": 3500,
+    "max_price": 5500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선의 지선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)떡볶이",
+      "떡볶이(토스트 매장)",
+      "(알뜰)떡볶이"
+    ]
+  },
+  {
+    "name_ko": "장터국밥",
+    "occurrence_count": 14,
+    "rest_area_count": 14,
+    "avg_price": 9528,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "인천국제공항선",
+      "중부선",
+      "통영대전선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "장터국밥",
+      "(실속상품)장터국밥"
+    ]
+  },
+  {
+    "name_ko": "콩나물국밥",
+    "occurrence_count": 14,
+    "rest_area_count": 14,
+    "avg_price": 7178,
+    "min_price": 7000,
+    "max_price": 8500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해선(영암순천)",
+      "남해제2지선",
+      "서천공주선",
+      "수도권제1순환선",
+      "중부내륙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "콩나물국밥",
+      "(실속상품)콩나물국밥",
+      "콩나물국밥(실속상품)"
+    ]
+  },
+  {
+    "name_ko": "바삭어포",
+    "occurrence_count": 14,
+    "rest_area_count": 13,
+    "avg_price": 3728,
+    "min_price": 3500,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)바삭어포",
+      "(알뜰)바삭어포",
+      "바삭어포"
+    ]
+  },
+  {
+    "name_ko": "새우볶음밥",
+    "occurrence_count": 12,
+    "rest_area_count": 11,
+    "avg_price": 9533,
+    "min_price": 7500,
+    "max_price": 13900,
+    "routes": [
+      "경부선",
+      "세종포천선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "새우볶음밥",
+      "(놀부)새우볶음밥"
+    ]
+  },
+  {
+    "name_ko": "라면정식",
+    "occurrence_count": 12,
+    "rest_area_count": 12,
+    "avg_price": 5691,
+    "min_price": 5000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "논산천안선,호남선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "중부내륙선",
+      "중앙선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "라면_라면정식(떡라면,공기밥)",
+      "라면정식"
+    ]
+  },
+  {
+    "name_ko": "옛날핫도그",
+    "occurrence_count": 12,
+    "rest_area_count": 10,
+    "avg_price": 3941,
+    "min_price": 3500,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "동해선",
+      "서해안선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)옛날핫도그",
+      "옛날핫도그(소떡매장)",
+      "옛날핫도그"
+    ]
+  },
+  {
+    "name_ko": "남산매운돈까스",
+    "occurrence_count": 12,
+    "rest_area_count": 12,
+    "avg_price": 13500,
+    "min_price": 13500,
+    "max_price": 13500,
+    "routes": [
+      "남해선",
+      "서산영덕선",
+      "서해안선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "중부선",
+      "중앙선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "남산매운돈까스",
+      "남산매운돈까스(101번지)"
+    ]
+  },
+  {
+    "name_ko": "강원나물밥",
+    "occurrence_count": 12,
+    "rest_area_count": 12,
+    "avg_price": 9583,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "동해선",
+      "밀양울산선",
+      "영동선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "강원나물밥"
+    ]
+  },
+  {
+    "name_ko": "소고기미역국",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "부산외곽순환선",
+      "서산영덕선",
+      "세종포천선",
+      "중앙선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소고기미역국",
+      "(실속상품)소고기미역국",
+      "(실속)소고기미역국"
+    ]
+  },
+  {
+    "name_ko": "떡만두국",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 9000,
+    "min_price": 7000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "중부내륙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "떡만두국",
+      "떡만두국(공기밥)",
+      "(매송한상)떡만두국"
+    ]
+  },
+  {
+    "name_ko": "떡만두라면정식",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 6581,
+    "min_price": 6000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "밀양울산선",
+      "세종포천선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "떡만두라면정식"
+    ]
+  },
+  {
+    "name_ko": "옛날돈가스",
+    "occurrence_count": 11,
+    "rest_area_count": 11,
+    "avg_price": 10209,
+    "min_price": 8900,
+    "max_price": 12000,
+    "routes": [
+      "남해선",
+      "동해선",
+      "서해안선",
+      "영동선",
+      "중부선",
+      "중앙선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속상품)옛날돈가스",
+      "옛날돈가스",
+      "옛날돈가스(실속상품)"
+    ]
+  },
+  {
+    "name_ko": "라면",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 4830,
+    "min_price": 3500,
+    "max_price": 7900,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "서해안선",
+      "영동선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "라면",
+      "(실속상품)라면",
+      "스페셜해장_라면"
+    ]
+  },
+  {
+    "name_ko": "우렁된장찌개",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 8900,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "중부내륙선",
+      "통영대전선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "우렁된장찌개",
+      "(실속상품)우렁된장찌개"
+    ]
+  },
+  {
+    "name_ko": "핫도그",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 4000,
+    "min_price": 3000,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)핫도그",
+      "(앤티앤스)핫도그",
+      "핫도그"
+    ]
+  },
+  {
+    "name_ko": "치킨팝콘",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 3660,
+    "min_price": 3500,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)치킨팝콘",
+      "치킨팝콘(핫도그 매장)",
+      "(알뜰)치킨팝콘"
+    ]
+  },
+  {
+    "name_ko": "꼬치어묵",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 3940,
+    "min_price": 3700,
+    "max_price": 5000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "영동선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "꼬치어묵",
+      "(알뜰간식)꼬치어묵",
+      "(알뜰)꼬치어묵"
+    ]
+  },
+  {
+    "name_ko": "어묵라면",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 5400,
+    "min_price": 5000,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "동해선",
+      "서해안선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "어묵라면"
+    ]
+  },
+  {
+    "name_ko": "얼큰순대국",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 10800,
+    "min_price": 10000,
+    "max_price": 11500,
+    "routes": [
+      "경부선",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "얼큰순대국",
+      "얼큰순대국(순대만)"
+    ]
+  },
+  {
+    "name_ko": "놀부부대찌개",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 10600,
+    "min_price": 9500,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서산영덕선",
+      "서해안선",
+      "영동선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "놀부부대찌개"
+    ]
+  },
+  {
+    "name_ko": "버섯된장찌개",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 7330,
+    "min_price": 7000,
+    "max_price": 8800,
+    "routes": [
+      "경부선",
+      "논산천안선,호남선",
+      "새만금포항선(대구~포항)",
+      "순천완주선",
+      "영동선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "버섯된장찌개",
+      "(실속상품)버섯된장찌개",
+      "버섯된장찌개(실속상품)"
+    ]
+  },
+  {
+    "name_ko": "물냉면",
+    "occurrence_count": 10,
+    "rest_area_count": 9,
+    "avg_price": 9490,
+    "min_price": 6500,
+    "max_price": 12900,
+    "routes": [
+      "남해선",
+      "논산천안선,호남선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "중부선",
+      "중앙선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "물냉면",
+      "물냉면(숯불고기)",
+      "(한촌)물냉면"
+    ]
+  },
+  {
+    "name_ko": "소고기장터국밥",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 9600,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "서해안선",
+      "순천완주선",
+      "중부내륙선",
+      "중부내륙선의 지선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "소고기장터국밥",
+      "소고기장터국밥(일시중단)"
+    ]
+  },
+  {
+    "name_ko": "추어탕",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 10900,
+    "min_price": 9000,
+    "max_price": 12000,
+    "routes": [
+      "서산영덕선",
+      "서천공주선",
+      "서해안선",
+      "중부선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "추어탕",
+      "(매송한상)추어탕"
+    ]
+  },
+  {
+    "name_ko": "갈비탕",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 11700,
+    "min_price": 9000,
+    "max_price": 16000,
+    "routes": [
+      "동해선",
+      "밀양울산선",
+      "서산영덕선",
+      "영동선",
+      "중부선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "갈비탕"
+    ]
+  },
+  {
+    "name_ko": "돈까스",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 9600,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "광주대구선",
+      "남해선",
+      "새만금포항선(대구~포항)",
+      "순천완주선",
+      "영동선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속상품)돈까스",
+      "돈까스",
+      "(실속상품) 돈까스"
+    ]
+  },
+  {
+    "name_ko": "들깨미역국",
+    "occurrence_count": 10,
+    "rest_area_count": 10,
+    "avg_price": 6900,
+    "min_price": 6000,
+    "max_price": 7000,
+    "routes": [
+      "밀양울산선",
+      "서산영덕선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "들깨미역국",
+      "(실속상품)들깨미역국",
+      "(실속)들깨미역국"
+    ]
+  },
+  {
+    "name_ko": "해물순두부",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 9055,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "논산천안선,호남선",
+      "서해안선",
+      "중부내륙선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "해물순두부"
+    ]
+  },
+  {
+    "name_ko": "흑돼지김치찌개",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 9777,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "수도권제1순환선",
+      "완주장수선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "흑돼지김치찌개"
+    ]
+  },
+  {
+    "name_ko": "해물바",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 3833,
+    "min_price": 3500,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)해물바",
+      "해물바(소떡매장)",
+      "(알뜰)해물바"
+    ]
+  },
+  {
+    "name_ko": "매직핫도그",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 5166,
+    "min_price": 4500,
+    "max_price": 5500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해제2지선",
+      "서해안선",
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "매직핫도그"
+    ]
+  },
+  {
+    "name_ko": "통등심돈가스",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 10500,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "중부내륙선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속)통등심돈가스",
+      "통등심돈가스"
+    ]
+  },
+  {
+    "name_ko": "콩나물해장국",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "동해선",
+      "새만금포항선(대구~포항)",
+      "순천완주선",
+      "영동선",
+      "울산포항선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속상품)콩나물해장국",
+      "콩나물해장국",
+      "실속_콩나물해장국"
+    ]
+  },
+  {
+    "name_ko": "옥수수",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 3644,
+    "min_price": 3200,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)옥수수",
+      "(알뜰)옥수수",
+      "(알뜰간식) 옥수수"
+    ]
+  },
+  {
+    "name_ko": "오뎅꼬치우동",
+    "occurrence_count": 9,
+    "rest_area_count": 9,
+    "avg_price": 7333,
+    "min_price": 6000,
+    "max_price": 7500,
+    "routes": [
+      "남해제2지선",
+      "동해선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "오뎅꼬치우동"
+    ]
+  },
+  {
+    "name_ko": "옛날돈까스",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 11312,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "★옛날돈까스",
+      "옛날돈까스",
+      "(돈까스잔치)옛날돈까스"
+    ]
+  },
+  {
+    "name_ko": "짬뽕밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10125,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "짬뽕밥"
+    ]
+  },
+  {
+    "name_ko": "돈가스우동정식",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10937,
+    "min_price": 8500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "서해안선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "돈가스우동정식"
+    ]
+  },
+  {
+    "name_ko": "맑은나주곰탕",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10875,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "영동선",
+      "중부선",
+      "평택파주선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "맑은나주곰탕",
+      "(청)맑은나주곰탕"
+    ]
+  },
+  {
+    "name_ko": "옛날우동",
+    "occurrence_count": 8,
+    "rest_area_count": 7,
+    "avg_price": 5625,
+    "min_price": 5500,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "옛날우동",
+      "(실속상품)옛날우동",
+      "(실속상품) 옛날우동"
+    ]
+  },
+  {
+    "name_ko": "등심돈까스",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 10000,
+    "min_price": 8000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "수도권제1순환선",
+      "영동선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "등심돈까스",
+      "(실속상품)등심돈까스"
+    ]
+  },
+  {
+    "name_ko": "튀김우동",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 7125,
+    "min_price": 6000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "서울양양선",
+      "울산포항선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "튀김우동"
+    ]
+  },
+  {
+    "name_ko": "산채비빔밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 8937,
+    "min_price": 6500,
+    "max_price": 11500,
+    "routes": [
+      "경부선",
+      "논산천안선,호남선",
+      "동해선",
+      "서해안선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "산채비빔밥"
+    ]
+  },
+  {
+    "name_ko": "냄비우동",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 7625,
+    "min_price": 6500,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서해안선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "냄비우동",
+      "(용우동)냄비우동"
+    ]
+  },
+  {
+    "name_ko": "불고기비빔밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 9812,
+    "min_price": 9500,
+    "max_price": 10500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서해안선",
+      "호남선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "불고기비빔밥"
+    ]
+  },
+  {
+    "name_ko": "순대국밥",
+    "occurrence_count": 8,
+    "rest_area_count": 7,
+    "avg_price": 10487,
+    "min_price": 9500,
+    "max_price": 12000,
+    "routes": [
+      "남해선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "수도권제1순환선",
+      "중부선",
+      "중앙선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "순대국밥",
+      "순대국밥(그때그집)",
+      "순대국밥(얼큰)"
+    ]
+  },
+  {
+    "name_ko": "제육볶음",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 8750,
+    "min_price": 3000,
+    "max_price": 13000,
+    "routes": [
+      "부산외곽순환선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "중부내륙선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "제육볶음",
+      "(추가반찬)제육볶음",
+      "제육볶음(사이드)"
+    ]
+  },
+  {
+    "name_ko": "야채김밥",
+    "occurrence_count": 8,
+    "rest_area_count": 8,
+    "avg_price": 3875,
+    "min_price": 3500,
+    "max_price": 5000,
+    "routes": [
+      "논산천안선,호남선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "야채김밥"
+    ]
+  },
+  {
+    "name_ko": "비빔냉면",
+    "occurrence_count": 8,
+    "rest_area_count": 7,
+    "avg_price": 9987,
+    "min_price": 7000,
+    "max_price": 12900,
+    "routes": [
+      "논산천안선,호남선",
+      "서해안선",
+      "세종포천선",
+      "수도권제1순환선",
+      "중부선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "비빔냉면",
+      "비빔냉면(숯불고기)",
+      "(한촌)비빔냉면"
+    ]
+  },
+  {
+    "name_ko": "새집추어탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "순천완주선",
+      "완주장수선",
+      "통영대전선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "새집추어탕(백년가게)",
+      "(백년가게) 새집추어탕",
+      "새집추어탕"
+    ]
+  },
+  {
+    "name_ko": "한우소머리곰탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 12642,
+    "min_price": 9500,
+    "max_price": 14000,
+    "routes": [
+      "경부선",
+      "상주영천선",
+      "서해안선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "한우소머리곰탕",
+      "(6.유가네)한우소머리곰탕",
+      "한우소머리곰탕(유가네)"
+    ]
+  },
+  {
+    "name_ko": "신라면",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 5000,
+    "min_price": 4500,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "세종포천선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "신라면",
+      "신라면(떡포함)"
+    ]
+  },
+  {
+    "name_ko": "회오리감자",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 4428,
+    "min_price": 4000,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "회오리감자"
+    ]
+  },
+  {
+    "name_ko": "만두라면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5071,
+    "min_price": 4500,
+    "max_price": 5500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "무안광주선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "만두라면",
+      "만두라면(라면)"
+    ]
+  },
+  {
+    "name_ko": "해장라면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5357,
+    "min_price": 4500,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "남해제2지선",
+      "중부내륙선",
+      "중부선",
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "해장라면"
+    ]
+  },
+  {
+    "name_ko": "바우네나주곰탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 10642,
+    "min_price": 9500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "바우네나주곰탕"
+    ]
+  },
+  {
+    "name_ko": "순대국",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 10000,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "영동선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "순대국",
+      "순대국(순대만)"
+    ]
+  },
+  {
+    "name_ko": "고기만두",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5642,
+    "min_price": 4500,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "서산영덕선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고기만두",
+      "육거리_고기만두"
+    ]
+  },
+  {
+    "name_ko": "얼큰곰탕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 10142,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해제2지선",
+      "서해안선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "얼큰곰탕",
+      "(유가네)얼큰곰탕"
+    ]
+  },
+  {
+    "name_ko": "해물짬뽕라면",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 5714,
+    "min_price": 5000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "논산천안선,호남선",
+      "중앙선",
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "해물짬뽕라면"
+    ]
+  },
+  {
+    "name_ko": "열무국수",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 8142,
+    "min_price": 7500,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "수도권제1순환선",
+      "울산포항선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "열무국수"
+    ]
+  },
+  {
+    "name_ko": "짬뽕",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 8571,
+    "min_price": 7500,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해제2지선",
+      "영동선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "짬뽕"
+    ]
+  },
+  {
+    "name_ko": "케이크소세지",
+    "occurrence_count": 7,
+    "rest_area_count": 5,
+    "avg_price": 3871,
+    "min_price": 3500,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해제2지선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "케이크소세지",
+      "(알뜰)케이크소세지",
+      "(알뜰간식)케이크소세지"
+    ]
+  },
+  {
+    "name_ko": "함박스테이크",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 11000,
+    "min_price": 8500,
+    "max_price": 13500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "밀양울산선",
+      "서해안선",
+      "세종포천선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "함박스테이크"
+    ]
+  },
+  {
+    "name_ko": "실속돈가스",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 9642,
+    "min_price": 7500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "실속돈가스",
+      "실속돈가스(코바코)"
+    ]
+  },
+  {
+    "name_ko": "해물된장찌개",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 7714,
+    "min_price": 6500,
+    "max_price": 9000,
+    "routes": [
+      "남해선",
+      "수도권제1순환선",
+      "중앙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "해물된장찌개",
+      "(실속상품)해물된장찌개"
+    ]
+  },
+  {
+    "name_ko": "얼큰우동",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 6857,
+    "min_price": 6500,
+    "max_price": 8000,
+    "routes": [
+      "서울양양선",
+      "서해안선",
+      "통영대전선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "얼큰우동"
+    ]
+  },
+  {
+    "name_ko": "모듬튀김우동",
+    "occurrence_count": 7,
+    "rest_area_count": 6,
+    "avg_price": 7571,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "서울양양선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "모듬튀김우동(향미암)",
+      "모듬튀김우동"
+    ]
+  },
+  {
+    "name_ko": "대파육개장",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 10142,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "무안광주선",
+      "밀양울산선",
+      "서산영덕선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "대파육개장"
+    ]
+  },
+  {
+    "name_ko": "돼지고기 김치찌개",
+    "occurrence_count": 7,
+    "rest_area_count": 7,
+    "avg_price": 9357,
+    "min_price": 8500,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "남해선(영암순천)",
+      "밀양울산선",
+      "중부내륙선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "돼지고기 김치찌개"
+    ]
+  },
+  {
+    "name_ko": "한우국밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 11000,
+    "min_price": 10000,
+    "max_price": 13000,
+    "routes": [
+      "경부선",
+      "세종포천선",
+      "영동선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "한우국밥"
+    ]
+  },
+  {
+    "name_ko": "옛날돼지고기김치찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9733,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "영동선",
+      "중부내륙선의 지선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "옛날돼지고기김치찌개"
+    ]
+  },
+  {
+    "name_ko": "매콤제육덮밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9700,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "밀양울산선",
+      "순천완주선",
+      "영동선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "매콤제육덮밥"
+    ]
+  },
+  {
+    "name_ko": "차돌박이된장찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9250,
+    "min_price": 9000,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "차돌박이된장찌개"
+    ]
+  },
+  {
+    "name_ko": "흑돼지 김치찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9583,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "남해선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "흑돼지 김치찌개"
+    ]
+  },
+  {
+    "name_ko": "만두국",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9250,
+    "min_price": 8500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "무안광주선",
+      "서해안선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "만두국"
+    ]
+  },
+  {
+    "name_ko": "황태미역국",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 7333,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "밀양울산선",
+      "새만금포항선(대구~포항)",
+      "세종포천선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "황태미역국",
+      "(실속상품)황태미역국"
+    ]
+  },
+  {
+    "name_ko": "케네디소시지",
+    "occurrence_count": 6,
+    "rest_area_count": 5,
+    "avg_price": 4100,
+    "min_price": 3700,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "동해선",
+      "수도권제1순환선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)케네디소시지",
+      "케네디소시지"
+    ]
+  },
+  {
+    "name_ko": "꼬지어묵우동",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 6916,
+    "min_price": 6500,
+    "max_price": 7500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서산영덕선",
+      "중앙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "꼬지어묵우동"
+    ]
+  },
+  {
+    "name_ko": "참치김치찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9750,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "서해안선",
+      "순천완주선",
+      "영동선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "참치김치찌개"
+    ]
+  },
+  {
+    "name_ko": "돈가스제육덮밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 11000,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "서해안선",
+      "영동선",
+      "완주장수선",
+      "중부선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "돈가스제육덮밥"
+    ]
+  },
+  {
+    "name_ko": "몽글순두부찌개",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9000,
+    "min_price": 9000,
+    "max_price": 9000,
+    "routes": [
+      "서해안선",
+      "순천완주선",
+      "중부내륙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "몽글순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "콩나물황태해장국",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "남해선(영암순천)",
+      "서해안선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속)콩나물황태해장국",
+      "(실속상품)콩나물황태해장국(유가네)",
+      "콩나물황태해장국"
+    ]
+  },
+  {
+    "name_ko": "부대라면",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 6000,
+    "min_price": 4500,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "논산천안선,호남선",
+      "서해안선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "부대라면"
+    ]
+  },
+  {
+    "name_ko": "비빔밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 9750,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "광주대구선",
+      "남해제2지선",
+      "서해안선",
+      "완주장수선",
+      "중앙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "비빔밥"
+    ]
+  },
+  {
+    "name_ko": "김치만두",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 5916,
+    "min_price": 4500,
+    "max_price": 7000,
+    "routes": [
+      "서산영덕선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "김치만두",
+      "육거리_김치만두"
+    ]
+  },
+  {
+    "name_ko": "김치가츠우동",
+    "occurrence_count": 6,
+    "rest_area_count": 4,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "동해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "김치가츠우동(간장맛)",
+      "김치가츠우동(사골맛)"
+    ]
+  },
+  {
+    "name_ko": "해장라면정식",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 6166,
+    "min_price": 5500,
+    "max_price": 7500,
+    "routes": [
+      "경부선",
+      "영동선",
+      "완주장수선",
+      "울산포항선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "해장라면정식"
+    ]
+  },
+  {
+    "name_ko": "꼬치어묵라면",
+    "occurrence_count": 6,
+    "rest_area_count": 5,
+    "avg_price": 5583,
+    "min_price": 5500,
+    "max_price": 6000,
+    "routes": [
+      "밀양울산선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "꼬치어묵라면"
+    ]
+  },
+  {
+    "name_ko": "선지해장국",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 10666,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "밀양울산선",
+      "서산영덕선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "선지해장국"
+    ]
+  },
+  {
+    "name_ko": "치즈돈가스+사이다세트",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 11666,
+    "min_price": 11000,
+    "max_price": 12000,
+    "routes": [
+      "남해선(영암순천)",
+      "서산영덕선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "치즈돈가스+사이다세트"
+    ]
+  },
+  {
+    "name_ko": "남산돈까스",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 10166,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "중부내륙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속상품)남산돈까스",
+      "남산돈까스",
+      "(실속)남산돈까스"
+    ]
+  },
+  {
+    "name_ko": "당면짬뽕밥",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 7966,
+    "min_price": 6900,
+    "max_price": 9000,
+    "routes": [
+      "상주영천선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "당면짬뽕밥"
+    ]
+  },
+  {
+    "name_ko": "해물냄비우동",
+    "occurrence_count": 6,
+    "rest_area_count": 6,
+    "avg_price": 5916,
+    "min_price": 4500,
+    "max_price": 6500,
+    "routes": [
+      "논산천안선,호남선",
+      "상주영천선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "해물냄비우동"
+    ]
+  },
+  {
+    "name_ko": "농심유부우동",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 6100,
+    "min_price": 6000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "농심유부우동"
+    ]
+  },
+  {
+    "name_ko": "교동짬뽕",
+    "occurrence_count": 5,
+    "rest_area_count": 4,
+    "avg_price": 10600,
+    "min_price": 9000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "교동짬뽕",
+      "교동짬뽕(곱빼기)",
+      "(유가네)교동짬뽕"
+    ]
+  },
+  {
+    "name_ko": "바지락미역국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "중부내륙선",
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속)바지락미역국",
+      "(실속상품)바지락미역국",
+      "바지락미역국"
+    ]
+  },
+  {
+    "name_ko": "김치볶음밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8000,
+    "min_price": 7000,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "영동선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속)김치볶음밥",
+      "(실속상품)김치볶음밥",
+      "김치볶음밥"
+    ]
+  },
+  {
+    "name_ko": "가락자장면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "가락자장면"
+    ]
+  },
+  {
+    "name_ko": "사골우거지국밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8000,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "중앙선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "사골우거지국밥",
+      "(실속상품)사골우거지국밥",
+      "사골우거지국밥(공기밥)"
+    ]
+  },
+  {
+    "name_ko": "고추장불고기",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9860,
+    "min_price": 8800,
+    "max_price": 10500,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고추장불고기(단품)",
+      "고추장불고기(돼지고기)",
+      "고추장불고기"
+    ]
+  },
+  {
+    "name_ko": "계란떡라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 5600,
+    "min_price": 5000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "동해선",
+      "무안광주선",
+      "영동선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "계란떡라면",
+      "계란떡라면(진)"
+    ]
+  },
+  {
+    "name_ko": "사골우거지국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "서산영덕선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "사골우거지국(실속상품)",
+      "사골우거지국"
+    ]
+  },
+  {
+    "name_ko": "수제어묵바",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3940,
+    "min_price": 3500,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)수제어묵바",
+      "수제어묵바(델리만쥬 매장)",
+      "수제어묵바"
+    ]
+  },
+  {
+    "name_ko": "명동칼국수",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8900,
+    "min_price": 8000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "수도권제1순환선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "명동칼국수(얼큰한맛,일반맛)",
+      "명동칼국수"
+    ]
+  },
+  {
+    "name_ko": "순두부짬뽕밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9580,
+    "min_price": 6900,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "남해제2지선",
+      "상주영천선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "순두부짬뽕밥",
+      "(유가네)순두부짬뽕밥"
+    ]
+  },
+  {
+    "name_ko": "델리만쥬",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3660,
+    "min_price": 3500,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "델리만쥬(델리만쥬 매장)",
+      "(알뜰간식)델리만쥬",
+      "(알뜰간식) 델리만쥬"
+    ]
+  },
+  {
+    "name_ko": "탕수육",
+    "occurrence_count": 5,
+    "rest_area_count": 3,
+    "avg_price": 15600,
+    "min_price": 7000,
+    "max_price": 25000,
+    "routes": [
+      "경부선",
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "탕수육 (소)",
+      "탕수육(미니)",
+      "탕수육(소)"
+    ]
+  },
+  {
+    "name_ko": "금강설렁탕",
+    "occurrence_count": 5,
+    "rest_area_count": 4,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "금강설렁탕",
+      "(명품)금강설렁탕",
+      "금강설렁탕(살코기)"
+    ]
+  },
+  {
+    "name_ko": "촌돼지찌개",
+    "occurrence_count": 5,
+    "rest_area_count": 4,
+    "avg_price": 9900,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "호남선의 지선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "촌돼지찌개",
+      "촌돼지찌개(공기밥)",
+      "촌돼지찌개(영양솥밥)"
+    ]
+  },
+  {
+    "name_ko": "고등어구이",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 11500,
+    "min_price": 10500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서해안선",
+      "중부선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고등어구이",
+      "고등어구이(1인분)"
+    ]
+  },
+  {
+    "name_ko": "돈육김치찌개",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8400,
+    "min_price": 7000,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "서울양양선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "돈육김치찌개"
+    ]
+  },
+  {
+    "name_ko": "얼큰육개장",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9600,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "부산외곽순환선",
+      "수도권제1순환선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "얼큰육개장"
+    ]
+  },
+  {
+    "name_ko": "미니츄러스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3860,
+    "min_price": 3700,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선",
+      "서해안선",
+      "수도권제1순환선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)미니츄러스",
+      "(알뜰)미니츄러스",
+      "미니츄러스"
+    ]
+  },
+  {
+    "name_ko": "도깨비핫도그",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 4080,
+    "min_price": 3700,
+    "max_price": 4500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "서해안선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "도깨비핫도그",
+      "(알뜰)도깨비핫도그"
+    ]
+  },
+  {
+    "name_ko": "사골떡만두국",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8600,
+    "min_price": 8000,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "울산포항선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "사골떡만두국"
+    ]
+  },
+  {
+    "name_ko": "왕돈까스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 12200,
+    "min_price": 11500,
+    "max_price": 13500,
+    "routes": [
+      "남해선",
+      "동해선",
+      "서해안선",
+      "중부선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "왕돈까스"
+    ]
+  },
+  {
+    "name_ko": "고등어구이정식",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 12600,
+    "min_price": 11000,
+    "max_price": 15000,
+    "routes": [
+      "남해선",
+      "밀양울산선",
+      "서해안선",
+      "평택제천선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고등어구이정식"
+    ]
+  },
+  {
+    "name_ko": "군만두",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7100,
+    "min_price": 4000,
+    "max_price": 8500,
+    "routes": [
+      "남해선",
+      "무안광주선",
+      "서해안선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "군만두(5개)",
+      "군만두(8EA)",
+      "군만두"
+    ]
+  },
+  {
+    "name_ko": "콩국수",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8400,
+    "min_price": 8000,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "서해안선",
+      "수도권제1순환선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "콩국수"
+    ]
+  },
+  {
+    "name_ko": "꼬마김밥",
+    "occurrence_count": 5,
+    "rest_area_count": 4,
+    "avg_price": 5140,
+    "min_price": 3000,
+    "max_price": 9000,
+    "routes": [
+      "남해선",
+      "중부내륙선",
+      "평택제천선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "꼬마김밥",
+      "꼬마김밥(3개)",
+      "꼬마김밥(5개)"
+    ]
+  },
+  {
+    "name_ko": "어린이돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7300,
+    "min_price": 6000,
+    "max_price": 9500,
+    "routes": [
+      "남해선",
+      "세종포천선",
+      "수도권제1순환선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "어린이돈가스",
+      "(실속상품)어린이돈가스"
+    ]
+  },
+  {
+    "name_ko": "제육돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 12360,
+    "min_price": 11000,
+    "max_price": 13000,
+    "routes": [
+      "광주대구선",
+      "남해선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "제육돈가스"
+    ]
+  },
+  {
+    "name_ko": "짬뽕순두부",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9100,
+    "min_price": 8500,
+    "max_price": 9500,
+    "routes": [
+      "서해안선",
+      "인천국제공항선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "짬뽕순두부"
+    ]
+  },
+  {
+    "name_ko": "곰탕",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 10200,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "남해제2지선",
+      "서해안선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(6.유가네)곰탕",
+      "곰탕(유가네)",
+      "곰탕"
+    ]
+  },
+  {
+    "name_ko": "전주비빔밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9200,
+    "min_price": 8000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "인천국제공항선",
+      "중부선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "전주비빔밥"
+    ]
+  },
+  {
+    "name_ko": "이해윤추어탕",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "서해안선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "이해윤추어탕"
+    ]
+  },
+  {
+    "name_ko": "냉메밀",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7500,
+    "min_price": 7000,
+    "max_price": 8000,
+    "routes": [
+      "새만금포항선(대구~포항)",
+      "서해안선",
+      "평택제천선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "냉메밀"
+    ]
+  },
+  {
+    "name_ko": "전복꼬치어묵우동",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "서해안선",
+      "순천완주선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "전복꼬치어묵우동"
+    ]
+  },
+  {
+    "name_ko": "파김치",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 2600,
+    "min_price": 2000,
+    "max_price": 3000,
+    "routes": [
+      "남해선(영암순천)",
+      "서해안선",
+      "순천완주선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "사이드_파김치",
+      "(일품김치)파김치",
+      "파김치(사이드메뉴)"
+    ]
+  },
+  {
+    "name_ko": "햄치즈라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 6500,
+    "min_price": 6000,
+    "max_price": 7500,
+    "routes": [
+      "경부선",
+      "영동선",
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "햄치즈라면"
+    ]
+  },
+  {
+    "name_ko": "샘밭막국수",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9000,
+    "min_price": 9000,
+    "max_price": 9000,
+    "routes": [
+      "영동선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "★샘밭막국수",
+      "샘밭막국수"
+    ]
+  },
+  {
+    "name_ko": "경양식돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 9700,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "서산영덕선",
+      "영동선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": false,
+    "raw_names": [
+      "경양식돈가스"
+    ]
+  },
+  {
+    "name_ko": "짬뽕라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 6400,
+    "min_price": 5000,
+    "max_price": 7500,
+    "routes": [
+      "광주대구선",
+      "서해안선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "짬뽕라면"
+    ]
+  },
+  {
+    "name_ko": "그냥라면",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 3500,
+    "min_price": 3500,
+    "max_price": 3500,
+    "routes": [
+      "서산영덕선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "그냥라면",
+      "그냥라면(실속상품)"
+    ]
+  },
+  {
+    "name_ko": "남산치즈돈가스",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 13900,
+    "min_price": 13500,
+    "max_price": 14000,
+    "routes": [
+      "남해제2지선",
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "중부내륙선의 지선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "남산치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "야채비빔밥",
+    "occurrence_count": 5,
+    "rest_area_count": 5,
+    "avg_price": 8400,
+    "min_price": 7000,
+    "max_price": 9500,
+    "routes": [
+      "논산천안선,호남선",
+      "서천공주선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "야채비빔밥"
+    ]
+  },
+  {
+    "name_ko": "매운돈까스",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 12750,
+    "min_price": 12000,
+    "max_price": 13500,
+    "routes": [
+      "경부선",
+      "영동선",
+      "울산포항선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "★매운돈까스",
+      "매운돈까스"
+    ]
+  },
+  {
+    "name_ko": "소고기짬뽕",
+    "occurrence_count": 4,
+    "rest_area_count": 3,
+    "avg_price": 11250,
+    "min_price": 11000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해제2지선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소고기짬뽕",
+      "(유가네)소고기짬뽕"
+    ]
+  },
+  {
+    "name_ko": "꼬막비빔밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 11250,
+    "min_price": 10000,
+    "max_price": 13000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "영동선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "꼬막비빔밥",
+      "(매송한상)꼬막비빔밥"
+    ]
+  },
+  {
+    "name_ko": "카레라이스정식",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "실속_카레라이스정식",
+      "카레라이스정식"
+    ]
+  },
+  {
+    "name_ko": "가락우동",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 5500,
+    "min_price": 5500,
+    "max_price": 5500,
+    "routes": [
+      "경부선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "실속_가락우동",
+      "(실속상품)가락우동"
+    ]
+  },
+  {
+    "name_ko": "수제등심돈가스",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10450,
+    "min_price": 9900,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "동해선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "수제등심돈가스",
+      "(실속)수제등심돈가스",
+      "(실속상품)수제등심돈가스"
+    ]
+  },
+  {
+    "name_ko": "칼국수",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9125,
+    "min_price": 7500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "세종포천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "칼국수"
+    ]
+  },
+  {
+    "name_ko": "미니탕수육",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10375,
+    "min_price": 7000,
+    "max_price": 14000,
+    "routes": [
+      "경부선",
+      "광주대구선",
+      "수도권제1순환선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "미니탕수육",
+      "미니탕수육(10개)"
+    ]
+  },
+  {
+    "name_ko": "묵은지김치찌개",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8375,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "남해제2지선",
+      "중부내륙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "묵은지김치찌개"
+    ]
+  },
+  {
+    "name_ko": "카레덮밥",
+    "occurrence_count": 4,
+    "rest_area_count": 3,
+    "avg_price": 7975,
+    "min_price": 6900,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "카레덮밥"
+    ]
+  },
+  {
+    "name_ko": "수육국밥",
+    "occurrence_count": 4,
+    "rest_area_count": 3,
+    "avg_price": 10225,
+    "min_price": 9900,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "수도권제1순환선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "수육국밥",
+      "수육국밥(그때그집)",
+      "수육국밥(얼큰)"
+    ]
+  },
+  {
+    "name_ko": "로띠번",
+    "occurrence_count": 4,
+    "rest_area_count": 3,
+    "avg_price": 3800,
+    "min_price": 3800,
+    "max_price": 3800,
+    "routes": [
+      "경부선",
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "로띠번",
+      "로띠번(모카)",
+      "로띠번(바닐라)"
+    ]
+  },
+  {
+    "name_ko": "고구마스틱",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 3975,
+    "min_price": 3500,
+    "max_price": 4400,
+    "routes": [
+      "경부선",
+      "남해제2지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고구마스틱"
+    ]
+  },
+  {
+    "name_ko": "부대찌개",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10375,
+    "min_price": 9500,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "순천완주선",
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "부대찌개",
+      "(놀부)부대찌개"
+    ]
+  },
+  {
+    "name_ko": "비빔국수",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8750,
+    "min_price": 7000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "세종포천선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "비빔국수"
+    ]
+  },
+  {
+    "name_ko": "홍순두부정식",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9000,
+    "min_price": 9000,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "밀양울산선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "홍순두부정식"
+    ]
+  },
+  {
+    "name_ko": "부대순두부정식",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9500,
+    "min_price": 9500,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "밀양울산선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "부대순두부정식"
+    ]
+  },
+  {
+    "name_ko": "쌀떡꼬치",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 3525,
+    "min_price": 3000,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "남해선",
+      "수도권제1순환선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)쌀떡꼬치"
+    ]
+  },
+  {
+    "name_ko": "화덕고등어구이",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10500,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "중부내륙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "화덕고등어구이"
+    ]
+  },
+  {
+    "name_ko": "평양아바이순대국밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10000,
+    "min_price": 10000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "평양아바이순대국밥"
+    ]
+  },
+  {
+    "name_ko": "버섯순두부찌개",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8000,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "경부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(실속)버섯순두부찌개",
+      "버섯순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "옹알옹알맘마",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 1500,
+    "min_price": 1500,
+    "max_price": 1500,
+    "routes": [
+      "경부선",
+      "새만금포항선(대구~포항)",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "옹알옹알맘마",
+      "(영유아전용)옹알옹알맘마",
+      "옹알옹알맘마(KIDS ONLY)"
+    ]
+  },
+  {
+    "name_ko": "소불고기비빔밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9500,
+    "min_price": 8500,
+    "max_price": 10500,
+    "routes": [
+      "경부선",
+      "새만금포항선(대구~포항)",
+      "영동선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소불고기비빔밥"
+    ]
+  },
+  {
+    "name_ko": "쫄면",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8225,
+    "min_price": 8000,
+    "max_price": 8900,
+    "routes": [
+      "남해선",
+      "영동선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "쫄면",
+      "쫄면(매운맛)",
+      "(나드리)쫄면"
+    ]
+  },
+  {
+    "name_ko": "돼지국밥",
+    "occurrence_count": 4,
+    "rest_area_count": 3,
+    "avg_price": 9725,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "동해선",
+      "수도권제1순환선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "돼지국밥",
+      "돼지국밥(얼큰)"
+    ]
+  },
+  {
+    "name_ko": "얼큰순두부찌개",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9375,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "서산영덕선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "얼큰순두부찌개"
+    ]
+  },
+  {
+    "name_ko": "실속유부우동",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 5500,
+    "min_price": 5500,
+    "max_price": 5500,
+    "routes": [
+      "남해선",
+      "서해안선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "실속유부우동"
+    ]
+  },
+  {
+    "name_ko": "매생이굴국밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9875,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "밀양울산선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "매생이굴국밥"
+    ]
+  },
+  {
+    "name_ko": "건봉국밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10000,
+    "min_price": 10000,
+    "max_price": 10000,
+    "routes": [
+      "남해선",
+      "호남선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "(백년가게) 건봉국밥",
+      "건봉국밥"
+    ]
+  },
+  {
+    "name_ko": "우거지국밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 7375,
+    "min_price": 7000,
+    "max_price": 8500,
+    "routes": [
+      "서산영덕선",
+      "서해안선",
+      "중앙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "우거지국밥",
+      "우거지국밥(실속상품)"
+    ]
+  },
+  {
+    "name_ko": "전주식비빔밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 10000,
+    "min_price": 10000,
+    "max_price": 10000,
+    "routes": [
+      "서해안선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "전주식비빔밥"
+    ]
+  },
+  {
+    "name_ko": "치즈돈가스+사이다",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 12500,
+    "min_price": 11000,
+    "max_price": 13500,
+    "routes": [
+      "무안광주선",
+      "서산영덕선",
+      "서해안선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "치즈돈가스+사이다",
+      "할인_치즈돈가스+사이다"
+    ]
+  },
+  {
+    "name_ko": "공깃밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 1000,
+    "min_price": 1000,
+    "max_price": 1000,
+    "routes": [
+      "서산영덕선",
+      "서해안선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "공깃밥"
+    ]
+  },
+  {
+    "name_ko": "치즈돈가스+사이다 세트",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 12000,
+    "min_price": 11500,
+    "max_price": 13000,
+    "routes": [
+      "서천공주선",
+      "서해안선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "치즈돈가스+사이다 세트"
+    ]
+  },
+  {
+    "name_ko": "고구마치즈돈가스",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 12375,
+    "min_price": 12000,
+    "max_price": 13500,
+    "routes": [
+      "밀양울산선",
+      "수도권제1순환선",
+      "중부선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고구마치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "실속라면",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 3625,
+    "min_price": 3500,
+    "max_price": 4000,
+    "routes": [
+      "남해선(영암순천)",
+      "중앙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "실속라면",
+      "(실속상품)EX_실속라면"
+    ]
+  },
+  {
+    "name_ko": "짜장밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8100,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "서해안선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "짜장밥"
+    ]
+  },
+  {
+    "name_ko": "버섯들깨탕",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9250,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "순천완주선",
+      "중앙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "버섯들깨탕"
+    ]
+  },
+  {
+    "name_ko": "우거지사골곰탕",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9625,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "무안광주선",
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "우거지사골곰탕"
+    ]
+  },
+  {
+    "name_ko": "김치라면",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 5125,
+    "min_price": 4500,
+    "max_price": 5500,
+    "routes": [
+      "새만금포항선(대구~포항)",
+      "영동선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "김치라면(진)",
+      "김치라면"
+    ]
+  },
+  {
+    "name_ko": "돈가스 우동정식",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 11125,
+    "min_price": 8500,
+    "max_price": 13000,
+    "routes": [
+      "광주대구선",
+      "중부내륙선의 지선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": false,
+    "raw_names": [
+      "돈가스 우동정식"
+    ]
+  },
+  {
+    "name_ko": "오모가리 김치찌개",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9625,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "서해안선",
+      "중앙선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "오모가리 김치찌개"
+    ]
+  },
+  {
+    "name_ko": "돈까스우동정식",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 9875,
+    "min_price": 8500,
+    "max_price": 10500,
+    "routes": [
+      "논산천안선,호남선",
+      "중부내륙선의 지선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "돈까스우동정식"
+    ]
+  },
+  {
+    "name_ko": "귀신짬뽕",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8625,
+    "min_price": 8500,
+    "max_price": 9000,
+    "routes": [
+      "중부내륙선",
+      "평택파주선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(신)귀신짬뽕",
+      "귀신짬뽕",
+      "(귀신반점)귀신짬뽕"
+    ]
+  },
+  {
+    "name_ko": "장작불차돌사골곰탕",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 12125,
+    "min_price": 12000,
+    "max_price": 12500,
+    "routes": [
+      "남해선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "장작불차돌사골곰탕"
+    ]
+  },
+  {
+    "name_ko": "왕갈비탕",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 13500,
+    "min_price": 10000,
+    "max_price": 17000,
+    "routes": [
+      "상주영천선",
+      "평택파주선"
+    ],
+    "is_best": true,
+    "is_recommend": false,
+    "raw_names": [
+      "왕갈비탕"
+    ]
+  },
+  {
+    "name_ko": "낙지덮밥",
+    "occurrence_count": 4,
+    "rest_area_count": 4,
+    "avg_price": 8375,
+    "min_price": 7000,
+    "max_price": 12000,
+    "routes": [
+      "논산천안선,호남선",
+      "상주영천선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "낙지덮밥",
+      "(선봉쿡)낙지덮밥"
+    ]
+  },
+  {
+    "name_ko": "옛날자장면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6833,
+    "min_price": 6000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "옛날자장면"
+    ]
+  },
+  {
+    "name_ko": "돈비국수",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10500,
+    "min_price": 10500,
+    "max_price": 10500,
+    "routes": [
+      "경부선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "★돈비국수",
+      "돈비국수",
+      "(돈까스잔치)돈비국수"
+    ]
+  },
+  {
+    "name_ko": "국물비빔국수",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8000,
+    "min_price": 8000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "★국물비빔국수",
+      "국물비빔국수",
+      "(돈까스잔치)국물비빔국수"
+    ]
+  },
+  {
+    "name_ko": "돈잔국수",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9500,
+    "min_price": 9500,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "★돈잔국수",
+      "돈잔국수",
+      "(돈까스잔치)돈잔국수"
+    ]
+  },
+  {
+    "name_ko": "가락속풀이생라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6500,
+    "min_price": 6500,
+    "max_price": 6500,
+    "routes": [
+      "경부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "가락속풀이생라면"
+    ]
+  },
+  {
+    "name_ko": "가락짬뽕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8500,
+    "min_price": 8500,
+    "max_price": 8500,
+    "routes": [
+      "경부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "가락짬뽕"
+    ]
+  },
+  {
+    "name_ko": "김치냄비우동",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7666,
+    "min_price": 7000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "김치냄비우동"
+    ]
+  },
+  {
+    "name_ko": "알밥우동정식",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9166,
+    "min_price": 8000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "알밥우동정식"
+    ]
+  },
+  {
+    "name_ko": "뚝배기 불고기",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "광주대구선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "뚝배기 불고기(소고기)",
+      "뚝배기 불고기"
+    ]
+  },
+  {
+    "name_ko": "소고기무국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9000,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속상품)소고기무국",
+      "소고기무국"
+    ]
+  },
+  {
+    "name_ko": "계란라면정식",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 5666,
+    "min_price": 5000,
+    "max_price": 6000,
+    "routes": [
+      "경부선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "계란라면정식",
+      "계란라면정식(진)"
+    ]
+  },
+  {
+    "name_ko": "사과돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11833,
+    "min_price": 10000,
+    "max_price": 13500,
+    "routes": [
+      "경부선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "사과돈가스"
+    ]
+  },
+  {
+    "name_ko": "유부우동정식",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8833,
+    "min_price": 8500,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "세종포천선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "유부우동정식"
+    ]
+  },
+  {
+    "name_ko": "황태해장라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6500,
+    "min_price": 6000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "중부내륙선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "황태해장라면"
+    ]
+  },
+  {
+    "name_ko": "소고기쌀국수",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9666,
+    "min_price": 8000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소고기쌀국수",
+      "(신머이)소고기쌀국수"
+    ]
+  },
+  {
+    "name_ko": "콜팝치킨",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 5000,
+    "min_price": 5000,
+    "max_price": 5000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "콜팝치킨"
+    ]
+  },
+  {
+    "name_ko": "오징어문어바",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3900,
+    "min_price": 3700,
+    "max_price": 4000,
+    "routes": [
+      "경부선",
+      "남해제2지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "오징어문어바",
+      "(알뜰간식)오징어문어바"
+    ]
+  },
+  {
+    "name_ko": "감자핫도그",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3566,
+    "min_price": 3500,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)감자핫도그",
+      "감자핫도그(핫도그 매장)"
+    ]
+  },
+  {
+    "name_ko": "고추맛바",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3633,
+    "min_price": 3500,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "동해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)고추맛바"
+    ]
+  },
+  {
+    "name_ko": "닭강정",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3633,
+    "min_price": 3500,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)닭강정",
+      "(알뜰)닭강정"
+    ]
+  },
+  {
+    "name_ko": "볶음밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8500,
+    "min_price": 7000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "볶음밥",
+      "볶음밥(곱)"
+    ]
+  },
+  {
+    "name_ko": "소문난왕갈비탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 13666,
+    "min_price": 13000,
+    "max_price": 14000,
+    "routes": [
+      "경부선",
+      "서산영덕선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "(청주본가)소문난왕갈비탕",
+      "소문난왕갈비탕"
+    ]
+  },
+  {
+    "name_ko": "황태콩나물해장국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "수도권제1순환선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속)황태콩나물해장국",
+      "황태콩나물해장국"
+    ]
+  },
+  {
+    "name_ko": "나주곰탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9833,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "나주곰탕"
+    ]
+  },
+  {
+    "name_ko": "도가니탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 16000,
+    "min_price": 16000,
+    "max_price": 16000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "도가니탕"
+    ]
+  },
+  {
+    "name_ko": "금강살코기설렁탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "금강살코기설렁탕",
+      "(명품)금강살코기설렁탕"
+    ]
+  },
+  {
+    "name_ko": "우거지해장국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9666,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "우거지해장국"
+    ]
+  },
+  {
+    "name_ko": "남도시래기국밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8166,
+    "min_price": 7000,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "완주장수선",
+      "호남선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "남도시래기국밥"
+    ]
+  },
+  {
+    "name_ko": "표고버섯된장찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8000,
+    "min_price": 7000,
+    "max_price": 8500,
+    "routes": [
+      "경부선",
+      "서천공주선"
+    ],
+    "is_best": true,
+    "is_recommend": false,
+    "raw_names": [
+      "표고버섯된장찌개"
+    ]
+  },
+  {
+    "name_ko": "오징어야채바",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3900,
+    "min_price": 3700,
+    "max_price": 4000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "동해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "오징어야채바",
+      "(알뜰간식)오징어야채바"
+    ]
+  },
+  {
+    "name_ko": "두리어묵바",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3633,
+    "min_price": 3500,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)두리어묵바",
+      "(알뜰)두리어묵바"
+    ]
+  },
+  {
+    "name_ko": "얼큰칼제비",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9166,
+    "min_price": 9000,
+    "max_price": 9500,
+    "routes": [
+      "경부선",
+      "남해선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "얼큰칼제비"
+    ]
+  },
+  {
+    "name_ko": "사골칼국수",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8333,
+    "min_price": 8000,
+    "max_price": 9000,
+    "routes": [
+      "경부선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "사골칼국수"
+    ]
+  },
+  {
+    "name_ko": "반건조오징어",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8666,
+    "min_price": 7500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "동해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "반건조오징어"
+    ]
+  },
+  {
+    "name_ko": "백순두부정식",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8000,
+    "min_price": 8000,
+    "max_price": 8000,
+    "routes": [
+      "경부선",
+      "밀양울산선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "백순두부정식"
+    ]
+  },
+  {
+    "name_ko": "소세지",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3700,
+    "min_price": 3700,
+    "max_price": 3700,
+    "routes": [
+      "경부선",
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(알뜰간식)소세지",
+      "(알뜰간식) 소세지"
+    ]
+  },
+  {
+    "name_ko": "후라이드닭꼬치",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 5500,
+    "min_price": 5500,
+    "max_price": 5500,
+    "routes": [
+      "경부선",
+      "동해선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "후라이드닭꼬치"
+    ]
+  },
+  {
+    "name_ko": "얼큰해물라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6166,
+    "min_price": 6000,
+    "max_price": 6500,
+    "routes": [
+      "경부선",
+      "통영대전선",
+      "평택시흥선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "얼큰해물라면"
+    ]
+  },
+  {
+    "name_ko": "코바코치즈돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11800,
+    "min_price": 11500,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "남해선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "코바코치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "생선까스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8100,
+    "min_price": 2300,
+    "max_price": 11000,
+    "routes": [
+      "경부선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "생선까스"
+    ]
+  },
+  {
+    "name_ko": "매콤쭈꾸미덮밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10666,
+    "min_price": 10000,
+    "max_price": 11000,
+    "routes": [
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "매콤쭈꾸미덮밥"
+    ]
+  },
+  {
+    "name_ko": "웰빙비빔밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8166,
+    "min_price": 7000,
+    "max_price": 9500,
+    "routes": [
+      "남해선",
+      "남해제2지선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "웰빙비빔밥",
+      "(실속)웰빙비빔밥"
+    ]
+  },
+  {
+    "name_ko": "문어와오징어바",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 4233,
+    "min_price": 3700,
+    "max_price": 4500,
+    "routes": [
+      "남해선",
+      "수도권제1순환선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "문어와오징어바",
+      "(알뜰간식)문어와오징어바"
+    ]
+  },
+  {
+    "name_ko": "북어해장라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6333,
+    "min_price": 6000,
+    "max_price": 7000,
+    "routes": [
+      "남해선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "북어해장라면"
+    ]
+  },
+  {
+    "name_ko": "동태탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10166,
+    "min_price": 9000,
+    "max_price": 11500,
+    "routes": [
+      "남해선",
+      "울산포항선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "동태탕"
+    ]
+  },
+  {
+    "name_ko": "간장찜닭덮밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "광주대구선",
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "간장찜닭덮밥"
+    ]
+  },
+  {
+    "name_ko": "실속옛날돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10000,
+    "min_price": 10000,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "남해선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "실속옛날돈가스"
+    ]
+  },
+  {
+    "name_ko": "흑돈치즈돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10966,
+    "min_price": 9900,
+    "max_price": 11500,
+    "routes": [
+      "남해선",
+      "부산외곽순환선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "흑돈치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "매운어묵라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6500,
+    "min_price": 6000,
+    "max_price": 7000,
+    "routes": [
+      "남해선",
+      "서해안선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "매운어묵라면"
+    ]
+  },
+  {
+    "name_ko": "흑마늘 독계죽",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "광주대구선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "흑마늘 독계죽"
+    ]
+  },
+  {
+    "name_ko": "흑마늘 설렁탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "광주대구선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "흑마늘 설렁탕"
+    ]
+  },
+  {
+    "name_ko": "흥부골남원추어탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "광주대구선",
+      "서해안선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "흥부골남원추어탕",
+      "(명품)흥부골남원추어탕"
+    ]
+  },
+  {
+    "name_ko": "열무김치",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 1333,
+    "min_price": 1000,
+    "max_price": 2000,
+    "routes": [
+      "광주대구선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(반찬)열무김치",
+      "열무김치"
+    ]
+  },
+  {
+    "name_ko": "소고기된장찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8500,
+    "min_price": 8000,
+    "max_price": 9000,
+    "routes": [
+      "남해선",
+      "남해제2지선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소고기된장찌개"
+    ]
+  },
+  {
+    "name_ko": "치즈떡볶이",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6166,
+    "min_price": 6000,
+    "max_price": 6500,
+    "routes": [
+      "서해안선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(화성김밥)치즈떡볶이",
+      "치즈떡볶이"
+    ]
+  },
+  {
+    "name_ko": "반반돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11666,
+    "min_price": 11000,
+    "max_price": 12000,
+    "routes": [
+      "서해안선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "반반돈가스"
+    ]
+  },
+  {
+    "name_ko": "소고기우거지해장국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10000,
+    "min_price": 10000,
+    "max_price": 10000,
+    "routes": [
+      "서해안선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소고기우거지해장국"
+    ]
+  },
+  {
+    "name_ko": "나주수육곰탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11666,
+    "min_price": 11000,
+    "max_price": 12000,
+    "routes": [
+      "서해안선",
+      "순천완주선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "반듯한식_나주수육곰탕",
+      "나주수육곰탕"
+    ]
+  },
+  {
+    "name_ko": "한우사골곰탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "서해안선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "한우사골곰탕"
+    ]
+  },
+  {
+    "name_ko": "등심돈가스+사이다",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11333,
+    "min_price": 10500,
+    "max_price": 12500,
+    "routes": [
+      "무안광주선",
+      "서산영덕선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "등심돈가스+사이다",
+      "할인_등심돈가스+사이다"
+    ]
+  },
+  {
+    "name_ko": "명동칼만두",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11333,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "수도권제1순환선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "명동칼만두"
+    ]
+  },
+  {
+    "name_ko": "명동왕만두",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6000,
+    "min_price": 6000,
+    "max_price": 6000,
+    "routes": [
+      "통영대전선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "명동왕만두"
+    ]
+  },
+  {
+    "name_ko": "참치김밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 5000,
+    "min_price": 4000,
+    "max_price": 5500,
+    "routes": [
+      "중부선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "참치김밥"
+    ]
+  },
+  {
+    "name_ko": "돈가스우동세트",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11666,
+    "min_price": 9500,
+    "max_price": 14500,
+    "routes": [
+      "중앙선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "돈가스우동세트"
+    ]
+  },
+  {
+    "name_ko": "치즈 돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10333,
+    "min_price": 9500,
+    "max_price": 11000,
+    "routes": [
+      "밀양울산선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "치즈 돈가스"
+    ]
+  },
+  {
+    "name_ko": "해물라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 5833,
+    "min_price": 5000,
+    "max_price": 7000,
+    "routes": [
+      "수도권제1순환선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "해물라면",
+      "해물라면(진)"
+    ]
+  },
+  {
+    "name_ko": "메밀소바",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6833,
+    "min_price": 6000,
+    "max_price": 8000,
+    "routes": [
+      "수도권제1순환선",
+      "영동선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "메밀소바"
+    ]
+  },
+  {
+    "name_ko": "소고기우거지국밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9666,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "소고기우거지국밥(이천국밥)",
+      "소고기우거지국밥"
+    ]
+  },
+  {
+    "name_ko": "차슈덮밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12333,
+    "min_price": 12000,
+    "max_price": 12500,
+    "routes": [
+      "서해안선",
+      "수도권제1순환선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "차슈덮밥"
+    ]
+  },
+  {
+    "name_ko": "더다믄소고기스지국밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "동해선",
+      "수도권제1순환선",
+      "중부선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "더다믄소고기스지국밥"
+    ]
+  },
+  {
+    "name_ko": "임자탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "중부내륙선",
+      "중부선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "임자탕",
+      "임자탕(도토리들깨수제비)",
+      "★임자탕"
+    ]
+  },
+  {
+    "name_ko": "옛날짜장",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7833,
+    "min_price": 7500,
+    "max_price": 8000,
+    "routes": [
+      "수도권제1순환선",
+      "중부선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "옛날짜장"
+    ]
+  },
+  {
+    "name_ko": "사골만두국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10000,
+    "min_price": 9000,
+    "max_price": 11000,
+    "routes": [
+      "영동선",
+      "중부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "사골만두국",
+      "(종료)사골만두국"
+    ]
+  },
+  {
+    "name_ko": "어린이돈까스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "남해선",
+      "중부내륙선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "어린이돈까스",
+      "(실속상품) 어린이돈까스"
+    ]
+  },
+  {
+    "name_ko": "흑돼지소라찜",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 14000,
+    "min_price": 14000,
+    "max_price": 14000,
+    "routes": [
+      "통영대전선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "흑돼지소라찜"
+    ]
+  },
+  {
+    "name_ko": "농심새우튀김우동",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7333,
+    "min_price": 7000,
+    "max_price": 7500,
+    "routes": [
+      "광주대구선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "농심새우튀김우동"
+    ]
+  },
+  {
+    "name_ko": "등심돈가스+사이다세트",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11500,
+    "min_price": 10500,
+    "max_price": 12000,
+    "routes": [
+      "서산영덕선",
+      "통영대전선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "등심돈가스+사이다세트"
+    ]
+  },
+  {
+    "name_ko": "얼큰순두부라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6333,
+    "min_price": 6000,
+    "max_price": 7000,
+    "routes": [
+      "남해선",
+      "세종포천선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "얼큰순두부라면"
+    ]
+  },
+  {
+    "name_ko": "유부초밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 4000,
+    "min_price": 3500,
+    "max_price": 5000,
+    "routes": [
+      "중부내륙선",
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "유부초밥(5개)",
+      "유부초밥"
+    ]
+  },
+  {
+    "name_ko": "더덕비빔밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10166,
+    "min_price": 9500,
+    "max_price": 11000,
+    "routes": [
+      "완주장수선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "더덕비빔밥"
+    ]
+  },
+  {
+    "name_ko": "우삼겹된장찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10000,
+    "min_price": 9000,
+    "max_price": 12000,
+    "routes": [
+      "광주대구선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "우삼겹된장찌개"
+    ]
+  },
+  {
+    "name_ko": "순살우거지해장국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11333,
+    "min_price": 11000,
+    "max_price": 12000,
+    "routes": [
+      "남해선",
+      "중부내륙선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "순살우거지해장국"
+    ]
+  },
+  {
+    "name_ko": "스페셜돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12333,
+    "min_price": 11000,
+    "max_price": 13000,
+    "routes": [
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "스페셜돈가스"
+    ]
+  },
+  {
+    "name_ko": "실속된장찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "영동선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "실속된장찌개"
+    ]
+  },
+  {
+    "name_ko": "봉화산설렁탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "영동선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": false,
+    "raw_names": [
+      "봉화산설렁탕"
+    ]
+  },
+  {
+    "name_ko": "왕등심돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12333,
+    "min_price": 12000,
+    "max_price": 13000,
+    "routes": [
+      "영동선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "왕등심돈가스"
+    ]
+  },
+  {
+    "name_ko": "고기왕만두",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6166,
+    "min_price": 5000,
+    "max_price": 7000,
+    "routes": [
+      "경부선",
+      "서해안선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "고기왕만두"
+    ]
+  },
+  {
+    "name_ko": "청국장",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9500,
+    "min_price": 9000,
+    "max_price": 10000,
+    "routes": [
+      "서해안선",
+      "영동선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "청국장",
+      "(매송한상)청국장"
+    ]
+  },
+  {
+    "name_ko": "오모가리참치김치찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9666,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "영동선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "오모가리참치김치찌개"
+    ]
+  },
+  {
+    "name_ko": "소고기등심국밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7833,
+    "min_price": 7000,
+    "max_price": 9500,
+    "routes": [
+      "논산천안선,호남선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "소고기등심국밥"
+    ]
+  },
+  {
+    "name_ko": "THE착한우동",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 3500,
+    "min_price": 3500,
+    "max_price": 3500,
+    "routes": [
+      "경부선",
+      "남해선",
+      "영동선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "THE착한우동",
+      "(실속)THE착한우동"
+    ]
+  },
+  {
+    "name_ko": "대구육개장",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8000,
+    "min_price": 7000,
+    "max_price": 10000,
+    "routes": [
+      "광주대구선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "대구육개장"
+    ]
+  },
+  {
+    "name_ko": "삼진어묵꼬치우동",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "남해선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "삼진어묵꼬치우동"
+    ]
+  },
+  {
+    "name_ko": "남산등심돈까스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10000,
+    "min_price": 10000,
+    "max_price": 10000,
+    "routes": [
+      "중부내륙선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "(실속상품)남산등심돈까스"
+    ]
+  },
+  {
+    "name_ko": "남산왕돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 13500,
+    "min_price": 13500,
+    "max_price": 13500,
+    "routes": [
+      "새만금포항선(대구~포항)",
+      "서산영덕선",
+      "중부내륙선의 지선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "남산왕돈가스"
+    ]
+  },
+  {
+    "name_ko": "등심돈가스+사이다 세트",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10666,
+    "min_price": 10500,
+    "max_price": 11000,
+    "routes": [
+      "서천공주선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "등심돈가스+사이다 세트"
+    ]
+  },
+  {
+    "name_ko": "흑돼지돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9833,
+    "min_price": 9500,
+    "max_price": 10000,
+    "routes": [
+      "광주대구선",
+      "서산영덕선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "흑돼지돈가스"
+    ]
+  },
+  {
+    "name_ko": "얼큰칼국수",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10333,
+    "min_price": 9000,
+    "max_price": 12000,
+    "routes": [
+      "경부선",
+      "세종포천선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "얼큰칼국수"
+    ]
+  },
+  {
+    "name_ko": "모짜렐라치즈돈가스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10000,
+    "min_price": 8000,
+    "max_price": 12000,
+    "routes": [
+      "논산천안선,호남선",
+      "서산영덕선",
+      "서울양양선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "모짜렐라치즈돈가스"
+    ]
+  },
+  {
+    "name_ko": "사골미역국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "서산영덕선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "사골미역국",
+      "사골미역국(실속상품)"
+    ]
+  },
+  {
+    "name_ko": "순살감자탕",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10666,
+    "min_price": 10000,
+    "max_price": 12000,
+    "routes": [
+      "서해안선",
+      "완주장수선",
+      "울산포항선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "순살감자탕"
+    ]
+  },
+  {
+    "name_ko": "공깃밥 추가",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 1000,
+    "min_price": 1000,
+    "max_price": 1000,
+    "routes": [
+      "경부선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "공깃밥 추가"
+    ]
+  },
+  {
+    "name_ko": "공주국밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11000,
+    "min_price": 11000,
+    "max_price": 11000,
+    "routes": [
+      "서산영덕선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "공주국밥",
+      "명품먹거리_공주국밥"
+    ]
+  },
+  {
+    "name_ko": "차돌 된장찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9000,
+    "min_price": 9000,
+    "max_price": 9000,
+    "routes": [
+      "밀양울산선",
+      "서산영덕선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "차돌 된장찌개"
+    ]
+  },
+  {
+    "name_ko": "시래기된장국",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 7000,
+    "min_price": 7000,
+    "max_price": 7000,
+    "routes": [
+      "통영대전선",
+      "평택제천선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "시래기된장국",
+      "(실속상품)시래기된장국",
+      "(실속상품) 시래기된장국"
+    ]
+  },
+  {
+    "name_ko": "라면&파김치",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6166,
+    "min_price": 6000,
+    "max_price": 6500,
+    "routes": [
+      "순천완주선",
+      "호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "라면&파김치"
+    ]
+  },
+  {
+    "name_ko": "돈가스오므라이스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 9000,
+    "min_price": 8500,
+    "max_price": 10000,
+    "routes": [
+      "경부선",
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "돈가스오므라이스"
+    ]
+  },
+  {
+    "name_ko": "휴라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 4000,
+    "min_price": 4000,
+    "max_price": 4000,
+    "routes": [
+      "울산포항선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "휴라면"
+    ]
+  },
+  {
+    "name_ko": "추억의 왕돈까스",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 10666,
+    "min_price": 9500,
+    "max_price": 13000,
+    "routes": [
+      "광주대구선",
+      "중앙선"
+    ],
+    "is_best": true,
+    "is_recommend": true,
+    "raw_names": [
+      "추억의 왕돈까스"
+    ]
+  },
+  {
+    "name_ko": "가쓰오유부우동",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6000,
+    "min_price": 5000,
+    "max_price": 6500,
+    "routes": [
+      "논산천안선,호남선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "가쓰오유부우동"
+    ]
+  },
+  {
+    "name_ko": "버섯육개장",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8666,
+    "min_price": 8000,
+    "max_price": 10000,
+    "routes": [
+      "논산천안선,호남선",
+      "서해안선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "버섯육개장"
+    ]
+  },
+  {
+    "name_ko": "목살김치찌개",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8000,
+    "min_price": 8000,
+    "max_price": 8000,
+    "routes": [
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "목살김치찌개"
+    ]
+  },
+  {
+    "name_ko": "토마토김밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 4000,
+    "min_price": 4000,
+    "max_price": 4000,
+    "routes": [
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "토마토김밥"
+    ]
+  },
+  {
+    "name_ko": "알밥돈가스정식",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 8500,
+    "min_price": 8500,
+    "max_price": 8500,
+    "routes": [
+      "중앙선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "알밥돈가스정식"
+    ]
+  },
+  {
+    "name_ko": "산골황태국밥",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 12000,
+    "min_price": 12000,
+    "max_price": 12000,
+    "routes": [
+      "서울양양선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "산골황태국밥"
+    ]
+  },
+  {
+    "name_ko": "왕교자튀김만두",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 5166,
+    "min_price": 4500,
+    "max_price": 5500,
+    "routes": [
+      "수도권제1순환선"
+    ],
+    "is_best": false,
+    "is_recommend": false,
+    "raw_names": [
+      "왕교자튀김만두",
+      "왕교자튀김만두(사이드)"
+    ]
+  },
+  {
+    "name_ko": "꼬지어묵라면",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 6166,
+    "min_price": 6000,
+    "max_price": 6500,
+    "routes": [
+      "부산외곽순환선",
+      "서산영덕선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "꼬지어묵라면"
+    ]
+  },
+  {
+    "name_ko": "고추장불고기정식",
+    "occurrence_count": 3,
+    "rest_area_count": 3,
+    "avg_price": 11666,
+    "min_price": 10000,
+    "max_price": 15000,
+    "routes": [
+      "밀양울산선",
+      "중부내륙선"
+    ],
+    "is_best": false,
+    "is_recommend": true,
+    "raw_names": [
+      "고추장불고기정식"
+    ]
+  }
+]
