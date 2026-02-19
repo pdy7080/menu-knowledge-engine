@@ -1,6 +1,6 @@
 """
-Admin API Routes - Sprint 3 P1-1
-신규 메뉴 큐 관리 + 엔진 모니터링
+Admin API Routes - Sprint 3 P1-1 + Sprint 4 OCR Metrics
+신규 메뉴 큐 관리 + 엔진 모니터링 + OCR Tier 메트릭
 """
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 from database import get_db
 from models import ScanLog, CanonicalMenu, Modifier, MenuVariant
 from services.cache_service import cache_service, TTL_ADMIN_STATS
+from services.ocr_orchestrator import ocr_orchestrator
 import uuid
 
 router = APIRouter(prefix="/api/v1/admin", tags=["admin"])
@@ -319,3 +320,38 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
     await cache_service.set(cache_key, stats, TTL_ADMIN_STATS)
 
     return stats
+
+
+@router.get("/ocr/metrics")
+async def get_ocr_metrics():
+    """
+    OCR Tier Router 메트릭 조회 (Sprint 4)
+
+    Tier 1 (GPT Vision) vs Tier 2 (CLOVA) 성능 비교
+
+    Returns:
+        {
+            "tier_1_count": int,              # Tier 1로 처리한 이미지 수
+            "tier_2_count": int,              # Tier 2로 폴백한 이미지 수
+            "total_count": int,               # 전체 처리 이미지 수
+            "tier_1_success_rate": str,       # Tier 1 성공률 (%)
+            "tier_2_fallback_rate": str,      # Tier 2 폴백률 (%)
+            "avg_processing_time_ms": float,  # 평균 처리 시간 (ms)
+            "price_error_count": int,         # 가격 파싱 에러 수
+            "price_error_rate": str,          # 가격 에러율 (%)
+            "handwriting_detection_rate": str,# 손글씨 감지율 (%)
+            "last_updated": str               # 마지막 업데이트 시간 (ISO 8601)
+        }
+    """
+    return {
+        "tier_1_count": ocr_orchestrator.metrics.get("tier_1_count", 0),
+        "tier_2_count": ocr_orchestrator.metrics.get("tier_2_count", 0),
+        "total_count": ocr_orchestrator.metrics.get("total_count", 0),
+        "tier_1_success_rate": f"{ocr_orchestrator.metrics.get('tier_1_success_rate', 0):.1f}%",
+        "tier_2_fallback_rate": f"{ocr_orchestrator.metrics.get('tier_2_fallback_rate', 0):.1f}%",
+        "avg_processing_time_ms": ocr_orchestrator.metrics.get("avg_processing_time_ms", 0),
+        "price_error_count": ocr_orchestrator.metrics.get("price_error_count", 0),
+        "price_error_rate": f"{ocr_orchestrator.metrics.get('price_error_rate', 0):.1f}%",
+        "handwriting_detection_rate": f"{ocr_orchestrator.metrics.get('handwriting_detection_rate', 0):.1f}%",
+        "last_updated": ocr_orchestrator.metrics.get("last_updated", datetime.utcnow().isoformat() + "Z"),
+    }
