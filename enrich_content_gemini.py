@@ -8,6 +8,7 @@ Cost: $0 (무료 tier: 15 RPM, 1,500 RPD)
 """
 import asyncio
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Dict, List, Any, Optional
@@ -23,7 +24,9 @@ if sys.platform == 'win32':
 import google.generativeai as genai
 
 # Gemini API 설정
-GEMINI_API_KEY = "REDACTED_KEY_REVOKED"
+GEMINI_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
+if not GEMINI_API_KEY:
+    raise ValueError("GOOGLE_API_KEY 환경변수가 설정되지 않았습니다. .env 파일을 확인하세요.")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # 모델 초기화 (Gemini 2.0 Flash - 무료)

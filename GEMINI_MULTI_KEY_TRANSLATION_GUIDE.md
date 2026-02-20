@@ -30,9 +30,9 @@
 
 ### 현재 설정 (.env)
 ```env
-GOOGLE_API_KEY_1=REDACTED_KEY_REVOKED
-GOOGLE_API_KEY_2=REDACTED_KEY_REVOKED
-GOOGLE_API_KEY_3=REDACTED_KEY_REVOKED
+GOOGLE_API_KEY_1=your-api-key-1-here
+GOOGLE_API_KEY_2=your-api-key-2-here
+GOOGLE_API_KEY_3=your-api-key-3-here
 ```
 
 ### RPD 리셋 시간

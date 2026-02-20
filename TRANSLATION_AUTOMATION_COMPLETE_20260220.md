@@ -35,9 +35,9 @@ self.daily_usage = {0: 0, 1: 0, 2: 0}
 - **파일**: `app/backend/config.py`, `app/backend/.env`
 - **추가된 환경변수**:
   ```env
-  GOOGLE_API_KEY_1=REDACTED_KEY_REVOKED
-  GOOGLE_API_KEY_2=REDACTED_KEY_REVOKED
-  GOOGLE_API_KEY_3=REDACTED_KEY_REVOKED
+  GOOGLE_API_KEY_1=your-api-key-1-here
+  GOOGLE_API_KEY_2=your-api-key-2-here
+  GOOGLE_API_KEY_3=your-api-key-3-here
   ```
 
 ### 3. 일일 자동 번역 스크립트

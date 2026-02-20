@@ -76,3 +76,6 @@ yarn-error.log
 enrich_content_claude.py
 set_api_key.sh
 .claude/settings.local.json
+
+# Automation data (local state, not for git)
+app/backend/data/automation/
