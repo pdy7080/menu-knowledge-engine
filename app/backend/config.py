@@ -23,7 +23,10 @@ class Settings(BaseSettings):
     CLOVA_OCR_API_KEY: str = ""
     CLOVA_OCR_SECRET: str = ""
     OPENAI_API_KEY: str = ""
-    GOOGLE_API_KEY: str = ""
+    GOOGLE_API_KEY: str = ""  # Deprecated: Use GOOGLE_API_KEY_1 instead
+    GOOGLE_API_KEY_1: str = ""  # Primary Gemini API key (20 RPD)
+    GOOGLE_API_KEY_2: str = ""  # Secondary Gemini API key (20 RPD)
+    GOOGLE_API_KEY_3: str = ""  # Tertiary Gemini API key (20 RPD)
     PAPAGO_CLIENT_ID: str = ""
     PAPAGO_CLIENT_SECRET: str = ""
     PUBLIC_DATA_API_KEY: str = ""  # data.ex.co.kr 한국도로공사 API 키

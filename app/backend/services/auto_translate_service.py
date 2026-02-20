@@ -22,8 +22,8 @@ logger = logging.getLogger(__name__)
 # Database
 from sqlalchemy.ext.asyncio import AsyncSession
 
-# OpenAI
-from openai import AsyncOpenAI
+# Google Gemini
+import google.generativeai as genai
 
 # Models
 from models.canonical_menu import CanonicalMenu
@@ -36,11 +36,51 @@ from utils.retry import async_retry
 
 
 class AutoTranslateService:
-    """새 메뉴 자동 번역 서비스"""
+    """새 메뉴 자동 번역 서비스 (Multi-Key Round Robin)"""
 
     def __init__(self):
-        self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-4o"
+        # 다중 API 키 설정 (라운드 로빈)
+        self.api_keys = []
+
+        # 키 수집 (빈 문자열 제외)
+        for key_name in ['GOOGLE_API_KEY_1', 'GOOGLE_API_KEY_2', 'GOOGLE_API_KEY_3']:
+            key_value = getattr(settings, key_name, "")
+            if key_value:
+                self.api_keys.append(key_value)
+
+        # Fallback: 기존 GOOGLE_API_KEY 사용
+        if not self.api_keys and settings.GOOGLE_API_KEY:
+            self.api_keys.append(settings.GOOGLE_API_KEY)
+
+        if not self.api_keys:
+            raise ValueError("❌ No Google API keys configured")
+
+        # 라운드 로빈 상태
+        self.current_key_index = 0
+        self.daily_usage = {i: 0 for i in range(len(self.api_keys))}  # 키별 사용량
+        self.max_rpd = 20  # Requests Per Day per key
+
+        logger.info(f"✅ Google Gemini API 초기화 완료 ({len(self.api_keys)}개 키, 총 {len(self.api_keys) * self.max_rpd} RPD)")
+
+    def _get_next_available_key(self) -> Optional[str]:
+        """사용 가능한 다음 키 반환 (라운드 로빈)"""
+        # 모든 키를 순회하며 사용 가능한 키 찾기
+        for attempt in range(len(self.api_keys)):
+            key_index = (self.current_key_index + attempt) % len(self.api_keys)
+
+            # RPD 한도 확인
+            if self.daily_usage[key_index] < self.max_rpd:
+                self.current_key_index = key_index
+                return self.api_keys[key_index]
+
+        # 모든 키가 소진됨
+        logger.warning("⚠️ All API keys exhausted (60 RPD limit reached)")
+        return None
+
+    def _mark_key_used(self):
+        """현재 키 사용량 증가"""
+        self.daily_usage[self.current_key_index] += 1
+        logger.debug(f"Key {self.current_key_index + 1} used: {self.daily_usage[self.current_key_index]}/{self.max_rpd}")
 
     async def auto_translate_new_menu(
         self,
@@ -70,8 +110,8 @@ class AutoTranslateService:
         try:
             logger.info(f"🔄 자동 번역 시작: {menu_name_ko}")
 
-            # GPT-4o로 번역
-            translations = await self._translate_with_gpt4o(
+            # Google Gemini로 번역
+            translations = await self._translate_with_gemini(
                 menu_name_ko,
                 description_en
             )
@@ -107,19 +147,29 @@ class AutoTranslateService:
         return {}
 
     @async_retry(max_attempts=3, delay=1.0, backoff=2.0)
-    async def _translate_with_gpt4o(
+    async def _translate_with_gemini(
         self,
         menu_name_ko: str,
         description_en: str
     ) -> Dict[str, str]:
         """
-        GPT-4o로 번역 (with 3 retry attempts)
+        Google Gemini로 번역 (Multi-Key Round Robin)
 
         Retry policy:
         - Attempt 1: immediate
-        - Attempt 2: after 1.0 seconds
-        - Attempt 3: after 2.0 seconds
+        - Attempt 2: after 1.0 seconds (다음 키로 자동 전환)
+        - Attempt 3: after 2.0 seconds (다음 키로 자동 전환)
         """
+
+        # 사용 가능한 키 확인
+        api_key = self._get_next_available_key()
+        if not api_key:
+            logger.error("❌ All API keys exhausted (60 RPD)")
+            return {}
+
+        # 해당 키로 Gemini 설정
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel('gemini-2.5-flash')
 
         prompt = f"""
 당신은 한식 요리사이자 다국어 번역가입니다.
@@ -132,7 +182,7 @@ class AutoTranslateService:
 - 메뉴명(한글): {menu_name_ko}
 - 영문 설명: {description_en}
 
-출력 형식 (JSON만 반환):
+출력 형식 (JSON만 반환, 다른 텍스트 없이):
 {{
     "ja": "일본어 번역",
     "zh": "중국어(간체) 번역"
@@ -140,23 +190,27 @@ class AutoTranslateService:
 """
 
         try:
-            response = await self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You are a Korean cuisine expert translator. "
-                        "Translate food descriptions naturally with cultural context."
-                    },
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.3,
-                max_tokens=200,
-                response_format={"type": "json_object"}
+            # Gemini API 호출
+            response = await model.generate_content_async(
+                prompt,
+                generation_config=genai.types.GenerationConfig(
+                    temperature=0.3,
+                    max_output_tokens=200,
+                )
             )
 
-            result_text = response.choices[0].message.content
+            result_text = response.text.strip()
+
+            # JSON 파싱 (마크다운 코드블록 제거)
+            if result_text.startswith("```json"):
+                result_text = result_text.split("```json")[1].split("```")[0].strip()
+            elif result_text.startswith("```"):
+                result_text = result_text.split("```")[1].split("```")[0].strip()
+
             result = json.loads(result_text)
+
+            # 성공 시 사용량 증가
+            self._mark_key_used()
 
             return {
                 "ja": result.get("ja", ""),
@@ -164,8 +218,16 @@ class AutoTranslateService:
             }
 
         except Exception as e:
-            logger.error(f"GPT-4o 번역 오류: {e}")
-            return {}
+            error_msg = str(e)
+
+            # 429 에러 시 현재 키 소진 처리
+            if "429" in error_msg or "quota" in error_msg.lower():
+                logger.warning(f"⚠️ Key {self.current_key_index + 1} quota exhausted, switching to next key")
+                self.daily_usage[self.current_key_index] = self.max_rpd  # 강제 소진
+                # Retry 시 자동으로 다음 키 사용
+
+            logger.error(f"Google Gemini 번역 오류 (Key {self.current_key_index + 1}): {e}")
+            raise  # Retry decorator가 처리
 
 
 # 싱글톤 인스턴스
