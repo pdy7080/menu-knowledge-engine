@@ -32,6 +32,17 @@ HEADERS = {
     "Accept-Language": "ko-KR,ko;q=0.9",
 }
 
+# 레시피 제목 → 음식명 추출용 키워드 (제거 대상)
+RECIPE_TITLE_NOISE = [
+    "만들기", "만드는법", "만드는방법", "레시피", "황금레시피",
+    "초간단", "간단한", "간단", "쉬운", "간편", "자취생",
+    "백종원의", "백종원", "이보은의",
+    "밑반찬", "반찬",
+]
+
+# 특수문자 패턴
+RECIPE_SPECIAL_CHARS = re.compile(r'[♪♫♬♩~!@#$%^&*]')
+
 
 class RecipeCollector(BaseCollector):
     """만개의레시피 크롤러 (robots.txt 준수)"""
@@ -139,17 +150,15 @@ class RecipeCollector(BaseCollector):
 
                 for title in titles:
                     name_ko = title.strip()
-                    # 의미 없는 결과 건너뛰기
-                    if not name_ko or len(name_ko) < 2 or len(name_ko) > 30:
+                    if not name_ko or len(name_ko) < 2:
+                        continue
+
+                    # 레시피 제목 → 핵심 음식명 추출
+                    name_ko = self._extract_food_name(name_ko)
+
+                    if not name_ko or len(name_ko) < 2 or len(name_ko) > 20:
                         continue
                     if name_ko in self._collected_names:
-                        continue
-
-                    # 레시피 제목 정규화 (괄호 내용 제거 등)
-                    name_ko = re.sub(r'\(.*?\)', '', name_ko).strip()
-                    name_ko = re.sub(r'\[.*?\]', '', name_ko).strip()
-
-                    if not name_ko:
                         continue
 
                     self._collected_names.add(name_ko)
@@ -166,6 +175,49 @@ class RecipeCollector(BaseCollector):
             logger.error(f"Recipe collection error ({cat_name}): {e}")
 
         return menus
+
+    @staticmethod
+    def _extract_food_name(title: str) -> str:
+        """
+        레시피 제목에서 핵심 음식명 추출
+
+        예시:
+        - "백종원의감자전만들기♪♪" → "감자전"
+        - "소시지볶음레시피간장비엔나소시지반찬만들기" → "소시지볶음"
+        - "단무지무침레시피밑반찬만들기치자단무지무침" → "단무지무침"
+        - "청포묵무침만드는법" → "청포묵무침"
+        """
+        name = title.strip()
+
+        # 특수문자 제거
+        name = RECIPE_SPECIAL_CHARS.sub('', name)
+
+        # 괄호 내용 제거
+        name = re.sub(r'\(.*?\)', '', name)
+        name = re.sub(r'\[.*?\]', '', name)
+
+        # 레시피 노이즈 키워드 제거
+        for noise in RECIPE_TITLE_NOISE:
+            name = name.replace(noise, '')
+
+        name = name.strip()
+
+        # 남은 텍스트에서 음식 이름 패턴 추출
+        # 일반적으로 한국 음식명은 2~8자
+        # 긴 텍스트가 남으면 앞부분만 (보통 핵심 음식명이 앞에 위치)
+        if len(name) > 10:
+            # 조리법 키워드로 분할하여 첫 번째 부분 취하기
+            cooking_words = ["볶음", "무침", "조림", "구이", "찜", "전", "탕", "국"]
+            for cw in cooking_words:
+                idx = name.find(cw)
+                if idx > 0 and idx + len(cw) <= 10:
+                    name = name[:idx + len(cw)]
+                    break
+            else:
+                # 조리법 키워드 없으면 처음 8자까지
+                name = name[:8]
+
+        return name.strip()
 
     async def get_remaining_count(self) -> int:
         """추정 남은 수 (만개의레시피에 약 3,000-5,000개 한식 레시피)"""

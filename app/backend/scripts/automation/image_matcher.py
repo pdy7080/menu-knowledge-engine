@@ -45,6 +45,9 @@ class ImageMatcher:
         """
         메뉴에 대한 이미지 검색 (우선순위 순서로 소스 탐색)
 
+        name_en이 있으면 "{name_en} Korean food"로 검색 (정확도 높음)
+        name_en이 없으면 건너뛰기 (한국어만으로는 무관 이미지 반환)
+
         Args:
             name_ko: 한국어 메뉴명
             name_en: 영문 메뉴명
@@ -52,8 +55,12 @@ class ImageMatcher:
         Returns:
             찾은 이미지 리스트 (최대 3개)
         """
+        if not name_en:
+            logger.info(f"  Skip image search (no name_en): {name_ko}")
+            return []
+
         all_images: List[ImageResult] = []
-        query = name_en or name_ko
+        query = f"{name_en} Korean food"
 
         for collector in self.collectors:
             if len(all_images) >= 3:
@@ -63,9 +70,12 @@ class ImageMatcher:
                 images = await collector.search_images(
                     query=query,
                     menu_name_ko=name_ko,
-                    per_page=2,
+                    per_page=3,
                 )
-                all_images.extend(images)
+                # 최소 크기 필터 (300x300)
+                for img in images:
+                    if img.width >= 300 and img.height >= 300:
+                        all_images.append(img)
             except Exception as e:
                 logger.warning(f"{collector.source_name} search failed: {e}")
 

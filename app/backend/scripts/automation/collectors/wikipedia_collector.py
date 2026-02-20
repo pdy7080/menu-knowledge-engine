@@ -22,9 +22,8 @@ logger = logging.getLogger("automation.collector.wikipedia")
 EN_WIKI_API = "https://en.wikipedia.org/w/api.php"
 KO_WIKI_API = "https://ko.wikipedia.org/w/api.php"
 
-# Korean cuisine categories to crawl
+# Korean cuisine categories to crawl (음식 카테고리만 — 개념/문화 카테고리 제외)
 KOREAN_FOOD_CATEGORIES = [
-    "Korean_cuisine",
     "Korean_soups_and_stews",
     "Korean_rice_dishes",
     "Korean_noodle_dishes",
@@ -33,6 +32,13 @@ KOREAN_FOOD_CATEGORIES = [
     "Korean_grilled_dishes",
     "Korean_stews",
     "Korean_desserts_and_confections",
+]
+
+# 제외할 기사 제목 키워드 (개념/재료/문화 페이지)
+EXCLUDED_TITLE_KEYWORDS = [
+    "cuisine", "culture", "wheat", "bean", "rice (grain)",
+    "agriculture", "condiment", "ingredient", "adzuki",
+    "fermentation", "history of", "regional",
 ]
 
 # User-Agent (Wikimedia 정책 준수)
@@ -104,8 +110,13 @@ class WikipediaCollector(BaseCollector):
 
                 for member in members:
                     title = member.get("title", "")
-                    # 카테고리 페이지 건너뛰기
+                    # 카테고리/목록 페이지 건너뛰기
                     if title.startswith("Category:") or title.startswith("List of"):
+                        continue
+                    # 개념/재료/문화 페이지 건너뛰기
+                    title_lower = title.lower()
+                    if any(kw in title_lower for kw in EXCLUDED_TITLE_KEYWORDS):
+                        logger.debug(f"Excluded (non-food): {title}")
                         continue
                     # 중복 건너뛰기
                     if title in self._collected_titles:

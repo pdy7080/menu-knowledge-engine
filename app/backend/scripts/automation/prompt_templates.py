@@ -6,10 +6,19 @@ Author: terminal-developer
 Date: 2026-02-20
 """
 
-# System prompt for JSON output (Ollama optimized)
-SYSTEM_PROMPT = """You are a Korean food expert (한식 전문가).
-You have deep knowledge of Korean cuisine: ingredients, preparation methods,
-regional variations, history, and cultural context.
+# System prompt for JSON output (Gemini optimized)
+SYSTEM_PROMPT = """You are a Korean food expert (한식 전문가) with encyclopedic knowledge.
+You have deep, FACTUALLY ACCURATE knowledge of Korean cuisine: correct ingredients,
+authentic preparation methods, real regional variations, verified history, and cultural context.
+
+CRITICAL ACCURACY RULES:
+- 자장면/짜장면은 반드시 춘장(검은콩 발효 소스)으로 만듭니다. 절대 고추장이 아닙니다.
+- 짬뽕은 매운 해물 국물 요리입니다. 땅콩 소스가 아닙니다.
+- 제육은 돼지고기입니다. 소고기가 아닙니다.
+- 함박스테이크는 다진 고기 패티 요리입니다.
+- 냉면의 육수는 동치미/사골/겨자 등입니다.
+- 각 음식의 실제 재료와 조리법을 정확히 기술하세요.
+
 Always respond in valid JSON format. No markdown, no code blocks."""
 
 # 카테고리 감지 키워드 (enrich_content_gemini_v2.py 패턴)
@@ -70,7 +79,7 @@ def build_enrichment_prompt(
 
 **Menu Information:**
 - Korean Name: {name_ko}
-- English Name: {name_en}
+- English Name: {name_en or '(generate this)'}
 - Concept: {concept or 'N/A'}
 - Main Ingredients: {ingredients or 'N/A'}
 - Spice Level: {spice_level}/5
@@ -80,57 +89,58 @@ def build_enrichment_prompt(
 **Required Output (MUST be valid JSON):**
 
 {{
-  "description_ko": "150-200자 상세 설명 (한국어). 이 음식의 맛, 질감, 특징을 생생하게 묘사",
-  "description_en": "150-200 chars detailed description (English). Vivid portrayal of taste, texture, and characteristics",
+  "name_en": "Accurate English name using romanized Korean (e.g. Kimchi-jjigae, Bulgogi, Tteokbokki). REQUIRED - never leave blank.",
+  "description_ko": "150-200자 상세 설명 (한국어). 이 음식의 맛, 질감, 특징을 생생하게 묘사. 반드시 실제 재료와 조리법에 기반하여 정확하게 작성.",
+  "description_en": "150-200 chars detailed description (English). Factually accurate portrayal of taste, texture, and characteristics.",
   "regional_variants": [
-    {{"name": "서울식", "difference": "서울에서의 특징 설명"}},
-    {{"name": "전라도식", "difference": "전라도에서의 특징 설명"}},
-    {{"name": "경상도식", "difference": "경상도에서의 특징 설명"}}
+    {{"name": "실제 지역명 (예: 부산, 전주, 춘천 등)", "difference": "해당 지역만의 고유한 차이점. 없으면 이 항목 생략."}}
   ],
   "preparation_steps": [
-    "1단계: 재료 준비 - 구체적 설명",
-    "2단계: 조리 과정 1",
-    "3단계: 조리 과정 2",
-    "4단계: 조리 과정 3",
+    "1단계: 재료 준비 - 이 음식의 실제 핵심 재료를 구체적으로",
+    "2단계: 실제 조리법에 기반한 과정 설명",
+    "3단계: 핵심 조리 과정",
+    "4단계: 마무리 과정",
     "5단계: 완성 및 플레이팅"
   ],
   "nutrition": {{
-    "calories": 0,
-    "protein_g": 0,
-    "fat_g": 0,
-    "carbs_g": 0,
-    "serving_size": "1인분 (000g)"
+    "calories": "이 음식의 실제 칼로리 (음식마다 다름: 비빔밥 500-600, 삼겹살구이 700-900, 냉면 400-500 등)",
+    "protein_g": "실제 단백질 (g)",
+    "fat_g": "실제 지방 (g)",
+    "carbs_g": "실제 탄수화물 (g)",
+    "serving_size": "실제 1인분 기준 (예: 1인분 (350g))"
   }},
   "flavor_profile": {{
-    "spiciness": {spice_level},
-    "sweetness": 0,
-    "saltiness": 0,
-    "umami": 0,
-    "sourness": 0
+    "spiciness": "0-5 정확한 매운 정도 (김치찌개 3, 비빔밥 1, 된장찌개 0)",
+    "sweetness": "0-5",
+    "saltiness": "0-5",
+    "umami": "0-5",
+    "sourness": "0-5"
   }},
   "visitor_tips": {{
-    "ordering": "외국인 관광객을 위한 주문 팁",
+    "ordering": "외국인 관광객을 위한 구체적 주문 팁",
     "eating": "올바른 먹는 방법과 에티켓",
-    "pairing": "함께 먹으면 좋은 사이드 메뉴"
+    "pairing": "실제로 함께 주문하는 사이드 메뉴 (예: 공기밥, 소주)"
   }},
   "similar_dishes": [
-    {{"name": "유사 메뉴 1", "similarity": "유사점 설명"}},
-    {{"name": "유사 메뉴 2", "similarity": "유사점 설명"}},
-    {{"name": "유사 메뉴 3", "similarity": "유사점 설명"}}
+    {{"name": "실제 유사 한국 음식명", "similarity": "구체적 유사점"}},
+    {{"name": "실제 유사 한국 음식명 2", "similarity": "구체적 유사점"}}
   ],
   "cultural_background": {{
-    "history": "역사적 배경 (2-3문장, 구체적 시대와 유래 포함)",
-    "origin": "기원 지역",
+    "history": "역사적 배경 (2-3문장, 구체적 시대와 유래 포함. 모르면 '근대에 대중화됨' 수준으로 정직하게)",
+    "origin": "실제 기원 지역 (예: 전주, 부산, 평양 등)",
     "cultural_notes": "문화적 특징 및 현대 한국에서의 의미 (2-3문장)"
   }}
 }}
 
-**Rules:**
+**CRITICAL RULES:**
 1. Output ONLY the JSON object, nothing else
-2. All Korean text must be culturally authentic and specific
-3. Nutrition values should be realistic for this specific dish
-4. Minimum 3 regional variants, 5 preparation steps, 3 similar dishes
-5. Flavor profile values: 0 (none) to 5 (very strong)"""
+2. name_en is REQUIRED - romanize the Korean name accurately (e.g. 김치찌개 → Kimchi-jjigae)
+3. ALL content must be FACTUALLY ACCURATE. Do NOT fabricate ingredients or history.
+4. Nutrition calories MUST vary by dish (NOT all 400kcal). Use realistic values.
+5. Regional variants: only include regions that actually have this dish. 2-4 variants is fine.
+6. Preparation steps: describe the REAL cooking method, minimum 4 steps
+7. Similar dishes: name REAL Korean dishes, minimum 2
+8. Flavor profile values: 0 (none) to 5 (very strong), must reflect actual taste"""
 
 
 def build_translation_prompt(

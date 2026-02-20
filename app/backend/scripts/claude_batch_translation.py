@@ -15,7 +15,6 @@ from datetime import datetime
 from typing import Dict, Optional
 import logging
 from pathlib import Path
-
 # Path setup
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -54,7 +53,11 @@ JSON 형식으로만 반환 (다른 텍스트 없이):
 {{"ja": "일본어 번역", "zh": "중국어(간체) 번역"}}"""
 
     try:
-        # Claude CLI 실행
+        # Claude CLI 실행 (nested session 방지를 위해 CLAUDECODE 환경변수 제거)
+        import os
+        env = os.environ.copy()
+        env.pop('CLAUDECODE', None)  # CLAUDECODE 환경변수 제거
+
         result = subprocess.run(
             [
                 "claude", "-p", prompt,
@@ -63,7 +66,8 @@ JSON 형식으로만 반환 (다른 텍스트 없이):
             ],
             capture_output=True,
             text=True,
-            timeout=60  # 60초 타임아웃
+            timeout=60,  # 60초 타임아웃
+            env=env  # 수정된 환경변수 사용
         )
 
         if result.returncode != 0:
@@ -167,7 +171,7 @@ async def main():
     logger.info(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 80)
 
-    # Database
+    # Database (SSH tunnel assumed to be already established by wrapper script)
     engine = create_async_engine(
         settings.DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://"),
         echo=False
@@ -179,12 +183,12 @@ async def main():
         menus = await get_untranslated_menus(db)
 
         if not menus:
-            logger.info("✅ All menus already translated!")
+            logger.info("[+] All menus already translated!")
             return
 
         total = len(menus)
-        logger.info(f"📋 Found {total} untranslated menus")
-        logger.info(f"⏱️ Estimated time: {total * 5 // 60} minutes")
+        logger.info(f"[*] Found {total} untranslated menus")
+        logger.info(f"[*] Estimated time: {total * 5 // 60} minutes")
         logger.info("")
 
         # 번역 실행
@@ -208,9 +212,9 @@ async def main():
                 elapsed = (datetime.now() - start_time).total_seconds()
                 avg_time = elapsed / i
                 remaining = (total - i) * avg_time
-                logger.info(f"\n📊 Progress: {i}/{total} ({i/total*100:.1f}%)")
-                logger.info(f"⏱️ Elapsed: {elapsed//60:.0f}m {elapsed%60:.0f}s")
-                logger.info(f"⏱️ Remaining: {remaining//60:.0f}m {remaining%60:.0f}s")
+                logger.info(f"\n[*] Progress: {i}/{total} ({i/total*100:.1f}%)")
+                logger.info(f"[*] Elapsed: {elapsed//60:.0f}m {elapsed%60:.0f}s")
+                logger.info(f"[*] Remaining: {remaining//60:.0f}m {remaining%60:.0f}s")
 
         # 최종 요약
         elapsed_total = (datetime.now() - start_time).total_seconds()
@@ -218,12 +222,12 @@ async def main():
         logger.info("\n" + "=" * 80)
         logger.info("Translation Complete!")
         logger.info("=" * 80)
-        logger.info(f"✅ Success: {results['success']}")
-        logger.info(f"❌ Failed: {results['failed']}")
-        logger.info(f"⚠️ Skipped: {results['skipped']}")
-        logger.info(f"💥 DB Error: {results['db_error']}")
+        logger.info(f"[+] Success: {results['success']}")
+        logger.info(f"[-] Failed: {results['failed']}")
+        logger.info(f"[!] Skipped: {results['skipped']}")
+        logger.info(f"[!] DB Error: {results['db_error']}")
         logger.info(f"Total: {sum(results.values())}")
-        logger.info(f"Time: {elapsed_total//60:.0f}m {elapsed_total%60:.0f}s")
+        logger.info(f"Time: {elapsed_total//60:.0f}m {elapsed%60:.0f}s")
         logger.info(f"Avg: {elapsed_total/total:.1f}s per menu")
         logger.info(f"End: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

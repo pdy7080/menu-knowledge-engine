@@ -3,13 +3,14 @@ Automation Scheduler - APScheduler 기반 일일 자동화
 사무실 PC에서 24시간 구동하는 자동 DB 확충 스케줄러
 
 Schedule:
-- 02:00 — 새 메뉴 수집 (Module 2)
-- 04:00 — 콘텐츠 생성 with Ollama (Module 1)
-- 06:00 — 이미지 수집 (Module 3)
+- 02:00 — 새 메뉴 수집 (Module 2) + 품질 필터
+- 04:00 — 콘텐츠 생성 with Gemini 2.5 Flash (Module 1)
+- 06:00 — 이미지 수집 (Module 3) — enriched name_en 기반
 - 08:00 — 프로덕션 DB 동기화 (Module 5)
 
 Author: terminal-developer
 Date: 2026-02-20
+Cost: $0/day (Gemini 2.5 Flash-Lite 무료 tier, 18 menus/day, RPD=20)
 """
 import asyncio
 import json
@@ -59,9 +60,9 @@ async def run_menu_collection():
 
 
 async def run_content_enrichment():
-    """04:00 — Ollama로 콘텐츠 생성"""
+    """04:00 — Gemini 2.5 Flash로 콘텐츠 생성 (무료)"""
     logger.info("=" * 60)
-    logger.info("JOB: Content Enrichment Started")
+    logger.info("JOB: Content Enrichment Started (Gemini Free Tier)")
     logger.info("=" * 60)
 
     metrics = DailyMetrics()
@@ -69,15 +70,19 @@ async def run_content_enrichment():
 
     try:
         from .content_generator import ContentGenerator
-        from .ollama_client import OllamaClient
+        from .gemini_client import GeminiClient
 
-        ollama = OllamaClient()
-        generator = ContentGenerator(ollama)
+        client = GeminiClient()
+        generator = ContentGenerator(client)
 
-        # Ollama 확인
-        if not await generator.check_ollama():
-            logger.warning("Ollama not available, skipping enrichment")
+        # Gemini 확인
+        if not await generator.check_llm():
+            logger.warning("Gemini not available, skipping enrichment")
             return
+
+        # 일일 사용량 확인
+        usage = client.get_daily_usage()
+        logger.info(f"Daily RPD: {usage['used']}/{usage['limit']} ({usage['remaining']} remaining)")
 
         # 스테이징에서 미enriched 메뉴 로드
         staging_dir = Path(auto_settings.AUTOMATION_STAGING_DIR) / "new_menus"
@@ -97,27 +102,28 @@ async def run_content_enrichment():
             logger.info("No menus to enrich")
             return
 
-        # 일일 최대 20개 (GPU 과부하 방지)
-        batch = menus_to_enrich[:20]
-        results = await generator.enrich_batch(batch, checkpoint_interval=5)
+        # 일일 최대 18개 (Gemini 무료 tier: RPD 20, is_available 1 + 여유 1)
+        batch = menus_to_enrich[:18]
+        results = await generator.enrich_batch(batch, checkpoint_interval=10)
 
         metrics.record_enrichment(
             enriched=len(results),
             failed=len(batch) - len(results),
             avg_time_sec=0,
-            model=ollama.model,
+            model=client.model,
             started_at=started_at,
         )
         logger.info(f"Enrichment complete: {len(results)} menus enriched")
+        logger.info(f"Daily RPD remaining: {client.get_daily_usage()['remaining']}")
 
     except Exception as e:
         logger.error(f"Enrichment job failed: {e}", exc_info=True)
 
 
 async def run_image_collection():
-    """06:00 — 이미지 수집"""
+    """06:00 — 이미지 수집 (enriched name_en 기반)"""
     logger.info("=" * 60)
-    logger.info("JOB: Image Collection Started")
+    logger.info("JOB: Image Collection Started (name_en based)")
     logger.info("=" * 60)
 
     metrics = DailyMetrics()
@@ -128,29 +134,30 @@ async def run_image_collection():
 
         matcher = ImageMatcher()
 
-        # 스테이징에서 이미지 없는 메뉴 로드
-        staging_dir = Path(auto_settings.AUTOMATION_STAGING_DIR) / "new_menus"
+        # enriched JSON에서 name_en이 있는 메뉴 로드 (정확한 이미지 검색)
+        staging_dir = Path(auto_settings.AUTOMATION_STAGING_DIR)
         menus_without_images = []
 
-        if staging_dir.exists():
-            for json_file in sorted(staging_dir.glob("discovery_*.json")):
-                try:
-                    with open(json_file, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                    for menu in data.get("menus", []):
+        for json_file in sorted(staging_dir.glob("enrichment_batch_*.json")):
+            try:
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                for menu in data.get("menus", []):
+                    name_en = menu.get("name_en", "")
+                    if name_en:  # name_en이 있는 메뉴만
                         menus_without_images.append({
                             "name_ko": menu.get("name_ko", ""),
-                            "name_en": menu.get("name_en", ""),
+                            "name_en": name_en,
                         })
-                except Exception:
-                    continue
+            except Exception:
+                continue
 
         if not menus_without_images:
-            logger.info("No menus need images")
+            logger.info("No enriched menus with name_en for image search")
             return
 
-        # 일일 최대 20개
-        batch = menus_without_images[:20]
+        # 일일 최대 30개
+        batch = menus_without_images[:30]
         result = await matcher.batch_collect(batch)
 
         metrics.record_images(

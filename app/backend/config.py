@@ -64,6 +64,9 @@ class Settings(BaseSettings):
     # Automation
     AUTOMATION_ENABLED: bool = False
     DAILY_MENU_TARGET: int = 50
+    UNSPLASH_ACCESS_KEY: str = ""
+    PIXABAY_API_KEY: str = ""
+    PRODUCTION_DATABASE_URL: str = ""
 
     @property
     def cors_origins(self) -> List[str]:

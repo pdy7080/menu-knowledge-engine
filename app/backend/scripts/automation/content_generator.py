@@ -1,17 +1,18 @@
 """
-Content Generator - Ollama Local LLM 기반 콘텐츠 생성기
-enrich_content_gemini_v2.py의 패턴을 재사용하되 Ollama로 대체
+Content Generator - Gemini 2.5 Flash 기반 콘텐츠 생성기
+무료 tier (250 RPD) 활용, Ollama fallback 지원
 
 Features:
-- 메뉴 콘텐츠 생성 (9개 필드)
+- 메뉴 콘텐츠 생성 (10개 필드 — name_en 포함)
 - 번역 생성 (EN/JA/ZH)
 - 카테고리 분류
 - 체크포인트 저장/복원 (10개마다)
-- 일일 배치 처리
+- 일일 배치 처리 (50개)
+- Rate limiting: 6초/req (10 RPM)
 
 Author: terminal-developer
 Date: 2026-02-20
-Cost: $0 (Local LLM)
+Cost: $0 (Gemini 무료 tier)
 """
 import asyncio
 import json
@@ -22,7 +23,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
-from .ollama_client import OllamaClient
+from .gemini_client import GeminiClient
 from .prompt_templates import (
     SYSTEM_PROMPT,
     build_enrichment_prompt,
@@ -38,30 +39,30 @@ logger = logging.getLogger("automation.content")
 
 
 class ContentGenerator:
-    """Ollama 기반 메뉴 콘텐츠 생성기"""
+    """Gemini 기반 메뉴 콘텐츠 생성기 (무료 tier)"""
 
-    def __init__(self, ollama: OllamaClient = None):
-        self.ollama = ollama or OllamaClient()
+    def __init__(self, client: GeminiClient = None):
+        self.client = client or GeminiClient()
         self.state = StateManager("enrichment")
         self.results: List[Dict[str, Any]] = []
         self.success_count = 0
         self.fail_count = 0
         self.start_time = 0.0
 
-    async def check_ollama(self) -> bool:
-        """Ollama 사용 가능 여부 확인"""
-        if not await self.ollama.is_available():
-            logger.error("Ollama server is not running. Start with: ollama serve")
-            return False
-
-        if not await self.ollama.has_model():
+    async def check_llm(self) -> bool:
+        """LLM 사용 가능 여부 확인"""
+        if not await self.client.is_available():
             logger.error(
-                f"Model '{self.ollama.model}' not found. "
-                f"Install with: ollama pull {self.ollama.model}"
+                f"Gemini not available. Check GOOGLE_API_KEY in .env"
             )
             return False
 
-        logger.info(f"Ollama ready: {self.ollama.model}")
+        logger.info(f"Gemini ready: {self.client.model}")
+        usage = self.client.get_daily_usage()
+        logger.info(
+            f"Daily usage: {usage['used']}/{usage['limit']} "
+            f"({usage['remaining']} remaining)"
+        )
         return True
 
     async def enrich_menu(self, menu_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
@@ -96,9 +97,9 @@ class ContentGenerator:
             description_en=menu_data.get("description_en", ""),
         )
 
-        # Ollama JSON 생성
+        # Gemini JSON 생성
         start = time.time()
-        content_json = await self.ollama.generate_json(
+        content_json = await self.client.generate_json(
             prompt=prompt,
             system=SYSTEM_PROMPT,
             temperature=0.3,
@@ -113,10 +114,30 @@ class ContentGenerator:
 
         # 검증
         if not validate_enrichment(content_json):
-            logger.warning(f"  Content validation failed for {name_ko}")
+            # 실패 원인 디버그 로그
+            missing = [k for k in ("description_ko", "description_en", "regional_variants",
+                                    "preparation_steps", "nutrition", "flavor_profile",
+                                    "visitor_tips", "similar_dishes", "cultural_background")
+                       if k not in content_json]
+            too_few = []
+            if len(content_json.get("regional_variants", [])) < 2:
+                too_few.append(f"regional_variants={len(content_json.get('regional_variants', []))}")
+            if len(content_json.get("preparation_steps", [])) < 3:
+                too_few.append(f"preparation_steps={len(content_json.get('preparation_steps', []))}")
+            if len(content_json.get("similar_dishes", [])) < 2:
+                too_few.append(f"similar_dishes={len(content_json.get('similar_dishes', []))}")
+            logger.warning(
+                f"  Content validation failed for {name_ko} | "
+                f"missing_keys={missing or 'none'} | too_few={too_few or 'none'}"
+            )
             self.fail_count += 1
-            self.state.mark_failed(str(menu_id), "Validation failed")
+            self.state.mark_failed(str(menu_id), f"Validation: missing={missing}, too_few={too_few}")
             return None
+
+        # name_en 추출 (Gemini가 생성한 영문 이름 우선)
+        generated_name_en = content_json.pop("name_en", "") or ""
+        if not name_en and generated_name_en:
+            name_en = generated_name_en
 
         # 결과 조합
         result = {
@@ -126,7 +147,7 @@ class ContentGenerator:
             "category": detect_category(name_ko),
             "content": content_json,
             "enriched_at": datetime.now().isoformat(),
-            "model": self.ollama.model,
+            "model": self.client.model,
             "generation_time_sec": round(gen_time, 1),
         }
 
@@ -155,7 +176,7 @@ class ContentGenerator:
         """
         prompt = build_translation_prompt(name_ko, description_ko, languages)
 
-        result = await self.ollama.generate_json(
+        result = await self.client.generate_json(
             prompt=prompt,
             system=SYSTEM_PROMPT,
             temperature=0.2,
@@ -175,7 +196,7 @@ class ContentGenerator:
         """
         prompt = build_categorization_prompt(name_ko)
 
-        result = await self.ollama.generate_json(
+        result = await self.client.generate_json(
             prompt=prompt,
             system=SYSTEM_PROMPT,
             temperature=0.1,
@@ -201,8 +222,10 @@ class ContentGenerator:
         self.start_time = time.time()
         self.state.start_run()
 
+        usage = self.client.get_daily_usage()
         logger.info(f"Batch enrichment: {len(menus)} menus")
-        logger.info(f"Model: {self.ollama.model} (Local LLM)")
+        logger.info(f"Model: {self.client.model} (Gemini Free Tier)")
+        logger.info(f"Daily RPD: {usage['used']}/{usage['limit']} used")
         logger.info(f"Cost: $0")
         logger.info("=" * 60)
 
@@ -228,8 +251,8 @@ class ContentGenerator:
             if (i + 1) % checkpoint_interval == 0:
                 self._save_checkpoint()
 
-            # Rate limit (Ollama는 제한 없지만 GPU 과부하 방지)
-            await asyncio.sleep(0.5)
+            # Rate limit (Gemini: 10 RPM → 6초 간격, client가 자동 관리)
+            # 추가 sleep은 불필요 — GeminiClient._rate_limit()이 처리
 
         # 최종 저장
         self._save_checkpoint()
@@ -240,7 +263,9 @@ class ContentGenerator:
         logger.info(f"Completed: {self.success_count}/{len(menus)}")
         logger.info(f"Failed: {self.fail_count}")
         logger.info(f"Total time: {total_time / 60:.1f} min")
-        logger.info(f"Cost: $0 (Local LLM)")
+        usage = self.client.get_daily_usage()
+        logger.info(f"Cost: $0 (Gemini Free Tier)")
+        logger.info(f"Daily RPD remaining: {usage['remaining']}/{usage['limit']}")
 
         return self.results
 
@@ -249,7 +274,8 @@ class ContentGenerator:
         checkpoint_data = {
             "enriched_count": self.success_count,
             "failed_count": self.fail_count,
-            "model": self.ollama.model,
+            "model": self.client.model,
+            "daily_usage": self.client.get_daily_usage(),
             "saved_at": datetime.now().isoformat(),
             "menus": self.results,
         }
@@ -271,19 +297,19 @@ async def main():
     setup_logging()
 
     print("=" * 60)
-    print("Content Generator (Ollama Local LLM)")
+    print("Content Generator (Gemini 2.5 Flash - Free Tier)")
     print("=" * 60)
 
     generator = ContentGenerator()
 
-    # Ollama 확인
-    if not await generator.check_ollama():
+    # Gemini 확인
+    if not await generator.check_llm():
         return
 
     # 테스트: 단일 메뉴 생성
     test_menu = {
         "name_ko": "김치찌개",
-        "name_en": "Kimchi-jjigae",
+        "name_en": "",
         "concept": "stew",
         "primary_ingredients": ["김치", "돼지고기", "두부"],
         "spice_level": 3,
@@ -293,6 +319,7 @@ async def main():
     result = await generator.enrich_menu(test_menu)
     if result:
         print(json.dumps(result, ensure_ascii=False, indent=2)[:500])
+        print(f"\nname_en generated: {result.get('name_en', 'MISSING')}")
         print("\nTest passed!")
     else:
         print("Test failed!")

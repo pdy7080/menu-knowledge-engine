@@ -20,6 +20,7 @@ from .collectors.base_collector import BaseCollector, DiscoveredMenu, Collection
 from .collectors.wikipedia_collector import WikipediaCollector
 from .collectors.public_data_collector import PublicDataCollector
 from .collectors.recipe_collector import RecipeCollector
+from .menu_name_filter import filter_menu_name
 from .state_manager import StateManager
 from .config_auto import auto_settings, BACKEND_DIR
 
@@ -131,23 +132,32 @@ class MenuDiscovery:
                 result = await collector.collect(limit=remaining)
                 total_discovered += result.discovered
 
-                # 정규화 + 중복 제거
+                # 정규화 + 품질 필터 + 중복 제거
                 new_items = 0
+                filtered_count = 0
                 for menu in result.menus:
+                    # 1단계: 기본 정규화
                     normalized = normalize_name(menu.name_ko)
 
-                    if not is_valid_menu_name(normalized):
+                    # 2단계: 품질 필터 (브랜드/매장/개념/레시피 제거)
+                    filtered = filter_menu_name(normalized)
+                    if not filtered:
+                        filtered_count += 1
                         continue
 
-                    if normalized in self.existing_names:
+                    # 3단계: 중복 확인
+                    if filtered in self.existing_names:
                         total_duplicates += 1
                         continue
 
-                    # 신규 메뉴!
-                    menu.name_ko = normalized  # 정규화된 이름으로 업데이트
+                    # 신규 유효 메뉴!
+                    menu.name_ko = filtered  # 필터링된 이름으로 업데이트
                     all_new_menus.append(menu)
-                    self.existing_names.add(normalized)
+                    self.existing_names.add(filtered)
                     new_items += 1
+
+                if filtered_count > 0:
+                    logger.info(f"  {collector.source_name}: {filtered_count} filtered by quality")
 
                 source_stats[collector.source_name] = new_items
                 logger.info(f"  {collector.source_name}: {new_items} new menus")

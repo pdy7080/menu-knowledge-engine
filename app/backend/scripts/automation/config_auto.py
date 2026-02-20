@@ -17,10 +17,16 @@ class AutomationSettings(BaseSettings):
     # Database (기존 설정 재사용)
     DATABASE_URL: str = "sqlite:///data/automation/local.db"
 
-    # Ollama (Local LLM)
+    # Ollama (Local LLM — fallback)
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "qwen2.5:7b"
     OLLAMA_TIMEOUT: int = 120
+
+    # Google Gemini (Primary LLM — 무료 tier)
+    GOOGLE_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-2.5-flash-lite"  # 무료: flash=20 RPD, flash-lite=20 RPD
+    GEMINI_RPM_LIMIT: int = 15       # flash-lite 무료: 15 req/min
+    GEMINI_RPD_LIMIT: int = 20       # 실측 RPD=20 (2026-02-20 확인, 모든 모델 동일)
 
     # Image APIs (무료 tier)
     UNSPLASH_ACCESS_KEY: str = ""
@@ -35,7 +41,7 @@ class AutomationSettings(BaseSettings):
 
     # Scheduler
     AUTOMATION_ENABLED: bool = True
-    DAILY_MENU_TARGET: int = 50
+    DAILY_MENU_TARGET: int = 18  # Gemini RPD=20 기준 (여유 2건 확보)
     AUTOMATION_HEALTH_PORT: int = 8099
 
     # Paths
