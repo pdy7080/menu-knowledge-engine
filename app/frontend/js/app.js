@@ -552,6 +552,7 @@ function handleLanguageSwitch(event) {
     if (state.currentView === 'results' && state.searchResults.length > 0) {
         // Re-render search results with new language
         renderResults(state.searchResults);
+        console.log(`🌐 Search results re-rendered in: ${selectedLang}`);
     }
 
     console.log(`🌐 Language switched to: ${selectedLang}`);
