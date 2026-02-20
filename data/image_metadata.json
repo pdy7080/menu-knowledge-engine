@@ -1,0 +1,33 @@
+{
+  "images": [
+    {
+      "filename": "곰탕_ai.png",
+      "path": "C:\\project\\menu\\data\\images\\ai_generated\\곰탕_ai.png",
+      "menu_name": "곰탕",
+      "menu_name_en": "Gomtang",
+      "description": "Beef bone soup",
+      "source": "dalle3",
+      "model": "dall-e-3",
+      "size": "1024x1024",
+      "quality": "standard",
+      "original_prompt": "Professional food photography of Gomtang (곰탕), a traditional Korean dish.\n\nBeef bone soup.\n\nThe dish is beautifully plated in authentic Korean tableware (ceramic bowl or plate).\nStudio lighting with soft shadows. Clean white background or wooden table.\nTop-down view (bird's eye) or 45-degree angle.\nGarnished with sesame seeds, green onions, or other traditional Korean garnishes.\nPhotorealistic, appetizing, restaurant-quality presentation.\nHigh resolution, sharp focus, vibrant colors.",
+      "revised_prompt": "Create a professional food photograph of Gomtang, a traditional Korean beef bone soup. The dish is aesthetically presented in an authentic Korean ceramic bowl or plate. The lighting is studio-grade, creating soft shadows and contrast. The background is a sterile white or a rustic wooden table to provide a contrast to the fare. The dish should be viewed from a bird's eye perspective or a 45-degree angle, emphasizing the depth and texture of the soup. The Gomtang is garnished with sesame seeds, chopped green onions, or other traditional Korean garnishes. The overall visual representation should be photorealistic, mouth-watering, and worthy of a high-end restaurant. The image should be of high resolution, with sharp focus on the dish, and the colors vibrant and inviting.",
+      "generated_at": "2026-02-19T08:48:20.987237",
+      "cost_usd": 0.08
+    }
+  ],
+  "sources": {
+    "wikipedia": {
+      "collected": 0,
+      "failed": 28,
+      "skipped": 3,
+      "last_updated": "2026-02-19 08:15:41"
+    },
+    "dalle3": {
+      "generated": 1,
+      "failed": 52,
+      "total_cost_usd": 0.08,
+      "last_updated": "2026-02-19T09:01:56.173651"
+    }
+  }
+}

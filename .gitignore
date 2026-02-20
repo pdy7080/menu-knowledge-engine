@@ -71,3 +71,8 @@ node_modules/
 package-lock.json
 npm-debug.log
 yarn-error.log
+
+# API Keys and secrets
+enrich_content_claude.py
+set_api_key.sh
+.claude/settings.local.json

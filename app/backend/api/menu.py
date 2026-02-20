@@ -26,6 +26,57 @@ class MenuIdentifyRequest(BaseModel):
     menu_name_ko: str = Field(..., min_length=1, description="Korean menu name (cannot be empty)")
 
 
+async def _resolve_similar_dishes(similar_dishes: List[str], db: AsyncSession) -> List[Dict[str, Any]]:
+    """
+    Convert similar_dishes from string array to full menu objects
+
+    Args:
+        similar_dishes: List of dish name strings (e.g., ["갈비구이 (Galbi Gui...)", ...])
+        db: Database session
+
+    Returns:
+        List of menu objects with id, name_ko, name_en, image_url
+    """
+    if not similar_dishes:
+        return []
+
+    resolved = []
+    for dish_string in similar_dishes:
+        # Extract Korean name (before parenthesis or dash)
+        # "갈비구이 (Galbi Gui - Description)" -> "갈비구이"
+        name_ko = dish_string.split('(')[0].strip()
+
+        try:
+            # Look up in canonical_menus by name_ko
+            result = await db.execute(
+                select(CanonicalMenu).where(CanonicalMenu.name_ko == name_ko).limit(1)
+            )
+            menu = result.scalar_one_or_none()
+
+            if menu:
+                resolved.append({
+                    "id": str(menu.id),
+                    "name_ko": menu.name_ko,
+                    "name_en": menu.name_en,
+                    "image_url": menu.image_url or (menu.primary_image.get('url') if menu.primary_image else None),
+                    "spice_level": menu.spice_level
+                })
+            else:
+                # Fallback: return string-based object
+                resolved.append({
+                    "id": None,
+                    "name_ko": name_ko,
+                    "name_en": dish_string.split('(')[1].split(')')[0] if '(' in dish_string else name_ko,
+                    "image_url": None,
+                    "spice_level": 0
+                })
+        except Exception as e:
+            logger.warning(f"Failed to resolve similar dish '{dish_string}': {e}")
+            continue
+
+    return resolved
+
+
 def _serialize_canonical_menu(cm: CanonicalMenu, include_enriched: bool = False) -> Dict[str, Any]:
     """
     Serialize CanonicalMenu model to dict
@@ -167,11 +218,11 @@ async def get_canonical_menu_by_id(
     """
     Get single canonical menu by ID with full enriched content
 
-    Sprint 2 Phase 1: Returns all fields including:
+    Sprint 2 Phase 2: Returns all fields including:
     - primary_image, images
     - description_long_ko, description_long_en
     - regional_variants, preparation_steps, nutrition_detail
-    - flavor_profile, visitor_tips, similar_dishes
+    - flavor_profile, visitor_tips, similar_dishes (with full objects)
     - content_completeness
     """
     result = await db.execute(
@@ -182,7 +233,14 @@ async def get_canonical_menu_by_id(
     if not menu:
         raise HTTPException(status_code=404, detail=f"Menu not found: {menu_id}")
 
-    return _serialize_canonical_menu(menu, include_enriched=True)
+    # Serialize menu data
+    menu_data = _serialize_canonical_menu(menu, include_enriched=True)
+
+    # Resolve similar_dishes to full objects (Sprint 2 Phase 2)
+    if menu.similar_dishes:
+        menu_data['similar_dishes'] = await _resolve_similar_dishes(menu.similar_dishes, db)
+
+    return menu_data
 
 
 @router.get("/canonical-menus/{menu_id}/images")

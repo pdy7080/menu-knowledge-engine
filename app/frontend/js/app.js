@@ -13,8 +13,140 @@ const CONFIG = {
         IDENTIFY: '/api/v1/menu/identify',
         HEALTH: '/health'
     },
-    LANGUAGE: 'en', // Current language (v0.1: EN only)
+    LANGUAGE: 'en', // Default language (managed by LanguageManager)
 };
+
+// ===========================
+// Language Manager (Multi-Language Support)
+// ===========================
+const LanguageManager = {
+    SUPPORTED_LANGUAGES: ['en', 'ja', 'zh'],
+    STORAGE_KEY: 'menu_guide_language',
+
+    /**
+     * Initialize language system
+     */
+    init() {
+        // Load saved language or default to English
+        const savedLang = localStorage.getItem(this.STORAGE_KEY);
+        const currentLang = this.SUPPORTED_LANGUAGES.includes(savedLang) ? savedLang : 'en';
+
+        CONFIG.LANGUAGE = currentLang;
+        this.updateUILanguageButtons(currentLang);
+
+        console.log(`🌐 Language initialized: ${currentLang}`);
+    },
+
+    /**
+     * Get current language
+     */
+    getCurrentLanguage() {
+        return CONFIG.LANGUAGE;
+    },
+
+    /**
+     * Set language and persist to localStorage
+     */
+    setLanguage(lang) {
+        if (!this.SUPPORTED_LANGUAGES.includes(lang)) {
+            console.warn(`⚠️ Unsupported language: ${lang}`);
+            return;
+        }
+
+        CONFIG.LANGUAGE = lang;
+        localStorage.setItem(this.STORAGE_KEY, lang);
+        this.updateUILanguageButtons(lang);
+
+        console.log(`✅ Language changed to: ${lang}`);
+    },
+
+    /**
+     * Update language button states
+     */
+    updateUILanguageButtons(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            const btnLang = btn.getAttribute('data-lang');
+            if (btnLang === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+};
+
+/**
+ * Get localized field from object with fallback chain
+ * @param {Object} obj - Object containing localized fields
+ * @param {string} fieldKey - Field key without language suffix (e.g., 'name', 'explanation_short')
+ * @returns {string} - Localized value with fallback
+ */
+function getLocalizedField(obj, fieldKey) {
+    if (!obj) return '';
+
+    const lang = LanguageManager.getCurrentLanguage();
+
+    // Special handling for JSONB fields (explanation_short, explanation_long, cultural_context)
+    const jsonbFields = ['explanation_short', 'explanation_long', 'cultural_context'];
+    if (jsonbFields.includes(fieldKey)) {
+        if (typeof obj[fieldKey] === 'object') {
+            // Fallback chain: current lang → en → ko
+            const langMap = { 'ja': 'ja', 'zh': 'zh', 'en': 'en' };
+            return obj[fieldKey][langMap[lang]] || obj[fieldKey]['en'] || obj[fieldKey]['ko'] || '';
+        }
+        return obj[fieldKey] || '';
+    }
+
+    // Regular fields (name_en, name_ja, name_zh_cn)
+    const langSuffixes = {
+        'en': '',       // name_en → name + _en
+        'ja': '_ja',    // name_ja
+        'zh': '_zh_cn'  // name_zh_cn (simplified Chinese)
+    };
+
+    const suffix = langSuffixes[lang] || '';
+    const localizedKey = `${fieldKey}${suffix}`;
+
+    // Fallback chain: ja/zh → en → ko
+    return obj[localizedKey] || obj[`${fieldKey}_en`] || obj[`${fieldKey}_ko`] || obj[fieldKey] || '';
+}
+
+/**
+ * Get modifier translation (locale-aware)
+ * @param {Object} modifier - Modifier object from API
+ * @returns {string} - Translated modifier text
+ */
+function getModifierTranslation(modifier) {
+    if (!modifier) return '';
+
+    const lang = LanguageManager.getCurrentLanguage();
+
+    // Fallback chain: ja/zh → en → ko
+    if (lang === 'ja' && modifier.translation_ja) {
+        return modifier.translation_ja;
+    }
+    if (lang === 'zh' && modifier.translation_zh) {
+        return modifier.translation_zh;
+    }
+    return modifier.translation_en || modifier.text_ko || '';
+}
+
+/**
+ * Get ingredient name (locale-aware)
+ * @param {Object} ingredient - Ingredient object {ko: "...", en: "...", ja: "...", zh: "..."}
+ * @returns {string} - Translated ingredient name
+ */
+function getIngredientName(ingredient) {
+    if (!ingredient) return '';
+    if (typeof ingredient === 'string') return ingredient;
+
+    const lang = LanguageManager.getCurrentLanguage();
+
+    // Fallback chain: ja/zh → en → ko
+    if (lang === 'ja' && ingredient.ja) return ingredient.ja;
+    if (lang === 'zh' && ingredient.zh) return ingredient.zh;
+    return ingredient.en || ingredient.ko || '';
+}
 
 // ===========================
 // DOM Elements
@@ -189,8 +321,6 @@ function createMenuCard(result) {
     // Successful match
     const {
         name_ko,
-        name_en,
-        explanation_short,
         main_ingredients,
         allergens,
         spice_level,
@@ -198,24 +328,32 @@ function createMenuCard(result) {
         image_url
     } = canonical;
 
-    const descriptionEn = explanation_short?.en || 'No description available';
+    // Localized fields
+    const nameLocalized = getLocalizedField(canonical, 'name');
+    const descriptionLocalized = getLocalizedField(canonical, 'explanation_short');
+    const currentLang = LanguageManager.getCurrentLanguage();
+
     const spiceEmoji = getSpiceEmoji(spice_level || 0);
     const difficultyEmoji = getDifficultyEmoji(difficulty_score || 1);
 
-    // Create composed English name
-    let composedNameEn = '';
+    // Create composed name (with modifiers)
+    let composedName = '';
     if (modifiers && modifiers.length > 0) {
-        const modifierTexts = modifiers.map(m => m.translation_en).join(' ');
-        composedNameEn = `${modifierTexts} ${name_en.split('(')[0].trim()}`;
+        const modifierTexts = modifiers.map(m => getModifierTranslation(m)).join(' ');
+        composedName = `${modifierTexts} ${nameLocalized.split('(')[0].trim()}`;
     } else {
-        composedNameEn = name_en.split('(')[0].trim();
+        composedName = nameLocalized.split('(')[0].trim();
     }
+
+    // Add language indicator if not in original language
+    const langSuffix = currentLang !== 'en' ? ` (${currentLang.toUpperCase()})` : '';
+    const description = descriptionLocalized || 'No description available';
 
     // Food image HTML
     const imageHtml = image_url ? `
         <div class="menu-image-container">
-            <img src="${escapeHtml(image_url)}" 
-                 alt="${escapeHtml(name_en)}" 
+            <img src="${escapeHtml(image_url)}"
+                 alt="${escapeHtml(nameLocalized)}"
                  class="menu-image"
                  loading="lazy"
                  onerror="this.parentElement.classList.add('image-error'); this.style.display='none';">
@@ -224,11 +362,11 @@ function createMenuCard(result) {
     ` : '';
 
     let html = `
-        <div class="menu-card">
+        <div class="menu-card" onclick="navigateToMenuDetail('${escapeHtml(name_ko)}')" style="cursor: pointer;">
             ${imageHtml}
             <div class="menu-name-ko korean-text">${escapeHtml(name_ko)}</div>
-            <div class="menu-name-en">${escapeHtml(name_en)}</div>
-            <div class="menu-name-composed">${escapeHtml(composedNameEn)}</div>
+            <div class="menu-name-en">${escapeHtml(nameLocalized)}${langSuffix}</div>
+            <div class="menu-name-composed">${escapeHtml(composedName)}</div>
 
             <div class="menu-divider"></div>
 
@@ -242,7 +380,7 @@ function createMenuCard(result) {
             </div>
 
             <div class="menu-description">
-                ${escapeHtml(descriptionEn)}
+                ${escapeHtml(description)}
             </div>
     `;
 
@@ -268,7 +406,7 @@ function createMenuCard(result) {
                 <div class="modifier-item">
                     <span class="modifier-ko korean-text">${escapeHtml(modifier.text_ko)}</span>
                     <span>=</span>
-                    <span class="modifier-en">${escapeHtml(modifier.translation_en)}</span>
+                    <span class="modifier-en">${escapeHtml(getModifierTranslation(modifier))}</span>
                 </div>
             `;
         });
@@ -293,13 +431,22 @@ function createMenuCard(result) {
 
     html += `
             <div class="menu-divider"></div>
-            <div style="text-align: right; font-size: 0.85rem; color: ${confidenceColor};">
-                ✓ ${confidencePct}% Match (${match_type})
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 0.85rem; color: ${confidenceColor};">
+                    ✓ ${confidencePct}% Match (${match_type})
+                </div>
+                <div style="color: var(--primary-color); font-weight: 600; font-size: 0.9rem;">
+                    Full details →
+                </div>
             </div>
         </div>
     `;
 
     return html;
+}
+
+function navigateToMenuDetail(menuName) {
+    window.location.href = `menu-detail.html?name=${encodeURIComponent(menuName)}`;
 }
 
 function displayResults(results) {
@@ -387,6 +534,27 @@ function initEventListeners() {
     DOM.dishTags.forEach(tag => {
         tag.addEventListener('click', handleDishTagClick);
     });
+
+    // Language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', handleLanguageSwitch);
+    });
+}
+
+/**
+ * Handle language switching
+ */
+function handleLanguageSwitch(event) {
+    const selectedLang = event.currentTarget.getAttribute('data-lang');
+    LanguageManager.setLanguage(selectedLang);
+
+    // Re-render current view
+    if (state.currentView === 'results' && state.searchResults.length > 0) {
+        // Re-render search results with new language
+        renderResults(state.searchResults);
+    }
+
+    console.log(`🌐 Language switched to: ${selectedLang}`);
 }
 
 // ===========================
@@ -394,6 +562,9 @@ function initEventListeners() {
 // ===========================
 async function init() {
     console.log('🍜 Menu Guide Korea - Initializing...');
+
+    // Initialize language system
+    LanguageManager.init();
 
     // Check API health
     try {

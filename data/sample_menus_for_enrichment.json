@@ -1,0 +1,112 @@
+[
+  {
+    "id": "sample-001",
+    "name_ko": "김치찌개",
+    "name_en": "Kimchi Jjigae (Kimchi Stew)",
+    "main_ingredients": [
+      {"ko": "김치", "en": "kimchi"},
+      {"ko": "돼지고기", "en": "pork"},
+      {"ko": "두부", "en": "tofu"}
+    ],
+    "spice_level": 3
+  },
+  {
+    "id": "sample-002",
+    "name_ko": "된장찌개",
+    "name_en": "Doenjang Jjigae (Soybean Paste Stew)",
+    "main_ingredients": [
+      {"ko": "된장", "en": "soybean paste"},
+      {"ko": "두부", "en": "tofu"},
+      {"ko": "애호박", "en": "zucchini"}
+    ],
+    "spice_level": 1
+  },
+  {
+    "id": "sample-003",
+    "name_ko": "불고기",
+    "name_en": "Bulgogi (Korean BBQ Beef)",
+    "main_ingredients": [
+      {"ko": "소고기", "en": "beef"},
+      {"ko": "양파", "en": "onion"},
+      {"ko": "당근", "en": "carrot"}
+    ],
+    "spice_level": 0
+  },
+  {
+    "id": "sample-004",
+    "name_ko": "비빔밥",
+    "name_en": "Bibimbap (Mixed Rice with Vegetables)",
+    "main_ingredients": [
+      {"ko": "밥", "en": "rice"},
+      {"ko": "나물", "en": "seasoned vegetables"},
+      {"ko": "고추장", "en": "gochujang"}
+    ],
+    "spice_level": 2
+  },
+  {
+    "id": "sample-005",
+    "name_ko": "냉면",
+    "name_en": "Naengmyeon (Cold Noodles)",
+    "main_ingredients": [
+      {"ko": "메밀면", "en": "buckwheat noodles"},
+      {"ko": "육수", "en": "broth"},
+      {"ko": "무", "en": "radish"}
+    ],
+    "spice_level": 1
+  },
+  {
+    "id": "sample-006",
+    "name_ko": "삼계탕",
+    "name_en": "Samgyetang (Ginseng Chicken Soup)",
+    "main_ingredients": [
+      {"ko": "영계", "en": "young chicken"},
+      {"ko": "인삼", "en": "ginseng"},
+      {"ko": "찹쌀", "en": "glutinous rice"}
+    ],
+    "spice_level": 0
+  },
+  {
+    "id": "sample-007",
+    "name_ko": "떡볶이",
+    "name_en": "Tteokbokki (Spicy Rice Cakes)",
+    "main_ingredients": [
+      {"ko": "떡", "en": "rice cakes"},
+      {"ko": "고추장", "en": "gochujang"},
+      {"ko": "어묵", "en": "fish cakes"}
+    ],
+    "spice_level": 4
+  },
+  {
+    "id": "sample-008",
+    "name_ko": "잡채",
+    "name_en": "Japchae (Stir-fried Glass Noodles)",
+    "main_ingredients": [
+      {"ko": "당면", "en": "glass noodles"},
+      {"ko": "야채", "en": "vegetables"},
+      {"ko": "소고기", "en": "beef"}
+    ],
+    "spice_level": 0
+  },
+  {
+    "id": "sample-009",
+    "name_ko": "갈비탕",
+    "name_en": "Galbitang (Short Rib Soup)",
+    "main_ingredients": [
+      {"ko": "소갈비", "en": "beef short ribs"},
+      {"ko": "무", "en": "radish"},
+      {"ko": "대파", "en": "green onions"}
+    ],
+    "spice_level": 0
+  },
+  {
+    "id": "sample-010",
+    "name_ko": "순두부찌개",
+    "name_en": "Sundubu Jjigae (Soft Tofu Stew)",
+    "main_ingredients": [
+      {"ko": "순두부", "en": "soft tofu"},
+      {"ko": "해산물", "en": "seafood"},
+      {"ko": "고춧가루", "en": "red pepper flakes"}
+    ],
+    "spice_level": 3
+  }
+]

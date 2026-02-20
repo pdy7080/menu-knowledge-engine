@@ -45,6 +45,23 @@ class Settings(BaseSettings):
     REDIS_PASSWORD: str = ""
     CACHE_ENABLED: bool = True
 
+    # CloudFlare R2 Storage
+    STORAGE_PROVIDER: str = "local"  # "local" or "r2"
+    R2_ACCOUNT_ID: str = ""
+    R2_ACCESS_KEY_ID: str = ""
+    R2_SECRET_ACCESS_KEY: str = ""
+    R2_BUCKET_NAME: str = ""
+    R2_PUBLIC_URL: str = ""
+
+    # Ollama (Local LLM)
+    OLLAMA_BASE_URL: str = "http://localhost:11434"
+    OLLAMA_MODEL: str = "qwen2.5:7b"
+    OLLAMA_TIMEOUT: int = 120
+
+    # Automation
+    AUTOMATION_ENABLED: bool = False
+    DAILY_MENU_TARGET: int = 50
+
     @property
     def cors_origins(self) -> List[str]:
         """Parse CORS origins from string"""

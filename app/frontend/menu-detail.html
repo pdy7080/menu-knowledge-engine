@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Korean Menu Detailed Information">
+    <title>Menu Detail - Menu Guide Korea</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS (Image Carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu-detail.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Loading menu details...</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="detail-header">
+            <button id="backBtn" class="back-btn">← Back to Search</button>
+            <div class="logo">🍜 Menu Guide Korea</div>
+        </header>
+
+        <!-- Menu Detail Section -->
+        <section id="menuDetailSection" class="menu-detail-section">
+            <!-- Image Carousel -->
+            <div id="imageCarouselContainer" class="image-carousel-container">
+                <!-- Dynamic carousel will be inserted here -->
+            </div>
+
+            <!-- Menu Title -->
+            <div class="menu-title-section">
+                <h1 id="menuNameKo" class="menu-name-ko korean-text">-</h1>
+                <h2 id="menuNameEn" class="menu-name-en">-</h2>
+                <div id="menuStats" class="menu-stats-inline">
+                    <!-- Stats will be inserted dynamically -->
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="description">📖 Description</button>
+                <button class="tab-btn" data-tab="preparation">👨‍🍳 How to Make</button>
+                <button class="tab-btn" data-tab="nutrition">🥗 Nutrition</button>
+                <button class="tab-btn" data-tab="tips">💡 Visitor Tips</button>
+            </div>
+
+            <!-- Tab Content Panels -->
+            <div class="tab-content-panels">
+                <!-- Description Tab -->
+                <div id="descriptionTab" class="tab-panel active">
+                    <div id="descriptionContent">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <!-- Preparation Tab -->
+                <div id="preparationTab" class="tab-panel">
+                    <div id="preparationContent">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <!-- Nutrition Tab -->
+                <div id="nutritionTab" class="tab-panel">
+                    <div id="nutritionContent">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <!-- Tips Tab -->
+                <div id="tipsTab" class="tab-panel">
+                    <div id="tipsContent">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar Dishes Section -->
+            <div id="similarDishesSection" class="similar-dishes-section">
+                <h2 class="section-title">🔀 Similar Dishes</h2>
+                <div id="similarDishesContainer" class="similar-dishes-container">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Section -->
+        <section id="errorSection" class="error-section hidden">
+            <div class="error-card">
+                <div class="error-icon">❌</div>
+                <h2>Menu Not Found</h2>
+                <p id="errorMessage">The requested menu could not be loaded.</p>
+                <button id="errorBackBtn" class="btn-primary">← Back to Search</button>
+            </div>
+        </section>
+
+        <!-- Global Disclaimer -->
+        <footer class="app-disclaimer">
+            <p>⚠️ <strong>Disclaimer:</strong> Nutritional information and allergen data are based on general Korean recipes and may differ from actual restaurant preparations. Always verify with restaurant staff if you have allergies or dietary restrictions.</p>
+            <p class="image-attribution">📷 Food images sourced from public domain, Wikimedia Commons, and AI-generated content where indicated.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/menu-detail-components.js"></script>
+    <script src="js/enriched-components.js"></script>
+    <script src="js/menu-detail.js"></script>
+</body>
+</html>

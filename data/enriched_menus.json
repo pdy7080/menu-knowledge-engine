@@ -1,0 +1,355 @@
+{
+  "enriched_count": 5,
+  "failed_count": 107,
+  "success_rate": 0.044642857142857144,
+  "enriched_at": "2026-02-19T11:35:26.655135",
+  "model": "gemini-2.5-flash",
+  "provider": "Google Gemini (REST API)",
+  "menus": [
+    {
+      "name_ko": "갈비탕",
+      "name_en": "Galbitang (Beef Short Rib Soup)",
+      "concept": "탕",
+      "content": {
+        "description_ko": "소갈비를 오랜 시간 푹 고아내어 깊고 진한 맛을 내는 맑은 국물 요리입니다. 부드럽게 익은 갈비살과 무, 대파 등이 어우러져 시원하고 담백한 맛이 일품이며, 기력 회복에 좋은 보양식으로도 사랑받습니다. 밥과 함께 든든한 한 끼 식사로 좋습니다.",
+        "description_en": "Galbitang is a clear, hearty soup made by simmering beef short ribs for hours, resulting in a rich and profound flavor. The tender rib meat, combined with radish and green onions, creates a refreshing and clean taste. It's cherished as a restorative dish, perfect for a nourishing meal with rice.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "맑고 깔끔한 국물에 당면을 넣어 푸짐하게 즐기는 것이 특징입니다."
+          },
+          {
+            "name": "전라도식",
+            "difference": "좀 더 진한 육수에 대추나 인삼 등 약재를 넣어 보양식의 성격을 강조하기도 합니다."
+          },
+          {
+            "name": "경상도식",
+            "difference": "맑은 국물에 고춧가루를 살짝 풀어 얼큰함을 더하거나, 무를 큼직하게 썰어 넣어 시원한 맛을 강조하기도 합니다."
+          }
+        ],
+        "preparation_steps": [
+          "1단계: 재료 준비 - 소갈비는 핏물을 충분히 빼고, 무는 큼직하게 썰고, 대파와 마늘은 손질합니다.",
+          "2단계: 육수 끓이기 - 핏물 뺀 갈비를 한번 데쳐 불순물을 제거한 후, 물과 함께 냄비에 넣고 무, 마늘을 넣어 오랜 시간 푹 고아 육수를 냅니다.",
+          "3단계: 양념 및 간 맞추기 - 육수가 충분히 우러나면 갈비와 무를 건져내고, 국물에 소금, 후추 등으로 간을 맞춥니다.",
+          "4단계: 주재료 넣기 - 건져낸 갈비는 먹기 좋게 손질하고, 다시 국물에 넣어 데웁니다.",
+          "5단계: 완성 - 그릇에 갈비와 무를 담고 맑은 국물을 부은 후, 송송 썬 대파를 고명으로 올려 완성합니다."
+        ],
+        "nutrition": {
+          "calories": 450,
+          "protein_g": 35,
+          "fat_g": 25,
+          "carbs_g": 20,
+          "serving_size": "1인분 (450g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 0
+        },
+        "visitor_tips": {
+          "ordering": "맑고 시원한 국물 맛을 즐기고 싶다면 갈비탕을 주문하세요. 뼈에 붙은 살을 발라 먹는 재미가 있습니다. 당면 추가 여부를 확인하는 것도 좋습니다.",
+          "eating": "밥을 말아 먹거나, 갈비살을 건져 양념장에 찍어 먹습니다. 김치, 깍두기와 함께 먹으면 더욱 맛있습니다. 국물이 뜨거우니 조심하세요.",
+          "pairing": "시원한 국물과 잘 어울리는 깍두기, 배추김치와 함께 드세요. 소주나 막걸리 등 전통주와도 궁합이 좋습니다."
+        },
+        "similar_dishes": [
+          {
+            "name": "설렁탕",
+            "similarity": "소뼈를 푹 고아 만든 뽀얀 국물 요리로, 갈비탕과 마찬가지로 밥을 말아 먹는 보양식입니다. 국물의 색과 주재료(갈비 vs 사골)에서 차이가 있습니다."
+          },
+          {
+            "name": "곰탕",
+            "similarity": "설렁탕과 비슷하게 소의 여러 부위를 오랜 시간 고아 만든 맑거나 뽀얀 국물 요리입니다. 갈비탕보다 고기 종류가 다양하고 국물이 더 진할 수 있습니다."
+          },
+          {
+            "name": "삼계탕",
+            "similarity": "닭 한 마리에 인삼, 대추 등을 넣어 끓인 맑은 국물 요리로, 갈비탕처럼 기력 회복에 좋은 보양식입니다. 주재료가 닭이라는 점에서 다릅니다."
+          }
+        ],
+        "cultural_background": {
+          "history": "갈비탕은 조선시대 궁중 연회 음식으로 기록될 만큼 유서 깊은 음식입니다. 귀한 소갈비를 사용했기에 주로 특별한 날이나 잔치상에 올랐습니다. 현대에 와서는 대중적인 보양식으로 자리 잡았습니다.",
+          "origin": "한반도 전역에서 즐겨 먹던 음식으로, 특히 궁중 요리에서 발전하여 전국으로 퍼져나갔습니다.",
+          "cultural_notes": "결혼식이나 환갑잔치 등 중요한 가족 행사에서 손님에게 대접하는 대표적인 음식입니다. 따뜻하고 든든한 한 그릇으로 가족과 손님에 대한 정성을 표현하는 의미가 있습니다. 추운 겨울철 몸을 따뜻하게 해주는 음식으로도 인기가 많습니다."
+        }
+      },
+      "enriched_at": "2026-02-19T11:24:52.184783"
+    },
+    {
+      "name_ko": "곰탕",
+      "name_en": "Gomtang (Beef Bone Soup)",
+      "concept": "탕",
+      "content": {
+        "description_ko": "곰탕은 소뼈와 양지, 사태 등의 고기를 오랜 시간 푹 고아내어 깊고 진한 맛을 내는 한국 전통 국물 요리입니다. 뽀얗고 구수한 국물은 속을 편안하게 해주며, 밥을 말아 먹으면 든든한 한 끼 식사가 됩니다. 기력 보충에 좋아 남녀노소 모두에게 사랑받는 보양식입니다.",
+        "description_en": "Gomtang is a traditional Korean beef bone soup, celebrated for its rich, milky white broth achieved by slow-simmering beef bones and various cuts of beef like brisket for many hours. This deeply savory and comforting dish is often served with rice, offering a hearty and nutritious meal that is cherished by all ages for its restorative properties.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "맑거나 뽀얀 국물에 양지, 사태 등 다양한 부위를 사용하며, 깔끔하고 담백한 맛이 특징입니다."
+          },
+          {
+            "name": "나주식 (전라도)",
+            "difference": "맑고 투명한 국물에 양지를 주로 사용하며, 밥을 토렴하여 내는 것이 특징입니다. 깔끔하고 시원한 맛을 자랑합니다."
+          },
+          {
+            "name": "하동식 (경상도)",
+            "difference": "역시 맑은 국물을 선호하며, 주로 양지나 잡뼈를 사용하여 깔끔하고 개운한 맛을 강조합니다. 고명으로 얇게 썬 고기를 얹습니다."
+          }
+        ],
+        "preparation_steps": [
+          "1단계: 소뼈와 고기 손질 (핏물 제거 및 세척)",
+          "2단계: 뼈 초벌 삶기 (불순물 제거 후 깨끗이 헹구기)",
+          "3단계: 육수 우려내기 (소뼈를 장시간 푹 고아 진한 국물 만들기)",
+          "4단계: 고기 삶기 및 썰기 (양지, 사태 등을 삶아 먹기 좋게 썰기)",
+          "5단계: 완성 및 상차림 (밥과 함께 담고 파, 소금, 후추로 간 맞추기)"
+        ],
+        "nutrition": {
+          "calories": 480,
+          "protein_g": 25,
+          "fat_g": 20,
+          "carbs_g": 55,
+          "serving_size": "1인분 (450g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "주문 시 밥을 국물에 토렴할지, 따로 받을지 선택할 수 있습니다. 고기 추가나 특곰탕(고기 양이 많은) 옵션도 확인해보세요.",
+          "eating": "개인의 취향에 따라 소금, 후추로 간을 맞추고 송송 썬 파를 듬뿍 넣어 드세요. 밥을 말아 깍두기나 김치와 함께 먹으면 더욱 맛있습니다.",
+          "pairing": "잘 익은 깍두기와 아삭한 배추김치는 곰탕의 맛을 한층 돋우는 최고의 궁합입니다. 매콤한 청양고추나 다진 마늘을 곁들여도 좋습니다."
+        },
+        "similar_dishes": [
+          {
+            "name": "설렁탕 (Seolleongtang)",
+            "similarity": "소뼈를 고아낸 뽀얀 국물이 유사하나, 다양한 소 부위(머리, 내장 등)를 함께 사용하는 경우가 많습니다."
+          },
+          {
+            "name": "갈비탕 (Galbitang)",
+            "similarity": "소고기 국물 요리라는 점은 같지만, 주로 갈비를 사용하여 국물이 맑고 간장 양념으로 맛을 내는 경우가 많습니다."
+          },
+          {
+            "name": "사골국 (Sagol-guk)",
+            "similarity": "소 사골을 고아낸 국물이라는 점에서 유사하나, 보통 고기 없이 뼈만으로 육수를 내어 다른 요리의 베이스로 활용되거나 간을 하여 먹습니다."
+          }
+        ],
+        "cultural_background": {
+          "history": "곰탕은 오랜 역사를 지닌 한국의 전통 음식으로, 조선시대부터 서민과 왕실 모두에게 사랑받던 보양식이었습니다. 소 한 마리를 온전히 활용하기 위한 지혜가 담긴 요리입니다.",
+          "origin": "정확한 기원은 불분명하나, 소를 사육하던 지역에서 자연스럽게 발전했을 것으로 추정됩니다. 특히 나주 곰탕 등 지역별 특색이 강합니다.",
+          "cultural_notes": "한국인에게 곰탕은 단순한 음식을 넘어 따뜻한 위로와 기력을 상징합니다. 추운 날씨나 몸이 허할 때 찾는 대표적인 보양식이며, 가족의 건강을 기원하는 마음이 담긴 음식입니다."
+        }
+      },
+      "enriched_at": "2026-02-19T11:25:51.015901"
+    },
+    {
+      "name_ko": "설렁탕",
+      "name_en": "Seolleongtang (Ox Bone Soup)",
+      "concept": "탕",
+      "content": {
+        "description_ko": "오랜 시간 소뼈를 고아내어 뽀얗고 진한 국물을 우려낸 한국의 대표적인 보양식입니다. 부드러운 양지살과 소면이 함께 제공되며, 취향에 따라 소금, 후추, 다진 파를 넣어 간을 맞춰 먹습니다. 속을 따뜻하게 데워주는 깊고 구수한 맛이 일품인 국민 보양 국물 요리입니다.",
+        "description_en": "Seolleongtang is a beloved Korean comfort food. Ox bones are simmered for hours to create its signature milky, rich broth. Served with tender beef brisket and thin wheat noodles, it's seasoned with salt, pepper, and green onions, offering a deeply savory, restorative taste.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "맑고 깔끔한 국물 맛이 특징이며, 주로 소면과 양지살을 넣어 제공합니다. 간은 손님이 직접 맞춰 먹도록 하는 것이 일반적입니다."
+          },
+          {
+            "name": "전라도식",
+            "difference": "서울식보다 좀 더 진하고 깊은 맛을 내며, 때로는 약간의 고춧가루나 다진 마늘을 추가하여 풍미를 더하기도 합니다. 고명도 더 풍성하게 올리는 경향이 있습니다."
+          },
+          {
+            "name": "경상도식",
+            "difference": "사골 외에 잡뼈를 함께 넣어 더욱 진하고 구수한 맛을 강조하며, 고기 양을 푸짐하게 제공하는 경우가 많습니다. 지역에 따라 된장을 살짝 풀어 넣기도 합니다."
+          }
+        ],
+        "preparation_steps": [
+          "1단계: 소뼈와 잡뼈를 찬물에 담가 핏물을 충분히 빼고 깨끗이 씻어 준비합니다.",
+          "2단계: 핏물 뺀 뼈를 끓는 물에 살짝 데쳐 불순물을 제거한 후, 다시 찬물에 헹궈 깨끗한 물과 함께 솥에 넣고 10시간 이상 고아 뽀얀 육수를 만듭니다.",
+          "3단계: 육수를 고는 중간에 양지머리나 사태 등 고기를 삶아 건져 식힌 후 먹기 좋게 썰어 준비합니다.",
+          "4단계: 고아낸 육수에서 뼈를 건져내고 기름을 걷어낸 후, 썰어둔 고기와 소면을 넣고 한소끔 더 끓입니다.",
+          "5단계: 그릇에 담아 송송 썬 대파를 고명으로 올리고, 소금과 후추로 간을 맞춰 따뜻하게 냅니다."
+        ],
+        "nutrition": {
+          "calories": 450,
+          "protein_g": 35,
+          "fat_g": 25,
+          "carbs_g": 30,
+          "serving_size": "1인분 (450g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "주문 시 고기나 소면 추가 여부를 선택할 수 있습니다. 특 사이즈를 주문하면 고기 양이 더 많습니다.",
+          "eating": "테이블에 비치된 소금, 후추, 다진 파를 취향에 맞게 넣어 간을 맞춥니다. 밥을 말아 깍두기나 배추김치와 함께 먹으면 더욱 맛있습니다.",
+          "pairing": "잘 익은 깍두기와 아삭한 배추김치는 설렁탕의 느끼함을 잡아주고 맛을 한층 돋우는 최고의 궁합입니다. 밥과 함께 든든한 한 끼 식사로 좋습니다."
+        },
+        "similar_dishes": [
+          {
+            "name": "곰탕 (Gomtang)",
+            "similarity": "설렁탕과 유사하게 소뼈를 고아 만든 국물이지만, 주로 양지, 사태 등 특정 부위의 고기를 사용하여 국물이 좀 더 맑고 깔끔한 경우가 많습니다."
+          },
+          {
+            "name": "사골곰탕 (Sagol Gomtang)",
+            "similarity": "사골(소의 다리뼈)을 주재료로 하여 설렁탕처럼 뽀얗게 우려낸 국물 요리입니다. 설렁탕과 거의 동일하게 취급되기도 합니다."
+          },
+          {
+            "name": "갈비탕 (Galbitang)",
+            "similarity": "소갈비를 주재료로 하여 맑게 끓여낸 국물 요리입니다. 설렁탕처럼 보양식으로 즐겨 먹지만, 국물이 뽀얗지 않고 맑은 것이 특징입니다."
+          }
+        ],
+        "cultural_background": {
+          "history": "설렁탕은 조선시대 임금님이 백성들과 함께 농사의 풍년을 기원하며 제사를 지내던 선농단(先農壇)에서 유래했다는 설이 있습니다. 제사를 지낸 후 소를 잡아 국을 끓여 백성들에게 나누어 주었다고 전해집니다.",
+          "origin": "조선시대 한양(현 서울) 지역에서 서민들의 보양식으로 발전했습니다.",
+          "cultural_notes": "추운 겨울이나 몸이 허할 때 기력을 보충하는 대표적인 보양식으로 사랑받습니다. 해장국으로도 즐겨 찾으며, 한국인의 일상에 깊이 자리 잡은 소울푸드입니다."
+        }
+      },
+      "enriched_at": "2026-02-19T11:26:19.475355"
+    },
+    {
+      "name_ko": "청국장찌개",
+      "name_en": "Cheonggukjang Jjigae (Fermented Soybean Stew)",
+      "concept": "찌개",
+      "content": {
+        "description_ko": "청국장찌개는 발효시킨 콩을 으깨어 만든 청국장을 주재료로 끓여내는 한국의 대표적인 찌개입니다. 특유의 깊고 구수한 향과 맛이 일품이며, 돼지고기, 두부, 김치 등을 넣어 더욱 풍성한 맛을 냅니다. 쿰쿰하면서도 중독성 있는 발효향이 특징이며, 밥과 함께 든든한 한 끼 식사로 사랑받습니다. 한국인의 소울푸드 중 하나로, 영양가가 높고 소화에도 도움을 줍니다.",
+        "description_en": "Cheonggukjang Jjigae is a quintessential Korean stew made with crushed, fermented soybeans. It boasts a uniquely deep, savory, and pungent aroma and flavor, enriched with ingredients like pork, tofu, and kimchi. This stew is characterized by its distinctive fermented scent, which is surprisingly addictive, offering a hearty and nutritious meal often enjoyed with rice. It's a beloved comfort food, known for its high nutritional value and digestive benefits.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "비교적 맑은 육수를 사용하고, 쇠고기를 넣어 깔끔하면서도 깊은 맛을 내는 경향이 있습니다. 청국장 특유의 향이 강하지 않도록 조절하기도 합니다."
+          },
+          {
+            "name": "전라도식",
+            "difference": "멸치 육수를 진하게 내고, 묵은지나 고추장 등을 더해 더욱 칼칼하고 깊은 감칠맛을 강조합니다. 청국장 본연의 쿰쿰한 향을 즐기는 편입니다."
+          },
+          {
+            "name": "경상도식",
+            "difference": "해산물 육수를 기본으로 하여 시원한 맛을 더하고, 무나 시래기 등을 넣어 구수함과 함께 개운함을 추구합니다. 때로는 고춧가루를 넉넉히 넣어 칼칼하게 끓이기도 합니다."
+          }
+        ],
+        "preparation_steps": [
+          "1단계: 재료 준비",
+          "2단계: 육수 끓이기",
+          "3단계: 양념 넣기",
+          "4단계: 주재료 넣기",
+          "5단계: 완성"
+        ],
+        "nutrition": {
+          "calories": 480,
+          "protein_g": 25,
+          "fat_g": 18,
+          "carbs_g": 45,
+          "serving_size": "1인분 (400g)"
+        },
+        "flavor_profile": {
+          "spiciness": 1,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 5,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "청국장 특유의 강한 발효향에 익숙하지 않다면 주문 전 미리 확인하는 것이 좋습니다. 일반적으로 밥과 함께 제공되니 추가 주문 없이 즐길 수 있습니다.",
+          "eating": "뜨거운 찌개를 밥에 덜어 비벼 먹거나, 찌개 속 건더기와 밥을 함께 떠서 먹으면 좋습니다. 기본 반찬들과 곁들여 먹으면 더욱 풍성한 맛을 느낄 수 있습니다.",
+          "pairing": "고소한 맛을 더해줄 계란찜이나 매콤한 제육볶음과 잘 어울립니다. 시원한 막걸리나 소주와 함께 즐기기에도 좋습니다."
+        },
+        "similar_dishes": [
+          {
+            "name": "된장찌개",
+            "similarity": "한국의 대표적인 장류 찌개로, 콩을 발효시켜 만든 된장을 사용한다는 점에서 유사합니다. 구수하고 깊은 맛이 특징입니다."
+          },
+          {
+            "name": "김치찌개",
+            "similarity": "돼지고기, 두부, 김치 등 일부 재료를 공유하며, 한국인이 즐겨 찾는 찌개라는 점에서 비슷합니다. 얼큰하고 시원한 맛이 특징입니다."
+          },
+          {
+            "name": "콩비지찌개",
+            "similarity": "콩을 주재료로 한다는 점에서 유사합니다. 청국장찌개보다 부드러운 식감과 담백한 맛이 특징입니다."
+          }
+        ],
+        "cultural_background": {
+          "history": "청국장은 삼국시대부터 전해 내려오는 한국의 전통 발효식품으로, 겨울철 단백질 공급원 역할을 했습니다. 찌개 형태로 발전하면서 서민들의 든든한 식탁을 책임지는 대표 음식이 되었습니다.",
+          "origin": "한반도 전역",
+          "cultural_notes": "청국장은 특유의 강한 향 때문에 호불호가 갈리기도 하지만, 그 깊은 맛과 영양가로 인해 한국인에게는 '집밥'의 상징이자 건강식으로 인식됩니다. 특히 추운 겨울철 몸을 따뜻하게 데워주는 음식으로 사랑받습니다."
+        }
+      },
+      "enriched_at": "2026-02-19T11:27:32.133697"
+    },
+    {
+      "name_ko": "불고기",
+      "name_en": "Bulgogi (Marinated Beef)",
+      "concept": "고기볶음",
+      "content": {
+        "description_ko": "불고기는 얇게 썬 소고기를 간장, 설탕, 마늘, 참기름 등으로 만든 달콤 짭짤한 양념에 재워 볶거나 구워 먹는 한국의 대표적인 전통 요리입니다. 부드러운 육질과 깊은 양념 맛이 특징이며, 남녀노소 누구나 좋아하는 대중적인 메뉴입니다. 밥과 함께 주식으로 즐기거나 쌈 채소에 싸서 먹기도 합니다.",
+        "description_en": "Bulgogi, meaning \"fire meat,\" is a quintessential Korean dish featuring thinly sliced beef marinated in a savory-sweet sauce made from soy sauce, sugar, garlic, and sesame oil. It's typically stir-fried or grilled, resulting in tender meat with a rich, balanced flavor. Universally loved, it's often enjoyed with rice or wrapped in fresh lettuce.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "얇게 썬 소고기를 간장 양념에 재워 육수와 함께 자작하게 끓여 먹는 방식이 일반적입니다. 전골식으로 채소와 당면을 넣어 함께 즐기기도 합니다."
+          },
+          {
+            "name": "광양식",
+            "difference": "얇게 썬 소고기를 양념에 살짝 재운 후 숯불에 바로 구워 먹는 방식입니다. 육수 없이 고기 본연의 맛과 숯불 향을 강조합니다."
+          },
+          {
+            "name": "언양식",
+            "difference": "다진 소고기를 양념하여 떡갈비처럼 납작하게 빚어 숯불에 구워 먹는 방식입니다. 부드러운 식감과 진한 육즙이 특징입니다."
+          }
+        ],
+        "preparation_steps": [
+          "1단계: 소고기 양념하기 - 얇게 썬 소고기에 간장, 설탕, 다진 마늘, 참기름, 배즙 등을 넣고 잘 버무려 30분 이상 재웁니다.",
+          "2단계: 채소 준비 - 양파, 대파, 버섯, 당근 등을 먹기 좋은 크기로 썰어 준비합니다.",
+          "3단계: 고기 볶기/굽기 - 팬에 기름을 살짝 두르고 양념한 소고기를 센 불에서 빠르게 볶거나 숯불에 굽습니다.",
+          "4단계: 채소 넣고 익히기 - 고기가 반쯤 익으면 준비한 채소를 넣고 함께 볶거나 끓여 채소가 부드러워질 때까지 익힙니다.",
+          "5단계: 완성 및 서빙 - 채소가 익으면 불을 끄고 깨를 뿌려 완성합니다. 따뜻한 밥과 함께 상에 냅니다."
+        ],
+        "nutrition": {
+          "calories": 520,
+          "protein_g": 30,
+          "fat_g": 25,
+          "carbs_g": 45,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 4,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "불고기는 보통 1인분 단위로 주문하며, 밥과 다양한 밑반찬이 함께 나옵니다. 식당에 따라 직접 구워 먹는 방식과 주방에서 조리되어 나오는 방식이 있으니 확인해 보세요.",
+          "eating": "따뜻한 밥과 함께 먹거나, 상추, 깻잎 등 쌈 채소에 고기와 마늘, 쌈장 등을 넣어 싸 먹으면 더욱 맛있습니다.",
+          "pairing": "시원한 막걸리나 소주, 맥주와 잘 어울리며, 밥과 함께 즐길 때는 김치, 나물 등 다양한 한식 밑반찬과 곁들이면 좋습니다."
+        },
+        "similar_dishes": [
+          {
+            "name": "갈비",
+            "similarity": "소갈비나 돼지갈비를 달콤 짭짤한 양념에 재워 구워 먹는 요리로, 불고기와 양념 맛이 유사합니다."
+          },
+          {
+            "name": "제육볶음",
+            "similarity": "돼지고기를 고추장 양념에 재워 볶은 요리로, 불고기와 조리 방식은 비슷하나 매콤한 맛이 특징입니다."
+          },
+          {
+            "name": "떡갈비",
+            "similarity": "다진 소고기나 돼지고기를 양념하여 떡처럼 빚어 구운 요리로, 불고기와 비슷한 양념 맛과 부드러운 식감을 가집니다."
+          }
+        ],
+        "cultural_background": {
+          "history": "불고기는 고구려 시대의 '맥적(貊炙)'에서 유래되었다고 알려져 있으며, 조선 시대를 거치며 간장 양념이 더해져 현재의 형태로 발전했습니다. 궁중 요리에서 시작해 점차 대중화되었습니다.",
+          "origin": "대한민국",
+          "cultural_notes": "불고기는 한국을 대표하는 음식 중 하나로, 외국인들이 가장 선호하는 한식 메뉴로 손꼽힙니다. 손님 접대나 잔치 음식으로 자주 오르며, 한국인의 정과 환대를 상징하는 음식으로 여겨집니다."
+        }
+      },
+      "enriched_at": "2026-02-19T11:32:39.534162"
+    }
+  ]
+}

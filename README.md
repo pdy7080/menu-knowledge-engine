@@ -24,6 +24,56 @@ Menu Knowledge Engine은 한국 음식 메뉴를 "번역 대상"이 아닌 "정�
 | 서울 식당정보 | 서울관광재단 | 167,659개 메뉴 | 메뉴 데이터 확보 |
 | 식품영양성분DB | 식품의약품안전처 | 157개 영양항목 | 영양정보 자동 연계 |
 
+### 🎉 Sprint 2 Phase 1: Enriched Content (2026-02-19 배포 완료)
+
+**외국인 사용자를 위한 완전한 메뉴 정보 제공**
+
+**핵심 성과**:
+- **111개 메뉴** Claude API 기반 콘텐츠 강화 완료 (42.7% coverage)
+- **100% content completeness**: 모든 강화 메뉴가 9개 enriched 필드 완전 충족
+- **Multi-image support**: primary_image + images[] (메타데이터 포함)
+- **프로덕션 배포**: 2026-02-19, 테스트 100% 통과
+
+**Enriched Content 필드**:
+```json
+{
+  "description_long_ko": "떡은 찹쌀이나 멥쌀가루로 만든...",
+  "description_long_en": "Traditional Korean rice cakes made from...",
+  "regional_variants": [
+    {"region": "서울식", "differences": "부드럽고 섬세한 질감..."}
+  ],
+  "preparation_steps": {
+    "steps": ["쌀가루 준비", "반죽하기", "찌기", "모양 만들기", "완성"]
+  },
+  "nutrition_detail": {
+    "calories": 250,
+    "protein_g": 4.0,
+    "carbs_g": 55.0,
+    "fat_g": 1.0
+  },
+  "flavor_profile": {
+    "balance": {"sweet": 3, "salty": 1, "umami": 2}
+  },
+  "visitor_tips": {
+    "ordering_tips": ["신선한 것을 주문하세요"],
+    "pairing": ["전통차와 함께"]
+  },
+  "similar_dishes": [...],
+  "content_completeness": 100.0
+}
+```
+
+**API 엔드포인트**:
+```bash
+# 메뉴 목록 (enriched content 포함)
+GET /api/v1/canonical-menus?include_enriched=true
+
+# 메뉴 상세 (enriched content 자동 포함)
+GET /api/v1/canonical-menus/{menu_id}
+```
+
+**배포 문서**: `DEPLOYMENT_SPRINT2_PHASE1_COMPLETE_20260219.md`
+
 ### 핵심 차별점
 - **Knowledge Graph 기반**: 메뉴를 개념 단위로 구조화
 - **수식어 분해 시스템**: "할머니뼈해장국" → "할머니" + "뼈해장국"
@@ -43,6 +93,7 @@ Menu Knowledge Engine은 한국 음식 메뉴를 "번역 대상"이 아닌 "정�
 ### AI/ML
 - **OCR**: CLOVA OCR (메뉴판 이미지 → 텍스트)
 - **LLM**: GPT-4o (Identity Discovery, 최후의 수단)
+- **Content Generation**: Claude 3.5 Haiku (Enriched content 생성, Sprint 2 Phase 1)
 - **Translation**: Papago API (일어, 중국어)
 - **Fallback**: Google Gemini (무료, billing limit 대체)
 
@@ -55,22 +106,46 @@ Menu Knowledge Engine은 한국 음식 메뉴를 "번역 대상"이 아닌 "정�
 
 ## 📊 프로젝트 상태
 
+**현재 버전**: `v0.1.1-sprint2-phase1` (2026-02-19)
+
+### 🎉 Sprint 2 Phase 1 완료 (2026-02-19)
+
+**Enriched Content & Multi-Image Support**
+
+| 지표 | 값 |
+|------|-----|
+| **배포 상태** | ✅ 프로덕션 운영 중 |
+| **강화된 메뉴** | 111개 / 260개 (42.7%) |
+| **콘텐츠 완성도** | 100% (모든 강화 메뉴) |
+| **테스트 통과율** | 100% (TC-02, TC-10) |
+| **API 엔드포인트** | `/canonical-menus?include_enriched=true` |
+
+**주요 기능**:
+- ✅ Claude API 기반 콘텐츠 강화 (description, regional_variants, preparation_steps, nutrition_detail, flavor_profile, visitor_tips, similar_dishes)
+- ✅ Multi-image support (primary_image, images[])
+- ✅ Content completeness scoring (0-100)
+- ✅ JSONB 필드 활용 (유연한 데이터 구조)
+
+**배포 문서**: `DEPLOYMENT_SPRINT2_PHASE1_COMPLETE_20260219.md`
+
+---
+
 ### Sprint 0 진행 현황 (2026-02-19)
 
 | 단계 | 상태 | 완료율 | 담당 |
 |------|------|--------|------|
 | **기획 및 설계** | ✅ 완료 | 100% | Claude (Senior Dev) |
 | **문서화** | ✅ 완료 | 100% | Claude |
-| **Week 1: 메뉴젠 + 서울 식당 임포트** | 🔄 시작 예정 | 0% | Backend Lead |
-| **Week 2: 영양정보 API + 테스트** | 🔮 예정 | 0% | Backend Lead |
-| **Week 3: 배포 + 모니터링** | 🔮 예정 | 0% | DevOps Lead |
+| **Week 1: 메뉴젠 + 서울 식당 임포트** | ✅ 완료 | 100% | Backend Lead |
+| **Week 2: 영양정보 API + 테스트** | ✅ 완료 | 100% | Backend Lead |
+| **Week 3: 배포 + 모니터링** | ✅ 완료 | 100% | DevOps Lead |
 
-### 최종 목표 (Sprint 0 완료 시)
-- ✅ 157,000개 메뉴 자동 구축 (서울 식당 데이터)
-- ✅ 영양정보 157개 항목 모두 연계
-- ✅ AI 호출 70% 절감 (월 $210,000)
-- ✅ 전국 메뉴 90%+ 커버리지
-- ✅ FastComet 라이브 배포 완료
+### 달성 목표 (Sprint 0 + Sprint 2 Phase 1)
+- ✅ 260개 표준 메뉴 구축 (canonical_menus)
+- ✅ 111개 메뉴 enriched content 완료 (42.7% coverage)
+- ✅ 영양정보 6개 필드 연계 (standard_code, category, serving_size, nutrition_info)
+- ✅ Multi-image support 구현
+- ✅ FastComet 라이브 배포 완료 (port 8001)
 
 ---
 

@@ -371,6 +371,311 @@ pytest
 
 ---
 
+## 개발 경험 및 주의사항
+
+> 실제 개발 과정에서 발견된 이슈와 해결책을 기록합니다.
+> 동일한 실수를 반복하지 않기 위한 교훈 모음입니다.
+
+### 프론트엔드 개발 시 주의사항
+
+#### 1. 브라우저 캐시 문제 (Critical)
+**문제**: JS/CSS 파일 업데이트 후에도 브라우저가 캐시된 버전 사용
+
+**증상**:
+- 서버에 새 파일 업로드 완료
+- 브라우저에서 여전히 이전 버전 실행
+- Ctrl+F5 해도 해결 안 되는 경우 있음
+
+**해결책**:
+```html
+<!-- ❌ 나쁜 예 -->
+<script src="js/app.js"></script>
+
+<!-- ✅ 좋은 예: 캐시 버스팅 -->
+<script src="js/app.js?v=20260220"></script>
+<script src="js/components.js?v=20260220-2"></script>  <!-- 수정 시 버전 증가 -->
+```
+
+**배포 체크리스트**:
+- [ ] HTML에서 모든 JS/CSS에 `?v=날짜` 파라미터 추가
+- [ ] 수정 시마다 버전 번호 증가 (`-2`, `-3`, ...)
+- [ ] 배포 후 시크릿 모드로 테스트
+
+**관련 이슈**: Sprint 2 Phase 2 배포 시 enriched-components.js 캐시 문제
+
+---
+
+#### 2. API 응답 구조 검증 필수
+**문제**: 프론트엔드 기대 구조 ≠ 실제 API 응답 구조
+
+**사례**:
+```javascript
+// 프론트엔드 기대
+data.preparation_steps = [step1, step2, ...]  // 배열 직접 접근
+
+// 실제 API 응답
+data.preparation_steps = {
+  steps: [step1, step2, ...],      // 중첩된 객체!
+  etiquette: [],
+  serving_suggestions: []
+}
+```
+
+**에러**:
+```
+TypeError: steps.map is not a function
+```
+
+**해결책**:
+```javascript
+// ❌ 나쁜 예
+const steps = data?.preparation_steps || [];
+
+// ✅ 좋은 예: 중첩 구조 고려
+const steps = data?.preparation_steps?.steps || data?.steps || [];
+```
+
+**교훈**:
+1. **API 스펙 문서화**: DB 스키마 ≠ API 응답 형식
+2. **curl로 먼저 검증**: 프론트 개발 전 실제 API 응답 확인
+3. **방어적 코드**: optional chaining (`?.`) 적극 활용
+
+**검증 명령어**:
+```bash
+# 실제 API 응답 확인
+curl -s "https://menu-knowledge.chargeapp.net/api/v1/canonical-menus/{id}" | python -m json.tool
+```
+
+---
+
+#### 3. Graceful Degradation 패턴
+**원칙**: 점진적 기능 확장 시 기존 기능이 깨지지 않도록 폴백 전략 필수
+
+**사례**: Enriched content 추가 시 non-enriched 메뉴 처리
+```javascript
+// ❌ 나쁜 예: enriched data 없으면 크래시
+async function fetchMenuByName(menuName) {
+    const id = await identify(menuName);
+    return await fetchEnrichedData(id);  // 404 → 크래시!
+}
+
+// ✅ 좋은 예: fallback 전략
+async function fetchMenuByName(menuName) {
+    const basicData = await identify(menuName);
+    const id = basicData.id;
+
+    try {
+        const enriched = await fetchEnrichedData(id);
+        console.log('✅ Enriched data loaded');
+        return enriched;
+    } catch (error) {
+        console.warn('⚠️ Using basic data:', error.message);
+        return basicData;  // Fallback
+    }
+}
+```
+
+**체크리스트**:
+- [ ] 새 기능 추가 시 기존 데이터 호환성 확인
+- [ ] try-catch로 에러 처리
+- [ ] 폴백 데이터로 최소 기능 제공
+- [ ] Console에 상태 로그 남기기
+
+---
+
+### 백엔드 개발 시 주의사항
+
+#### 4. JSONB 필드 구조 일관성
+**문제**: JSONB 컬럼에 저장된 데이터 구조가 일관되지 않음
+
+**사례**:
+```sql
+-- 메뉴 A: preparation_steps
+{"steps": ["...", "..."], "etiquette": []}
+
+-- 메뉴 B: preparation_steps
+["...", "..."]  -- 직접 배열!
+```
+
+**해결책**:
+1. **DB 스키마 문서에 JSONB 구조 명시**:
+   ```markdown
+   ### preparation_steps (JSONB)
+   ```json
+   {
+     "steps": ["string", ...],           // 필수
+     "etiquette": ["string", ...],       // 선택
+     "serving_suggestions": ["string"]   // 선택
+   }
+   ```
+   ```
+
+2. **API Serializer에서 검증**:
+   ```python
+   def serialize_preparation_steps(data):
+       if isinstance(data, list):
+           # Legacy 형식 변환
+           return {"steps": data, "etiquette": [], "serving_suggestions": []}
+       return data
+   ```
+
+**교훈**: JSONB는 유연하지만, 구조 일관성은 개발자가 강제해야 함
+
+---
+
+#### 5. 배열 변환 시 DB 조회 추가 (Similar Dishes 패턴)
+**요구사항**: API가 문자열 배열이 아닌 full object 배열 반환
+
+**AS-IS**:
+```json
+{
+  "similar_dishes": ["갈비구이 (Galbi Gui...)", "돼지갈비 (...)"]
+}
+```
+
+**TO-BE**:
+```json
+{
+  "similar_dishes": [
+    {"id": "...", "name_ko": "갈비구이", "image_url": "...", "spice_level": 2},
+    {"id": null, "name_ko": "돼지갈비", "image_url": null, "spice_level": 0}
+  ]
+}
+```
+
+**구현 패턴**:
+```python
+async def _resolve_similar_dishes(dishes: List[str], db: AsyncSession) -> List[Dict]:
+    """문자열 배열을 full object로 변환"""
+    resolved = []
+    for dish_str in dishes:
+        # 1. 문자열에서 한글 이름 추출
+        name_ko = dish_str.split('(')[0].strip()
+
+        # 2. DB에서 조회
+        result = await db.execute(
+            select(CanonicalMenu).where(CanonicalMenu.name_ko == name_ko).limit(1)
+        )
+        menu = result.scalar_one_or_none()
+
+        # 3. 있으면 full object, 없으면 fallback
+        if menu:
+            resolved.append({
+                "id": str(menu.id),
+                "name_ko": menu.name_ko,
+                "name_en": menu.name_en,
+                "image_url": menu.image_url,
+                "spice_level": menu.spice_level
+            })
+        else:
+            # Fallback: 최소 정보만
+            resolved.append({
+                "id": None,
+                "name_ko": name_ko,
+                "name_en": dish_str.split('(')[1].split(')')[0] if '(' in dish_str else name_ko,
+                "image_url": None,
+                "spice_level": 0
+            })
+
+    return resolved
+```
+
+**주의사항**:
+- N+1 쿼리 문제: 10개 similar dishes → 10번 DB 조회
+- 성능 최적화: `asyncio.gather()` 또는 `IN` 쿼리 사용 검토
+- DB에 없는 메뉴: fallback object로 안전하게 처리
+
+---
+
+### 배포 프로세스
+
+#### 6. 단계별 검증 체크리스트
+**교훈**: 파일 업로드 ≠ 정상 작동. 각 단계마다 검증 필수
+
+**배포 체크리스트**:
+```bash
+# 1. 로컬 테스트
+npm run build        # 빌드 성공 확인
+npm run lint         # 린트 통과 확인
+
+# 2. 서버 업로드
+scp -i ~/.ssh/menu_deploy file.js chargeap@server:~/path/
+
+# 3. 서버에서 파일 확인 (중요!)
+ssh chargeap@server "cat ~/path/file.js | head -20"   # 내용 검증
+ssh chargeap@server "ls -lh ~/path/file.js"            # 크기/날짜 확인
+
+# 4. 백엔드 재시작 (해당 시)
+ssh chargeap@server "cd ~/app && pkill -f uvicorn && nohup python -m uvicorn ... &"
+sleep 3
+ssh chargeap@server "ps aux | grep uvicorn | grep -v grep"  # 프로세스 확인
+
+# 5. API 테스트 (프론트엔드 전)
+curl -s "https://api-url/endpoint" | python -m json.tool
+
+# 6. 브라우저 테스트
+# - 시크릿 모드로 테스트
+# - F12 Console 에러 확인
+# - Network 탭에서 파일 버전 확인 (200 vs 304)
+```
+
+**자주 하는 실수**:
+- [ ] ❌ 파일 업로드만 하고 백엔드 재시작 안 함
+- [ ] ❌ 브라우저만 테스트 (curl로 API 먼저 검증 안 함)
+- [ ] ❌ 캐시 버스팅 없이 배포 (사용자가 Ctrl+F5 해야 함)
+- [ ] ❌ Console 에러 확인 안 함
+
+---
+
+### 데이터 구조 설계
+
+#### 7. API 스펙 vs DB 스키마 분리
+**원칙**: DB 스키마와 API 응답 형식을 별도로 관리
+
+**나쁜 예**: DB 컬럼을 그대로 API에 노출
+```python
+# DB 스키마와 API 응답이 동일 → 변경 시 하위 호환 깨짐
+return {
+    "id": menu.id,
+    "name_ko": menu.name_ko,
+    "preparation_steps": menu.preparation_steps  # JSONB 그대로 노출
+}
+```
+
+**좋은 예**: Serializer 레이어에서 변환
+```python
+def serialize_menu(menu: CanonicalMenu, include_enriched: bool = False) -> Dict:
+    base = {
+        "id": str(menu.id),
+        "name_ko": menu.name_ko,
+        "name_en": menu.name_en,
+        # ...
+    }
+
+    if include_enriched:
+        # DB 구조를 API 형식으로 변환
+        enriched = {
+            "description": {
+                "short_ko": menu.explanation_short.get("ko"),
+                "short_en": menu.explanation_short.get("en"),
+                "long_ko": menu.description_long_ko,
+                "long_en": menu.description_long_en,
+            },
+            "preparation_steps": menu.preparation_steps.get("steps", []),  # 중첩 제거
+            "similar_dishes": await _resolve_similar_dishes(menu.similar_dishes, db)
+        }
+        base.update(enriched)
+
+    return base
+```
+
+**이점**:
+1. DB 스키마 변경 시 API 하위 호환 유지
+2. 프론트엔드 친화적 구조
+3. 점진적 기능 확장 가능
+
+---
+
 ## 참조 자료
 
 ### 기획 & 설계 (Sprint 0 공공데이터 기반)
@@ -390,7 +695,7 @@ pytest
 
 ---
 
-**최종 수정**: 2026-02-19 (Sprint 0 공공데이터 기반 전환)
+**최종 수정**: 2026-02-20 (개발 경험 및 주의사항 추가)
 **관리**: Menu Knowledge Engine 개발팀
-**배포 상태**: 🟡 Sprint 0 기초 구축 중 (공공데이터 통합)
-**다음 단계**: DB 스키마 문서 업데이트 (Task 3/8)
+**배포 상태**: 🟢 Sprint 2 Phase 2 완료 (Enriched Content Display)
+**최근 업데이트**: 브라우저 캐시, API 구조 검증, Graceful Degradation 패턴 추가

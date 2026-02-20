@@ -1,0 +1,216 @@
+{
+  "test_count": 3,
+  "model": "gpt-4o-mini",
+  "temperature": 0.3,
+  "tested_at": "2026-02-19T07:59:40.024217",
+  "menus": [
+    {
+      "menu_id": "sample-001",
+      "name_ko": "김치찌개",
+      "name_en": "Kimchi Jjigae (Kimchi Stew)",
+      "content": {
+        "description_ko": "김치찌개는 발효된 김치와 돼지고기, 두부를 주재료로 한 매콤한 찌개입니다. 깊고 진한 국물 맛이 특징이며, 김치의 시큼함과 돼지고기의 고소함이 어우러져 풍부한 맛을 냅니다. 특히, 뜨거운 상태에서 먹으면 더욱 맛있습니다.",
+        "description_en": "Kimchi Jjigae is a spicy stew made with fermented kimchi, pork, and tofu. It features a rich and deep broth, blending the tanginess of kimchi with the savory flavor of pork, creating a complex taste. It is best enjoyed hot.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 3,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T07:59:14.879354"
+    },
+    {
+      "menu_id": "sample-002",
+      "name_ko": "된장찌개",
+      "name_en": "Doenjang Jjigae (Soybean Paste Stew)",
+      "content": {
+        "description_ko": "된장찌개는 한국 전통 음식으로, 구수한 된장과 신선한 두부, 애호박이 어우러져 깊고 진한 맛을 자아냅니다. 이 찌개는 건강에도 좋고, 따뜻한 국물로 식사에 풍미를 더해줍니다. 특히 겨울철에 인기가 많으며, 한국인의 소울푸드로 자리잡고 있습니다.",
+        "description_en": "Doenjang Jjigae is a traditional Korean stew made with rich soybean paste, fresh tofu, and zucchini, creating a deep and savory flavor. This stew is not only healthy but also adds warmth and depth to meals, making it especially popular in winter as a comfort food for Koreans.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 1,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T07:59:26.543272"
+    },
+    {
+      "menu_id": "sample-003",
+      "name_ko": "불고기",
+      "name_en": "Bulgogi (Korean BBQ Beef)",
+      "content": {
+        "description_ko": "불고기는 얇게 썬 소고기를 간장, 설탕, 마늘, 참기름 등으로 양념하여 볶거나 구운 한국 전통 요리입니다. 고기의 부드러운 식감과 달콤하고 짭조름한 맛이 조화를 이루며, 양파와 당근이 함께 어우러져 풍미를 더합니다. 불고기는 한국 BBQ의 대표적인 메뉴로, 가족이나 친구들과 함께 나누어 먹기 좋은 음식입니다.",
+        "description_en": "Bulgogi is a traditional Korean dish made from thinly sliced beef marinated in soy sauce, sugar, garlic, and sesame oil, then grilled or stir-fried. The tender texture of the meat harmonizes with its sweet and savory flavors, complemented by onions and carrots. Bulgogi is a quintessential Korean BBQ dish, perfect for sharing with family and friends.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "양념 재료를 섞어 소스를 만듭니다",
+          "소고기를 양념에 재워 최소 30분 동안 둡니다",
+          "팬이나 그릴에 고기를 구워줍니다",
+          "양파와 당근을 추가하여 함께 볶습니다",
+          "완성된 불고기를 접시에 담고 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 3,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T07:59:39.009966"
+    }
+  ]
+}

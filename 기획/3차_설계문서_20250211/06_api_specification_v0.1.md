@@ -15,6 +15,306 @@
 
 ---
 
+## 🆕 Sprint 2 Phase 1 Enriched Content API (2026-02-19)
+
+**새 엔드포인트:**
+- `GET /api/v1/canonical-menus` — 메뉴 목록 조회 (enriched content 포함 옵션)
+- `GET /api/v1/canonical-menus/{menu_id}` — 메뉴 상세 조회 (enriched content 자동 포함)
+
+**주요 기능:**
+- Claude 3.5 Haiku API 기반 콘텐츠 자동 생성 (111개 메뉴 완료)
+- 9개 enriched 필드 제공: 상세 설명, 지역 변종, 조리법, 영양정보, 맛 프로필, 방문자 팁, 유사 메뉴, 문화적 배경, 완성도 점수
+- Multi-image support: primary_image + images[] (메타데이터 포함)
+- Content completeness scoring (0-100)
+
+---
+
+### Sprint 2 Phase 1-1. `GET /api/v1/canonical-menus`
+
+**목적:** 표준 메뉴 목록 조회 (enriched content 포함 옵션)
+
+```
+Request:
+  GET /api/v1/canonical-menus?include_enriched=true&limit=20&offset=0
+
+Query Parameters:
+  include_enriched: boolean (선택, 기본값: false)
+    - true: enriched content 포함 (9개 추가 필드)
+    - false: 기본 필드만 반환
+  limit: integer (선택, 기본값: 100, 최대: 500)
+  offset: integer (선택, 기본값: 0)
+  completeness_min: float (선택, 0-100)
+    - 예: completeness_min=90 → 완성도 90% 이상만 반환
+
+Response 200:
+{
+  "total": 260,
+  "enriched_count": 111,
+  "enriched_percentage": 42.7,
+  "results": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name_ko": "비빔밥",
+      "name_en": "Bibimbap (Mixed Rice with Vegetables)",
+      "romanization": "bibimbap",
+      "explanation_short_ko": "밥 위에 나물, 고기, 고추장을 얹어 비벼 먹는 한국 대표 음식",
+      "explanation_short_en": "Rice mixed with assorted vegetables, meat, and gochujang (red chili paste)",
+      "spice_level": 2,
+      "difficulty_score": 2,
+      "allergens": ["soy", "sesame", "egg"],
+      "dietary_tags": ["contains_soy", "contains_sesame", "vegetarian_option"],
+      "image_url": "https://menu-knowledge.chargeapp.net/images/ai_generated/bibimbap_primary.jpg",
+
+      // 🆕 Enriched Content (include_enriched=true 시에만)
+      "primary_image": {
+        "url": "https://menu-knowledge.chargeapp.net/images/ai_generated/bibimbap_primary.jpg",
+        "source": "DALL-E 3",
+        "license": "Generated",
+        "attribution": "AI Generated Image"
+      },
+      "images": [
+        {
+          "url": "https://menu-knowledge.chargeapp.net/images/ai_generated/bibimbap_variant_jeonju.jpg",
+          "type": "regional_variant",
+          "region": "전주",
+          "description": "전주 비빔밥 (콩나물과 황포묵 포함)"
+        },
+        {
+          "url": "https://menu-knowledge.chargeapp.net/images/ai_generated/bibimbap_variant_dolsot.jpg",
+          "type": "preparation_method",
+          "description": "돌솥 비빔밥 (뜨거운 돌솥에 제공)"
+        }
+      ],
+      "description_long_ko": "비빔밥은 밥 위에 다양한 나물, 고기, 계란, 고추장을 얹어 비벼 먹는 한국의 대표적인 음식입니다. 색색의 재료들이 조화롭게 어우러져 영양과 맛을 동시에 충족시키며, 지역마다 특색 있는 재료와 조리법을 자랑합니다.",
+      "description_long_en": "Bibimbap is a signature Korean dish featuring rice topped with an array of seasoned vegetables, meat, egg, and gochujang (red chili paste), all mixed together before eating. The colorful ingredients create a harmonious balance of nutrition and flavor, with each region showcasing unique ingredients and preparation methods.",
+      "regional_variants": {
+        "전주": {
+          "differences": "콩나물, 황포묵, 육회가 들어가며 가장 화려하고 전통적인 스타일",
+          "special_ingredients": ["콩나물", "황포묵", "육회"]
+        },
+        "진주": {
+          "differences": "육회 대신 생선회를 사용하며 간장 양념이 특징",
+          "special_ingredients": ["생선회", "간장 양념"]
+        },
+        "해주": {
+          "differences": "북한식으로 고기와 나물이 풍성하며 된장을 곁들임",
+          "special_ingredients": ["된장"]
+        }
+      },
+      "preparation_steps": {
+        "steps": [
+          {
+            "step": 1,
+            "instruction_ko": "밥을 짓고 각종 나물을 손질하여 데치거나 볶는다",
+            "instruction_en": "Cook rice and prepare vegetables by blanching or stir-frying",
+            "time_minutes": 20
+          },
+          {
+            "step": 2,
+            "instruction_ko": "고기를 양념하여 볶고, 계란을 반숙으로 준비한다",
+            "instruction_en": "Season and cook meat, prepare a sunny-side-up egg",
+            "time_minutes": 10
+          },
+          {
+            "step": 3,
+            "instruction_ko": "밥 위에 나물과 고기를 색깔별로 돌려 담는다",
+            "instruction_en": "Arrange vegetables and meat on rice by color",
+            "time_minutes": 5
+          },
+          {
+            "step": 4,
+            "instruction_ko": "중앙에 고추장을 얹고 계란을 올린 후 참기름을 두른다",
+            "instruction_en": "Place gochujang in center, top with egg and drizzle sesame oil",
+            "time_minutes": 2
+          },
+          {
+            "step": 5,
+            "instruction_ko": "숟가락으로 골고루 비벼서 먹는다",
+            "instruction_en": "Mix thoroughly with a spoon before eating",
+            "time_minutes": 1
+          }
+        ],
+        "total_time_minutes": 38,
+        "difficulty": "medium",
+        "serving_suggestions": [
+          "미역국이나 된장국과 함께 제공",
+          "김치와 단무지를 곁들임",
+          "돌솥에 제공하면 누룽지를 즐길 수 있음"
+        ],
+        "etiquette": [
+          "비비기 전에 재료 배치를 감상하는 것이 예의",
+          "고추장 양은 개인 취향에 따라 조절",
+          "숟가락으로 골고루 섞어 먹는 것이 포인트"
+        ]
+      },
+      "nutrition_detail": {
+        "calories": 550,
+        "protein_g": 18.5,
+        "carbs_g": 85.2,
+        "fat_g": 12.8,
+        "fiber_g": 6.5,
+        "sodium_mg": 980,
+        "serving_size": "1인분 (약 400g)",
+        "health_benefits": [
+          "다양한 채소로 비타민과 미네랄 풍부",
+          "식이섬유가 풍부하여 소화에 도움",
+          "균형 잡힌 영양소 구성"
+        ]
+      },
+      "flavor_profile": {
+        "balance": {
+          "sweet": 1,
+          "salty": 2,
+          "sour": 0,
+          "bitter": 1,
+          "umami": 4,
+          "spicy": 2
+        },
+        "texture": ["crunchy", "soft", "chewy"],
+        "aroma": ["sesame_oil", "gochujang", "fresh_vegetables"]
+      },
+      "visitor_tips": {
+        "ordering_tips": [
+          "돌솥 비빔밥을 주문하면 누룽지를 즐길 수 있습니다",
+          "매운맛을 조절하고 싶다면 고추장을 따로 달라고 요청하세요",
+          "채식주의자는 고기 없이 주문 가능합니다"
+        ],
+        "eating_method": [
+          "비비기 전에 사진을 찍으세요 (색감이 아름답습니다)",
+          "고추장을 기호에 맞게 추가한 후 골고루 섞으세요",
+          "돌솥의 경우 밥이 눌어붙으면 물을 부어 누룽지로 즐기세요"
+        ],
+        "pairing": [
+          "미역국 또는 된장국",
+          "배추김치",
+          "단무지",
+          "막걸리 (전통주)"
+        ]
+      },
+      "similar_dishes": [
+        {
+          "name_ko": "돌솥비빔밥",
+          "name_en": "Stone Pot Bibimbap",
+          "similarity_reason": "같은 재료를 뜨거운 돌솥에 제공",
+          "similarity_score": 0.95
+        },
+        {
+          "name_ko": "회덮밥",
+          "name_en": "Raw Fish Bibimbap",
+          "similarity_reason": "밥 위에 재료를 얹어 비벼 먹는 방식",
+          "similarity_score": 0.75
+        },
+        {
+          "name_ko": "산채비빔밥",
+          "name_en": "Wild Vegetable Bibimbap",
+          "similarity_reason": "산나물을 사용한 비빔밥 변형",
+          "similarity_score": 0.85
+        }
+      ],
+      "cultural_context": {
+        "history": "비빔밥은 조선시대 궁중 음식에서 유래했으며, 제사 음식을 섞어 먹던 풍습에서 발전했습니다.",
+        "significance": "한국의 대표 음식으로 유네스코 무형문화유산 등재를 추진 중이며, 전 세계적으로 사랑받는 K-푸드입니다.",
+        "occasions": ["일상 식사", "손님 접대", "해외 한식 홍보"]
+      },
+      "content_completeness": 100.0
+    },
+    {
+      "id": "...",
+      "name_ko": "김치찌개",
+      // ... (enriched content가 없는 메뉴는 기본 필드만)
+      "content_completeness": 0.0
+    }
+  ],
+  "pagination": {
+    "limit": 20,
+    "offset": 0,
+    "has_next": true
+  }
+}
+```
+
+**필터링 예시:**
+```bash
+# 완성도 90% 이상만 조회
+GET /api/v1/canonical-menus?include_enriched=true&completeness_min=90
+
+# 기본 필드만 (enriched content 제외)
+GET /api/v1/canonical-menus?include_enriched=false&limit=100
+```
+
+---
+
+### Sprint 2 Phase 1-2. `GET /api/v1/canonical-menus/{menu_id}`
+
+**목적:** 단일 메뉴 상세 조회 (enriched content 자동 포함)
+
+```
+Request:
+  GET /api/v1/canonical-menus/550e8400-e29b-41d4-a716-446655440000
+
+Response 200:
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name_ko": "비빔밥",
+  "name_en": "Bibimbap (Mixed Rice with Vegetables)",
+  "romanization": "bibimbap",
+  "explanation_short_ko": "밥 위에 나물, 고기, 고추장을 얹어 비벼 먹는 한국 대표 음식",
+  "explanation_short_en": "Rice mixed with assorted vegetables, meat, and gochujang (red chili paste)",
+  "spice_level": 2,
+  "difficulty_score": 2,
+  "allergens": ["soy", "sesame", "egg"],
+  "dietary_tags": ["contains_soy", "contains_sesame", "vegetarian_option"],
+  "image_url": "https://menu-knowledge.chargeapp.net/images/ai_generated/bibimbap_primary.jpg",
+
+  // 🆕 Enriched Content (항상 포함, 없으면 null)
+  "primary_image": {
+    "url": "https://menu-knowledge.chargeapp.net/images/ai_generated/bibimbap_primary.jpg",
+    "source": "DALL-E 3",
+    "license": "Generated",
+    "attribution": "AI Generated Image"
+  },
+  "images": [
+    // ... (위 예시와 동일)
+  ],
+  "description_long_ko": "...",
+  "description_long_en": "...",
+  "regional_variants": { ... },
+  "preparation_steps": { ... },
+  "nutrition_detail": { ... },
+  "flavor_profile": { ... },
+  "visitor_tips": { ... },
+  "similar_dishes": [ ... ],
+  "cultural_context": { ... },
+  "content_completeness": 100.0,
+
+  // 메타데이터
+  "created_at": "2026-02-11T08:00:00Z",
+  "updated_at": "2026-02-19T14:30:00Z",
+  "verified_by": "claude-api",
+  "verified_date": "2026-02-19T14:30:00Z"
+}
+
+Response 404:
+{
+  "error": {
+    "code": "canonical_not_found",
+    "message": "Menu with ID '...' not found"
+  }
+}
+```
+
+**주요 차이점:**
+- 목록 조회 (`/canonical-menus`): `include_enriched` 파라미터로 선택적 포함
+- 상세 조회 (`/canonical-menus/{id}`): enriched content 항상 포함 (없으면 null)
+
+**통계:**
+- 전체 메뉴: 260개
+- Enriched 메뉴: 111개 (42.7%)
+- 평균 완성도: 100% (모든 enriched 메뉴)
+- 고품질 메뉴 (90%+): 111개 (100%)
+
+---
+
 ## 0. 설계 원칙
 
 - **RESTful** — 리소스 중심 URL, 표준 HTTP 메서드

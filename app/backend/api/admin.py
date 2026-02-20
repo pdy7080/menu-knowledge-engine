@@ -1,18 +1,23 @@
 """
-Admin API Routes - Sprint 3 P1-1 + Sprint 4 OCR Metrics
-신규 메뉴 큐 관리 + 엔진 모니터링 + OCR Tier 메트릭
+Admin API Routes - Sprint 3 P1-1 + Sprint 4 OCR Metrics + Multi-Language Auto-Translation
+신규 메뉴 큐 관리 + 엔진 모니터링 + OCR Tier 메트릭 + 자동 번역
 """
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, and_, or_
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
 from datetime import datetime, timedelta
 from database import get_db
 from models import ScanLog, CanonicalMenu, Modifier, MenuVariant
 from services.cache_service import cache_service, TTL_ADMIN_STATS
 from services.ocr_orchestrator import ocr_orchestrator
+from services.auto_translate_service import auto_translate_service
+from schemas.canonical_menu import CanonicalMenuCreate, CanonicalMenuResponse, TranslateRequest
 import uuid
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/v1/admin", tags=["admin"])
 
@@ -367,4 +372,272 @@ async def get_ocr_metrics():
         "price_error_rate": metrics.get("price_error_rate", "0.0%"),
         "handwriting_detection_rate": metrics.get("handwriting_detection_rate", "0.0%"),
         "last_updated": metrics.get("last_updated", datetime.utcnow().isoformat() + "Z"),
+    }
+
+
+# ===========================
+# Multi-Language Auto-Translation (Sprint 2 Phase 3)
+# ===========================
+
+async def _background_translate_menu(
+    menu_id: uuid.UUID,
+    menu_name_ko: str,
+    description_en: str,
+    db_url: str
+):
+    """
+    Background task for auto-translation
+
+    Note: BackgroundTasks runs after response is sent, so we need to create
+    a new DB session here (can't reuse the request session which will be closed)
+    """
+    from database import AsyncSessionLocal
+    from sqlalchemy import select
+
+    async with AsyncSessionLocal() as db:
+        try:
+            # Translate
+            logger.info(f"🔄 Background translation started: {menu_name_ko}")
+            translations = await auto_translate_service.auto_translate_new_menu(
+                menu_id=menu_id,
+                menu_name_ko=menu_name_ko,
+                description_en=description_en,
+                db=db
+            )
+
+            # Update status
+            result = await db.execute(
+                select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
+            )
+            menu = result.scalar_one_or_none()
+
+            if menu:
+                if translations and any(translations.values()):
+                    menu.translation_status = "completed"
+                    logger.info(f"✅ Translation completed: {menu_name_ko}")
+                else:
+                    menu.translation_status = "failed"
+                    menu.translation_error = "No translations returned"
+                    logger.warning(f"⚠️ Translation returned empty: {menu_name_ko}")
+
+                menu.translation_attempted_at = datetime.utcnow()
+                await db.commit()
+
+        except Exception as e:
+            logger.error(f"❌ Background translation failed: {menu_name_ko} - {e}")
+            # Update error status
+            try:
+                result = await db.execute(
+                    select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
+                )
+                menu = result.scalar_one_or_none()
+                if menu:
+                    menu.translation_status = "failed"
+                    menu.translation_error = str(e)[:500]  # Truncate long errors
+                    menu.translation_attempted_at = datetime.utcnow()
+                    await db.commit()
+            except Exception as update_error:
+                logger.error(f"Failed to update error status: {update_error}")
+
+
+@router.post("/canonical-menus", response_model=CanonicalMenuResponse)
+async def create_canonical_menu(
+    menu_data: CanonicalMenuCreate,
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Create new canonical menu with auto-translation (Sprint 2 Phase 3)
+
+    Flow:
+    1. Create menu with English data
+    2. Return immediate response with translation_status="pending"
+    3. Background task translates to Japanese/Chinese
+    4. Check menu later to see translation_status="completed"
+
+    Note: Translation happens asynchronously. The response returns immediately
+    with translation_status="pending". Check the menu again after ~3 seconds
+    to see the translated content.
+    """
+    # Create canonical menu
+    menu = CanonicalMenu(
+        concept_id=menu_data.concept_id,
+        name_ko=menu_data.name_ko,
+        name_en=menu_data.name_en,
+        name_ja=menu_data.name_ja,
+        name_zh_cn=menu_data.name_zh_cn,
+        name_zh_tw=menu_data.name_zh_tw,
+        romanization=menu_data.romanization,
+        explanation_short={"en": menu_data.explanation_short_en},
+        main_ingredients=menu_data.main_ingredients or [],
+        allergens=menu_data.allergens or [],
+        dietary_tags=menu_data.dietary_tags or [],
+        spice_level=menu_data.spice_level or 0,
+        serving_style=menu_data.serving_style,
+        typical_price_min=menu_data.typical_price_min,
+        typical_price_max=menu_data.typical_price_max,
+        translation_status="pending",
+        verified_by="admin"
+    )
+
+    db.add(menu)
+    await db.commit()
+    await db.refresh(menu)
+
+    logger.info(f"✅ Menu created: {menu.name_ko} (ID: {menu.id})")
+
+    # Trigger background translation
+    from config import settings
+    background_tasks.add_task(
+        _background_translate_menu,
+        menu_id=menu.id,
+        menu_name_ko=menu.name_ko,
+        description_en=menu_data.explanation_short_en,
+        db_url=settings.DATABASE_URL
+    )
+
+    logger.info(f"🚀 Background translation queued: {menu.name_ko}")
+
+    return CanonicalMenuResponse(
+        id=menu.id,
+        name_ko=menu.name_ko,
+        name_en=menu.name_en,
+        name_ja=menu.name_ja,
+        name_zh_cn=menu.name_zh_cn,
+        name_zh_tw=menu.name_zh_tw,
+        romanization=menu.romanization,
+        concept_id=menu.concept_id,
+        explanation_short=menu.explanation_short,
+        translation_status=menu.translation_status,
+        translation_attempted_at=menu.translation_attempted_at,
+        spice_level=menu.spice_level,
+        created_at=menu.created_at
+    )
+
+
+@router.post("/canonical-menus/{menu_id}/translate")
+async def retranslate_menu(
+    menu_id: uuid.UUID,
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Manually re-translate a single menu (Sprint 2 Phase 3)
+
+    Use this to retry failed translations or update translations for existing menus.
+    """
+    # Get menu
+    result = await db.execute(
+        select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
+    )
+    menu = result.scalar_one_or_none()
+
+    if not menu:
+        raise HTTPException(status_code=404, detail=f"Menu not found: {menu_id}")
+
+    # Check if menu has English description
+    if not menu.explanation_short or not menu.explanation_short.get("en"):
+        raise HTTPException(
+            status_code=400,
+            detail="Menu must have English description (explanation_short.en) to translate"
+        )
+
+    # Reset status to pending
+    menu.translation_status = "pending"
+    menu.translation_error = None
+    await db.commit()
+
+    # Trigger background translation
+    from config import settings
+    background_tasks.add_task(
+        _background_translate_menu,
+        menu_id=menu.id,
+        menu_name_ko=menu.name_ko,
+        description_en=menu.explanation_short["en"],
+        db_url=settings.DATABASE_URL
+    )
+
+    logger.info(f"🔄 Re-translation queued: {menu.name_ko}")
+
+    return {
+        "success": True,
+        "message": f"Re-translation queued for menu: {menu.name_ko}",
+        "menu_id": str(menu.id),
+        "translation_status": "pending"
+    }
+
+
+@router.post("/canonical-menus/translate-all")
+async def translate_all_menus(
+    request: TranslateRequest,
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Bulk re-translate menus by status filter (Sprint 2 Phase 3)
+
+    Query Parameters:
+        status_filter: "failed" (default), "pending", or "all"
+
+    Use cases:
+        - Fix all failed translations: status_filter=failed
+        - Translate all pending menus: status_filter=pending
+        - Re-translate everything: status_filter=all (use with caution!)
+    """
+    # Build query
+    query = select(CanonicalMenu)
+
+    if request.status_filter == "failed":
+        query = query.where(CanonicalMenu.translation_status == "failed")
+    elif request.status_filter == "pending":
+        query = query.where(CanonicalMenu.translation_status == "pending")
+    elif request.status_filter == "all":
+        # Re-translate everything
+        pass
+    else:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid status_filter: {request.status_filter}. Use 'failed', 'pending', or 'all'"
+        )
+
+    # Only translate menus with English description
+    query = query.where(CanonicalMenu.explanation_short.op('?')('en'))
+
+    result = await db.execute(query)
+    menus = result.scalars().all()
+
+    if not menus:
+        return {
+            "success": True,
+            "message": f"No menus found with status_filter={request.status_filter}",
+            "count": 0
+        }
+
+    # Queue background translations
+    from config import settings
+    queued_count = 0
+    for menu in menus:
+        # Reset status
+        menu.translation_status = "pending"
+        menu.translation_error = None
+
+        # Queue translation
+        background_tasks.add_task(
+            _background_translate_menu,
+            menu_id=menu.id,
+            menu_name_ko=menu.name_ko,
+            description_en=menu.explanation_short.get("en", ""),
+            db_url=settings.DATABASE_URL
+        )
+        queued_count += 1
+
+    await db.commit()
+
+    logger.info(f"🚀 Bulk translation queued: {queued_count} menus (filter={request.status_filter})")
+
+    return {
+        "success": True,
+        "message": f"Queued {queued_count} menus for translation",
+        "count": queued_count,
+        "status_filter": request.status_filter
     }

@@ -1,0 +1,702 @@
+{
+  "test_batch_size": 10,
+  "enriched_count": 10,
+  "failed_count": 0,
+  "success_rate": 1.0,
+  "model": "gpt-4o-mini",
+  "temperature": 0.3,
+  "tested_at": "2026-02-19T08:07:08.056793",
+  "menus": [
+    {
+      "menu_id": "test-001",
+      "name_ko": "김치찌개",
+      "name_en": "Kimchi Jjigae (Kimchi Stew)",
+      "content": {
+        "description_ko": "김치찌개는 발효된 김치와 돼지고기, 두부를 주재료로 한 한국의 전통 찌개입니다. 매콤하면서도 깊은 맛이 특징이며, 김치의 시큼한 맛과 돼지고기의 풍미가 어우러져 따뜻하고 푸짐한 한 끼를 제공합니다. 특히 겨울철에 인기가 많아 많은 가정에서 즐겨 먹습니다.",
+        "description_en": "Kimchi Jjigae is a traditional Korean stew made with fermented kimchi, pork, and tofu. It features a spicy yet rich flavor, where the tanginess of the kimchi blends harmoniously with the savory taste of pork, making it a warm and hearty meal. It's especially popular during the winter months.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 3,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:04:32.578750"
+    },
+    {
+      "menu_id": "test-002",
+      "name_ko": "비빔밥",
+      "name_en": "Bibimbap (Mixed Rice with Vegetables)",
+      "content": {
+        "description_ko": "비빔밥은 다양한 나물과 고추장, 그리고 밥을 섞어 먹는 한국의 전통 음식입니다. 각종 신선한 채소와 고소한 참기름이 어우러져 깊고 풍부한 맛을 자아내며, 고추장의 매콤함이 더해져 입맛을 돋우는 매력이 있습니다. 비빔밥은 영양이 풍부하고 색감이 아름다워 시각적으로도 즐거움을 줍니다.",
+        "description_en": "Bibimbap is a traditional Korean dish that combines various seasoned vegetables, gochujang, and rice. The fresh vegetables and fragrant sesame oil create a rich and deep flavor, enhanced by the spiciness of gochujang, making it a delightful dish. It's nutritious and visually appealing with its vibrant colors.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "각종 나물을 데치거나 볶습니다",
+          "밥을 준비하고 그릇에 담습니다",
+          "나물과 고추장을 올립니다",
+          "참기름과 계란 프라이를 추가합니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 2,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:04:47.972651"
+    },
+    {
+      "menu_id": "test-003",
+      "name_ko": "갈비탕",
+      "name_en": "Galbitang (Short Rib Soup)",
+      "content": {
+        "description_ko": "갈비탕은 소갈비를 주재료로 한 깊고 진한 국물의 한국 전통 수프입니다. 무와 대파가 함께 들어가 국물의 시원함을 더하며, 담백하고 부드러운 맛이 특징입니다. 보통 겨울철에 즐겨 먹으며, 따뜻하게 데워서 먹으면 더욱 맛있습니다.",
+        "description_en": "Galbitang is a traditional Korean soup made primarily with beef short ribs. It features a clear and refreshing broth enhanced by radish and green onion, offering a mild and tender flavor. It's especially popular in winter, served hot for the best taste.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:05:10.587154"
+    },
+    {
+      "menu_id": "test-004",
+      "name_ko": "순두부찌개",
+      "name_en": "Sundubu Jjigae (Soft Tofu Stew)",
+      "content": {
+        "description_ko": "순두부찌개는 부드러운 순두부와 다양한 해산물이 어우러진 한국 전통 찌개입니다. 매콤한 고춧가루가 들어가 국물 맛이 깊고, 해산물의 풍미가 더해져 감칠맛이 뛰어납니다. 뜨거운 상태에서 먹으면 더욱 맛있으며, 밥과 함께 즐기기 좋은 메뉴입니다.",
+        "description_en": "Sundubu Jjigae is a traditional Korean stew featuring soft tofu and various seafood. The spicy gochugaru adds depth to the broth, while the seafood enhances the umami flavor. Best enjoyed hot, it's a perfect dish to pair with rice.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 3,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:05:25.238920"
+    },
+    {
+      "menu_id": "test-005",
+      "name_ko": "불고기",
+      "name_en": "Bulgogi (Korean BBQ Beef)",
+      "content": {
+        "description_ko": "불고기는 얇게 썬 소고기를 간장, 설탕, 마늘, 참기름 등으로 양념하여 볶아낸 한국의 대표적인 BBQ 요리입니다. 부드럽고 달콤한 맛이 특징이며, 고기의 풍미가 잘 살아있어 밥과 함께 즐기기 좋습니다.",
+        "description_en": "Bulgogi is a representative Korean BBQ dish made with thinly sliced beef marinated in soy sauce, sugar, garlic, and sesame oil. It features a tender and slightly sweet flavor, making it perfect to enjoy with rice.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "양념 재료를 섞어 소스를 만듭니다",
+          "소고기를 양념에 재워둡니다 (최소 30분)",
+          "팬에 기름을 두르고 고기를 볶습니다",
+          "양파와 당근을 추가하여 함께 볶습니다",
+          "고기가 익으면 불을 끄고 접시에 담습니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 3,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:05:39.910242"
+    },
+    {
+      "menu_id": "test-006",
+      "name_ko": "냉면",
+      "name_en": "Naengmyeon (Cold Noodles)",
+      "content": {
+        "description_ko": "냉면은 메밀면으로 만든 차가운 국수 요리로, 시원한 육수와 아삭한 무가 어우러져 여름철에 특히 인기가 많습니다. 담백한 맛과 함께 고명으로 올린 삶은 계란, 오이, 배가 풍미를 더해줍니다.",
+        "description_en": "Naengmyeon is a cold noodle dish made from buckwheat noodles, served in a refreshing broth with crunchy radish. It's especially popular in summer, featuring a mild flavor enhanced by toppings like boiled egg, cucumber, and pear.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 1,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:05:57.921213"
+    },
+    {
+      "menu_id": "test-007",
+      "name_ko": "삼계탕",
+      "name_en": "Samgyetang (Ginseng Chicken Soup)",
+      "content": {
+        "description_ko": "삼계탕은 영계와 인삼, 찹쌀을 주재료로 하여 끓인 한국의 전통 보양식입니다. 국물은 진하고 담백하며, 인삼의 향이 은은하게 퍼져 건강한 맛을 자아냅니다. 여름철에 특히 인기가 많아, 더위에 지친 몸을 회복하는 데 도움을 줍니다.",
+        "description_en": "Samgyetang is a traditional Korean restorative dish made with young chicken, ginseng, and glutinous rice. The broth is rich and mild, with a subtle aroma of ginseng, creating a healthy and comforting flavor. It's especially popular in summer for rejuvenating the body after the heat.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:06:14.556785"
+    },
+    {
+      "menu_id": "test-008",
+      "name_ko": "떡볶이",
+      "name_en": "Tteokbokki (Spicy Rice Cakes)",
+      "content": {
+        "description_ko": "떡볶이는 매콤한 고추장 소스에 쫄깃한 떡과 어묵을 조리한 한국의 대표적인 길거리 음식입니다. 매운맛과 달콤한 맛이 조화를 이루며, 다양한 재료와 함께 즐길 수 있어 많은 사랑을 받고 있습니다.",
+        "description_en": "Tteokbokki is a popular Korean street food made with chewy rice cakes and fish cakes, simmered in a spicy gochujang sauce. Its balance of spiciness and sweetness makes it a beloved dish, often enjoyed with various toppings.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "육수를 끓입니다",
+          "양념을 넣고 간을 맞춥니다",
+          "주재료를 넣고 끓입니다",
+          "마지막으로 고명을 올립니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 4,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:06:30.811219"
+    },
+    {
+      "menu_id": "test-009",
+      "name_ko": "잡채",
+      "name_en": "Japchae (Stir-fried Glass Noodles)",
+      "content": {
+        "description_ko": "잡채는 당면을 주재료로 하여 다양한 야채와 소고기를 함께 볶아 만든 한국의 전통 요리입니다. 쫄깃한 당면과 신선한 야채, 고소한 소고기가 어우러져 달콤하고 짭짤한 맛을 자아냅니다. 특별한 날이나 잔치 음식으로 자주 즐겨지며, 색감이 화려해 시각적으로도 매력적입니다.",
+        "description_en": "Japchae is a traditional Korean dish made with stir-fried glass noodles, various vegetables, and beef. The chewy noodles combined with fresh vegetables and savory beef create a delightful balance of sweet and salty flavors. Often served on special occasions, its vibrant colors make it visually appealing as well.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "당면을 삶아 찬물에 헹굽니다",
+          "야채와 소고기를 볶습니다",
+          "삶은 당면을 넣고 양념을 추가합니다",
+          "모든 재료가 잘 섞이도록 볶습니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 2,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "비빔밥",
+            "similarity": "다양한 재료가 어우러져 비벼 먹는 요리입니다"
+          },
+          {
+            "name": "불고기",
+            "similarity": "소고기를 주재료로 하여 양념하여 구워 먹는 요리입니다"
+          },
+          {
+            "name": "김치볶음밥",
+            "similarity": "김치를 주재료로 하여 볶아 만든 밥 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "잡채는 조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 잔치나 특별한 날에 자주 제공되었습니다.",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 명절이나 특별한 날에 인기가 많습니다."
+        }
+      },
+      "enriched_at": "2026-02-19T08:06:50.625827"
+    },
+    {
+      "menu_id": "test-010",
+      "name_ko": "김밥",
+      "name_en": "Gimbap (Seaweed Rice Roll)",
+      "content": {
+        "description_ko": "김밥은 밥과 다양한 재료를 김으로 감싸 만든 한국의 전통 음식입니다. 주로 간단한 소풍이나 도시락으로 즐기며, 부드러운 밥과 신선한 재료의 조화가 특징입니다. 다양한 속재료를 사용해 맛의 변화를 줄 수 있어 누구나 좋아하는 음식입니다.",
+        "description_en": "Gimbap is a traditional Korean dish made by rolling rice and various ingredients in seaweed. Often enjoyed as a simple picnic or lunchbox meal, it features a harmonious blend of soft rice and fresh fillings. Its versatility allows for a variety of flavors, making it a favorite among many.",
+        "regional_variants": [
+          {
+            "name": "서울식",
+            "difference": "서울에서는 국물이 더 맑고 담백합니다"
+          },
+          {
+            "name": "전라도식",
+            "difference": "전라도에서는 젓갈을 더 많이 넣어 감칠맛이 강합니다"
+          },
+          {
+            "name": "경상도식",
+            "difference": "경상도에서는 멸치 육수를 사용해 시원한 맛이 특징입니다"
+          }
+        ],
+        "preparation_steps": [
+          "주재료를 준비하고 손질합니다",
+          "밥을 지어 식혀줍니다",
+          "김 위에 밥을 고르게 펴고 속재료를 올립니다",
+          "김을 돌돌 말아줍니다",
+          "먹기 좋은 크기로 잘라서 접시에 담습니다"
+        ],
+        "nutrition": {
+          "calories": 400,
+          "protein_g": 20,
+          "fat_g": 15,
+          "carbs_g": 40,
+          "serving_size": "1인분 (350g)"
+        },
+        "flavor_profile": {
+          "spiciness": 0,
+          "sweetness": 1,
+          "saltiness": 3,
+          "umami": 4,
+          "sourness": 1
+        },
+        "visitor_tips": {
+          "ordering": "식당에서 주문할 때는 매운 정도를 미리 말씀하세요",
+          "eating": "뜨거울 때 바로 드시면 가장 맛있습니다",
+          "pairing": "김치, 깍두기와 함께 드시면 좋습니다"
+        },
+        "similar_dishes": [
+          {
+            "name": "청국장찌개",
+            "similarity": "발효 식품을 사용한 찌개류로 국물 맛이 비슷합니다"
+          },
+          {
+            "name": "부대찌개",
+            "similarity": "얼큰한 맛의 찌개로 재료 조합이 비슷합니다"
+          },
+          {
+            "name": "김치국",
+            "similarity": "김치를 주재료로 한 국물 요리입니다"
+          }
+        ],
+        "cultural_background": {
+          "history": "조선시대부터 발효 음식과 함께 발전한 전통 음식으로, 김치의 보존법으로 시작되었습니다",
+          "origin": "한국 전역 (각 지역마다 특색 있음)",
+          "cultural_notes": "한국인의 일상 식사에서 가장 흔한 반찬 중 하나이며, 특히 겨울철에 인기가 많습니다"
+        }
+      },
+      "enriched_at": "2026-02-19T08:07:07.045417"
+    }
+  ]
+}

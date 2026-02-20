@@ -86,6 +86,11 @@ class CanonicalMenu(Base):
     nutrition_info = Column(JSONB, default={})
     last_nutrition_updated = Column(DateTime(timezone=True))
 
+    # Auto-translation tracking (Sprint 2 Phase 3)
+    translation_status = Column(String(20), default="pending")  # pending, completed, failed, partial, disabled
+    translation_attempted_at = Column(DateTime(timezone=True))
+    translation_error = Column(Text)
+
     # 벡터 (유사 메뉴 검색용) - v0.2에서 활성화
     # embedding = Column(Vector(1536))  # pgvector
 

@@ -20,7 +20,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 # Database
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 
 # OpenAI
 from openai import AsyncOpenAI
@@ -30,6 +30,9 @@ from models.canonical_menu import CanonicalMenu
 
 # Config
 from config import settings
+
+# Retry utility
+from utils.retry import async_retry
 
 
 class AutoTranslateService:
@@ -44,7 +47,7 @@ class AutoTranslateService:
         menu_id: UUID,
         menu_name_ko: str,
         description_en: str,
-        db: Session
+        db: AsyncSession
     ) -> Dict[str, str]:
         """
         새 메뉴 자동 번역
@@ -73,11 +76,13 @@ class AutoTranslateService:
                 description_en
             )
 
-            # DB 업데이트
+            # DB 업데이트 (async)
             if translations and any(translations.values()):
-                menu = db.query(CanonicalMenu).filter(
-                    CanonicalMenu.id == menu_id
-                ).first()
+                from sqlalchemy import select
+                result = await db.execute(
+                    select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
+                )
+                menu = result.scalar_one_or_none()
 
                 if menu:
                     if not menu.explanation_short:
@@ -91,7 +96,7 @@ class AutoTranslateService:
                         if text:
                             menu.explanation_short[lang] = text
 
-                    db.commit()
+                    await db.commit()
                     logger.info(f"✅ 자동 번역 완료: {menu_name_ko}")
                     return translations
 
@@ -101,12 +106,20 @@ class AutoTranslateService:
 
         return {}
 
+    @async_retry(max_attempts=3, delay=1.0, backoff=2.0)
     async def _translate_with_gpt4o(
         self,
         menu_name_ko: str,
         description_en: str
     ) -> Dict[str, str]:
-        """GPT-4o로 번역"""
+        """
+        GPT-4o로 번역 (with 3 retry attempts)
+
+        Retry policy:
+        - Attempt 1: immediate
+        - Attempt 2: after 1.0 seconds
+        - Attempt 3: after 2.0 seconds
+        """
 
         prompt = f"""
 당신은 한식 요리사이자 다국어 번역가입니다.

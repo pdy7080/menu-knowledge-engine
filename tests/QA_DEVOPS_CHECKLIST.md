@@ -72,19 +72,28 @@
 
 ---
 
-## Task #10: S3 & CloudFront Setup 🔄 WAITING
+## Task #15: S3/CloudFront 설정 🔄 IN PROGRESS
 
-### Prerequisites
+**Assigned By**: team-lead
+**Assigned Date**: 2026-02-18 22:55
+**Estimated Time**: 5 hours
+**Status**: Infrastructure script complete, waiting for Task #2
+
+### Prerequisites (Blocking)
+- [ ] Task #2: content-engineer (🔄 In Progress) ← **BLOCKER**
 - [ ] AWS credentials configured
-- [ ] Budget approval (< $10/month target)
+- [x] Infrastructure script created ✅
 
-### Actions
-- [ ] Run `infrastructure/s3_cloudfront_setup.sh`
+### Actions (When Unblocked)
+- [ ] Configure AWS credentials (aws configure)
+- [ ] Run `infrastructure/s3_cloudfront_setup.sh` (30 min)
 - [ ] Verify S3 bucket created
 - [ ] Verify CloudFront distribution created
-- [ ] Test image upload and CDN delivery
+- [ ] Bulk upload images to S3 (2 hours)
+- [ ] Test CDN delivery and performance (1 hour)
+- [ ] Setup cost monitoring (CloudWatch alerts) (1 hour)
 - [ ] Update `.env` with CDN URL
-- [ ] Configure backend to use S3 for image uploads
+- [ ] Update deployment report (30 min)
 
 ---
 
