@@ -1,5 +1,5 @@
-# Temp / test files
-test_*.py
+# Temp / test files (root-level only)
+/test_*.py
 ollama_quality_test_*.json
 NUL
 
