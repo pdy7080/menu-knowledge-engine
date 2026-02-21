@@ -84,6 +84,10 @@ set_api_key.sh
 
 # Automation data (local state, not for git)
 app/backend/data/automation/
+app/backend/enrich_missing_checkpoint.json
+
+# Test screenshots
+tests/screenshots/
 
 # Archive (historical reports/scripts - local only)
 _archive/
