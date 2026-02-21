@@ -16,67 +16,8 @@ const CONFIG = {
     LANGUAGE: 'en', // Default language (managed by LanguageManager)
 };
 
-// ===========================
-// Language Manager (Multi-Language Support)
-// ===========================
-const LanguageManager = {
-    SUPPORTED_LANGUAGES: ['en', 'ja', 'zh'],
-    STORAGE_KEY: 'menu_guide_language',
-
-    init() {
-        const savedLang = localStorage.getItem(this.STORAGE_KEY);
-        const currentLang = this.SUPPORTED_LANGUAGES.includes(savedLang) ? savedLang : 'en';
-        CONFIG.LANGUAGE = currentLang;
-        this.updateUILanguageButtons(currentLang);
-        console.log(`🌐 Language initialized: ${currentLang}`);
-    },
-
-    getCurrentLanguage() {
-        return CONFIG.LANGUAGE;
-    },
-
-    setLanguage(lang) {
-        if (!this.SUPPORTED_LANGUAGES.includes(lang)) {
-            console.warn(`⚠️ Unsupported language: ${lang}`);
-            return;
-        }
-        CONFIG.LANGUAGE = lang;
-        localStorage.setItem(this.STORAGE_KEY, lang);
-        this.updateUILanguageButtons(lang);
-        console.log(`✅ Language changed to: ${lang}`);
-    },
-
-    updateUILanguageButtons(lang) {
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            const btnLang = btn.getAttribute('data-lang');
-            if (btnLang === lang) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-    }
-};
-
-/**
- * Get localized field from object with fallback chain
- */
-function getLocalizedField(obj, fieldKey) {
-    if (!obj) return '';
-    const lang = LanguageManager.getCurrentLanguage();
-    const jsonbFields = ['explanation_short', 'explanation_long', 'cultural_context'];
-    if (jsonbFields.includes(fieldKey)) {
-        if (typeof obj[fieldKey] === 'object') {
-            const langMap = { 'ja': 'ja', 'zh': 'zh', 'en': 'en' };
-            return obj[fieldKey][langMap[lang]] || obj[fieldKey]['en'] || obj[fieldKey]['ko'] || '';
-        }
-        return obj[fieldKey] || '';
-    }
-    const langSuffixes = { 'en': '', 'ja': '_ja', 'zh': '_zh_cn' };
-    const suffix = langSuffixes[lang] || '';
-    const localizedKey = `${fieldKey}${suffix}`;
-    return obj[localizedKey] || obj[`${fieldKey}_en`] || obj[`${fieldKey}_ko`] || obj[fieldKey] || '';
-}
+// NOTE: LanguageManager and getLocalizedField are defined in
+// menu-detail-components.js (loaded before this file). Do not redeclare.
 
 // ===========================
 // DOM Elements
@@ -205,8 +146,8 @@ function renderMenuDetail(data) {
     // Render stats
     renderStats(data);
 
-    // Render image carousel
-    const images = data.menu_images || (data.image_url ? [{url: data.image_url, credit: 'Wikimedia Commons'}] : []);
+    // Render image carousel (API returns 'images' array, with 'image_url' as legacy fallback)
+    const images = data.images || (data.image_url ? [{url: data.image_url, credit: 'Wikimedia Commons'}] : []);
     ImageCarousel.render(images, DOM.imageCarouselContainer);
 
     // Render tab contents
@@ -229,10 +170,10 @@ function renderStats(data) {
 
     DOM.menuStats.innerHTML = `
         <div class="stat-badge">
-            ${spiceEmoji} Spice Level ${data.spice_level || 0}
+            ${spiceEmoji} ${getLabel('label.spiceLevel')} ${data.spice_level || 0}
         </div>
         <div class="stat-badge">
-            ${difficultyEmoji} Adventure ${data.difficulty_score || 1}
+            ${difficultyEmoji} ${getLabel('label.adventure')} ${data.difficulty_score || 1}
         </div>
         ${data.typical_price_min ? `
             <div class="stat-badge">
@@ -297,6 +238,33 @@ function getDifficultyEmoji(score) {
 }
 
 // ===========================
+// i18n Label Update
+// ===========================
+function updateTabLabels() {
+    const tabLabelMap = {
+        'description': 'tab.description',
+        'preparation': 'tab.preparation',
+        'nutrition': 'tab.nutrition',
+        'tips': 'tab.tips',
+    };
+    DOM.tabButtons.forEach(btn => {
+        const tabKey = btn.dataset.tab;
+        if (tabLabelMap[tabKey]) {
+            btn.textContent = getLabel(tabLabelMap[tabKey]);
+        }
+    });
+    // Back button
+    if (DOM.backBtn) {
+        DOM.backBtn.textContent = getLabel('btn.back');
+    }
+    // Similar dishes section title
+    const similarTitle = document.querySelector('#similarDishesSection .section-title');
+    if (similarTitle) {
+        similarTitle.textContent = getLabel('section.similarDishes');
+    }
+}
+
+// ===========================
 // Tab Navigation
 // ===========================
 function switchTab(tabName) {
@@ -348,6 +316,10 @@ function getMenuIdFromURL() {
 // ===========================
 async function init() {
     console.log('🍜 Menu Detail Page - Initializing...');
+
+    // Initialize language and update all UI labels
+    LanguageManager.init();
+    updateTabLabels();
 
     // Get menu ID from URL
     const menuParam = getMenuIdFromURL();

@@ -1,45 +1,10 @@
 /**
  * Enriched Content Components - Sprint 2 Phase 2
  * Additional UI components for enriched menu data
+ *
+ * NOTE: LanguageManager, getLocalizedField, getIngredientName are defined in
+ * menu-detail-components.js (loaded first). Do not redeclare them here.
  */
-
-// ===========================
-// Language Support (Shared with menu-detail.js)
-// ===========================
-const LanguageManager = {
-    SUPPORTED_LANGUAGES: ['en', 'ja', 'zh'],
-    STORAGE_KEY: 'menu_guide_language',
-    getCurrentLanguage() {
-        const saved = localStorage.getItem(this.STORAGE_KEY);
-        return this.SUPPORTED_LANGUAGES.includes(saved) ? saved : 'en';
-    }
-};
-
-function getLocalizedField(obj, fieldKey) {
-    if (!obj) return '';
-    const lang = LanguageManager.getCurrentLanguage();
-    const jsonbFields = ['explanation_short', 'explanation_long', 'cultural_context'];
-    if (jsonbFields.includes(fieldKey)) {
-        if (typeof obj[fieldKey] === 'object') {
-            const langMap = { 'ja': 'ja', 'zh': 'zh', 'en': 'en' };
-            return obj[fieldKey][langMap[lang]] || obj[fieldKey]['en'] || obj[fieldKey]['ko'] || '';
-        }
-        return obj[fieldKey] || '';
-    }
-    const langSuffixes = { 'en': '', 'ja': '_ja', 'zh': '_zh_cn' };
-    const suffix = langSuffixes[lang] || '';
-    const localizedKey = `${fieldKey}${suffix}`;
-    return obj[localizedKey] || obj[`${fieldKey}_en`] || obj[`${fieldKey}_ko`] || obj[fieldKey] || '';
-}
-
-function getIngredientName(ingredient) {
-    if (!ingredient) return '';
-    if (typeof ingredient === 'string') return ingredient;
-    const lang = LanguageManager.getCurrentLanguage();
-    if (lang === 'ja' && ingredient.ja) return ingredient.ja;
-    if (lang === 'zh' && ingredient.zh) return ingredient.zh;
-    return ingredient.en || ingredient.ko || '';
-}
 
 // ===========================
 // Regional Variants Component
@@ -56,7 +21,7 @@ const RegionalVariantsComponent = {
 
         return `
             <div class="regional-variants-section">
-                <h3>🗺️ Regional Variations</h3>
+                <h3>${getLabel('section.regionalVariations')}</h3>
                 <div class="regional-variants-grid">
                     ${variants.map(variant => `
                         <div class="regional-variant-card">
@@ -104,7 +69,7 @@ const FlavorProfileComponent = {
 
         return `
             <div class="flavor-profile-section">
-                <h3>👅 Flavor Profile</h3>
+                <h3>${getLabel('section.flavorProfile')}</h3>
                 <div class="flavor-bars">
                     ${activeFlavors.map(flavor => `
                         <div class="flavor-bar-item">
@@ -139,11 +104,19 @@ const EnrichedDescriptionComponent = {
         let html = '';
 
         // Long description (localized)
-        const descriptionLong = getLocalizedField(data, 'description_long');
+        // For JA/ZH: prefer explanation_long.{lang} (deep translation) over description_long_en fallback
+        const lang = LanguageManager.getCurrentLanguage();
+        let descriptionLong = '';
+        if (lang !== 'en' && data.explanation_long && typeof data.explanation_long === 'object' && data.explanation_long[lang]) {
+            descriptionLong = data.explanation_long[lang];
+        }
+        if (!descriptionLong) {
+            descriptionLong = getLocalizedField(data, 'description_long');
+        }
         if (descriptionLong) {
             html += `
                 <div class="description-section">
-                    <h3>📖 What is this dish?</h3>
+                    <h3>${getLabel('section.whatIsThis')}</h3>
                     <p class="description-text-long">${escapeHtml(descriptionLong)}</p>
                 </div>
             `;
@@ -153,7 +126,7 @@ const EnrichedDescriptionComponent = {
         if (data.cultural_background) {
             html += `
                 <div class="description-section">
-                    <h3>🎎 Cultural Background</h3>
+                    <h3>${getLabel('section.culturalSignificance')}</h3>
                     <p class="description-text">${escapeHtml(data.cultural_background)}</p>
                 </div>
             `;
@@ -174,7 +147,7 @@ const EnrichedDescriptionComponent = {
         if (!html && explanationLong) {
             html += `
                 <div class="description-section">
-                    <h3>📖 What is this dish?</h3>
+                    <h3>${getLabel('section.whatIsThis')}</h3>
                     <p class="description-text">${escapeHtml(explanationLong)}</p>
                 </div>
             `;
@@ -185,7 +158,7 @@ const EnrichedDescriptionComponent = {
         if (culturalContext) {
             html += `
                 <div class="description-section">
-                    <h3>🎎 Cultural Significance</h3>
+                    <h3>${getLabel('section.culturalSignificance')}</h3>
                     <p class="description-text">${escapeHtml(culturalContext)}</p>
                 </div>
             `;
@@ -195,7 +168,7 @@ const EnrichedDescriptionComponent = {
         if (data.main_ingredients && data.main_ingredients.length > 0) {
             html += `
                 <div class="description-section">
-                    <h3>🥬 Main Ingredients</h3>
+                    <h3>${getLabel('section.mainIngredients')}</h3>
                     <ul class="ingredients-list">
                         ${data.main_ingredients.map(ing => `
                             <li>${escapeHtml(getIngredientName(ing))}</li>
@@ -209,7 +182,7 @@ const EnrichedDescriptionComponent = {
         if (data.allergens && data.allergens.length > 0) {
             html += `
                 <div class="allergen-section">
-                    <h3>⚠️ Allergen Information</h3>
+                    <h3>${getLabel('section.allergens')}</h3>
                     <div class="allergen-list">
                         ${data.allergens.map(allergen => `
                             <span class="allergen-tag">${getAllergenEmoji(allergen)} ${escapeHtml(allergen)}</span>
@@ -223,7 +196,7 @@ const EnrichedDescriptionComponent = {
         if (data.dietary_tags && data.dietary_tags.length > 0) {
             html += `
                 <div class="dietary-section">
-                    <h3>🏷️ Dietary Information</h3>
+                    <h3>${getLabel('section.dietaryInfo')}</h3>
                     <div class="dietary-list">
                         ${data.dietary_tags.map(tag => `
                             <span class="dietary-tag">${getDietaryEmoji(tag)} ${escapeHtml(tag.replace(/_/g, ' '))}</span>
@@ -260,9 +233,10 @@ const EnrichedPreparationComponent = {
 
         return `
             <ol class="preparation-steps-list">
-                ${steps.map(step => {
-                    const stepNum = step.step || step.number;
-                    const instruction = step.instruction_en || step.instruction_ko || step.description;
+                ${steps.map((step, index) => {
+                    // Support both formats: object {step, instruction_en, ...} or plain string
+                    const stepNum = typeof step === 'string' ? (index + 1) : (step.step || step.number || (index + 1));
+                    const instruction = typeof step === 'string' ? step : (step.instruction_en || step.instruction_ko || step.description || '');
 
                     return `
                         <li class="preparation-step">
@@ -312,7 +286,7 @@ const EnrichedNutritionComponent = {
         if (benefits && benefits.length > 0) {
             html += `
                 <div class="health-benefits">
-                    <h3>✨ Health Benefits</h3>
+                    <h3>${getLabel('section.healthBenefits')}</h3>
                     <ul class="health-benefits-list">
                         ${benefits.map(benefit => `
                             <li class="health-benefit-item">${escapeHtml(benefit)}</li>
@@ -368,7 +342,7 @@ function escapeHtml(text) {
     if (!text) return '';
     const map = {
         '&': '&amp;', '<': '&lt;', '>': '&gt;',
-        '"': '&quot;', "'": '&#039'
+        '"': '&quot;', "'": '&#039;'
     };
     return String(text).replace(/[&<>"']/g, m => map[m]);
 }

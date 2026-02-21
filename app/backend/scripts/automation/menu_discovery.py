@@ -77,7 +77,8 @@ class MenuDiscovery:
         ]
 
     async def load_existing_names_from_file(self):
-        """기존 메뉴명을 시드 파일에서 로드"""
+        """기존 메뉴명을 시드 파일 + 이전 수집 파일에서 로드 (중복 방지)"""
+        # 1. 시드 파일 (프로덕션 DB 기준)
         seed_files = [
             BACKEND_DIR / "data" / "canonical_seed_data.json",
             BACKEND_DIR / "data" / "canonical_seed_enriched.json",
@@ -96,7 +97,27 @@ class MenuDiscovery:
                 except Exception as e:
                     logger.warning(f"Failed to load {seed_file}: {e}")
 
-        logger.info(f"Loaded {len(self.existing_names)} existing menu names")
+        seed_count = len(self.existing_names)
+
+        # 2. 이전 discovery 파일 (중복 수집 방지)
+        staging_dir = Path(auto_settings.AUTOMATION_STAGING_DIR) / "new_menus"
+        if staging_dir.exists():
+            for json_file in sorted(staging_dir.glob("discovery_*.json")):
+                try:
+                    with open(json_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    for menu in data.get("menus", []):
+                        name = menu.get("name_ko", "")
+                        if name:
+                            self.existing_names.add(normalize_name(name))
+                except Exception as e:
+                    logger.warning(f"Failed to load {json_file.name}: {e}")
+
+        discovery_count = len(self.existing_names) - seed_count
+        logger.info(
+            f"Loaded {len(self.existing_names)} existing menu names "
+            f"(seed: {seed_count}, previous discovery: {discovery_count})"
+        )
 
     async def discover_daily(self, target: int = 0) -> Dict[str, Any]:
         """

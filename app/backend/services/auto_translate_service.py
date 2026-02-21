@@ -22,8 +22,8 @@ logger = logging.getLogger(__name__)
 # Database
 from sqlalchemy.ext.asyncio import AsyncSession
 
-# Google Gemini
-import google.generativeai as genai
+# Google Gemini (google-genai SDK — google.generativeai is deprecated)
+# from google import genai  # imported lazily in _translate_with_gemini
 
 # Models
 from models.canonical_menu import CanonicalMenu
@@ -167,9 +167,9 @@ class AutoTranslateService:
             logger.error("❌ All API keys exhausted (60 RPD)")
             return {}
 
-        # 해당 키로 Gemini 설정
-        genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        # google-genai SDK 패턴 (google.generativeai deprecated)
+        from google import genai
+        client = genai.Client(api_key=api_key)
 
         prompt = f"""
 당신은 한식 요리사이자 다국어 번역가입니다.
@@ -190,13 +190,15 @@ class AutoTranslateService:
 """
 
         try:
-            # Gemini API 호출
-            response = await model.generate_content_async(
-                prompt,
-                generation_config=genai.types.GenerationConfig(
-                    temperature=0.3,
-                    max_output_tokens=200,
-                )
+            # Gemini API 호출 (google-genai SDK)
+            response = await asyncio.to_thread(
+                client.models.generate_content,
+                model='gemini-2.5-flash-lite',
+                contents=prompt,
+                config={
+                    "temperature": 0.3,
+                    "max_output_tokens": 200,
+                },
             )
 
             result_text = response.text.strip()

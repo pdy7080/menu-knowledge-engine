@@ -6,6 +6,84 @@
  */
 
 // ===========================
+// Shared Language Manager (loaded first — used by all detail page scripts)
+// ===========================
+const LanguageManager = {
+    SUPPORTED_LANGUAGES: ['en', 'ja', 'zh'],
+    STORAGE_KEY: 'menu_guide_language',
+
+    init() {
+        const currentLang = this.getCurrentLanguage();
+        // Update CONFIG.LANGUAGE if CONFIG is defined (menu-detail.js)
+        if (typeof CONFIG !== 'undefined') {
+            CONFIG.LANGUAGE = currentLang;
+        }
+        this.updateUILanguageButtons(currentLang);
+        console.log(`🌐 Language initialized: ${currentLang}`);
+    },
+
+    getCurrentLanguage() {
+        const saved = localStorage.getItem(this.STORAGE_KEY);
+        return this.SUPPORTED_LANGUAGES.includes(saved) ? saved : 'en';
+    },
+
+    setLanguage(lang) {
+        if (!this.SUPPORTED_LANGUAGES.includes(lang)) {
+            console.warn(`⚠️ Unsupported language: ${lang}`);
+            return;
+        }
+        if (typeof CONFIG !== 'undefined') {
+            CONFIG.LANGUAGE = lang;
+        }
+        localStorage.setItem(this.STORAGE_KEY, lang);
+        this.updateUILanguageButtons(lang);
+        console.log(`✅ Language changed to: ${lang}`);
+    },
+
+    updateUILanguageButtons(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            const btnLang = btn.getAttribute('data-lang');
+            if (btnLang === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+};
+
+/**
+ * Get localized field from object with fallback chain
+ */
+function getLocalizedField(obj, fieldKey) {
+    if (!obj) return '';
+    const lang = LanguageManager.getCurrentLanguage();
+    const jsonbFields = ['explanation_short', 'explanation_long', 'cultural_context'];
+    if (jsonbFields.includes(fieldKey)) {
+        if (typeof obj[fieldKey] === 'object' && obj[fieldKey] !== null) {
+            return obj[fieldKey][lang] || obj[fieldKey]['en'] || obj[fieldKey]['ko'] || '';
+        }
+        return obj[fieldKey] || '';
+    }
+    const langSuffixes = { 'en': '', 'ja': '_ja', 'zh': '_zh_cn' };
+    const suffix = langSuffixes[lang] || '';
+    const localizedKey = `${fieldKey}${suffix}`;
+    return obj[localizedKey] || obj[`${fieldKey}_en`] || obj[`${fieldKey}_ko`] || obj[fieldKey] || '';
+}
+
+/**
+ * Get ingredient name (locale-aware)
+ */
+function getIngredientName(ingredient) {
+    if (!ingredient) return '';
+    if (typeof ingredient === 'string') return ingredient;
+    const lang = LanguageManager.getCurrentLanguage();
+    if (lang === 'ja' && ingredient.ja) return ingredient.ja;
+    if (lang === 'zh' && ingredient.zh) return ingredient.zh;
+    return ingredient.en || ingredient.ko || '';
+}
+
+// ===========================
 // Image Carousel Component
 // ===========================
 const ImageCarousel = {
@@ -407,4 +485,85 @@ function escapeHtml(text) {
 
 function navigateToMenu(menuId) {
     window.location.href = `menu-detail.html?id=${menuId}`;
+}
+
+
+// ===========================
+// UI Labels (i18n)
+// ===========================
+const UI_LABELS = {
+    en: {
+        'tab.description': '📖 Description',
+        'tab.preparation': '👨\u200d🍳 How to Make',
+        'tab.nutrition': '🥗 Nutrition',
+        'tab.tips': '💡 Visitor Tips',
+        'label.spiceLevel': 'Spice Level',
+        'label.adventure': 'Adventure',
+        'section.similarDishes': '🔀 Similar Dishes',
+        'btn.back': '← Back to Search',
+        'btn.fullDetails': 'Full details →',
+        'section.whatIsThis': '📖 What is this dish?',
+        'section.regionalVariations': '🗺️ Regional Variations',
+        'section.culturalSignificance': '🎎 Cultural Significance',
+        'section.mainIngredients': '🥬 Main Ingredients',
+        'section.allergens': '⚠️ Allergen Information',
+        'section.preparation': '👨\u200d🍳 How to Prepare',
+        'section.nutrition': '🥗 Nutritional Information',
+        'section.tips': '💡 Tips for Visitors',
+        'section.pairings': '🍺 Recommended Pairings',
+        'section.flavorProfile': '👅 Flavor Profile',
+        'section.healthBenefits': '✨ Health Benefits',
+        'section.dietaryInfo': '🏷️ Dietary Information',
+    },
+    ja: {
+        'tab.description': '📖 料理について',
+        'tab.preparation': '👨\u200d🍳 作り方',
+        'tab.nutrition': '🥗 栄養情報',
+        'tab.tips': '💡 訪問者のヒント',
+        'label.spiceLevel': '辛さ',
+        'label.adventure': '難易度',
+        'section.similarDishes': '🔀 似たような料理',
+        'btn.back': '← 検索に戻る',
+        'btn.fullDetails': '詳細を見る →',
+        'section.whatIsThis': '📖 この料理とは？',
+        'section.regionalVariations': '🗺️ 地域ごとのバリエーション',
+        'section.culturalSignificance': '🎎 文化的な意義',
+        'section.mainIngredients': '🥬 主な食材',
+        'section.allergens': '⚠️ アレルゲン情報',
+        'section.preparation': '👨\u200d🍳 作り方',
+        'section.nutrition': '🥗 栄養情報',
+        'section.tips': '💡 旅行者向けヒント',
+        'section.pairings': '🍺 おすすめの組み合わせ',
+        'section.flavorProfile': '👅 風味プロフィール',
+        'section.healthBenefits': '✨ 健康効果',
+        'section.dietaryInfo': '🏷️ 食事情報',
+    },
+    zh: {
+        'tab.description': '📖 菜品介绍',
+        'tab.preparation': '👨\u200d🍳 制作方法',
+        'tab.nutrition': '🥗 营养信息',
+        'tab.tips': '💡 访客提示',
+        'label.spiceLevel': '辣度',
+        'label.adventure': '难度',
+        'section.similarDishes': '🔀 类似菜肴',
+        'btn.back': '← 返回搜索',
+        'btn.fullDetails': '查看详情 →',
+        'section.whatIsThis': '📖 这道菜是什么？',
+        'section.regionalVariations': '🗺️ 地区变体',
+        'section.culturalSignificance': '🎎 文化意义',
+        'section.mainIngredients': '🥬 主要食材',
+        'section.allergens': '⚠️ 过敏原信息',
+        'section.preparation': '👨\u200d🍳 制作方法',
+        'section.nutrition': '🥗 营养信息',
+        'section.tips': '💡 旅行者贴士',
+        'section.pairings': '🍺 推荐搭配',
+        'section.flavorProfile': '👅 风味特征',
+        'section.healthBenefits': '✨ 健康益处',
+        'section.dietaryInfo': '🏷️ 饮食信息',
+    }
+};
+
+function getLabel(key) {
+    const lang = LanguageManager.getCurrentLanguage();
+    return (UI_LABELS[lang] && UI_LABELS[lang][key]) || UI_LABELS['en'][key] || key;
 }

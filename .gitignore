@@ -84,3 +84,14 @@ set_api_key.sh
 
 # Automation data (local state, not for git)
 app/backend/data/automation/
+
+# Archive (historical reports/scripts - local only)
+_archive/
+
+# Automation batch files (Windows)
+*.bat
+!app/backend/scripts/automation/run_automation.bat
+
+# Temporary plan files
+AUTONOMOUS_EXECUTION_PLAN.md
+run_autonomous.sh

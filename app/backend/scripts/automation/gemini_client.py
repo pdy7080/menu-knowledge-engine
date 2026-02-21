@@ -1,18 +1,19 @@
 """
-Gemini API Client
+Gemini API Client — 멀티키 라운드 로빈
 Google Gemini 2.5 Flash-Lite 기반 비동기 LLM 클라이언트
 
-무료 tier 제한 (2026-02-20 실측):
-- gemini-2.5-flash-lite: RPM 15, RPD 20
-- gemini-2.5-flash: RPM 10, RPD 20
-- 모든 무료 모델 RPD=20 동일 (2025-12 Google 축소)
-- TPM: 250,000
+멀티키 전략 (3키 × 20 RPD = 60 RPD/일):
+- 키마다 독립 RPD 카운터 추적
+- 요청 시 가장 여유 있는 키 자동 선택
+- 429 에러 시 해당 키만 소진 처리 → 다음 키로 즉시 전환
+- 모든 키 소진 시 즉시 중단 (무의미한 재시도 없음)
 
 google.genai SDK 사용 (google.generativeai는 deprecated)
-OllamaClient와 동일한 인터페이스를 제공하여 교체 용이
+OllamaClient와 동일한 인터페이스 제공
 
 Author: terminal-developer
 Date: 2026-02-20
+Updated: 2026-02-21 (멀티키 라운드 로빈, 429 조기 중단)
 Cost: $0 (무료 tier)
 """
 import asyncio
@@ -21,90 +22,166 @@ import logging
 import re
 import time
 from datetime import date
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 
 from .config_auto import auto_settings
 
 logger = logging.getLogger("automation.gemini")
 
 
+class _KeyState:
+    """단일 API 키의 상태 추적"""
+
+    def __init__(self, key: str, index: int, rpd_limit: int):
+        self.key = key
+        self.index = index
+        self.rpd_limit = rpd_limit
+        self.daily_count: int = 0
+        self.daily_date: str = ""
+        self.exhausted: bool = False
+        self.client = None  # lazy init
+
+    def reset_if_new_day(self):
+        today = date.today().isoformat()
+        if self.daily_date != today:
+            self.daily_date = today
+            self.daily_count = 0
+            self.exhausted = False
+
+    @property
+    def remaining(self) -> int:
+        self.reset_if_new_day()
+        if self.exhausted:
+            return 0
+        return max(0, self.rpd_limit - self.daily_count)
+
+    def mark_used(self):
+        self.reset_if_new_day()
+        self.daily_count += 1
+
+    def mark_exhausted(self):
+        """429 에러 시 이 키를 소진 처리"""
+        self.exhausted = True
+        self.daily_count = self.rpd_limit
+        logger.warning(f"Key #{self.index + 1} exhausted (RPD limit reached)")
+
+
 class GeminiClient:
-    """Google Gemini API 클라이언트 (OllamaClient 호환 인터페이스)"""
+    """Google Gemini API 클라이언트 — 멀티키 라운드 로빈"""
 
     def __init__(
         self,
-        api_key: str = "",
+        api_keys: List[str] = None,
         model: str = "",
         rpm_limit: int = 0,
         rpd_limit: int = 0,
     ):
-        self.api_key = api_key or auto_settings.GOOGLE_API_KEY
         self.model = model or auto_settings.GEMINI_MODEL
         self.rpm_limit = rpm_limit or auto_settings.GEMINI_RPM_LIMIT
         self.rpd_limit = rpd_limit or auto_settings.GEMINI_RPD_LIMIT
 
-        # Rate limiting state
+        # 키 수집: 명시적 전달 > .env 멀티키 > .env 단일키
+        if api_keys:
+            raw_keys = api_keys
+        else:
+            raw_keys = [
+                auto_settings.GOOGLE_API_KEY_1,
+                auto_settings.GOOGLE_API_KEY_2,
+                auto_settings.GOOGLE_API_KEY_3,
+                auto_settings.GOOGLE_API_KEY,  # 하위호환 (단일키)
+            ]
+        # 빈 값, 중복 제거
+        seen = set()
+        unique_keys = []
+        for k in raw_keys:
+            k = k.strip()
+            if k and k not in seen:
+                seen.add(k)
+                unique_keys.append(k)
+
+        self._key_states: List[_KeyState] = [
+            _KeyState(key=k, index=i, rpd_limit=self.rpd_limit)
+            for i, k in enumerate(unique_keys)
+        ]
+
+        # Rate limiting (키 무관, 전체 RPM 공유)
         self._last_request_time: float = 0.0
-        self._daily_count: int = 0
-        self._daily_date: str = ""
+        self._sdk_imported: bool = False
 
-        # google.genai SDK (new)
-        self._client = None
+    @property
+    def total_keys(self) -> int:
+        return len(self._key_states)
 
-    def _init_sdk(self):
-        """google.genai SDK 초기화 (lazy loading)"""
-        if self._client is not None:
+    @property
+    def total_rpd(self) -> int:
+        """전체 일일 RPD 합계"""
+        return self.total_keys * self.rpd_limit
+
+    def _pick_best_key(self) -> Optional[_KeyState]:
+        """가장 여유 있는 키 선택"""
+        best = None
+        for ks in self._key_states:
+            ks.reset_if_new_day()
+            if ks.exhausted or ks.remaining <= 0:
+                continue
+            if best is None or ks.remaining > best.remaining:
+                best = ks
+        return best
+
+    def _get_client_for_key(self, ks: _KeyState):
+        """키별 genai.Client 초기화 (lazy)"""
+        if ks.client is not None:
+            return ks.client
+
+        from google import genai
+        ks.client = genai.Client(api_key=ks.key)
+        logger.info(f"Gemini SDK initialized for key #{ks.index + 1}: {self.model}")
+        return ks.client
+
+    def _ensure_sdk(self):
+        if self._sdk_imported:
             return
-
         try:
-            from google import genai
-            self._client = genai.Client(api_key=self.api_key)
-            logger.info(f"Gemini SDK initialized: {self.model}")
+            from google import genai  # noqa: F401
+            self._sdk_imported = True
         except ImportError:
             raise ImportError(
                 "google-genai package not installed. "
                 "Run: pip install google-genai"
             )
 
+    def is_all_exhausted(self) -> bool:
+        """모든 키가 소진되었는지 확인"""
+        for ks in self._key_states:
+            ks.reset_if_new_day()
+            if not ks.exhausted and ks.remaining > 0:
+                return False
+        return True
+
     async def is_available(self) -> bool:
-        """Gemini API 사용 가능 여부 확인 (RPD 절약: API 호출 없이 SDK 초기화만)"""
-        if not self.api_key:
-            logger.warning("GOOGLE_API_KEY not configured")
+        """사용 가능 여부 확인 (API 호출 없이)"""
+        if not self._key_states:
+            logger.warning("No Gemini API keys configured")
             return False
 
-        if not self._check_daily_limit():
+        if self.is_all_exhausted():
+            logger.warning("All Gemini keys exhausted for today")
             return False
 
         try:
-            self._init_sdk()
-            # RPD 절약: API 호출 없이 SDK 초기화 성공만 확인
-            # 실제 연결 검증은 첫 generate() 호출에서 수행됨
+            self._ensure_sdk()
             return True
         except Exception as e:
-            logger.error(f"Gemini SDK initialization failed: {e}")
+            logger.error(f"Gemini SDK init failed: {e}")
             return False
 
     async def has_model(self, model_name: str = "") -> bool:
-        """모델 사용 가능 여부 (Gemini는 항상 True if API key valid)"""
+        """하위호환 인터페이스"""
         return await self.is_available()
 
-    def _check_daily_limit(self) -> bool:
-        """일일 RPD 한도 확인"""
-        today = date.today().isoformat()
-        if self._daily_date != today:
-            self._daily_date = today
-            self._daily_count = 0
-
-        if self._daily_count >= self.rpd_limit:
-            logger.warning(
-                f"Daily RPD limit reached: {self._daily_count}/{self.rpd_limit}"
-            )
-            return False
-        return True
-
     async def _rate_limit(self):
-        """RPM rate limit 적용 (flash-lite: 15 RPM = 4초 간격)"""
-        min_interval = 60.0 / self.rpm_limit  # 15 RPM = 4초
+        """RPM rate limit (키 무관, 전체 공유)"""
+        min_interval = 60.0 / self.rpm_limit
         elapsed = time.time() - self._last_request_time
         if elapsed < min_interval:
             wait = min_interval - elapsed
@@ -120,29 +197,25 @@ class GeminiClient:
         max_tokens: int = 4096,
     ) -> Optional[str]:
         """
-        텍스트 생성 (OllamaClient.generate 호환)
-
-        Args:
-            prompt: 사용자 프롬프트
-            system: 시스템 프롬프트
-            temperature: 생성 온도
-            max_tokens: 최대 토큰 수
+        텍스트 생성 — 자동으로 최적 키 선택
 
         Returns:
-            생성된 텍스트 또는 None
+            생성된 텍스트 또는 None (모든 키 소진 시)
         """
-        if not self._check_daily_limit():
+        ks = self._pick_best_key()
+        if ks is None:
+            logger.warning("All keys exhausted — cannot generate")
             return None
 
-        self._init_sdk()
+        self._ensure_sdk()
         await self._rate_limit()
 
-        # 시스템 프롬프트를 프롬프트 앞에 결합
         full_prompt = f"{system}\n\n{prompt}" if system else prompt
 
         try:
+            client = self._get_client_for_key(ks)
             response = await asyncio.to_thread(
-                self._client.models.generate_content,
+                client.models.generate_content,
                 model=self.model,
                 contents=full_prompt,
                 config={
@@ -151,9 +224,11 @@ class GeminiClient:
                 },
             )
 
-            self._daily_count += 1
+            ks.mark_used()
+            total_usage = self.get_daily_usage()
             logger.debug(
-                f"Gemini request #{self._daily_count}/{self.rpd_limit} today"
+                f"Key #{ks.index + 1} used ({ks.daily_count}/{self.rpd_limit}) | "
+                f"Total: {total_usage['used']}/{total_usage['limit']}"
             )
 
             if response.text:
@@ -165,11 +240,58 @@ class GeminiClient:
         except Exception as e:
             error_str = str(e)
             if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
-                # RPD 한도 초과 — 더 이상 호출하지 않도록 카운터 최대화
-                logger.error(f"RPD limit reached (429): forcing daily limit stop")
-                self._daily_count = self.rpd_limit
+                ks.mark_exhausted()
+                # 다른 키로 즉시 재시도
+                next_ks = self._pick_best_key()
+                if next_ks:
+                    logger.info(
+                        f"Key #{ks.index + 1} hit 429 → switching to key #{next_ks.index + 1} "
+                        f"({next_ks.remaining} remaining)"
+                    )
+                    return await self._generate_with_key(
+                        next_ks, full_prompt, temperature, max_tokens
+                    )
+                else:
+                    logger.error("All keys exhausted after 429")
+                    return None
             else:
                 logger.error(f"Gemini generate error: {e}")
+                return None
+
+    async def _generate_with_key(
+        self,
+        ks: _KeyState,
+        full_prompt: str,
+        temperature: float,
+        max_tokens: int,
+    ) -> Optional[str]:
+        """특정 키로 생성 (429 fallback용, 내부 전용)"""
+        await self._rate_limit()
+
+        try:
+            client = self._get_client_for_key(ks)
+            response = await asyncio.to_thread(
+                client.models.generate_content,
+                model=self.model,
+                contents=full_prompt,
+                config={
+                    "temperature": temperature,
+                    "max_output_tokens": max_tokens,
+                },
+            )
+
+            ks.mark_used()
+
+            if response.text:
+                return response.text
+            return None
+
+        except Exception as e:
+            error_str = str(e)
+            if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
+                ks.mark_exhausted()
+            else:
+                logger.error(f"Gemini generate error (key #{ks.index + 1}): {e}")
             return None
 
     async def generate_json(
@@ -180,17 +302,14 @@ class GeminiClient:
         max_retries: int = 2,
     ) -> Optional[dict]:
         """
-        JSON 출력 생성 (OllamaClient.generate_json 호환)
+        JSON 출력 생성 — 429 조기 중단 포함
 
-        Args:
-            prompt: JSON 생성 프롬프트
-            system: 시스템 프롬프트
-            temperature: 생성 온도
-            max_retries: 최대 재시도 횟수
-
-        Returns:
-            파싱된 JSON dict 또는 None
+        모든 키 소진 시 즉시 None 반환 (무의미한 재시도 없음)
         """
+        if self.is_all_exhausted():
+            logger.warning("All keys exhausted — skipping generate_json")
+            return None
+
         json_system = (
             (system or "")
             + "\nIMPORTANT: Output ONLY valid JSON. "
@@ -198,6 +317,13 @@ class GeminiClient:
         )
 
         for attempt in range(max_retries):
+            # 매 시도 전 키 잔여량 재확인
+            if self.is_all_exhausted():
+                logger.warning(
+                    f"All keys exhausted at attempt {attempt + 1} — stopping retries"
+                )
+                return None
+
             response_text = await self.generate(
                 prompt=prompt,
                 system=json_system.strip(),
@@ -205,6 +331,9 @@ class GeminiClient:
             )
 
             if not response_text:
+                if self.is_all_exhausted():
+                    logger.warning("All keys exhausted — stopping retries")
+                    return None
                 logger.warning(
                     f"Empty response (attempt {attempt + 1}/{max_retries})"
                 )
@@ -213,7 +342,6 @@ class GeminiClient:
             # JSON 추출
             cleaned = response_text.strip()
 
-            # 마크다운 코드 블록 제거
             if cleaned.startswith("```json"):
                 cleaned = cleaned[7:]
             if cleaned.startswith("```"):
@@ -222,7 +350,6 @@ class GeminiClient:
                 cleaned = cleaned[:-3]
             cleaned = cleaned.strip()
 
-            # JSON 객체 추출 (첫 번째 { ~ 마지막 })
             match = re.search(r'\{.*\}', cleaned, re.DOTALL)
             if match:
                 cleaned = match.group(0)
@@ -239,13 +366,27 @@ class GeminiClient:
         return None
 
     def get_daily_usage(self) -> Dict[str, Any]:
-        """오늘의 API 사용량 반환"""
-        today = date.today().isoformat()
-        if self._daily_date != today:
-            return {"date": today, "used": 0, "limit": self.rpd_limit, "remaining": self.rpd_limit}
+        """전체 키의 합산 사용량"""
+        total_used = 0
+        total_limit = 0
+        key_details = []
+
+        for ks in self._key_states:
+            ks.reset_if_new_day()
+            total_used += ks.daily_count
+            total_limit += self.rpd_limit
+            key_details.append({
+                "key_index": ks.index + 1,
+                "used": ks.daily_count,
+                "remaining": ks.remaining,
+                "exhausted": ks.exhausted,
+            })
+
         return {
-            "date": self._daily_date,
-            "used": self._daily_count,
-            "limit": self.rpd_limit,
-            "remaining": self.rpd_limit - self._daily_count,
+            "date": date.today().isoformat(),
+            "used": total_used,
+            "limit": total_limit,
+            "remaining": total_limit - total_used,
+            "keys": key_details,
+            "total_keys": self.total_keys,
         }

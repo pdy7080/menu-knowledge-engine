@@ -676,6 +676,177 @@ def serialize_menu(menu: CanonicalMenu, include_enriched: bool = False) -> Dict:
 
 ---
 
+### 서버 아키텍처
+
+#### 8. menu-knowledge.chargeapp.net 서버 구조 (Critical)
+**이 구조를 모르면 배포해도 작동하지 않는다**
+
+**요청 흐름**:
+```
+브라우저 요청
+    ↓
+Apache (.htaccess)
+    ├─ 파일이 public_html/에 존재 → Apache가 직접 서빙
+    └─ 파일이 없음 → index.php → curl → FastAPI (localhost:8001)
+```
+
+**두 곳에 파일이 존재**:
+```
+~/menu-knowledge.chargeapp.net/public_html/   ← Apache 직접 서빙 (실제 서빙)
+~/menu-knowledge/app/frontend/                 ← FastAPI StaticFiles (폴백/원본)
+```
+
+**배포 규칙** (JS/HTML 파일):
+```bash
+# ⚠️ 반드시 두 경로 모두에 업로드해야 한다
+scp file.js chargeap@server:~/menu-knowledge.chargeapp.net/public_html/js/
+scp file.js chargeap@server:~/menu-knowledge/app/frontend/js/
+```
+
+**디렉토리 권한 주의**:
+```bash
+# Apache는 755 이상의 권한이 있는 디렉토리만 탐색 가능
+# 새 디렉토리 생성 시 권한 확인 필수
+ls -la ~/menu-knowledge.chargeapp.net/public_html/
+chmod 755 ~/menu-knowledge.chargeapp.net/public_html/js/  # 744 → 755
+```
+
+**자주 하는 실수**:
+- [ ] ❌ FastAPI 소스 경로에만 업로드 → 브라우저에서 구 버전 서빙
+- [ ] ❌ `public_html/js/` 디렉토리 권한 744 → 403 에러
+- [ ] ❌ `app.js` 누락 → 특정 JS 파일 403
+
+**SSH 키**: `~/.ssh/menu_deploy`
+**서버**: `chargeap@d11475.sgp1.stableserver.net`
+
+---
+
+### 프론트엔드 개발 시 주의사항 (추가)
+
+#### 9. 프론트엔드 다국어(i18n) 패턴 (UI_LABELS + getLabel)
+**이 프로젝트의 바닐라 JS i18n 구조를 따르지 않으면 레이블이 영어로만 표시된다**
+
+**구조** (`menu-detail-components.js`):
+```javascript
+// UI_LABELS 딕셔너리 (3개 언어)
+const UI_LABELS = {
+    en: {
+        'tab.description': '📖 Description',
+        'section.whatIsThis': '📖 What is this dish?',
+        'section.culturalSignificance': '🎎 Cultural Significance',
+        // ...
+    },
+    ja: {
+        'tab.description': '📖 料理について',
+        'section.whatIsThis': '📖 この料理とは？',
+        'section.culturalSignificance': '🎎 文化的な意義',
+        // ...
+    },
+    zh: {
+        'tab.description': '📖 菜品介绍',
+        'section.whatIsThis': '📖 这道菜是什么？',
+        'section.culturalSignificance': '🎎 文化意义',
+        // ...
+    }
+};
+
+// 언어 자동 감지 함수
+function getLabel(key) {
+    const lang = LanguageManager.getCurrentLanguage();
+    return (UI_LABELS[lang] && UI_LABELS[lang][key]) || UI_LABELS['en'][key] || key;
+}
+```
+
+**새 레이블 추가 규칙**:
+```javascript
+// ❌ 나쁜 예: HTML에 영어 하드코딩
+html += `<h3>🥬 Main Ingredients</h3>`;
+
+// ✅ 좋은 예: getLabel() 사용
+html += `<h3>${getLabel('section.mainIngredients')}</h3>`;
+
+// → UI_LABELS의 en/ja/zh 3개 모두에 해당 키 추가 필수!
+```
+
+**현재 등록된 키 접두어**:
+| 접두어 | 용도 |
+|--------|------|
+| `tab.*` | 탭 버튼 레이블 |
+| `section.*` | 섹션 헤딩 |
+| `label.*` | 인라인 레이블 |
+| `btn.*` | 버튼 텍스트 |
+
+**파일 위치**: `app/frontend/js/menu-detail-components.js` (UI_LABELS 객체)
+**참고**: `enriched-components.js`는 `menu-detail-components.js`가 먼저 로드된 후 getLabel을 사용함 (스크립트 로드 순서 의존)
+
+---
+
+#### 10. JSONB 다국어 필드 조회 우선순위
+**`getLocalizedField()`만 쓰면 JA/ZH에서 영어가 표시된다**
+
+**DB 필드 구조** (두 가지 패턴이 혼재):
+
+| 패턴 | 필드명 | 구조 | 예시 |
+|------|--------|------|------|
+| **컬럼 기반** | `description_long_ko/en` | 별도 컬럼 | `description_long_ko TEXT` |
+| **JSONB 기반** | `explanation_long` | `{"ko": "...", "ja": "...", "zh": "..."}` | `explanation_long JSONB` |
+
+**`getLocalizedField(data, 'description_long')` 동작**:
+```
+lang=en → description_long_en ✅
+lang=ja → description_long_ja (컬럼 없음) → description_long_en 폴백 ❌
+lang=zh → description_long_zh_cn (컬럼 없음) → description_long_en 폴백 ❌
+```
+
+**올바른 JA/ZH 처리**:
+```javascript
+// ✅ explanation_long JSONB를 먼저 확인 (JA/ZH 번역이 여기 있음)
+const lang = LanguageManager.getCurrentLanguage();
+let text = '';
+if (lang !== 'en' && data.explanation_long && data.explanation_long[lang]) {
+    text = data.explanation_long[lang];  // JSONB에서 직접 읽기
+}
+if (!text) {
+    text = getLocalizedField(data, 'description_long');  // 컬럼 폴백
+}
+```
+
+**구현 위치**: `enriched-components.js` → `EnrichedDescriptionComponent.render()`
+
+---
+
+#### 11. Windows bash에서 한국어 API 테스트 문제
+**Windows bash의 curl은 한국어를 JSON body에 제대로 전달하지 못할 수 있다**
+
+**증상**:
+```bash
+# Windows bash에서 실행 시
+curl -X POST "https://api/identify" \
+  -H "Content-Type: application/json" \
+  -d '{"menu_name_ko": "양념갈비"}'
+# → {"detail": "JSON decode error"} 또는 인코딩 깨짐
+```
+
+**원인**: Windows bash(Git Bash, WSL 등)의 문자 인코딩 처리 방식
+
+**해결책**:
+```bash
+# 방법 1: 파일로 body 전달
+echo '{"menu_name_ko": "양념갈비"}' > /tmp/test_body.json
+curl -X POST "https://api/identify" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/test_body.json
+
+# 방법 2: 서버에서 직접 테스트 (가장 확실)
+ssh chargeap@server "curl -s localhost:8001/api/v1/menu/identify \
+  -H 'Content-Type: application/json' \
+  -d '{\"menu_name_ko\": \"양념갈비\"}'"
+```
+
+**교훈**: API 한국어 처리 버그처럼 보이는 문제가 클라이언트 인코딩 문제일 수 있다. 서버에서 직접 테스트해서 실제 백엔드 이슈인지 먼저 확인한다.
+
+---
+
 ## 참조 자료
 
 ### 기획 & 설계 (Sprint 0 공공데이터 기반)
@@ -695,7 +866,7 @@ def serialize_menu(menu: CanonicalMenu, include_enriched: bool = False) -> Dict:
 
 ---
 
-**최종 수정**: 2026-02-20 (개발 경험 및 주의사항 추가)
+**최종 수정**: 2026-02-22 (서버 아키텍처, 프론트엔드 i18n, JSONB 다국어 필드 우선순위 추가)
 **관리**: Menu Knowledge Engine 개발팀
-**배포 상태**: 🟢 Sprint 2 Phase 2 완료 (Enriched Content Display)
-**최근 업데이트**: 브라우저 캐시, API 구조 검증, Graceful Degradation 패턴 추가
+**배포 상태**: 🟢 Sprint 2 Phase 2 완료 (Enriched Content Display + Full i18n)
+**최근 업데이트**: 서버 2-path 배포 구조, UI_LABELS i18n 패턴, JSONB 다국어 조회 우선순위, Windows bash 한국어 curl 문제

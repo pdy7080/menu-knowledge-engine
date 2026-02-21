@@ -68,6 +68,9 @@ class Settings(BaseSettings):
     PIXABAY_API_KEY: str = ""
     PRODUCTION_DATABASE_URL: str = ""
 
+    # Claude API (translation scripts)
+    ANTHROPIC_API_KEY: str = ""
+
     @property
     def cors_origins(self) -> List[str]:
         """Parse CORS origins from string"""

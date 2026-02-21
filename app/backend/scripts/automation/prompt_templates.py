@@ -93,7 +93,7 @@ def build_enrichment_prompt(
   "description_ko": "150-200자 상세 설명 (한국어). 이 음식의 맛, 질감, 특징을 생생하게 묘사. 반드시 실제 재료와 조리법에 기반하여 정확하게 작성.",
   "description_en": "150-200 chars detailed description (English). Factually accurate portrayal of taste, texture, and characteristics.",
   "regional_variants": [
-    {{"name": "실제 지역명 (예: 부산, 전주, 춘천 등)", "difference": "해당 지역만의 고유한 차이점. 없으면 이 항목 생략."}}
+    {{"name": "실제 지역명 (예: 부산, 전주, 춘천 등)", "difference": "해당 지역만의 고유한 차이점"}}
   ],
   "preparation_steps": [
     "1단계: 재료 준비 - 이 음식의 실제 핵심 재료를 구체적으로",
@@ -137,7 +137,7 @@ def build_enrichment_prompt(
 2. name_en is REQUIRED - romanize the Korean name accurately (e.g. 김치찌개 → Kimchi-jjigae)
 3. ALL content must be FACTUALLY ACCURATE. Do NOT fabricate ingredients or history.
 4. Nutrition calories MUST vary by dish (NOT all 400kcal). Use realistic values.
-5. Regional variants: only include regions that actually have this dish. 2-4 variants is fine.
+5. Regional variants: include regions that actually have this dish. If no regional variants exist, return empty array [].
 6. Preparation steps: describe the REAL cooking method, minimum 4 steps
 7. Similar dishes: name REAL Korean dishes, minimum 2
 8. Flavor profile values: 0 (none) to 5 (very strong), must reflect actual taste"""
@@ -251,7 +251,8 @@ def validate_enrichment(content: dict) -> bool:
         if key not in content:
             return False
 
-    if len(content.get("regional_variants", [])) < 2:
+    # regional_variants: 0 허용 (소시지볶음, 함박 등 지역 변형 없는 메뉴 존재)
+    if not isinstance(content.get("regional_variants"), list):
         return False
     if len(content.get("preparation_steps", [])) < 3:
         return False

@@ -1,7 +1,7 @@
 """
 Menu API Routes
 """
-from fastapi import APIRouter, Depends, UploadFile, File, HTTPException
+from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List, Optional, Dict, Any
@@ -190,22 +190,41 @@ async def get_modifiers(db: AsyncSession = Depends(get_db)):
 @router.get("/canonical-menus")
 async def get_canonical_menus(
     db: AsyncSession = Depends(get_db),
-    include_enriched: bool = False
+    include_enriched: bool = False,
+    limit: Optional[int] = Query(None, ge=1, le=500, description="결과 수 제한 (최대 500)"),
+    offset: int = Query(0, ge=0, description="건너뛸 항목 수"),
+    completeness_min: Optional[float] = Query(None, ge=0, le=100, description="콘텐츠 완성도 최솟값 (0-100)")
 ):
     """
     Get all canonical menus (표준 메뉴 조회)
 
     Query Parameters:
         include_enriched: If True, include Sprint 2 Phase 1 enriched fields
+        limit: Max number of results (default: all, max: 500)
+        offset: Number of items to skip
+        completeness_min: Filter by minimum content_completeness score (0-100)
     """
-    result = await db.execute(select(CanonicalMenu).order_by(CanonicalMenu.name_ko))
-    menus = result.scalars().all()
+    query = select(CanonicalMenu).order_by(CanonicalMenu.name_ko)
+    result = await db.execute(query)
+    all_menus = result.scalars().all()
+
+    # Filter by completeness_min if specified
+    if completeness_min is not None:
+        all_menus = [m for m in all_menus if (m.content_completeness or 0) >= completeness_min]
+
+    total = len(all_menus)
+
+    # Apply pagination
+    if offset:
+        all_menus = all_menus[offset:]
+    if limit is not None:
+        all_menus = all_menus[:limit]
 
     return {
-        "total": len(menus),
+        "total": total,
         "data": [
             _serialize_canonical_menu(cm, include_enriched=include_enriched)
-            for cm in menus
+            for cm in all_menus
         ],
     }
 

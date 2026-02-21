@@ -1,17 +1,18 @@
 """
 Content Generator - Gemini 2.5 Flash 기반 콘텐츠 생성기
-무료 tier (250 RPD) 활용, Ollama fallback 지원
+멀티키 라운드 로빈 (3키 × 20 RPD = 60 RPD/일)
 
 Features:
 - 메뉴 콘텐츠 생성 (10개 필드 — name_en 포함)
 - 번역 생성 (EN/JA/ZH)
 - 카테고리 분류
 - 체크포인트 저장/복원 (10개마다)
-- 일일 배치 처리 (50개)
-- Rate limiting: 6초/req (10 RPM)
+- 일일 배치 처리 (54개, 3키 기준)
+- 모든 키 소진 시 즉시 중단 (429 조기 중단)
 
 Author: terminal-developer
 Date: 2026-02-20
+Updated: 2026-02-21 (멀티키 대응, 조기 중단)
 Cost: $0 (Gemini 무료 tier)
 """
 import asyncio
@@ -53,16 +54,22 @@ class ContentGenerator:
         """LLM 사용 가능 여부 확인"""
         if not await self.client.is_available():
             logger.error(
-                f"Gemini not available. Check GOOGLE_API_KEY in .env"
+                "Gemini not available. Check GOOGLE_API_KEY_1/2/3 in .env"
             )
             return False
 
-        logger.info(f"Gemini ready: {self.client.model}")
+        logger.info(f"Gemini ready: {self.client.model} ({self.client.total_keys} keys)")
         usage = self.client.get_daily_usage()
         logger.info(
-            f"Daily usage: {usage['used']}/{usage['limit']} "
-            f"({usage['remaining']} remaining)"
+            f"Daily RPD: {usage['used']}/{usage['limit']} "
+            f"({usage['remaining']} remaining, {usage['total_keys']} keys)"
         )
+        for kd in usage.get("keys", []):
+            remaining = kd["remaining"]
+            status = "EXHAUSTED" if kd["exhausted"] else f"{remaining} remaining"
+            logger.info(
+                f"  Key #{kd['key_index']}: {kd['used']}/{self.client.rpd_limit} ({status})"
+            )
         return True
 
     async def enrich_menu(self, menu_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
@@ -230,6 +237,14 @@ class ContentGenerator:
         logger.info("=" * 60)
 
         for i, menu in enumerate(menus):
+            # 모든 키 소진 시 즉시 중단 (무의미한 루프 방지)
+            if self.client.is_all_exhausted():
+                logger.warning(
+                    f"All Gemini keys exhausted at menu {i + 1}/{len(menus)} — "
+                    f"stopping batch early ({self.success_count} enriched)"
+                )
+                break
+
             result = await self.enrich_menu(menu)
 
             if result:
@@ -240,19 +255,17 @@ class ContentGenerator:
             elapsed = time.time() - self.start_time
             if self.success_count > 0:
                 avg_time = elapsed / self.success_count
-                remaining = (len(menus) - i - 1) * avg_time
+                remaining_menus = len(menus) - i - 1
+                eta = remaining_menus * avg_time
                 logger.info(
                     f"Progress: {progress:.1f}% "
                     f"({self.success_count}/{len(menus)}) "
-                    f"ETA: {remaining / 60:.1f}min"
+                    f"ETA: {eta / 60:.1f}min"
                 )
 
             # 체크포인트 저장
             if (i + 1) % checkpoint_interval == 0:
                 self._save_checkpoint()
-
-            # Rate limit (Gemini: 10 RPM → 6초 간격, client가 자동 관리)
-            # 추가 sleep은 불필요 — GeminiClient._rate_limit()이 처리
 
         # 최종 저장
         self._save_checkpoint()

@@ -23,10 +23,14 @@ class AutomationSettings(BaseSettings):
     OLLAMA_TIMEOUT: int = 120
 
     # Google Gemini (Primary LLM — 무료 tier)
-    GOOGLE_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-2.5-flash-lite"  # 무료: flash=20 RPD, flash-lite=20 RPD
-    GEMINI_RPM_LIMIT: int = 15       # flash-lite 무료: 15 req/min
-    GEMINI_RPD_LIMIT: int = 20       # 실측 RPD=20 (2026-02-20 확인, 모든 모델 동일)
+    # 멀티키 라운드 로빈: 3키 × 20 RPD = 60 RPD/일
+    GOOGLE_API_KEY: str = ""          # 단일키 (하위호환)
+    GOOGLE_API_KEY_1: str = ""
+    GOOGLE_API_KEY_2: str = ""
+    GOOGLE_API_KEY_3: str = ""
+    GEMINI_MODEL: str = "gemini-2.5-flash-lite"
+    GEMINI_RPM_LIMIT: int = 15       # 키 당 15 req/min
+    GEMINI_RPD_LIMIT: int = 20       # 키 당 RPD=20 (2026-02-20 실측)
 
     # Image APIs (무료 tier)
     UNSPLASH_ACCESS_KEY: str = ""
@@ -41,7 +45,7 @@ class AutomationSettings(BaseSettings):
 
     # Scheduler
     AUTOMATION_ENABLED: bool = True
-    DAILY_MENU_TARGET: int = 18  # Gemini RPD=20 기준 (여유 2건 확보)
+    DAILY_MENU_TARGET: int = 54  # 3키 × 18 RPD (여유 2건/키 확보)
     AUTOMATION_HEALTH_PORT: int = 8099
 
     # Paths

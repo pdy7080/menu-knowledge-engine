@@ -10,7 +10,7 @@ Schedule:
 
 Author: terminal-developer
 Date: 2026-02-20
-Cost: $0/day (Gemini 2.5 Flash-Lite 무료 tier, 18 menus/day, RPD=20)
+Cost: $0/day (Gemini 2.5 Flash-Lite 무료 tier, 멀티키 라운드 로빈)
 """
 import asyncio
 import json
@@ -80,13 +80,22 @@ async def run_content_enrichment():
             logger.warning("Gemini not available, skipping enrichment")
             return
 
-        # 일일 사용량 확인
+        # 일일 사용량 확인 (멀티키 합산)
         usage = client.get_daily_usage()
-        logger.info(f"Daily RPD: {usage['used']}/{usage['limit']} ({usage['remaining']} remaining)")
+        remaining_rpd = usage['remaining']
+        logger.info(
+            f"Daily RPD: {usage['used']}/{usage['limit']} "
+            f"({remaining_rpd} remaining, {usage['total_keys']} keys)"
+        )
 
-        # 스테이징에서 미enriched 메뉴 로드
+        if remaining_rpd <= 0:
+            logger.warning("No RPD remaining for today, skipping enrichment")
+            return
+
+        # 스테이징에서 미enriched 메뉴 로드 (중복 제거)
         staging_dir = Path(auto_settings.AUTOMATION_STAGING_DIR) / "new_menus"
         menus_to_enrich = []
+        seen_names = set()
 
         if staging_dir.exists():
             for json_file in sorted(staging_dir.glob("discovery_*.json")):
@@ -94,7 +103,10 @@ async def run_content_enrichment():
                     with open(json_file, 'r', encoding='utf-8') as f:
                         data = json.load(f)
                     for menu in data.get("menus", []):
-                        menus_to_enrich.append(menu)
+                        name = menu.get("name_ko", "")
+                        if name and name not in seen_names:
+                            seen_names.add(name)
+                            menus_to_enrich.append(menu)
                 except Exception:
                     continue
 
@@ -102,8 +114,10 @@ async def run_content_enrichment():
             logger.info("No menus to enrich")
             return
 
-        # 일일 최대 18개 (Gemini 무료 tier: RPD 20, is_available 1 + 여유 1)
-        batch = menus_to_enrich[:18]
+        # 배치 크기 = 잔여 RPD 기반 (여유 2건/키 확보)
+        safe_batch_size = max(1, remaining_rpd - (client.total_keys * 2))
+        batch = menus_to_enrich[:safe_batch_size]
+        logger.info(f"Batch size: {len(batch)} (from {len(menus_to_enrich)} candidates)")
         results = await generator.enrich_batch(batch, checkpoint_interval=10)
 
         metrics.record_enrichment(
@@ -113,8 +127,9 @@ async def run_content_enrichment():
             model=client.model,
             started_at=started_at,
         )
+        usage_after = client.get_daily_usage()
         logger.info(f"Enrichment complete: {len(results)} menus enriched")
-        logger.info(f"Daily RPD remaining: {client.get_daily_usage()['remaining']}")
+        logger.info(f"Daily RPD remaining: {usage_after['remaining']}/{usage_after['limit']}")
 
     except Exception as e:
         logger.error(f"Enrichment job failed: {e}", exc_info=True)
