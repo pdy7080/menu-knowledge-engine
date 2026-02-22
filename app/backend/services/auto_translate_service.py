@@ -10,29 +10,19 @@
 
 import asyncio
 import json
-from datetime import datetime
+import logging
 from typing import Dict, Optional
 from uuid import UUID
 
-# Logging
-import logging
-
-logger = logging.getLogger(__name__)
-
-# Database
+from config import settings
+from models.canonical_menu import CanonicalMenu
 from sqlalchemy.ext.asyncio import AsyncSession
+from utils.retry import async_retry
 
 # Google Gemini (google-genai SDK — google.generativeai is deprecated)
 # from google import genai  # imported lazily in _translate_with_gemini
 
-# Models
-from models.canonical_menu import CanonicalMenu
-
-# Config
-from config import settings
-
-# Retry utility
-from utils.retry import async_retry
+logger = logging.getLogger(__name__)
 
 
 class AutoTranslateService:
@@ -43,7 +33,7 @@ class AutoTranslateService:
         self.api_keys = []
 
         # 키 수집 (빈 문자열 제외)
-        for key_name in ['GOOGLE_API_KEY_1', 'GOOGLE_API_KEY_2', 'GOOGLE_API_KEY_3']:
+        for key_name in ["GOOGLE_API_KEY_1", "GOOGLE_API_KEY_2", "GOOGLE_API_KEY_3"]:
             key_value = getattr(settings, key_name, "")
             if key_value:
                 self.api_keys.append(key_value)
@@ -60,7 +50,9 @@ class AutoTranslateService:
         self.daily_usage = {i: 0 for i in range(len(self.api_keys))}  # 키별 사용량
         self.max_rpd = 20  # Requests Per Day per key
 
-        logger.info(f"✅ Google Gemini API 초기화 완료 ({len(self.api_keys)}개 키, 총 {len(self.api_keys) * self.max_rpd} RPD)")
+        logger.info(
+            f"✅ Google Gemini API 초기화 완료 ({len(self.api_keys)}개 키, 총 {len(self.api_keys) * self.max_rpd} RPD)"
+        )
 
     def _get_next_available_key(self) -> Optional[str]:
         """사용 가능한 다음 키 반환 (라운드 로빈)"""
@@ -80,14 +72,12 @@ class AutoTranslateService:
     def _mark_key_used(self):
         """현재 키 사용량 증가"""
         self.daily_usage[self.current_key_index] += 1
-        logger.debug(f"Key {self.current_key_index + 1} used: {self.daily_usage[self.current_key_index]}/{self.max_rpd}")
+        logger.debug(
+            f"Key {self.current_key_index + 1} used: {self.daily_usage[self.current_key_index]}/{self.max_rpd}"
+        )
 
     async def auto_translate_new_menu(
-        self,
-        menu_id: UUID,
-        menu_name_ko: str,
-        description_en: str,
-        db: AsyncSession
+        self, menu_id: UUID, menu_name_ko: str, description_en: str, db: AsyncSession
     ) -> Dict[str, str]:
         """
         새 메뉴 자동 번역
@@ -112,13 +102,13 @@ class AutoTranslateService:
 
             # Google Gemini로 번역
             translations = await self._translate_with_gemini(
-                menu_name_ko,
-                description_en
+                menu_name_ko, description_en
             )
 
             # DB 업데이트 (async)
             if translations and any(translations.values()):
                 from sqlalchemy import select
+
                 result = await db.execute(
                     select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
                 )
@@ -148,9 +138,7 @@ class AutoTranslateService:
 
     @async_retry(max_attempts=3, delay=1.0, backoff=2.0)
     async def _translate_with_gemini(
-        self,
-        menu_name_ko: str,
-        description_en: str
+        self, menu_name_ko: str, description_en: str
     ) -> Dict[str, str]:
         """
         Google Gemini로 번역 (Multi-Key Round Robin)
@@ -169,6 +157,7 @@ class AutoTranslateService:
 
         # google-genai SDK 패턴 (google.generativeai deprecated)
         from google import genai
+
         client = genai.Client(api_key=api_key)
 
         prompt = f"""
@@ -193,7 +182,7 @@ class AutoTranslateService:
             # Gemini API 호출 (google-genai SDK)
             response = await asyncio.to_thread(
                 client.models.generate_content,
-                model='gemini-2.5-flash-lite',
+                model="gemini-2.5-flash-lite",
                 contents=prompt,
                 config={
                     "temperature": 0.3,
@@ -214,26 +203,40 @@ class AutoTranslateService:
             # 성공 시 사용량 증가
             self._mark_key_used()
 
-            return {
-                "ja": result.get("ja", ""),
-                "zh": result.get("zh", "")
-            }
+            return {"ja": result.get("ja", ""), "zh": result.get("zh", "")}
 
         except Exception as e:
             error_msg = str(e)
 
             # 429 에러 시 현재 키 소진 처리
             if "429" in error_msg or "quota" in error_msg.lower():
-                logger.warning(f"⚠️ Key {self.current_key_index + 1} quota exhausted, switching to next key")
+                logger.warning(
+                    f"⚠️ Key {self.current_key_index + 1} quota exhausted, switching to next key"
+                )
                 self.daily_usage[self.current_key_index] = self.max_rpd  # 강제 소진
                 # Retry 시 자동으로 다음 키 사용
 
-            logger.error(f"Google Gemini 번역 오류 (Key {self.current_key_index + 1}): {e}")
+            logger.error(
+                f"Google Gemini 번역 오류 (Key {self.current_key_index + 1}): {e}"
+            )
             raise  # Retry decorator가 처리
 
 
-# 싱글톤 인스턴스
-auto_translate_service = AutoTranslateService()
+# 싱글톤 인스턴스 (lazy init - 모듈 import 시 즉시 실행하지 않음)
+_auto_translate_service = None
+
+
+def get_auto_translate_service() -> "AutoTranslateService":
+    """lazy singleton — API 키 없이 import해도 안전"""
+    global _auto_translate_service
+    if _auto_translate_service is None:
+        _auto_translate_service = AutoTranslateService()
+    return _auto_translate_service
+
+
+# 하위 호환성 유지: 기존 코드에서 auto_translate_service.method() 형태로 사용 시
+# get_auto_translate_service()로 교체 필요 (admin.py 참조)
+auto_translate_service = None  # deprecated — use get_auto_translate_service()
 
 
 # ============================================================

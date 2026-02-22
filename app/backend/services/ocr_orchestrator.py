@@ -157,7 +157,7 @@ class OcrOrchestrator:
         import hashlib
 
         try:
-            with open(image_path, 'rb') as f:
+            with open(image_path, "rb") as f:
                 image_hash = hashlib.md5(f.read()).hexdigest()
             return f"ocr:image:{image_hash}"
         except Exception as e:
@@ -247,9 +247,15 @@ class OcrOrchestrator:
             # 계산된 지표 추가
             total = metrics.get("total_count", 0)
             if total > 0:
-                metrics["tier_1_success_rate"] = f"{(metrics.get('tier_1_count', 0) / total * 100):.1f}%"
-                metrics["tier_2_fallback_rate"] = f"{(metrics.get('tier_2_count', 0) / total * 100):.1f}%"
-                metrics["handwriting_detection_rate"] = f"{(metrics.get('handwriting_count', 0) / total * 100):.1f}%"
+                metrics["tier_1_success_rate"] = (
+                    f"{(metrics.get('tier_1_count', 0) / total * 100):.1f}%"
+                )
+                metrics["tier_2_fallback_rate"] = (
+                    f"{(metrics.get('tier_2_count', 0) / total * 100):.1f}%"
+                )
+                metrics["handwriting_detection_rate"] = (
+                    f"{(metrics.get('handwriting_count', 0) / total * 100):.1f}%"
+                )
 
             return metrics
 

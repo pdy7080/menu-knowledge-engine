@@ -14,7 +14,7 @@ from pathlib import Path
 # Add backend to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from services.ocr_provider import OcrProvider, OcrProviderType, OcrResult
+from services.ocr_provider import OcrProvider, OcrProviderType
 from services.ocr_provider_gpt import OcrProviderGpt
 from services.ocr_tier_router import OcrTierRouter
 from services.ocr_orchestrator import ocr_orchestrator
@@ -27,15 +27,15 @@ def test_ocr_provider_interface():
 
     # 1. OcrProvider는 추상 클래스
     try:
-        provider = OcrProvider()
+        OcrProvider()
         print("  FAIL: OcrProvider should not be instantiable")
         return False
-    except TypeError as e:
+    except TypeError:
         print("  PASS: OcrProvider is abstract (cannot instantiate)")
 
     # 2. OcrProviderType enum 확인
-    assert hasattr(OcrProviderType, 'GPT_VISION')
-    assert hasattr(OcrProviderType, 'CLOVA')
+    assert hasattr(OcrProviderType, "GPT_VISION")
+    assert hasattr(OcrProviderType, "CLOVA")
     print("  PASS: OcrProviderType enums exist")
 
     return True
@@ -53,7 +53,7 @@ def test_ocr_provider_gpt_initialization():
     # 2. Provider 생성
     try:
         provider_gpt = OcrProviderGpt()
-        print(f"  PASS: OcrProviderGpt initialized")
+        print("  PASS: OcrProviderGpt initialized")
         print(f"    - Model: {provider_gpt.model}")
         print(f"    - Temperature: {provider_gpt.temperature}")
         print(f"    - Provider type: {provider_gpt.provider_type}")
@@ -85,9 +85,13 @@ async def test_ocr_tier_router_initialization():
             print("  WARN: Tier 2 (CLOVA) not available")
 
         # Fallback trigger 확인
-        print(f"  PASS: Fallback triggers configured")
-        print(f"    - Tier 1 confidence threshold: {router.tier_1_trigger.confidence_threshold}")
-        print(f"    - Tier 2 confidence threshold: {router.tier_2_trigger.confidence_threshold}")
+        print("  PASS: Fallback triggers configured")
+        print(
+            f"    - Tier 1 confidence threshold: {router.tier_1_trigger.confidence_threshold}"
+        )
+        print(
+            f"    - Tier 2 confidence threshold: {router.tier_2_trigger.confidence_threshold}"
+        )
 
         return True
     except Exception as e:
@@ -101,9 +105,11 @@ async def test_ocr_orchestrator_initialization():
 
     try:
         # OrchestratorService 싱글톤 확인
-        print(f"  PASS: ocr_orchestrator singleton available")
+        print("  PASS: ocr_orchestrator singleton available")
         print(f"    - Router type: {type(ocr_orchestrator.tier_router).__name__}")
-        print(f"    - Cache TTL: {ocr_orchestrator.cache_ttl_seconds} seconds (30 days)")
+        print(
+            f"    - Cache TTL: {ocr_orchestrator.cache_ttl_seconds} seconds (30 days)"
+        )
 
         return True
     except Exception as e:
@@ -124,7 +130,7 @@ async def test_configuration_consistency():
         print("  PASS: OPENAI_API_KEY configured")
 
     # 2. Redis 설정
-    print(f"  PASS: Redis configuration")
+    print("  PASS: Redis configuration")
     print(f"    - Host: {settings.REDIS_HOST}")
     print(f"    - Port: {settings.REDIS_PORT}")
     print(f"    - DB: {settings.REDIS_DB}")
@@ -132,13 +138,13 @@ async def test_configuration_consistency():
 
     # 3. 데이터베이스 설정
     if settings.DATABASE_URL:
-        print(f"  PASS: Database configured")
+        print("  PASS: Database configured")
         print(f"    - URL: {settings.DATABASE_URL[:50]}...")
     else:
         errors.append("DATABASE_URL is empty")
 
     if errors:
-        print(f"\n  WARNINGS:")
+        print("\n  WARNINGS:")
         for err in errors:
             print(f"    - {err}")
         return False
@@ -155,13 +161,13 @@ async def run_all_tests():
     results = {}
 
     # 동기 테스트
-    results['interface'] = test_ocr_provider_interface()
-    results['gpt_init'] = test_ocr_provider_gpt_initialization()
+    results["interface"] = test_ocr_provider_interface()
+    results["gpt_init"] = test_ocr_provider_gpt_initialization()
 
     # 비동기 테스트
-    results['router_init'] = await test_ocr_tier_router_initialization()
-    results['orchestrator_init'] = await test_ocr_orchestrator_initialization()
-    results['config'] = await test_configuration_consistency()
+    results["router_init"] = await test_ocr_tier_router_initialization()
+    results["orchestrator_init"] = await test_ocr_orchestrator_initialization()
+    results["config"] = await test_configuration_consistency()
 
     # 결과 출력
     print("\n" + "=" * 60)

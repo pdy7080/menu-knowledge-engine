@@ -1,9 +1,11 @@
 """
 Database connection and session management
 """
+
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import declarative_base
 from config import settings
+
 
 # Auto-detect database type and adjust URL
 def get_database_url() -> str:
@@ -20,6 +22,7 @@ def get_database_url() -> str:
 
     # Already has driver specified
     return url
+
 
 # Create async engine
 engine = create_async_engine(

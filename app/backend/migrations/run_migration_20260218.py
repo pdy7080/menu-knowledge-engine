@@ -54,7 +54,9 @@ async def run_migration():
             print("✅ 마이그레이션 완료!")
 
         # 검증: 추가된 데이터 확인
-        async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+        async_session = sessionmaker(
+            engine, class_=AsyncSession, expire_on_commit=False
+        )
         async with async_session() as session:
             # 전체 modifier 개수 확인
             result = await session.execute(

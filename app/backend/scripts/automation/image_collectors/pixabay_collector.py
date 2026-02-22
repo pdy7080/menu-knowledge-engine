@@ -9,6 +9,7 @@ API: https://pixabay.com/api/
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import logging
 import re
 from pathlib import Path
@@ -67,24 +68,24 @@ class PixabayCollector(BaseImageCollector):
                 hits = data.get("hits", [])
 
                 for hit in hits:
-                    images.append(ImageResult(
-                        menu_name_ko=menu_name_ko,
-                        url=hit.get("webformatURL", ""),
-                        source=self.source_name,
-                        license="Pixabay License (CC0)",
-                        attribution=f"Image by {hit.get('user', 'Unknown')} on Pixabay",
-                        width=hit.get("webformatWidth", 0),
-                        height=hit.get("webformatHeight", 0),
-                    ))
+                    images.append(
+                        ImageResult(
+                            menu_name_ko=menu_name_ko,
+                            url=hit.get("webformatURL", ""),
+                            source=self.source_name,
+                            license="Pixabay License (CC0)",
+                            attribution=f"Image by {hit.get('user', 'Unknown')} on Pixabay",
+                            width=hit.get("webformatWidth", 0),
+                            height=hit.get("webformatHeight", 0),
+                        )
+                    )
 
         except Exception as e:
             logger.error(f"Pixabay search error: {e}")
 
         return images
 
-    async def download_image(
-        self, image: ImageResult, save_dir: str
-    ) -> Optional[str]:
+    async def download_image(self, image: ImageResult, save_dir: str) -> Optional[str]:
         """이미지 다운로드"""
         if not image.url:
             return None
@@ -92,7 +93,7 @@ class PixabayCollector(BaseImageCollector):
         save_path = Path(save_dir)
         save_path.mkdir(parents=True, exist_ok=True)
 
-        safe_name = re.sub(r'[^\w가-힣]', '_', image.menu_name_ko)
+        safe_name = re.sub(r"[^\w가-힣]", "_", image.menu_name_ko)
         filename = f"{safe_name}_{self.source_name}.jpg"
         filepath = save_path / filename
 
@@ -102,7 +103,9 @@ class PixabayCollector(BaseImageCollector):
                 if response.status_code == 200:
                     filepath.write_bytes(response.content)
                     image.local_path = str(filepath)
-                    logger.info(f"Downloaded: {filename} ({len(response.content) // 1024}KB)")
+                    logger.info(
+                        f"Downloaded: {filename} ({len(response.content) // 1024}KB)"
+                    )
                     return str(filepath)
         except Exception as e:
             logger.error(f"Download error: {e}")

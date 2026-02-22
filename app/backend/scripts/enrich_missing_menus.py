@@ -63,7 +63,7 @@ DB_HOST = "localhost"
 DB_PORT = LOCAL_TUNNEL_PORT
 DB_NAME = "chargeap_menu_knowledge"
 DB_USER = "chargeap_dcclab2022"
-DB_PASS = "eromlab!1228"
+DB_PASS = os.environ.get("DB_PASSWORD", "")
 
 CHECKPOINT_FILE = Path("enrich_missing_checkpoint.json")
 SLEEP_BETWEEN_MENUS = 0.3  # Claude는 rate limit 여유로움
@@ -83,7 +83,7 @@ logging.basicConfig(
     handlers=[
         logging.StreamHandler(sys.stdout),
         logging.FileHandler("enrich_missing_menus.log", encoding="utf-8"),
-    ]
+    ],
 )
 logger = logging.getLogger(__name__)
 
@@ -101,15 +101,24 @@ def is_port_open(host, port):
 
 def start_ssh_tunnel():
     if is_port_open(DB_HOST, LOCAL_TUNNEL_PORT):
-        logger.info(f"[SSH] 기존 터널 사용 (localhost:{LOCAL_TUNNEL_PORT} 이미 열려있음)")
+        logger.info(
+            f"[SSH] 기존 터널 사용 (localhost:{LOCAL_TUNNEL_PORT} 이미 열려있음)"
+        )
         return None
     cmd = [
-        "ssh", "-i", SSH_KEY,
-        "-L", f"{LOCAL_TUNNEL_PORT}:localhost:5432",
-        "-N", "-o", "StrictHostKeyChecking=no",
-        "-o", "ServerAliveInterval=60",
-        "-o", "ExitOnForwardFailure=yes",
-        f"{SSH_USER}@{SSH_HOST}"
+        "ssh",
+        "-i",
+        SSH_KEY,
+        "-L",
+        f"{LOCAL_TUNNEL_PORT}:localhost:5432",
+        "-N",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "ServerAliveInterval=60",
+        "-o",
+        "ExitOnForwardFailure=yes",
+        f"{SSH_USER}@{SSH_HOST}",
     ]
     proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(4)
@@ -121,9 +130,12 @@ def start_ssh_tunnel():
 
 def connect_db():
     conn = psycopg2.connect(
-        host=DB_HOST, port=DB_PORT,
-        dbname=DB_NAME, user=DB_USER, password=DB_PASS,
-        connect_timeout=10
+        host=DB_HOST,
+        port=DB_PORT,
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASS,
+        connect_timeout=10,
     )
     conn.autocommit = False
     return conn
@@ -162,13 +174,15 @@ def get_missing_menus(conn, limit: Optional[int] = None) -> List[Dict]:
 
 def get_enrichment_stats(conn) -> Dict:
     cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cur.execute("""
+    cur.execute(
+        """
     SELECT
         COUNT(*) as total,
         SUM(CASE WHEN content_completeness >= 100 THEN 1 ELSE 0 END) as fully_enriched,
         SUM(CASE WHEN content_completeness = 0 OR content_completeness IS NULL THEN 1 ELSE 0 END) as missing
     FROM canonical_menus WHERE status = 'active'
-    """)
+    """
+    )
     return dict(cur.fetchone())
 
 
@@ -186,8 +200,7 @@ def load_checkpoint() -> List[str]:
 
 def save_checkpoint(processed_ids: List[str]):
     CHECKPOINT_FILE.write_text(
-        json.dumps(processed_ids, ensure_ascii=False),
-        encoding="utf-8"
+        json.dumps(processed_ids, ensure_ascii=False), encoding="utf-8"
     )
 
 
@@ -211,13 +224,13 @@ def detect_category(name_ko: str) -> str:
 
 
 CATEGORY_HINTS = {
-    "stew":      {"nutrition": "300-450", "method": "broth-based stew (찌개)"},
-    "soup":      {"nutrition": "250-400", "method": "clear soup (탕/국)"},
-    "grilled":   {"nutrition": "450-600", "method": "grilled/barbecue"},
+    "stew": {"nutrition": "300-450", "method": "broth-based stew (찌개)"},
+    "soup": {"nutrition": "250-400", "method": "clear soup (탕/국)"},
+    "grilled": {"nutrition": "450-600", "method": "grilled/barbecue"},
     "stirfried": {"nutrition": "350-500", "method": "stir-fried"},
-    "rice":      {"nutrition": "500-700", "method": "rice dish"},
-    "noodles":   {"nutrition": "400-600", "method": "noodle dish"},
-    "general":   {"nutrition": "350-500", "method": "Korean dish"},
+    "rice": {"nutrition": "500-700", "method": "rice dish"},
+    "noodles": {"nutrition": "400-600", "method": "noodle dish"},
+    "general": {"nutrition": "350-500", "method": "Korean dish"},
 }
 
 
@@ -295,7 +308,7 @@ def call_claude(client: anthropic.Anthropic, prompt: str) -> Optional[str]:
         response = client.messages.create(
             model=CLAUDE_MODEL,
             max_tokens=4096,
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
         )
         return response.content[0].text.strip()
     except anthropic.RateLimitError:
@@ -304,7 +317,7 @@ def call_claude(client: anthropic.Anthropic, prompt: str) -> Optional[str]:
         response = client.messages.create(
             model=CLAUDE_MODEL,
             max_tokens=4096,
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
         )
         return response.content[0].text.strip()
     except Exception as e:
@@ -344,14 +357,18 @@ def update_menu_enrichment(conn, menu_id: str, enriched: Dict):
     if isinstance(prep_steps, list) and prep_steps:
         normalized_steps = []
         for step in prep_steps:
-            normalized_steps.append({
-                "step": step.get("step", len(normalized_steps) + 1),
-                "instruction_ko": step.get("instruction_ko", ""),
-                "instruction_en": step.get("instruction_en", step.get("instruction", "")),
-            })
+            normalized_steps.append(
+                {
+                    "step": step.get("step", len(normalized_steps) + 1),
+                    "instruction_ko": step.get("instruction_ko", ""),
+                    "instruction_en": step.get(
+                        "instruction_en", step.get("instruction", "")
+                    ),
+                }
+            )
         prep_steps_json = json.dumps(
             {"steps": normalized_steps, "serving_suggestions": [], "etiquette": []},
-            ensure_ascii=False
+            ensure_ascii=False,
         )
     else:
         prep_steps_json = None
@@ -375,7 +392,8 @@ def update_menu_enrichment(conn, menu_id: str, enriched: Dict):
     similar_json = json.dumps(similar, ensure_ascii=False) if similar else None
 
     # similar_dishes는 jsonb[] 타입이므로 별도 처리
-    cur.execute("""
+    cur.execute(
+        """
     UPDATE canonical_menus SET
         description_long_ko = COALESCE(%s, description_long_ko),
         description_long_en = COALESCE(%s, description_long_en),
@@ -392,13 +410,20 @@ def update_menu_enrichment(conn, menu_id: str, enriched: Dict):
         content_completeness = 100,
         updated_at = NOW()
     WHERE id = %s::uuid
-    """, (
-        desc_ko or None, desc_en or None,
-        prep_steps_json, tips_json, cultural_json,
-        nutrition_json, regional_json, flavor_json,
-        similar_json,
-        menu_id
-    ))
+    """,
+        (
+            desc_ko or None,
+            desc_en or None,
+            prep_steps_json,
+            tips_json,
+            cultural_json,
+            nutrition_json,
+            regional_json,
+            flavor_json,
+            similar_json,
+            menu_id,
+        ),
+    )
     conn.commit()
 
 
@@ -406,12 +431,16 @@ def update_menu_enrichment(conn, menu_id: str, enriched: Dict):
 # 메인
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser(description="Claude API로 미완성 149개 메뉴 enriched content 생성")
+    parser = argparse.ArgumentParser(
+        description="Claude API로 미완성 149개 메뉴 enriched content 생성"
+    )
     parser.add_argument("--test", action="store_true", help="3개 메뉴 테스트")
     parser.add_argument("--batch", type=int, help="처리할 메뉴 수")
     parser.add_argument("--all", action="store_true", help="전체 처리")
     parser.add_argument("--stats", action="store_true", help="DB 통계만 출력")
-    parser.add_argument("--clear-checkpoint", action="store_true", help="체크포인트 초기화")
+    parser.add_argument(
+        "--clear-checkpoint", action="store_true", help="체크포인트 초기화"
+    )
     args = parser.parse_args()
 
     if args.clear_checkpoint and CHECKPOINT_FILE.exists():

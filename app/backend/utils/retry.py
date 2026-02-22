@@ -1,20 +1,22 @@
 """
 Retry decorator for external API calls
 """
+
 import asyncio
 import functools
 import logging
-from typing import TypeVar, Callable, Any
+from typing import TypeVar, Callable
 
 logger = logging.getLogger(__name__)
 
-T = TypeVar('T')
+T = TypeVar("T")
+
 
 def async_retry(
     max_attempts: int = 3,
     delay: float = 1.0,
     backoff: float = 2.0,
-    exceptions: tuple = (Exception,)
+    exceptions: tuple = (Exception,),
 ):
     """
     Async retry decorator with exponential backoff
@@ -25,6 +27,7 @@ def async_retry(
         backoff: Delay multiplier
         exceptions: Exception types to catch
     """
+
     def decorator(func: Callable[..., T]) -> Callable[..., T]:
         @functools.wraps(func)
         async def wrapper(*args, **kwargs) -> T:
@@ -53,4 +56,5 @@ def async_retry(
             raise Exception(f"{func.__name__} exhausted retries")
 
         return wrapper
+
     return decorator

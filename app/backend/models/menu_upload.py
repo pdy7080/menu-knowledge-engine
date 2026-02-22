@@ -1,6 +1,7 @@
 """
 Menu Upload Models - B2B 메뉴 일괄 업로드 추적
 """
+
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
@@ -12,32 +13,37 @@ from database import Base
 
 class UploadStatus(str, enum.Enum):
     """업로드 작업 상태"""
-    pending = "pending"           # 대기 중
-    processing = "processing"     # 처리 중
-    completed = "completed"       # 완료
-    failed = "failed"             # 실패
+
+    pending = "pending"  # 대기 중
+    processing = "processing"  # 처리 중
+    completed = "completed"  # 완료
+    failed = "failed"  # 실패
 
 
 class MenuItemStatus(str, enum.Enum):
     """개별 메뉴 아이템 상태"""
-    success = "success"           # 성공
-    failed = "failed"             # 실패
-    skipped = "skipped"           # 중복으로 건너뜀
+
+    success = "success"  # 성공
+    failed = "failed"  # 실패
+    skipped = "skipped"  # 중복으로 건너뜀
 
 
 class MenuUploadTask(Base):
     """메뉴 업로드 작업 추적"""
+
     __tablename__ = "menu_upload_tasks"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
     # Restaurant 연결
-    restaurant_id = Column(UUID(as_uuid=True), ForeignKey("restaurants.id"), nullable=False)
+    restaurant_id = Column(
+        UUID(as_uuid=True), ForeignKey("restaurants.id"), nullable=False
+    )
 
     # 파일 정보
     file_name = Column(String(255), nullable=False)
     file_path = Column(String(500))  # 임시 저장 경로 (옵션)
-    file_type = Column(String(10))   # csv, json
+    file_type = Column(String(10))  # csv, json
 
     # 통계
     total_menus = Column(Integer, default=0)
@@ -62,12 +68,15 @@ class MenuUploadTask(Base):
 
 class MenuUploadDetail(Base):
     """개별 메뉴 업로드 상세"""
+
     __tablename__ = "menu_upload_details"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
     # Upload Task 연결
-    upload_task_id = Column(UUID(as_uuid=True), ForeignKey("menu_upload_tasks.id"), nullable=False)
+    upload_task_id = Column(
+        UUID(as_uuid=True), ForeignKey("menu_upload_tasks.id"), nullable=False
+    )
 
     # 메뉴 데이터
     name_ko = Column(String(200), nullable=False)

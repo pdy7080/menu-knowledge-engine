@@ -1,6 +1,7 @@
 """
 Shop Model - 식당 정보
 """
+
 from sqlalchemy import Column, String, Integer, Boolean, Text, Float, DateTime, Numeric
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
@@ -42,7 +43,9 @@ class Shop(Base):
     status = Column(String(20), default="active")
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    updated_at = Column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
 
     def __repr__(self):
         return f"<Shop {self.name_ko}>"

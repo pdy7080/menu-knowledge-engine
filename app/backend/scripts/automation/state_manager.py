@@ -2,6 +2,7 @@
 State Manager - 체크포인트/재개 상태 관리
 기존 enrichment 스크립트의 checkpoint 패턴을 따름
 """
+
 import json
 import logging
 from pathlib import Path
@@ -36,7 +37,7 @@ class StateManager:
         """기존 상태 로드"""
         if self.state_file.exists():
             try:
-                with open(self.state_file, 'r', encoding='utf-8') as f:
+                with open(self.state_file, "r", encoding="utf-8") as f:
                     return json.load(f)
             except (json.JSONDecodeError, IOError) as e:
                 logger.warning(f"State file corrupt, starting fresh: {e}")
@@ -52,7 +53,7 @@ class StateManager:
     def save_state(self):
         """상태 저장 (체크포인트)"""
         self._state["last_saved"] = datetime.now().isoformat()
-        with open(self.state_file, 'w', encoding='utf-8') as f:
+        with open(self.state_file, "w", encoding="utf-8") as f:
             json.dump(self._state, f, ensure_ascii=False, indent=2)
         logger.debug(f"State saved: {self.task_name}")
 
@@ -72,11 +73,13 @@ class StateManager:
         self._state["total_failed"] = self._state.get("total_failed", 0) + 1
         if "failed_items" not in self._state:
             self._state["failed_items"] = []
-        self._state["failed_items"].append({
-            "id": item_id,
-            "error": error,
-            "at": datetime.now().isoformat(),
-        })
+        self._state["failed_items"].append(
+            {
+                "id": item_id,
+                "error": error,
+                "at": datetime.now().isoformat(),
+            }
+        )
 
     def is_processed(self, item_id: str) -> bool:
         """이미 처리된 항목인지 확인"""
@@ -119,7 +122,7 @@ class StateManager:
         staging_dir.mkdir(parents=True, exist_ok=True)
         checkpoint_file = staging_dir / f"{name}.json"
 
-        with open(checkpoint_file, 'w', encoding='utf-8') as f:
+        with open(checkpoint_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         logger.info(f"Checkpoint saved: {checkpoint_file}")
 
@@ -129,6 +132,6 @@ class StateManager:
         checkpoint_file = Path(auto_settings.AUTOMATION_STAGING_DIR) / f"{name}.json"
 
         if checkpoint_file.exists():
-            with open(checkpoint_file, 'r', encoding='utf-8') as f:
+            with open(checkpoint_file, "r", encoding="utf-8") as f:
                 return json.load(f)
         return None

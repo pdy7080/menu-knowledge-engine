@@ -1,6 +1,7 @@
 """
 Application Configuration
 """
+
 from pydantic_settings import BaseSettings
 from typing import List
 
@@ -10,6 +11,7 @@ class Settings(BaseSettings):
 
     # Database
     DATABASE_URL: str
+    DB_PASSWORD: str = ""  # psycopg2 직접 연결 스크립트용 (auto_translate_service 등)
 
     # Application
     APP_ENV: str = "development"
@@ -17,7 +19,9 @@ class Settings(BaseSettings):
     SECRET_KEY: str
 
     # CORS
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:8000,http://localhost:5500,http://localhost:8080,http://127.0.0.1:5500,http://127.0.0.1:8080"
+    ALLOWED_ORIGINS: str = (
+        "http://localhost:3000,http://localhost:8000,http://localhost:5500,http://localhost:8080,http://127.0.0.1:5500,http://127.0.0.1:8080"
+    )
 
     # API Keys
     CLOVA_OCR_API_KEY: str = ""
@@ -70,6 +74,9 @@ class Settings(BaseSettings):
 
     # Claude API (translation scripts)
     ANTHROPIC_API_KEY: str = ""
+
+    # Admin API
+    ADMIN_SECRET_KEY: str = ""  # Bearer token for /api/v1/admin/* endpoints
 
     @property
     def cors_origins(self) -> List[str]:

@@ -10,15 +10,15 @@ Strategy:
 Author: terminal-developer
 Date: 2026-02-20
 """
-import asyncio
+
 import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any
 
 from .state_manager import StateManager
-from .config_auto import auto_settings, BACKEND_DIR
+from .config_auto import auto_settings
 
 logger = logging.getLogger("automation.sync")
 
@@ -69,7 +69,12 @@ class ProductionSync:
         직접 연결 불가 시 SQL 파일로 내보내기
         서버에서 수동 실행할 수 있는 INSERT 문 생성
         """
-        result = {"menus_synced": 0, "content_synced": 0, "images_synced": 0, "errors": []}
+        result = {
+            "menus_synced": 0,
+            "content_synced": 0,
+            "images_synced": 0,
+            "errors": [],
+        }
 
         # 스테이징 데이터 수집
         new_menus_dir = self.staging_dir / "new_menus"
@@ -89,11 +94,11 @@ class ProductionSync:
         if new_menus_dir.exists():
             for json_file in sorted(new_menus_dir.glob("discovery_*.json")):
                 try:
-                    with open(json_file, 'r', encoding='utf-8') as f:
+                    with open(json_file, "r", encoding="utf-8") as f:
                         data = json.load(f)
 
                     for menu in data.get("menus", []):
-                        name_ko = _sanitize_value(menu.get("name_ko", "")).replace("'", "''")
+                        name_ko = _sanitize_value(menu.get("name_ko", ""))
                         if not name_ko:
                             continue
 
@@ -101,13 +106,13 @@ class ProductionSync:
                         enriched = enriched_map.get(name_ko, {})
                         name_en = _sanitize_value(
                             enriched.get("name_en") or menu.get("name_en", "")
-                        ).replace("'", "''")
+                        )
+                        category = _sanitize_value(menu.get("category_hint", ""))
 
-                        category = _sanitize_value(menu.get("category_hint", "")).replace("'", "''")
-
+                        # dollar-quoting: 단따옴표 인젝션 방지
                         sql_lines.append(
                             f"INSERT INTO canonical_menus (id, name_ko, name_en, status, category_1) "
-                            f"VALUES (gen_random_uuid(), '{name_ko}', '{name_en}', 'active', '{category}') "
+                            f"VALUES (gen_random_uuid(), $q${name_ko}$q$, $q${name_en}$q$, 'active', $q${category}$q$) "
                             f"ON CONFLICT (name_ko) DO NOTHING;"
                         )
                         result["menus_synced"] += 1
@@ -122,19 +127,19 @@ class ProductionSync:
                 if not content:
                     continue
 
-                name_ko_escaped = name_ko.replace("'", "''")
-                name_en = _sanitize_value(enriched.get("name_en", "")).replace("'", "''")
-                desc_ko = _sanitize_value(content.get("description_ko", "")).replace("'", "''")
-                desc_en = _sanitize_value(content.get("description_en", "")).replace("'", "''")
-                content_json = json.dumps(content, ensure_ascii=False).replace("'", "''")
+                name_en = _sanitize_value(enriched.get("name_en", ""))
+                desc_ko = _sanitize_value(content.get("description_ko", ""))
+                desc_en = _sanitize_value(content.get("description_en", ""))
+                content_json = json.dumps(content, ensure_ascii=False)
 
+                # dollar-quoting: 단따옴표/특수문자 인젝션 방지
                 sql_lines.append(
                     f"UPDATE canonical_menus SET "
-                    f"name_en = '{name_en}', "
-                    f"description_long_ko = '{desc_ko}', "
-                    f"description_long_en = '{desc_en}', "
-                    f"enriched_content = '{content_json}'::jsonb "
-                    f"WHERE name_ko = '{name_ko_escaped}';"
+                    f"name_en = $q${name_en}$q$, "
+                    f"description_long_ko = $q${desc_ko}$q$, "
+                    f"description_long_en = $q${desc_en}$q$, "
+                    f"enriched_content = $q${content_json}$q$::jsonb "
+                    f"WHERE name_ko = $q${name_ko}$q$;"
                 )
                 result["content_synced"] += 1
 
@@ -145,7 +150,7 @@ class ProductionSync:
 
         # SQL 파일 저장
         export_file = export_dir / f"sync_{datetime.now().strftime('%Y%m%d_%H%M')}.sql"
-        with open(export_file, 'w', encoding='utf-8') as f:
+        with open(export_file, "w", encoding="utf-8") as f:
             f.write("\n".join(sql_lines))
 
         logger.info(f"Export SQL saved: {export_file}")
@@ -169,7 +174,7 @@ class ProductionSync:
         # enrichment_batch_*.json은 staging 루트에 저장됨
         for json_file in sorted(self.staging_dir.glob("enrichment_batch_*.json")):
             try:
-                with open(json_file, 'r', encoding='utf-8') as f:
+                with open(json_file, "r", encoding="utf-8") as f:
                     data = json.load(f)
 
                 menus = data.get("menus", [])
@@ -186,10 +191,19 @@ class ProductionSync:
 
     async def _direct_sync(self, prod_url: str) -> Dict[str, Any]:
         """프로덕션 DB에 직접 연결하여 동기화"""
-        result = {"menus_synced": 0, "content_synced": 0, "images_synced": 0, "errors": []}
+        result = {
+            "menus_synced": 0,
+            "content_synced": 0,
+            "images_synced": 0,
+            "errors": [],
+        }
 
         try:
-            from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+            from sqlalchemy.ext.asyncio import (
+                create_async_engine,
+                async_sessionmaker,
+                AsyncSession,
+            )
             from sqlalchemy import text
 
             # PostgreSQL URL 변환
@@ -197,7 +211,9 @@ class ProductionSync:
                 prod_url = prod_url.replace("postgresql://", "postgresql+asyncpg://")
 
             engine = create_async_engine(prod_url, echo=False)
-            SessionLocal = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+            SessionLocal = async_sessionmaker(
+                engine, class_=AsyncSession, expire_on_commit=False
+            )
 
             # 스테이징 데이터 로드
             new_menus_dir = self.staging_dir / "new_menus"
@@ -206,7 +222,7 @@ class ProductionSync:
                 if new_menus_dir.exists():
                     for json_file in sorted(new_menus_dir.glob("discovery_*.json")):
                         try:
-                            with open(json_file, 'r', encoding='utf-8') as f:
+                            with open(json_file, "r", encoding="utf-8") as f:
                                 data = json.load(f)
 
                             for menu in data.get("menus", []):
@@ -215,7 +231,9 @@ class ProductionSync:
 
                                 # 중복 확인
                                 check = await session.execute(
-                                    text("SELECT id FROM canonical_menus WHERE name_ko = :name"),
+                                    text(
+                                        "SELECT id FROM canonical_menus WHERE name_ko = :name"
+                                    ),
                                     {"name": name_ko},
                                 )
                                 if check.fetchone():

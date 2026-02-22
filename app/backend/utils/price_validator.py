@@ -85,11 +85,13 @@ class PriceValidator:
 
         for i, price_item in enumerate(prices):
             if not isinstance(price_item, dict):
-                errors.append(f"가격 아이템 {i}이 dict가 아님: {type(price_item).__name__}")
+                errors.append(
+                    f"가격 아이템 {i}이 dict가 아님: {type(price_item).__name__}"
+                )
                 continue
 
             # 필수 필드: price
-            price = price_item.get('price')
+            price = price_item.get("price")
             is_valid, error = PriceValidator.validate_price(price)
             if not is_valid:
                 errors.append(f"가격 아이템 {i}: {error}")
@@ -182,7 +184,9 @@ class PriceValidator:
             if original_price is None:
                 errors.append("할인가가 있으면 원가(original_price)도 필요")
             else:
-                is_valid, error = PriceValidator.validate_discount(original_price, discount_price)
+                is_valid, error = PriceValidator.validate_discount(
+                    original_price, discount_price
+                )
                 if not is_valid:
                     errors.append(error)
 
@@ -190,8 +194,7 @@ class PriceValidator:
 
     @staticmethod
     def is_price_reasonable(
-        price: int,
-        category: Optional[str] = None
+        price: int, category: Optional[str] = None
     ) -> Tuple[bool, Optional[str]]:
         """
         가격이 카테고리 내에서 합리적인지 판단

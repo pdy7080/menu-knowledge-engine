@@ -10,6 +10,7 @@ Automation Scheduler Entry Point
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import asyncio
 import sys
 import signal
@@ -17,9 +18,9 @@ import logging
 from pathlib import Path
 
 # Windows console encoding fix
-if sys.platform == 'win32':
-    sys.stdout.reconfigure(encoding='utf-8')
-    sys.stderr.reconfigure(encoding='utf-8')
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
 # Path setup
 SCRIPT_DIR = Path(__file__).parent
@@ -27,9 +28,9 @@ BACKEND_DIR = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(BACKEND_DIR))
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
-from automation.config_auto import auto_settings
-from automation.logging_config import setup_logging
-from automation.scheduler import (
+from automation.config_auto import auto_settings  # noqa: E402
+from automation.logging_config import setup_logging  # noqa: E402
+from automation.scheduler import (  # noqa: E402
     run_menu_collection,
     run_content_enrichment,
     run_image_collection,
@@ -52,9 +53,9 @@ async def start_scheduler():
 
     scheduler = AsyncIOScheduler(
         job_defaults={
-            'coalesce': True,       # 누적된 미실행 작업 병합
-            'max_instances': 1,     # 동시 실행 방지
-            'misfire_grace_time': 3600,  # 1시간 유예
+            "coalesce": True,  # 누적된 미실행 작업 병합
+            "max_instances": 1,  # 동시 실행 방지
+            "misfire_grace_time": 3600,  # 1시간 유예
         }
     )
 
@@ -62,32 +63,32 @@ async def start_scheduler():
     scheduler.add_job(
         run_menu_collection,
         CronTrigger(hour=2, minute=0),
-        id='daily_menu_collection',
-        name='Menu Collection (02:00)',
+        id="daily_menu_collection",
+        name="Menu Collection (02:00)",
         replace_existing=True,
     )
 
     scheduler.add_job(
         run_content_enrichment,
         CronTrigger(hour=4, minute=0),
-        id='daily_content_enrichment',
-        name='Content Enrichment (04:00)',
+        id="daily_content_enrichment",
+        name="Content Enrichment (04:00)",
         replace_existing=True,
     )
 
     scheduler.add_job(
         run_image_collection,
         CronTrigger(hour=6, minute=0),
-        id='daily_image_collection',
-        name='Image Collection (06:00)',
+        id="daily_image_collection",
+        name="Image Collection (06:00)",
         replace_existing=True,
     )
 
     scheduler.add_job(
         run_production_sync,
         CronTrigger(hour=8, minute=0),
-        id='daily_production_sync',
-        name='Production Sync (08:00)',
+        id="daily_production_sync",
+        name="Production Sync (08:00)",
         replace_existing=True,
     )
 
@@ -114,7 +115,6 @@ async def start_scheduler():
 
 async def simple_loop():
     """APScheduler 없이 단순 루프 (fallback)"""
-    import time
     from datetime import datetime
 
     logger.info("Running in simple loop mode (no APScheduler)")
@@ -156,7 +156,9 @@ async def start_health_server():
     )
     server = uvicorn.Server(config)
     asyncio.create_task(server.serve())
-    logger.info(f"Health server: http://localhost:{auto_settings.AUTOMATION_HEALTH_PORT}/health")
+    logger.info(
+        f"Health server: http://localhost:{auto_settings.AUTOMATION_HEALTH_PORT}/health"
+    )
 
 
 def main():
@@ -167,7 +169,7 @@ def main():
     logger.info("Menu Knowledge Engine - Automation Scheduler")
     logger.info(f"Model: {auto_settings.OLLAMA_MODEL}")
     logger.info(f"Daily target: {auto_settings.DAILY_MENU_TARGET} menus")
-    logger.info(f"Cost: $0")
+    logger.info("Cost: $0")
     logger.info("=" * 60)
 
     if not auto_settings.AUTOMATION_ENABLED:

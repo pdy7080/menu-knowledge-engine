@@ -2,6 +2,7 @@
 시드 데이터 실행 스크립트
 Concept 47개 + Modifier 50개 입력
 """
+
 import asyncio
 import sys
 from pathlib import Path
@@ -15,21 +16,21 @@ from seeds.seed_concepts import get_concept_seeds
 from seeds.seed_modifiers import get_modifier_seeds
 from seeds.seed_canonical_menus import get_canonical_menu_seeds
 from seeds.seed_canonical_menus_ext import get_canonical_menu_extension
-from seeds.image_urls import get_image_url_map, DEFAULT_FOOD_IMAGE
+from seeds.image_urls import get_image_url_map
 
 
 async def seed_concepts():
     """Concept 시드 데이터 입력 (대분류 + 중분류)"""
     async with AsyncSessionLocal() as session:
         # 기존 데이터 삭제
-        print(f"[*] Deleting existing Concepts...")
+        print("[*] Deleting existing Concepts...")
         await session.execute(Concept.__table__.delete())
         await session.commit()
-        print(f"[OK] Existing Concepts deleted\n")
+        print("[OK] Existing Concepts deleted\n")
 
         concept_data = get_concept_seeds()
 
-        print(f"[*] Seeding Concepts...")
+        print("[*] Seeding Concepts...")
         parent_map = {}
         total_count = 0
 
@@ -71,14 +72,14 @@ async def seed_modifiers():
     """Modifier 시드 데이터 입력 (50개)"""
     async with AsyncSessionLocal() as session:
         # 기존 데이터 삭제
-        print(f"[*] Deleting existing Modifiers...")
+        print("[*] Deleting existing Modifiers...")
         await session.execute(Modifier.__table__.delete())
         await session.commit()
-        print(f"[OK] Existing Modifiers deleted\n")
+        print("[OK] Existing Modifiers deleted\n")
 
         modifier_data = get_modifier_seeds()
 
-        print(f"[*] Seeding Modifiers...")
+        print("[*] Seeding Modifiers...")
 
         for mod_dict in modifier_data:
             modifier = Modifier(
@@ -91,7 +92,9 @@ async def seed_modifiers():
                 priority=mod_dict["priority"],
             )
             session.add(modifier)
-            print(f"  [OK] {modifier.text_ko} ({modifier.type}) - {modifier.translation_en}")
+            print(
+                f"  [OK] {modifier.text_ko} ({modifier.type}) - {modifier.translation_en}"
+            )
 
         await session.commit()
         print(f"[OK] Modifiers seeded: {len(modifier_data)} records\n")
@@ -102,6 +105,7 @@ async def seed_canonical_menus():
     async with AsyncSessionLocal() as session:
         # Concept ID 매핑을 위해 모든 concept 조회
         from sqlalchemy import select
+
         result = await session.execute(select(Concept))
         concepts = result.scalars().all()
         concept_map = {c.name_ko: c.id for c in concepts}
@@ -110,14 +114,16 @@ async def seed_canonical_menus():
         canonical_data = get_canonical_menu_seeds() + get_canonical_menu_extension()
         image_map = get_image_url_map()
 
-        print(f"[*] Seeding Canonical Menus (base + extension)...")
+        print("[*] Seeding Canonical Menus (base + extension)...")
         image_count = 0
 
         for menu_dict in canonical_data:
             # concept_id 찾기
             concept_name = menu_dict["concept"]
             if concept_name not in concept_map:
-                print(f"  [WARN] Concept '{concept_name}' not found, skipping {menu_dict['name_ko']}")
+                print(
+                    f"  [WARN] Concept '{concept_name}' not found, skipping {menu_dict['name_ko']}"
+                )
                 continue
 
             # main_ingredients를 JSONB 구조로 변환
@@ -165,10 +171,10 @@ async def main():
 
     # 2. Canonical Menu 먼저 삭제 (foreign key 때문에)
     async with AsyncSessionLocal() as session:
-        print(f"[*] Deleting existing Canonical Menus...")
+        print("[*] Deleting existing Canonical Menus...")
         await session.execute(CanonicalMenu.__table__.delete())
         await session.commit()
-        print(f"[OK] Existing Canonical Menus deleted\n")
+        print("[OK] Existing Canonical Menus deleted\n")
 
     # 3. Concept 시드
     await seed_concepts()

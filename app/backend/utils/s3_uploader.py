@@ -19,13 +19,13 @@ AWS S3:
   R2_BUCKET_NAME=menu-images
   R2_PUBLIC_URL=https://pub-xxx.r2.dev  (R2 Public Bucket URL)
 """
+
 import os
 import boto3
 from botocore.config import Config as BotoConfig
 from botocore.exceptions import ClientError, NoCredentialsError
 from typing import Optional, Dict, Tuple
 import mimetypes
-import hashlib
 from datetime import datetime
 import logging
 
@@ -68,7 +68,9 @@ class S3Uploader:
             region: AWS region (S3 only, default: ap-northeast-2)
         """
         self.provider = provider or os.getenv("STORAGE_PROVIDER", "r2")
-        self.bucket_name = bucket_name or os.getenv("R2_BUCKET_NAME") or os.getenv("MENU_S3_BUCKET")
+        self.bucket_name = (
+            bucket_name or os.getenv("R2_BUCKET_NAME") or os.getenv("MENU_S3_BUCKET")
+        )
 
         if not self.bucket_name:
             raise ValueError(
@@ -229,7 +231,9 @@ class S3Uploader:
             logger.error(f"List failed: {e}")
             return []
 
-    def generate_menu_key(self, menu_name_ko: str, source: str = "wiki", ext: str = ".jpg") -> str:
+    def generate_menu_key(
+        self, menu_name_ko: str, source: str = "wiki", ext: str = ".jpg"
+    ) -> str:
         """
         메뉴용 스토리지 키 생성
 
@@ -242,7 +246,8 @@ class S3Uploader:
             키 (예: "menu-images/wiki/김치찌개.jpg")
         """
         import re
-        clean_name = re.sub(r'[^\w가-힣\-_]', '', menu_name_ko)
+
+        clean_name = re.sub(r"[^\w가-힣\-_]", "", menu_name_ko)
         return f"menu-images/{source}/{clean_name}{ext}"
 
     def get_public_url(self, s3_key: str) -> str:

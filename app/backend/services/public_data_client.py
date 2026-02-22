@@ -17,17 +17,18 @@ API 목록:
 Author: Claude (Senior Developer)
 Date: 2026-02-19
 """
+
 import httpx
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any, Optional
 from config import settings
 
 logger = logging.getLogger(__name__)
 
 # API 키 (config.py → .env에서 로드)
-PUBLIC_DATA_API_KEY = getattr(settings, 'PUBLIC_DATA_API_KEY', '')
+PUBLIC_DATA_API_KEY = getattr(settings, "PUBLIC_DATA_API_KEY", "")
 # data.go.kr 별도 키가 설정되지 않으면 PUBLIC_DATA_API_KEY 사용
-DATA_GO_KR_API_KEY = getattr(settings, 'DATA_GO_KR_API_KEY', '') or PUBLIC_DATA_API_KEY
+DATA_GO_KR_API_KEY = getattr(settings, "DATA_GO_KR_API_KEY", "") or PUBLIC_DATA_API_KEY
 
 
 class PublicDataClient:
@@ -128,7 +129,9 @@ class PublicDataClient:
 
     # ========== 2. 식품영양성분DB API (data.go.kr) ==========
 
-    async def get_nutrition_info(self, food_name: str, page: int = 1, per_page: int = 5) -> Optional[Dict]:
+    async def get_nutrition_info(
+        self, food_name: str, page: int = 1, per_page: int = 5
+    ) -> Optional[Dict]:
         """
         식품영양성분DB API - 음식명으로 영양정보 조회
         URL: apis.data.go.kr/1471000/FoodNtrCpntDbInfo02/getFoodNtrCpntDbInq02
@@ -143,7 +146,9 @@ class PublicDataClient:
         Returns:
             {"total": int, "items": [{"food_name": str, "nutrition": {...}}]}
         """
-        url = "https://apis.data.go.kr/1471000/FoodNtrCpntDbInfo02/getFoodNtrCpntDbInq02"
+        url = (
+            "https://apis.data.go.kr/1471000/FoodNtrCpntDbInfo02/getFoodNtrCpntDbInq02"
+        )
 
         params = {
             "FOOD_NM_KR": food_name,
@@ -194,6 +199,7 @@ class PublicDataClient:
         Returns:
             {"energy": float, "protein": float, "fat": float, ...}
         """
+
         def safe_float(val) -> Optional[float]:
             if val is None or val == "" or val == "-":
                 return None

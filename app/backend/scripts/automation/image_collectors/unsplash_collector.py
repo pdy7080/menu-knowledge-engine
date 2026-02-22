@@ -9,14 +9,14 @@ API: https://api.unsplash.com
 Author: terminal-developer
 Date: 2026-02-20
 """
-import asyncio
+
 import logging
 import re
 from pathlib import Path
 from typing import List, Optional
 import httpx
 
-from .base_image_collector import BaseImageCollector, ImageResult, ImageCollectionResult
+from .base_image_collector import BaseImageCollector, ImageResult
 from ..config_auto import auto_settings
 
 logger = logging.getLogger("automation.image.unsplash")
@@ -67,24 +67,24 @@ class UnsplashCollector(BaseImageCollector):
                 results = data.get("results", [])
 
                 for photo in results:
-                    images.append(ImageResult(
-                        menu_name_ko=menu_name_ko,
-                        url=photo.get("urls", {}).get("regular", ""),
-                        source=self.source_name,
-                        license="Unsplash License",
-                        attribution=f"Photo by {photo.get('user', {}).get('name', 'Unknown')} on Unsplash",
-                        width=photo.get("width", 0),
-                        height=photo.get("height", 0),
-                    ))
+                    images.append(
+                        ImageResult(
+                            menu_name_ko=menu_name_ko,
+                            url=photo.get("urls", {}).get("regular", ""),
+                            source=self.source_name,
+                            license="Unsplash License",
+                            attribution=f"Photo by {photo.get('user', {}).get('name', 'Unknown')} on Unsplash",
+                            width=photo.get("width", 0),
+                            height=photo.get("height", 0),
+                        )
+                    )
 
         except Exception as e:
             logger.error(f"Unsplash search error: {e}")
 
         return images
 
-    async def download_image(
-        self, image: ImageResult, save_dir: str
-    ) -> Optional[str]:
+    async def download_image(self, image: ImageResult, save_dir: str) -> Optional[str]:
         """이미지 다운로드"""
         if not image.url:
             return None
@@ -93,7 +93,7 @@ class UnsplashCollector(BaseImageCollector):
         save_path.mkdir(parents=True, exist_ok=True)
 
         # 파일명: menu_name_unsplash_1.jpg
-        safe_name = re.sub(r'[^\w가-힣]', '_', image.menu_name_ko)
+        safe_name = re.sub(r"[^\w가-힣]", "_", image.menu_name_ko)
         filename = f"{safe_name}_{self.source_name}.jpg"
         filepath = save_path / filename
 
@@ -103,7 +103,9 @@ class UnsplashCollector(BaseImageCollector):
                 if response.status_code == 200:
                     filepath.write_bytes(response.content)
                     image.local_path = str(filepath)
-                    logger.info(f"Downloaded: {filename} ({len(response.content) // 1024}KB)")
+                    logger.info(
+                        f"Downloaded: {filename} ({len(response.content) // 1024}KB)"
+                    )
                     return str(filepath)
         except Exception as e:
             logger.error(f"Download error: {e}")

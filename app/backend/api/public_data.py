@@ -5,6 +5,7 @@ Sprint 0: 공공데이터 API 라우터
 - GET  /api/v1/menu/by-standard-code/{code}
 - POST /api/v1/public-data/sync
 """
+
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -21,6 +22,7 @@ router = APIRouter(prefix="/api/v1", tags=["public-data"])
 
 # ========== 1. 영양정보 조회 ==========
 
+
 @router.get("/menu/nutrition/{canonical_id}")
 async def get_nutrition(
     canonical_id: UUID,
@@ -35,7 +37,10 @@ async def get_nutrition(
     if not result:
         raise HTTPException(
             status_code=404,
-            detail={"error": "nutrition_not_found", "message": f"No nutrition data for menu: {canonical_id}"},
+            detail={
+                "error": "nutrition_not_found",
+                "message": f"No nutrition data for menu: {canonical_id}",
+            },
         )
 
     return {
@@ -52,6 +57,7 @@ async def get_nutrition(
 
 # ========== 2. 카테고리 검색 ==========
 
+
 @router.get("/menu/category-search")
 async def category_search(
     category_1: Optional[str] = Query(None, description="대분류 (예: 한식, 중식)"),
@@ -67,7 +73,10 @@ async def category_search(
     if not category_1 and not category_2:
         raise HTTPException(
             status_code=400,
-            detail={"error": "invalid_category", "message": "At least one of category_1 or category_2 is required"},
+            detail={
+                "error": "invalid_category",
+                "message": "At least one of category_1 or category_2 is required",
+            },
         )
 
     query = select(CanonicalMenu)
@@ -115,6 +124,7 @@ async def category_search(
 
 # ========== 3. 표준코드 조회 ==========
 
+
 @router.get("/menu/by-standard-code/{code}")
 async def get_by_standard_code(
     code: str,
@@ -132,7 +142,10 @@ async def get_by_standard_code(
     if not menu:
         raise HTTPException(
             status_code=404,
-            detail={"error": "invalid_standard_code", "message": f"No menu found for code: {code}"},
+            detail={
+                "error": "invalid_standard_code",
+                "message": f"No menu found for code: {code}",
+            },
         )
 
     return {
@@ -149,6 +162,7 @@ async def get_by_standard_code(
 
 # ========== 4. 공공데이터 동기화 (Admin) ==========
 
+
 class SyncRequest(BaseModel):
     admin_key: str
     limit: int = 50
@@ -164,6 +178,7 @@ async def sync_public_data(
     영양정보가 없는 메뉴에 대해 공공데이터 API 호출
     """
     from config import settings
+
     if request.admin_key != settings.SECRET_KEY:
         raise HTTPException(
             status_code=403,
@@ -174,8 +189,8 @@ async def sync_public_data(
     query = (
         select(CanonicalMenu)
         .where(
-            (CanonicalMenu.nutrition_info == None) |
-            (CanonicalMenu.nutrition_info == {})
+            (CanonicalMenu.nutrition_info.is_(None))
+            | (CanonicalMenu.nutrition_info == {})
         )
         .order_by(CanonicalMenu.name_ko)
         .limit(request.limit)
@@ -184,7 +199,11 @@ async def sync_public_data(
     menus = result.scalars().all()
 
     if not menus:
-        return {"status": "complete", "message": "All menus have nutrition data", "processed": 0}
+        return {
+            "status": "complete",
+            "message": "All menus have nutrition data",
+            "processed": 0,
+        }
 
     success = 0
     failed = 0
@@ -212,8 +231,8 @@ async def _count_without_nutrition(db: AsyncSession) -> int:
     """영양정보 없는 메뉴 수 카운트"""
     result = await db.execute(
         select(CanonicalMenu.id).where(
-            (CanonicalMenu.nutrition_info == None) |
-            (CanonicalMenu.nutrition_info == {})
+            (CanonicalMenu.nutrition_info.is_(None))
+            | (CanonicalMenu.nutrition_info == {})
         )
     )
     return len(result.all())

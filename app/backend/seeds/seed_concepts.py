@@ -1,13 +1,12 @@
 """
 Concept 시드 데이터 (대분류 12개 + 중분류 35개 = 47개)
 """
+
 from typing import List, Dict, Any
 
 
 def get_concept_seeds() -> List[Dict[str, Any]]:
     """Concept 트리 시드 데이터 반환"""
-    concepts = []
-
     # 1. 국물요리
     soup_stew = {
         "name_ko": "국물요리",

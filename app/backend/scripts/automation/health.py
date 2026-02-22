@@ -7,11 +7,11 @@ GET http://localhost:8099/health
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import json
 import logging
 from datetime import datetime, date
 from pathlib import Path
-from typing import Dict, Any
 
 from .config_auto import auto_settings
 
@@ -40,7 +40,7 @@ def create_health_app():
         today_metrics = {}
         if metrics_file.exists():
             try:
-                with open(metrics_file, 'r', encoding='utf-8') as f:
+                with open(metrics_file, "r", encoding="utf-8") as f:
                     today_metrics = json.load(f)
             except Exception:
                 pass

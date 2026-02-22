@@ -1,7 +1,18 @@
 """
 Scan Log Model - B2C 스캔 행동 로그
 """
-from sqlalchemy import Column, String, Integer, Boolean, Text, ForeignKey, DateTime, ARRAY, Float
+
+from sqlalchemy import (
+    Column,
+    String,
+    Integer,
+    Boolean,
+    Text,
+    ForeignKey,
+    DateTime,
+    ARRAY,
+    Float,
+)
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func

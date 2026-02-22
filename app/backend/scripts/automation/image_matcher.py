@@ -5,12 +5,13 @@ Image Matcher - 메뉴별 이미지 자동 검색 및 다운로드
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import asyncio
 import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 
 from .image_collectors.base_image_collector import BaseImageCollector, ImageResult
 from .image_collectors.wikimedia_collector import WikimediaCollector
@@ -31,13 +32,11 @@ class ImageMatcher:
     def __init__(self):
         self.state = StateManager("images")
         self.collectors: List[BaseImageCollector] = [
-            WikimediaCollector(),   # 1순위: 최고 품질, CC 라이선스
-            UnsplashCollector(),    # 2순위: 무료, attribution 불필요
-            PixabayCollector(),     # 3순위: CC0, 가장 큰 라이브러리
+            WikimediaCollector(),  # 1순위: 최고 품질, CC 라이선스
+            UnsplashCollector(),  # 2순위: 무료, attribution 불필요
+            PixabayCollector(),  # 3순위: CC0, 가장 큰 라이브러리
         ]
-        self.save_dir = str(
-            Path(auto_settings.AUTOMATION_STAGING_DIR) / "images"
-        )
+        self.save_dir = str(Path(auto_settings.AUTOMATION_STAGING_DIR) / "images")
 
     async def find_images_for_menu(
         self, name_ko: str, name_en: str
@@ -128,16 +127,18 @@ class ImageMatcher:
                             src = best.source
                             source_counts[src] = source_counts.get(src, 0) + 1
 
-                            results.append({
-                                "name_ko": name_ko,
-                                "image": {
-                                    "url": best.url,
-                                    "source": best.source,
-                                    "license": best.license,
-                                    "attribution": best.attribution,
-                                    "local_path": path,
-                                },
-                            })
+                            results.append(
+                                {
+                                    "name_ko": name_ko,
+                                    "image": {
+                                        "url": best.url,
+                                        "source": best.source,
+                                        "license": best.license,
+                                        "attribution": best.attribution,
+                                        "local_path": path,
+                                    },
+                                }
+                            )
                         break
 
             self.state.mark_processed(name_ko)
@@ -163,7 +164,7 @@ class ImageMatcher:
         }
 
         logger.info("\n" + "=" * 60)
-        logger.info(f"Image collection complete:")
+        logger.info("Image collection complete:")
         logger.info(f"  Found: {found}, Downloaded: {downloaded}")
         logger.info(f"  Sources: {source_counts}")
 
@@ -174,7 +175,7 @@ class ImageMatcher:
         manifest = {}
         if MANIFEST_PATH.exists():
             try:
-                with open(MANIFEST_PATH, 'r', encoding='utf-8') as f:
+                with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
                     manifest = json.load(f)
             except Exception:
                 pass
@@ -192,7 +193,7 @@ class ImageMatcher:
             }
 
         MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with open(MANIFEST_PATH, 'w', encoding='utf-8') as f:
+        with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
             json.dump(manifest, f, ensure_ascii=False, indent=2)
 
         logger.info(f"Manifest updated: {len(manifest)} total entries")

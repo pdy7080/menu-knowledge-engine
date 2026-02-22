@@ -7,6 +7,7 @@ Menu Discovery - 수집 오케스트레이터
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import asyncio
 import json
 import logging
@@ -16,7 +17,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Set, Dict, Any
 
-from .collectors.base_collector import BaseCollector, DiscoveredMenu, CollectionResult
+from .collectors.base_collector import BaseCollector, DiscoveredMenu
 from .collectors.wikipedia_collector import WikipediaCollector
 from .collectors.public_data_collector import PublicDataCollector
 from .collectors.recipe_collector import RecipeCollector
@@ -34,14 +35,14 @@ def normalize_name(name: str) -> str:
     """
     s = name.strip()
     # 메뉴 번호 제거
-    s = re.sub(r'^\d+[\.\)\-\s]+', '', s)
+    s = re.sub(r"^\d+[\.\)\-\s]+", "", s)
     # 괄호 내용 제거
-    s = re.sub(r'\(.*?\)', '', s)
-    s = re.sub(r'\[.*?\]', '', s)
+    s = re.sub(r"\(.*?\)", "", s)
+    s = re.sub(r"\[.*?\]", "", s)
     # 공백 제거
-    s = re.sub(r'\s+', '', s)
+    s = re.sub(r"\s+", "", s)
     # 특수문자 제거
-    s = re.sub(r'[~!@#$%^&*_+=|\\<>?/:;"\',.\-★※●]', '', s)
+    s = re.sub(r'[~!@#$%^&*_+=|\\<>?/:;"\',.\-★※●]', "", s)
     return s.strip()
 
 
@@ -52,10 +53,10 @@ def is_valid_menu_name(name: str) -> bool:
     if len(name) > 30:
         return False
     # 한글이 최소 1자 포함
-    if not re.search(r'[가-힣]', name):
+    if not re.search(r"[가-힣]", name):
         return False
     # 숫자만으로 구성되지 않음
-    if re.match(r'^[\d\s]+$', name):
+    if re.match(r"^[\d\s]+$", name):
         return False
     return True
 
@@ -71,9 +72,9 @@ class MenuDiscovery:
         self.existing_names = existing_names or set()
         self.state = StateManager("collection")
         self.collectors: List[BaseCollector] = [
-            PublicDataCollector(),   # 우선: 공공데이터 (가장 안전)
-            WikipediaCollector(),    # 2순위: Wikipedia (CC 라이선스)
-            RecipeCollector(),       # 3순위: 레시피 사이트
+            PublicDataCollector(),  # 우선: 공공데이터 (가장 안전)
+            WikipediaCollector(),  # 2순위: Wikipedia (CC 라이선스)
+            RecipeCollector(),  # 3순위: 레시피 사이트
         ]
 
     async def load_existing_names_from_file(self):
@@ -87,7 +88,7 @@ class MenuDiscovery:
         for seed_file in seed_files:
             if seed_file.exists():
                 try:
-                    with open(seed_file, 'r', encoding='utf-8') as f:
+                    with open(seed_file, "r", encoding="utf-8") as f:
                         data = json.load(f)
                     items = data if isinstance(data, list) else data.get("menus", [])
                     for item in items:
@@ -104,7 +105,7 @@ class MenuDiscovery:
         if staging_dir.exists():
             for json_file in sorted(staging_dir.glob("discovery_*.json")):
                 try:
-                    with open(json_file, 'r', encoding='utf-8') as f:
+                    with open(json_file, "r", encoding="utf-8") as f:
                         data = json.load(f)
                     for menu in data.get("menus", []):
                         name = menu.get("name_ko", "")
@@ -147,7 +148,9 @@ class MenuDiscovery:
                 break
 
             remaining = target - len(all_new_menus)
-            logger.info(f"\nCollecting from: {collector.source_name} (need {remaining})")
+            logger.info(
+                f"\nCollecting from: {collector.source_name} (need {remaining})"
+            )
 
             try:
                 result = await collector.collect(limit=remaining)
@@ -178,7 +181,9 @@ class MenuDiscovery:
                     new_items += 1
 
                 if filtered_count > 0:
-                    logger.info(f"  {collector.source_name}: {filtered_count} filtered by quality")
+                    logger.info(
+                        f"  {collector.source_name}: {filtered_count} filtered by quality"
+                    )
 
                 source_stats[collector.source_name] = new_items
                 logger.info(f"  {collector.source_name}: {new_items} new menus")
@@ -211,14 +216,16 @@ class MenuDiscovery:
             ],
         }
 
-        output_file = staging_dir / f"discovery_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
+        output_file = (
+            staging_dir / f"discovery_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
+        )
+        with open(output_file, "w", encoding="utf-8") as f:
             json.dump(output_data, f, ensure_ascii=False, indent=2)
 
         self.state.end_run(len(all_new_menus), total_duplicates)
 
         logger.info("\n" + "=" * 60)
-        logger.info(f"Discovery complete:")
+        logger.info("Discovery complete:")
         logger.info(f"  Total discovered: {total_discovered}")
         logger.info(f"  New menus: {len(all_new_menus)}")
         logger.info(f"  Duplicates filtered: {total_duplicates}")
@@ -230,11 +237,12 @@ class MenuDiscovery:
 
 async def main():
     """단독 실행용"""
-    if sys.platform == 'win32':
-        sys.stdout.reconfigure(encoding='utf-8')
-        sys.stderr.reconfigure(encoding='utf-8')
+    if sys.platform == "win32":
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
 
     from .logging_config import setup_logging
+
     setup_logging()
 
     discovery = MenuDiscovery()

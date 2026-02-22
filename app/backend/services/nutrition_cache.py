@@ -3,6 +3,7 @@
 Redis TTL 90일 + DB fallback
 공공데이터 API 호출을 최소화하고 <100ms 응답 보장
 """
+
 import logging
 from typing import Dict, Any, Optional
 from uuid import UUID
@@ -14,7 +15,7 @@ from sqlalchemy import select, update
 from models.canonical_menu import CanonicalMenu
 from services.cache_service import cache_service
 from services.public_data_client import public_data_client
-from services.normalize import normalize_menu_name, generate_search_variants
+from services.normalize import generate_search_variants
 
 logger = logging.getLogger(__name__)
 
@@ -67,7 +68,11 @@ class NutritionCacheService:
                 "nutrition": menu.nutrition_info,
                 "serving_size": menu.serving_size,
                 "source": "db",
-                "last_updated": menu.last_nutrition_updated.isoformat() if menu.last_nutrition_updated else None,
+                "last_updated": (
+                    menu.last_nutrition_updated.isoformat()
+                    if menu.last_nutrition_updated
+                    else None
+                ),
             }
             await cache_service.set(cache_key, nutrition_data, TTL_NUTRITION)
             nutrition_data["cached"] = False

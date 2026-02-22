@@ -2,6 +2,7 @@
 Logging configuration for automation system
 기존 logging.getLogger(__name__) 패턴을 따름
 """
+
 import logging
 from pathlib import Path
 from datetime import date
@@ -33,18 +34,18 @@ def setup_logging(log_dir: str = "") -> logging.Logger:
         return root_logger
 
     # File handler
-    file_handler = logging.FileHandler(log_file, encoding='utf-8')
+    file_handler = logging.FileHandler(log_file, encoding="utf-8")
     file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(logging.Formatter(
-        "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
-    ))
+    file_handler.setFormatter(
+        logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+    )
 
     # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(logging.Formatter(
-        "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
-    ))
+    console_handler.setFormatter(
+        logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+    )
 
     root_logger.addHandler(file_handler)
     root_logger.addHandler(console_handler)

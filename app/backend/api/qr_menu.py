@@ -2,14 +2,13 @@
 QR Menu API Routes - Sprint 3 P2-1
 Dynamic multi-language menu page generation
 """
-from fastapi import APIRouter, Depends, HTTPException, Request
+
+from fastapi import APIRouter, Depends
 from fastapi.responses import HTMLResponse, StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from typing import Optional
 from database import get_db
 from models import Shop, MenuVariant, CanonicalMenu
-import uuid
 import qrcode
 from io import BytesIO
 
@@ -21,9 +20,7 @@ router = APIRouter(prefix="/qr", tags=["qr"])
 # ===========================
 @router.get("/{shop_code}", response_class=HTMLResponse)
 async def get_qr_menu_page(
-    shop_code: str,
-    lang: str = "en",  # en, ja, zh
-    db: AsyncSession = Depends(get_db)
+    shop_code: str, lang: str = "en", db: AsyncSession = Depends(get_db)  # en, ja, zh
 ):
     """
     QR 메뉴 페이지 생성 (P2-1)
@@ -38,9 +35,7 @@ async def get_qr_menu_page(
         HTML 페이지
     """
     # Get shop info
-    shop_result = await db.execute(
-        select(Shop).where(Shop.shop_code == shop_code)
-    )
+    shop_result = await db.execute(select(Shop).where(Shop.shop_code == shop_code))
     shop = shop_result.scalars().first()
 
     if not shop:
@@ -51,7 +46,7 @@ async def get_qr_menu_page(
     variants_result = await db.execute(
         select(MenuVariant)
         .where(MenuVariant.shop_id == shop.id)
-        .where(MenuVariant.is_active == True)
+        .where(MenuVariant.is_active.is_(True))
         .order_by(MenuVariant.display_order)
     )
     variants = variants_result.scalars().all()
@@ -61,7 +56,9 @@ async def get_qr_menu_page(
     for variant in variants:
         if variant.canonical_menu_id:
             canonical_result = await db.execute(
-                select(CanonicalMenu).where(CanonicalMenu.id == variant.canonical_menu_id)
+                select(CanonicalMenu).where(
+                    CanonicalMenu.id == variant.canonical_menu_id
+                )
             )
             canonical = canonical_result.scalars().first()
 
@@ -70,26 +67,27 @@ async def get_qr_menu_page(
                 description = ""
                 if canonical.explanation_short:
                     if isinstance(canonical.explanation_short, dict):
-                        description = canonical.explanation_short.get(lang, canonical.explanation_short.get("en", ""))
+                        description = canonical.explanation_short.get(
+                            lang, canonical.explanation_short.get("en", "")
+                        )
                     else:
                         description = canonical.explanation_short
 
-                menu_data.append({
-                    "name_ko": variant.menu_name_ko or canonical.name_ko,
-                    "name_en": canonical.name_en,
-                    "description": description,
-                    "price": variant.price_display,
-                    "spice_level": canonical.spice_level,
-                    "allergens": canonical.allergens or [],
-                    "image_url": canonical.image_url,
-                })
+                menu_data.append(
+                    {
+                        "name_ko": variant.menu_name_ko or canonical.name_ko,
+                        "name_en": canonical.name_en,
+                        "description": description,
+                        "price": variant.price_display,
+                        "spice_level": canonical.spice_level,
+                        "allergens": canonical.allergens or [],
+                        "image_url": canonical.image_url,
+                    }
+                )
 
     # Generate HTML
     html = generate_qr_menu_html(
-        shop_name=shop.name_ko,
-        shop_code=shop_code,
-        menus=menu_data,
-        current_lang=lang
+        shop_name=shop.name_ko, shop_code=shop_code, menus=menu_data, current_lang=lang
     )
 
     return html
@@ -251,10 +249,7 @@ def generate_404_html(shop_code: str, lang: str = "en") -> str:
 
 
 def generate_qr_menu_html(
-    shop_name: str,
-    shop_code: str,
-    menus: list,
-    current_lang: str = "en"
+    shop_name: str, shop_code: str, menus: list, current_lang: str = "en"
 ) -> str:
     """
     QR 메뉴 HTML 생성
@@ -272,7 +267,7 @@ def generate_qr_menu_html(
     lang_labels = {
         "en": {"title": "Menu", "spice": "Spice Level", "allergens": "Allergens"},
         "ja": {"title": "メニュー", "spice": "辛さ", "allergens": "アレルゲン"},
-        "zh": {"title": "菜单", "spice": "辣度", "allergens": "过敏原"}
+        "zh": {"title": "菜单", "spice": "辣度", "allergens": "过敏原"},
     }
 
     labels = lang_labels.get(current_lang, lang_labels["en"])
@@ -534,7 +529,7 @@ async def generate_qr_code(shop_code: str):
 
     # BytesIO로 변환
     buf = BytesIO()
-    img.save(buf, format='PNG')
+    img.save(buf, format="PNG")
     buf.seek(0)
 
     return StreamingResponse(buf, media_type="image/png")

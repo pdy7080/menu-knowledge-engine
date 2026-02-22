@@ -1,6 +1,7 @@
 """
 B2B API Routes - 식당 등록 및 관리
 """
+
 import json
 import logging
 import tempfile
@@ -15,24 +16,22 @@ from typing import Optional, List
 import uuid
 
 from database import get_db
-from utils.image_validation import validate_image
-from utils.image_preprocessing import preprocess_menu_image
-from services.ocr_service import ocr_service
+from models.restaurant import Restaurant, RestaurantStatus
+from services.cache_service import cache_service, TTL_RESTAURANT_INFO
+from services.menu_approval_service import MenuApprovalService
+from services.menu_upload_service import MenuUploadService
 from services.ocr_orchestrator import ocr_orchestrator
+from services.qr_code_service import QRCodeService
+from utils.image_validation import validate_image
 
 logger = logging.getLogger(__name__)
-
-from models.restaurant import Restaurant, RestaurantStatus
-from services.menu_upload_service import MenuUploadService
-from services.menu_approval_service import MenuApprovalService
-from services.qr_code_service import QRCodeService
-from services.cache_service import cache_service, TTL_RESTAURANT_INFO
 
 router = APIRouter(prefix="/api/v1/b2b", tags=["b2b"])
 
 
 class RestaurantCreateRequest(BaseModel):
     """식당 등록 요청"""
+
     name: str
     name_en: Optional[str] = None
     owner_name: str
@@ -47,6 +46,7 @@ class RestaurantCreateRequest(BaseModel):
 
 class RestaurantApprovalRequest(BaseModel):
     """식당 승인/거부 요청"""
+
     action: str  # "approve" or "reject"
     admin_user_id: str
     rejection_reason: Optional[str] = None
@@ -54,14 +54,14 @@ class RestaurantApprovalRequest(BaseModel):
 
 class MenuApprovalRequest(BaseModel):
     """메뉴 확정 승인 요청"""
+
     admin_user_id: str
     selected_menu_ids: List[str]  # UUID strings
 
 
 @router.post("/restaurants")
 async def register_restaurant(
-    request: RestaurantCreateRequest,
-    db: AsyncSession = Depends(get_db)
+    request: RestaurantCreateRequest, db: AsyncSession = Depends(get_db)
 ):
     """
     B2B 식당 등록 API
@@ -78,7 +78,7 @@ async def register_restaurant(
     if existing.scalars().first():
         raise HTTPException(
             status_code=400,
-            detail=f"Business license {request.business_license} already registered"
+            detail=f"Business license {request.business_license} already registered",
         )
 
     # 2. 식당 생성
@@ -93,7 +93,7 @@ async def register_restaurant(
         postal_code=request.postal_code,
         business_license=request.business_license,
         business_type=request.business_type,
-        status=RestaurantStatus.pending_approval
+        status=RestaurantStatus.pending_approval,
     )
 
     db.add(restaurant)
@@ -105,15 +105,12 @@ async def register_restaurant(
         "restaurant_id": str(restaurant.id),
         "status": restaurant.status,
         "message": "Restaurant registered. Waiting for admin approval.",
-        "approval_url": f"http://localhost:8000/admin/restaurants/{restaurant.id}"
+        "approval_url": f"http://localhost:8000/admin/restaurants/{restaurant.id}",
     }
 
 
 @router.get("/restaurants/{restaurant_id}")
-async def get_restaurant(
-    restaurant_id: str,
-    db: AsyncSession = Depends(get_db)
-):
+async def get_restaurant(restaurant_id: str, db: AsyncSession = Depends(get_db)):
     """식당 정보 조회 (Redis 캐싱, TTL: 1시간)"""
     # Check cache first
     cache_key = f"restaurant:{restaurant_id}"
@@ -143,8 +140,12 @@ async def get_restaurant(
         "business_license": restaurant.business_license,
         "business_type": restaurant.business_type,
         "status": restaurant.status,
-        "created_at": restaurant.created_at.isoformat() if restaurant.created_at else None,
-        "approved_at": restaurant.approved_at.isoformat() if restaurant.approved_at else None,
+        "created_at": (
+            restaurant.created_at.isoformat() if restaurant.created_at else None
+        ),
+        "approved_at": (
+            restaurant.approved_at.isoformat() if restaurant.approved_at else None
+        ),
     }
 
     # Save to cache (1 hour TTL)
@@ -157,7 +158,7 @@ async def get_restaurant(
 async def approve_restaurant(
     restaurant_id: str,
     request: RestaurantApprovalRequest,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
 ):
     """
     식당 승인/거부 API (Admin Only)
@@ -186,7 +187,7 @@ async def approve_restaurant(
     else:
         raise HTTPException(
             status_code=400,
-            detail=f"Invalid action: {request.action}. Use 'approve' or 'reject'"
+            detail=f"Invalid action: {request.action}. Use 'approve' or 'reject'",
         )
 
     await db.commit()
@@ -199,7 +200,7 @@ async def approve_restaurant(
         "success": True,
         "restaurant_id": str(restaurant.id),
         "status": restaurant.status,
-        "message": message
+        "message": message,
     }
 
 
@@ -208,7 +209,7 @@ async def list_restaurants(
     status: Optional[str] = None,
     limit: int = 50,
     offset: int = 0,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
 ):
     """식당 목록 조회 (Admin)"""
     query = select(Restaurant).order_by(Restaurant.created_at.desc())
@@ -245,15 +246,13 @@ async def list_restaurants(
                 "created_at": r.created_at.isoformat() if r.created_at else None,
             }
             for r in restaurants
-        ]
+        ],
     }
 
 
 @router.post("/restaurants/{restaurant_id}/menus/upload")
 async def upload_menus(
-    restaurant_id: str,
-    file: UploadFile = File(...),
-    db: AsyncSession = Depends(get_db)
+    restaurant_id: str, file: UploadFile = File(...), db: AsyncSession = Depends(get_db)
 ):
     """
     B2B 메뉴 일괄 업로드 API
@@ -269,8 +268,7 @@ async def upload_menus(
 
         # 파일 처리
         upload_task = await service.process_upload(
-            restaurant_id=uuid.UUID(restaurant_id),
-            file=file
+            restaurant_id=uuid.UUID(restaurant_id), file=file
         )
 
         return {
@@ -283,25 +281,28 @@ async def upload_menus(
             "successful": upload_task.successful,
             "failed": upload_task.failed,
             "skipped": upload_task.skipped,
-            "created_at": upload_task.created_at.isoformat() if upload_task.created_at else None,
-            "started_at": upload_task.started_at.isoformat() if upload_task.started_at else None,
-            "completed_at": upload_task.completed_at.isoformat() if upload_task.completed_at else None,
+            "created_at": (
+                upload_task.created_at.isoformat() if upload_task.created_at else None
+            ),
+            "started_at": (
+                upload_task.started_at.isoformat() if upload_task.started_at else None
+            ),
+            "completed_at": (
+                upload_task.completed_at.isoformat()
+                if upload_task.completed_at
+                else None
+            ),
         }
 
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Menu upload failed: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Menu upload failed: {str(e)}")
 
 
 @router.get("/restaurants/{restaurant_id}/menus/upload/{upload_task_id}")
 async def get_upload_task(
-    restaurant_id: str,
-    upload_task_id: str,
-    db: AsyncSession = Depends(get_db)
+    restaurant_id: str, upload_task_id: str, db: AsyncSession = Depends(get_db)
 ):
     """
     업로드 작업 조회 API
@@ -314,7 +315,7 @@ async def get_upload_task(
     result = await db.execute(
         select(MenuUploadTask).where(
             MenuUploadTask.id == uuid.UUID(upload_task_id),
-            MenuUploadTask.restaurant_id == uuid.UUID(restaurant_id)
+            MenuUploadTask.restaurant_id == uuid.UUID(restaurant_id),
         )
     )
     upload_task = result.scalars().first()
@@ -324,9 +325,9 @@ async def get_upload_task(
 
     # Details 조회
     details_result = await db.execute(
-        select(MenuUploadDetail).where(
-            MenuUploadDetail.upload_task_id == uuid.UUID(upload_task_id)
-        ).order_by(MenuUploadDetail.row_number)
+        select(MenuUploadDetail)
+        .where(MenuUploadDetail.upload_task_id == uuid.UUID(upload_task_id))
+        .order_by(MenuUploadDetail.row_number)
     )
     details = details_result.scalars().all()
 
@@ -342,9 +343,17 @@ async def get_upload_task(
             "failed": upload_task.failed,
             "skipped": upload_task.skipped,
             "error_log": upload_task.error_log,
-            "created_at": upload_task.created_at.isoformat() if upload_task.created_at else None,
-            "started_at": upload_task.started_at.isoformat() if upload_task.started_at else None,
-            "completed_at": upload_task.completed_at.isoformat() if upload_task.completed_at else None,
+            "created_at": (
+                upload_task.created_at.isoformat() if upload_task.created_at else None
+            ),
+            "started_at": (
+                upload_task.started_at.isoformat() if upload_task.started_at else None
+            ),
+            "completed_at": (
+                upload_task.completed_at.isoformat()
+                if upload_task.completed_at
+                else None
+            ),
         },
         "details": [
             {
@@ -354,19 +363,19 @@ async def get_upload_task(
                 "price": d.price,
                 "status": d.status,
                 "error_message": d.error_message,
-                "created_menu_id": str(d.created_menu_id) if d.created_menu_id else None,
+                "created_menu_id": (
+                    str(d.created_menu_id) if d.created_menu_id else None
+                ),
                 "row_number": d.row_number,
             }
             for d in details
-        ]
+        ],
     }
 
 
 @router.post("/restaurants/{restaurant_id}/menus/approve")
 async def approve_restaurant_menus(
-    restaurant_id: str,
-    request: MenuApprovalRequest,
-    db: AsyncSession = Depends(get_db)
+    restaurant_id: str, request: MenuApprovalRequest, db: AsyncSession = Depends(get_db)
 ):
     """
     B2B 메뉴 확정 승인 API
@@ -390,9 +399,7 @@ async def approve_restaurant_menus(
         # 1. 메뉴 승인 처리
         approval_service = MenuApprovalService(db)
         approval_result = await approval_service.approve_menus(
-            restaurant_uuid,
-            menu_uuids,
-            request.admin_user_id
+            restaurant_uuid, menu_uuids, request.admin_user_id
         )
 
         restaurant = approval_result["restaurant"]
@@ -409,7 +416,7 @@ async def approve_restaurant_menus(
             restaurant_id=restaurant.id,
             shop_code=shop_code,
             menu_count=approved_count,
-            languages=['ko', 'en', 'ja', 'zh']
+            languages=["ko", "en", "ja", "zh"],
         )
 
         # 3. 응답 반환
@@ -420,20 +427,24 @@ async def approve_restaurant_menus(
                 "id": str(restaurant.id),
                 "name": restaurant.name,
                 "status": restaurant.status,
-                "approved_at": restaurant.approved_at.isoformat() if restaurant.approved_at else None,
+                "approved_at": (
+                    restaurant.approved_at.isoformat()
+                    if restaurant.approved_at
+                    else None
+                ),
                 "approved_by": restaurant.approved_by,
             },
             "approved_menus": {
                 "count": approved_count,
-                "menu_ids": [str(m.id) for m in menus]
+                "menu_ids": [str(m.id) for m in menus],
             },
             "qr_code": {
                 "shop_code": shop_code,
                 "qr_code_url": qr_result["qr_code_url"],
                 "qr_code_file_path": qr_result["qr_code_file_path"],
                 "activation_date": qr_result["activation_date"],
-                "languages": qr_result["languages"]
-            }
+                "languages": qr_result["languages"],
+            },
         }
 
     except ValueError as e:
@@ -448,7 +459,7 @@ async def approve_restaurant_menus(
 async def bulk_upload_menu_images(
     restaurant_id: str,
     files: List[UploadFile] = File(...),
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
 ):
     """
     B2B 메뉴 이미지 벌크 업로드 API (Sprint 4 - OCR Tier Router)
@@ -502,7 +513,7 @@ async def bulk_upload_menu_images(
         file_type="images",
         total_menus=len(files),
         status="processing",
-        started_at=datetime.now(timezone.utc)
+        started_at=datetime.now(timezone.utc),
     )
     db.add(task)
     await db.commit()
@@ -524,17 +535,18 @@ async def bulk_upload_menu_images(
                 img_format, width, height = validate_image(content)
             except ImageValidationError as e:
                 failed += 1
-                results.append({
-                    "file": file.filename,
-                    "status": "failed",
-                    "error": f"Invalid image: {str(e)}"
-                })
+                results.append(
+                    {
+                        "file": file.filename,
+                        "status": "failed",
+                        "error": f"Invalid image: {str(e)}",
+                    }
+                )
                 continue
 
             # 2-3. 임시 파일 저장
             with tempfile.NamedTemporaryFile(
-                delete=False,
-                suffix=f".{img_format.lower()}"
+                delete=False, suffix=f".{img_format.lower()}"
             ) as temp_file:
                 temp_file.write(content)
                 temp_path = temp_file.name
@@ -543,7 +555,7 @@ async def bulk_upload_menu_images(
             ocr_result = await ocr_orchestrator.extract_menu(
                 image_path=temp_path,
                 enable_preprocessing=True,
-                use_cache=True  # 캐싱 활성화
+                use_cache=True,  # 캐싱 활성화
             )
 
             # 2-5. 결과 처리
@@ -563,40 +575,46 @@ async def bulk_upload_menu_images(
                             "source": "b2b_bulk_upload",
                             "file_name": file.filename,
                             "price": item.price,
-                            "ocr_provider": ocr_result.provider.value if ocr_result.provider else None,
+                            "ocr_provider": (
+                                ocr_result.provider.value
+                                if ocr_result.provider
+                                else None
+                            ),
                             "fallback_triggered": ocr_result.triggered_fallback,
                             "fallback_reason": ocr_result.fallback_reason,
-                        }
+                        },
                     )
                     db.add(scan_log)
 
                 successful += 1
-                results.append({
-                    "file": file.filename,
-                    "status": "success",
-                    "provider": ocr_result.provider.value if ocr_result.provider else None,
-                    "menu_count": len(ocr_result.menu_items),
-                    "confidence": float(ocr_result.confidence),
-                    "fallback_triggered": ocr_result.triggered_fallback,
-                    "processing_time_ms": ocr_result.processing_time_ms,
-                })
+                results.append(
+                    {
+                        "file": file.filename,
+                        "status": "success",
+                        "provider": (
+                            ocr_result.provider.value if ocr_result.provider else None
+                        ),
+                        "menu_count": len(ocr_result.menu_items),
+                        "confidence": float(ocr_result.confidence),
+                        "fallback_triggered": ocr_result.triggered_fallback,
+                        "processing_time_ms": ocr_result.processing_time_ms,
+                    }
+                )
 
             else:
                 failed += 1
-                results.append({
-                    "file": file.filename,
-                    "status": "failed",
-                    "error": f"OCR failed: {ocr_result.raw_text or 'Unknown error'}"
-                })
+                results.append(
+                    {
+                        "file": file.filename,
+                        "status": "failed",
+                        "error": f"OCR failed: {ocr_result.raw_text or 'Unknown error'}",
+                    }
+                )
 
         except Exception as e:
             failed += 1
             logger.error(f"Error processing {file.filename}: {e}", exc_info=True)
-            results.append({
-                "file": file.filename,
-                "status": "failed",
-                "error": str(e)
-            })
+            results.append({"file": file.filename, "status": "failed", "error": str(e)})
 
         finally:
             # Cleanup
@@ -616,7 +634,11 @@ async def bulk_upload_menu_images(
     task.failed = failed
     task.status = "completed"
     task.completed_at = datetime.now(timezone.utc)
-    task.error_log = json.dumps([r for r in results if r["status"] == "failed"]) if failed > 0 else None
+    task.error_log = (
+        json.dumps([r for r in results if r["status"] == "failed"])
+        if failed > 0
+        else None
+    )
 
     await db.commit()
 
@@ -626,5 +648,5 @@ async def bulk_upload_menu_images(
         "total": len(files),
         "successful": successful,
         "failed": failed,
-        "results": results
+        "results": results,
     }

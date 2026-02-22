@@ -1,6 +1,7 @@
 """
 SQLAlchemy Models
 """
+
 from .concept import Concept
 from .canonical_menu import CanonicalMenu
 from .modifier import Modifier

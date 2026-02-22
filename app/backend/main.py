@@ -1,6 +1,7 @@
 """
 Menu Knowledge Engine - FastAPI Application
 """
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -32,13 +33,14 @@ async def shutdown_event():
     """Cleanup services on application shutdown"""
     await cache_service.disconnect()
 
+
 # CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Authorization", "Accept-Language"],
 )
 
 # Routers
@@ -47,6 +49,7 @@ app.include_router(admin_router)
 app.include_router(qr_router)
 app.include_router(b2b_router)
 app.include_router(public_data_router)
+
 
 # Health check endpoint (before static files)
 @app.get("/health")
@@ -64,12 +67,16 @@ async def health_check():
 # Admin UI
 static_admin_path = Path(__file__).parent / "static" / "admin"
 if static_admin_path.exists():
-    app.mount("/admin", StaticFiles(directory=str(static_admin_path), html=True), name="admin")
+    app.mount(
+        "/admin", StaticFiles(directory=str(static_admin_path), html=True), name="admin"
+    )
 
 # Frontend Landing Page (mount last to avoid conflicts with API routes)
 frontend_path = Path(__file__).parent.parent / "frontend"
 if frontend_path.exists():
-    app.mount("/", StaticFiles(directory=str(frontend_path), html=True), name="frontend")
+    app.mount(
+        "/", StaticFiles(directory=str(frontend_path), html=True), name="frontend"
+    )
 
 
 if __name__ == "__main__":

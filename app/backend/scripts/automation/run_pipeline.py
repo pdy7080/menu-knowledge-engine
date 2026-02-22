@@ -15,17 +15,17 @@ APScheduler 불필요 — OS 레벨 스케줄링 사용.
 Author: terminal-developer
 Date: 2026-02-21
 """
+
 import argparse
 import asyncio
 import sys
-import os
 from datetime import datetime
 from pathlib import Path
 
 # Windows console encoding fix
-if sys.platform == 'win32':
-    sys.stdout.reconfigure(encoding='utf-8')
-    sys.stderr.reconfigure(encoding='utf-8')
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
 # Path setup
 SCRIPT_DIR = Path(__file__).parent
@@ -33,13 +33,14 @@ BACKEND_DIR = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(BACKEND_DIR))
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
-from automation.config_auto import auto_settings
-from automation.logging_config import setup_logging
+from automation.config_auto import auto_settings  # noqa: E402
+from automation.logging_config import setup_logging  # noqa: E402
 
 
 def print_status():
     """현재 자동화 시스템 상태 출력"""
     import logging
+
     logger = logging.getLogger("automation.status")
 
     logger.info("=" * 60)
@@ -57,15 +58,23 @@ def print_status():
     ]
     active_keys = len([k for k in keys if k.strip()])
     logger.info(f"Gemini API Keys: {active_keys} active")
-    logger.info(f"RPD Limit: {auto_settings.GEMINI_RPD_LIMIT}/key × {active_keys} keys = {auto_settings.GEMINI_RPD_LIMIT * active_keys} total")
+    logger.info(
+        f"RPD Limit: {auto_settings.GEMINI_RPD_LIMIT}/key × {active_keys} keys = {auto_settings.GEMINI_RPD_LIMIT * active_keys} total"
+    )
     logger.info("=" * 60)
 
     # 스테이징 디렉토리 상태
     staging_dir = Path(auto_settings.AUTOMATION_STAGING_DIR)
     if staging_dir.exists():
-        new_menus = list((staging_dir / "new_menus").glob("discovery_*.json")) if (staging_dir / "new_menus").exists() else []
+        new_menus = (
+            list((staging_dir / "new_menus").glob("discovery_*.json"))
+            if (staging_dir / "new_menus").exists()
+            else []
+        )
         enriched = list(staging_dir.glob("enrichment_batch_*.json"))
-        logger.info(f"Staging: {len(new_menus)} discovery files, {len(enriched)} enrichment files")
+        logger.info(
+            f"Staging: {len(new_menus)} discovery files, {len(enriched)} enrichment files"
+        )
     else:
         logger.info("Staging directory not created yet")
 
@@ -82,6 +91,7 @@ def print_status():
 async def run_job(job_name: str):
     """개별 작업 실행"""
     import logging
+
     logger = logging.getLogger("automation.runner")
 
     from automation.scheduler import (
@@ -141,12 +151,15 @@ def main():
         sys.exit(1)
 
     if args.job in ("enrich", "all"):
-        has_any_key = any(k.strip() for k in [
-            auto_settings.GOOGLE_API_KEY_1,
-            auto_settings.GOOGLE_API_KEY_2,
-            auto_settings.GOOGLE_API_KEY_3,
-            auto_settings.GOOGLE_API_KEY,
-        ])
+        has_any_key = any(
+            k.strip()
+            for k in [
+                auto_settings.GOOGLE_API_KEY_1,
+                auto_settings.GOOGLE_API_KEY_2,
+                auto_settings.GOOGLE_API_KEY_3,
+                auto_settings.GOOGLE_API_KEY,
+            ]
+        )
         if not has_any_key:
             print("ERROR: No Gemini API keys set in .env")
             print("Set GOOGLE_API_KEY_1, _2, _3 for round-robin (60 RPD/day)")

@@ -1,6 +1,7 @@
 """
 Concept Model - 한식 개념 트리 (대분류/중분류)
 """
+
 from sqlalchemy import Column, String, Integer, Text, ForeignKey, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
@@ -21,7 +22,9 @@ class Concept(Base):
     definition_en = Column(Text)
     sort_order = Column(Integer, default=0)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    updated_at = Column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
 
     # Relationships
     parent = relationship("Concept", remote_side=[id], backref="children")

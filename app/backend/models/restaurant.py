@@ -1,6 +1,7 @@
 """
 Restaurant Model - B2B 식당 정보
 """
+
 from sqlalchemy import Column, String, DateTime, Enum
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
@@ -12,10 +13,11 @@ from database import Base
 
 class RestaurantStatus(str, enum.Enum):
     """식당 승인 상태"""
+
     pending_approval = "pending_approval"  # 승인 대기
-    active = "active"                      # 활성화
-    inactive = "inactive"                  # 비활성화
-    rejected = "rejected"                  # 거부됨
+    active = "active"  # 활성화
+    inactive = "inactive"  # 비활성화
+    rejected = "rejected"  # 거부됨
 
 
 class Restaurant(Base):
@@ -45,7 +47,7 @@ class Restaurant(Base):
     status = Column(
         Enum(RestaurantStatus),
         nullable=False,
-        default=RestaurantStatus.pending_approval
+        default=RestaurantStatus.pending_approval,
     )
 
     # 승인 정보

@@ -1,6 +1,7 @@
 """
 Menu API Routes
 """
+
 from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -23,10 +24,15 @@ router = APIRouter(prefix="/api/v1", tags=["menu"])
 
 class MenuIdentifyRequest(BaseModel):
     """메뉴 식별 요청 모델"""
-    menu_name_ko: str = Field(..., min_length=1, description="Korean menu name (cannot be empty)")
+
+    menu_name_ko: str = Field(
+        ..., min_length=1, description="Korean menu name (cannot be empty)"
+    )
 
 
-async def _resolve_similar_dishes(similar_dishes: List[str], db: AsyncSession) -> List[Dict[str, Any]]:
+async def _resolve_similar_dishes(
+    similar_dishes: List[str], db: AsyncSession
+) -> List[Dict[str, Any]]:
     """
     Convert similar_dishes from string array to full menu objects
 
@@ -44,7 +50,7 @@ async def _resolve_similar_dishes(similar_dishes: List[str], db: AsyncSession) -
     for dish_string in similar_dishes:
         # Extract Korean name (before parenthesis or dash)
         # "갈비구이 (Galbi Gui - Description)" -> "갈비구이"
-        name_ko = dish_string.split('(')[0].strip()
+        name_ko = dish_string.split("(")[0].strip()
 
         try:
             # Look up in canonical_menus by name_ko
@@ -54,22 +60,35 @@ async def _resolve_similar_dishes(similar_dishes: List[str], db: AsyncSession) -
             menu = result.scalar_one_or_none()
 
             if menu:
-                resolved.append({
-                    "id": str(menu.id),
-                    "name_ko": menu.name_ko,
-                    "name_en": menu.name_en,
-                    "image_url": menu.image_url or (menu.primary_image.get('url') if menu.primary_image else None),
-                    "spice_level": menu.spice_level
-                })
+                resolved.append(
+                    {
+                        "id": str(menu.id),
+                        "name_ko": menu.name_ko,
+                        "name_en": menu.name_en,
+                        "image_url": menu.image_url
+                        or (
+                            menu.primary_image.get("url")
+                            if menu.primary_image
+                            else None
+                        ),
+                        "spice_level": menu.spice_level,
+                    }
+                )
             else:
                 # Fallback: return string-based object
-                resolved.append({
-                    "id": None,
-                    "name_ko": name_ko,
-                    "name_en": dish_string.split('(')[1].split(')')[0] if '(' in dish_string else name_ko,
-                    "image_url": None,
-                    "spice_level": 0
-                })
+                resolved.append(
+                    {
+                        "id": None,
+                        "name_ko": name_ko,
+                        "name_en": (
+                            dish_string.split("(")[1].split(")")[0]
+                            if "(" in dish_string
+                            else name_ko
+                        ),
+                        "image_url": None,
+                        "spice_level": 0,
+                    }
+                )
         except Exception as e:
             logger.warning(f"Failed to resolve similar dish '{dish_string}': {e}")
             continue
@@ -77,7 +96,9 @@ async def _resolve_similar_dishes(similar_dishes: List[str], db: AsyncSession) -
     return resolved
 
 
-def _serialize_canonical_menu(cm: CanonicalMenu, include_enriched: bool = False) -> Dict[str, Any]:
+def _serialize_canonical_menu(
+    cm: CanonicalMenu, include_enriched: bool = False
+) -> Dict[str, Any]:
     """
     Serialize CanonicalMenu model to dict
 
@@ -134,7 +155,9 @@ def _serialize_canonical_menu(cm: CanonicalMenu, include_enriched: bool = False)
             "flavor_profile": cm.flavor_profile,
             "visitor_tips": cm.visitor_tips,
             "similar_dishes": cm.similar_dishes or [],
-            "content_completeness": float(cm.content_completeness) if cm.content_completeness else 0.0,
+            "content_completeness": (
+                float(cm.content_completeness) if cm.content_completeness else 0.0
+            ),
         }
         base_fields.update(enriched_fields)
 
@@ -166,7 +189,9 @@ async def get_concepts(db: AsyncSession = Depends(get_db)):
 @router.get("/modifiers")
 async def get_modifiers(db: AsyncSession = Depends(get_db)):
     """Get all modifiers (수식어 사전 조회)"""
-    result = await db.execute(select(Modifier).order_by(Modifier.priority.desc(), Modifier.text_ko))
+    result = await db.execute(
+        select(Modifier).order_by(Modifier.priority.desc(), Modifier.text_ko)
+    )
     modifiers = result.scalars().all()
 
     return {
@@ -191,9 +216,13 @@ async def get_modifiers(db: AsyncSession = Depends(get_db)):
 async def get_canonical_menus(
     db: AsyncSession = Depends(get_db),
     include_enriched: bool = False,
-    limit: Optional[int] = Query(None, ge=1, le=500, description="결과 수 제한 (최대 500)"),
+    limit: Optional[int] = Query(
+        None, ge=1, le=500, description="결과 수 제한 (최대 500)"
+    ),
     offset: int = Query(0, ge=0, description="건너뛸 항목 수"),
-    completeness_min: Optional[float] = Query(None, ge=0, le=100, description="콘텐츠 완성도 최솟값 (0-100)")
+    completeness_min: Optional[float] = Query(
+        None, ge=0, le=100, description="콘텐츠 완성도 최솟값 (0-100)"
+    ),
 ):
     """
     Get all canonical menus (표준 메뉴 조회)
@@ -210,7 +239,9 @@ async def get_canonical_menus(
 
     # Filter by completeness_min if specified
     if completeness_min is not None:
-        all_menus = [m for m in all_menus if (m.content_completeness or 0) >= completeness_min]
+        all_menus = [
+            m for m in all_menus if (m.content_completeness or 0) >= completeness_min
+        ]
 
     total = len(all_menus)
 
@@ -230,10 +261,7 @@ async def get_canonical_menus(
 
 
 @router.get("/canonical-menus/{menu_id}")
-async def get_canonical_menu_by_id(
-    menu_id: UUID,
-    db: AsyncSession = Depends(get_db)
-):
+async def get_canonical_menu_by_id(menu_id: UUID, db: AsyncSession = Depends(get_db)):
     """
     Get single canonical menu by ID with full enriched content
 
@@ -244,9 +272,7 @@ async def get_canonical_menu_by_id(
     - flavor_profile, visitor_tips, similar_dishes (with full objects)
     - content_completeness
     """
-    result = await db.execute(
-        select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
-    )
+    result = await db.execute(select(CanonicalMenu).where(CanonicalMenu.id == menu_id))
     menu = result.scalar_one_or_none()
 
     if not menu:
@@ -257,16 +283,15 @@ async def get_canonical_menu_by_id(
 
     # Resolve similar_dishes to full objects (Sprint 2 Phase 2)
     if menu.similar_dishes:
-        menu_data['similar_dishes'] = await _resolve_similar_dishes(menu.similar_dishes, db)
+        menu_data["similar_dishes"] = await _resolve_similar_dishes(
+            menu.similar_dishes, db
+        )
 
     return menu_data
 
 
 @router.get("/canonical-menus/{menu_id}/images")
-async def get_canonical_menu_images(
-    menu_id: UUID,
-    db: AsyncSession = Depends(get_db)
-):
+async def get_canonical_menu_images(menu_id: UUID, db: AsyncSession = Depends(get_db)):
     """
     Get images only for a canonical menu (Sprint 2 Phase 1)
 
@@ -282,9 +307,7 @@ async def get_canonical_menu_images(
             "legacy_image_url": "..." (for backward compatibility)
         }
     """
-    result = await db.execute(
-        select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
-    )
+    result = await db.execute(select(CanonicalMenu).where(CanonicalMenu.id == menu_id))
     menu = result.scalar_one_or_none()
 
     if not menu:
@@ -310,8 +333,7 @@ async def get_canonical_menu_images(
 
 @router.post("/menu/identify")
 async def identify_menu(
-    request: MenuIdentifyRequest,
-    db: AsyncSession = Depends(get_db)
+    request: MenuIdentifyRequest, db: AsyncSession = Depends(get_db)
 ):
     """
     메뉴 식별 API
@@ -324,8 +346,7 @@ async def identify_menu(
 
 @router.post("/menu/recognize")
 async def recognize_menu_image(
-    file: UploadFile = File(...),
-    db: AsyncSession = Depends(get_db)
+    file: UploadFile = File(...), db: AsyncSession = Depends(get_db)
 ):
     """
     OCR 메뉴 인식 API (Sprint 3 - P0-1)
@@ -352,16 +373,15 @@ async def recognize_menu_image(
         img_format, width, height = validate_image(content)
         logger.info(f"✅ Image validated: {img_format} {width}x{height}")
     except ImageValidationError as e:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Invalid image: {str(e)}"
-        )
+        raise HTTPException(status_code=400, detail=f"Invalid image: {str(e)}")
 
     # Save uploaded file temporarily
     temp_path = None
     try:
         # Create temp file with validated format
-        with tempfile.NamedTemporaryFile(delete=False, suffix=f".{img_format.lower()}") as temp_file:
+        with tempfile.NamedTemporaryFile(
+            delete=False, suffix=f".{img_format.lower()}"
+        ) as temp_file:
             temp_file.write(content)
             temp_path = temp_file.name
 
@@ -370,8 +390,7 @@ async def recognize_menu_image(
 
         if not result["success"]:
             raise HTTPException(
-                status_code=500,
-                detail=result.get("error", "OCR processing failed")
+                status_code=500, detail=result.get("error", "OCR processing failed")
             )
 
         return {
@@ -379,16 +398,13 @@ async def recognize_menu_image(
             "menu_items": result["menu_items"],
             "raw_text": result.get("raw_text", ""),
             "ocr_confidence": result.get("ocr_confidence", 0.0),
-            "count": len(result["menu_items"])
+            "count": len(result["menu_items"]),
         }
 
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error processing image: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error processing image: {str(e)}")
     finally:
         # Clean up temp file (Bug #3 Fix: Log errors instead of silent failure)
         if temp_path and os.path.exists(temp_path):
@@ -396,11 +412,18 @@ async def recognize_menu_image(
                 os.remove(temp_path)
                 logger.debug(f"Cleaned up temp file: {temp_path}")
             except PermissionError as e:
-                logger.error(f"Permission denied when deleting temp file {temp_path}: {e}")
+                logger.error(
+                    f"Permission denied when deleting temp file {temp_path}: {e}"
+                )
                 # On Windows, file might be locked. Try delayed cleanup
                 try:
                     import atexit
-                    atexit.register(lambda: os.remove(temp_path) if os.path.exists(temp_path) else None)
+
+                    atexit.register(
+                        lambda: (
+                            os.remove(temp_path) if os.path.exists(temp_path) else None
+                        )
+                    )
                     logger.info(f"Scheduled delayed cleanup for {temp_path}")
                 except Exception as cleanup_error:
                     logger.error(f"Failed to schedule delayed cleanup: {cleanup_error}")

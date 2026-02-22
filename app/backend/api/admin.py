@@ -2,22 +2,45 @@
 Admin API Routes - Sprint 3 P1-1 + Sprint 4 OCR Metrics + Multi-Language Auto-Translation
 신규 메뉴 큐 관리 + 엔진 모니터링 + OCR Tier 메트릭 + 자동 번역
 """
-from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func, and_, or_
-from typing import Optional, List
-from pydantic import BaseModel
-from datetime import datetime, timedelta
-from database import get_db
-from models import ScanLog, CanonicalMenu, Modifier, MenuVariant
-from services.cache_service import cache_service, TTL_ADMIN_STATS
-from services.ocr_orchestrator import ocr_orchestrator
-from services.auto_translate_service import auto_translate_service
-from schemas.canonical_menu import CanonicalMenuCreate, CanonicalMenuResponse, TranslateRequest
+
+import os
 import uuid
 import logging
 
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select, func, and_, or_
+from typing import Optional
+from pydantic import BaseModel
+from datetime import datetime, timedelta
+from database import get_db
+from models import ScanLog, CanonicalMenu, Modifier
+from services.cache_service import cache_service, TTL_ADMIN_STATS
+from services.ocr_orchestrator import ocr_orchestrator
+from services.auto_translate_service import get_auto_translate_service
+from schemas.canonical_menu import (
+    CanonicalMenuCreate,
+    CanonicalMenuResponse,
+    TranslateRequest,
+)
+
 logger = logging.getLogger(__name__)
+
+# ===========================
+# Admin Authentication
+# ===========================
+_security = HTTPBearer()
+
+
+def verify_admin_token(
+    credentials: HTTPAuthorizationCredentials = Depends(_security),
+) -> None:
+    """Bearer token verification for all admin endpoints"""
+    expected = os.environ.get("ADMIN_SECRET_KEY", "")
+    if not expected or credentials.credentials != expected:
+        raise HTTPException(status_code=403, detail="Forbidden")
+
 
 router = APIRouter(prefix="/api/v1/admin", tags=["admin"])
 
@@ -27,6 +50,7 @@ router = APIRouter(prefix="/api/v1/admin", tags=["admin"])
 # ===========================
 class QueueApproveRequest(BaseModel):
     """메뉴 승인 요청"""
+
     action: str  # approve, reject, edit
     canonical_menu_id: Optional[str] = None
     notes: Optional[str] = None
@@ -41,7 +65,8 @@ async def get_menu_queue(
     source: str = "all",  # all, b2c, b2b
     limit: int = 50,
     offset: int = 0,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    _: None = Depends(verify_admin_token),
 ):
     """
     신규 메뉴 큐 조회 (P1-1)
@@ -112,7 +137,9 @@ async def get_menu_queue(
         # Get matched canonical if exists
         if log.matched_canonical_id:
             canonical_result = await db.execute(
-                select(CanonicalMenu).where(CanonicalMenu.id == log.matched_canonical_id)
+                select(CanonicalMenu).where(
+                    CanonicalMenu.id == log.matched_canonical_id
+                )
             )
             canonical = canonical_result.scalars().first()
             if canonical:
@@ -132,19 +159,15 @@ async def get_menu_queue(
 
         data.append(item)
 
-    return {
-        "total": total,
-        "data": data,
-        "limit": limit,
-        "offset": offset
-    }
+    return {"total": total, "data": data, "limit": limit, "offset": offset}
 
 
 @router.post("/queue/{queue_id}/approve")
 async def approve_menu_queue(
     queue_id: str,
     request: QueueApproveRequest,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    _: None = Depends(verify_admin_token),
 ):
     """
     신규 메뉴 큐 승인/거부 (P1-1)
@@ -160,9 +183,7 @@ async def approve_menu_queue(
         {"success": bool, "message": str}
     """
     # Get scan log
-    result = await db.execute(
-        select(ScanLog).where(ScanLog.id == uuid.UUID(queue_id))
-    )
+    result = await db.execute(select(ScanLog).where(ScanLog.id == uuid.UUID(queue_id)))
     scan_log = result.scalars().first()
 
     if not scan_log:
@@ -183,7 +204,7 @@ async def approve_menu_queue(
 
         return {
             "success": True,
-            "message": f"Menu '{scan_log.menu_name_ko}' approved and added to knowledge base"
+            "message": f"Menu '{scan_log.menu_name_ko}' approved and added to knowledge base",
         }
 
     elif request.action == "reject":
@@ -194,17 +215,13 @@ async def approve_menu_queue(
 
         await db.commit()
 
-        return {
-            "success": True,
-            "message": f"Menu '{scan_log.menu_name_ko}' rejected"
-        }
+        return {"success": True, "message": f"Menu '{scan_log.menu_name_ko}' rejected"}
 
     elif request.action == "edit":
         # Edit: Create new canonical menu
         if not request.canonical_menu_id:
             raise HTTPException(
-                status_code=400,
-                detail="canonical_menu_id required for edit action"
+                status_code=400, detail="canonical_menu_id required for edit action"
             )
 
         # Link to canonical
@@ -217,7 +234,7 @@ async def approve_menu_queue(
 
         return {
             "success": True,
-            "message": f"Menu '{scan_log.menu_name_ko}' linked to canonical menu"
+            "message": f"Menu '{scan_log.menu_name_ko}' linked to canonical menu",
         }
 
     else:
@@ -225,7 +242,10 @@ async def approve_menu_queue(
 
 
 @router.get("/stats")
-async def get_engine_stats(db: AsyncSession = Depends(get_db)):
+async def get_engine_stats(
+    db: AsyncSession = Depends(get_db),
+    _: None = Depends(verify_admin_token),
+):
     """
     엔진 모니터링 통계 (P1-1)
 
@@ -257,10 +277,7 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
     # 3. Pending queue count
     pending_result = await db.execute(
         select(func.count(ScanLog.id)).where(
-            or_(
-                ScanLog.status == "pending",
-                ScanLog.status.is_(None)
-            )
+            or_(ScanLog.status == "pending", ScanLog.status.is_(None))
         )
     )
     pending_count = pending_result.scalar()
@@ -270,9 +287,7 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
 
     # Scans in last 7 days
     scans_7d_result = await db.execute(
-        select(func.count(ScanLog.id)).where(
-            ScanLog.created_at >= seven_days_ago
-        )
+        select(func.count(ScanLog.id)).where(ScanLog.created_at >= seven_days_ago)
     )
     scans_7d = scans_7d_result.scalar()
 
@@ -281,7 +296,7 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
         select(func.count(ScanLog.id)).where(
             and_(
                 ScanLog.created_at >= seven_days_ago,
-                ScanLog.matched_canonical_id.isnot(None)
+                ScanLog.matched_canonical_id.isnot(None),
             )
         )
     )
@@ -290,9 +305,7 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
 
     # Average confidence (last 7 days)
     avg_conf_result = await db.execute(
-        select(func.avg(ScanLog.confidence)).where(
-            ScanLog.created_at >= seven_days_ago
-        )
+        select(func.avg(ScanLog.confidence)).where(ScanLog.created_at >= seven_days_ago)
     )
     avg_confidence_7d = avg_conf_result.scalar() or 0.0
 
@@ -304,7 +317,7 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
         select(func.count(ScanLog.id)).where(
             and_(
                 ScanLog.created_at >= seven_days_ago,
-                ScanLog.evidences.contains({"ai_called": True})  # JSONB query
+                ScanLog.evidences.contains({"ai_called": True}),  # JSONB query
             )
         )
     )
@@ -328,7 +341,9 @@ async def get_engine_stats(db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/ocr/metrics")
-async def get_ocr_metrics():
+async def get_ocr_metrics(
+    _: None = Depends(verify_admin_token),
+):
     """
     OCR Tier Router 메트릭 조회 (Sprint 4)
 
@@ -371,7 +386,9 @@ async def get_ocr_metrics():
         "price_error_count": metrics.get("price_error_count", 0),
         "price_error_rate": metrics.get("price_error_rate", "0.0%"),
         "handwriting_detection_rate": metrics.get("handwriting_detection_rate", "0.0%"),
-        "last_updated": metrics.get("last_updated", datetime.utcnow().isoformat() + "Z"),
+        "last_updated": metrics.get(
+            "last_updated", datetime.utcnow().isoformat() + "Z"
+        ),
     }
 
 
@@ -379,11 +396,9 @@ async def get_ocr_metrics():
 # Multi-Language Auto-Translation (Sprint 2 Phase 3)
 # ===========================
 
+
 async def _background_translate_menu(
-    menu_id: uuid.UUID,
-    menu_name_ko: str,
-    description_en: str,
-    db_url: str
+    menu_id: uuid.UUID, menu_name_ko: str, description_en: str, db_url: str
 ):
     """
     Background task for auto-translation
@@ -398,11 +413,11 @@ async def _background_translate_menu(
         try:
             # Translate
             logger.info(f"🔄 Background translation started: {menu_name_ko}")
-            translations = await auto_translate_service.auto_translate_new_menu(
+            translations = await get_auto_translate_service().auto_translate_new_menu(
                 menu_id=menu_id,
                 menu_name_ko=menu_name_ko,
                 description_en=description_en,
-                db=db
+                db=db,
             )
 
             # Update status
@@ -444,7 +459,8 @@ async def _background_translate_menu(
 async def create_canonical_menu(
     menu_data: CanonicalMenuCreate,
     background_tasks: BackgroundTasks,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    _: None = Depends(verify_admin_token),
 ):
     """
     Create new canonical menu with auto-translation (Sprint 2 Phase 3)
@@ -477,7 +493,7 @@ async def create_canonical_menu(
         typical_price_min=menu_data.typical_price_min,
         typical_price_max=menu_data.typical_price_max,
         translation_status="pending",
-        verified_by="admin"
+        verified_by="admin",
     )
 
     db.add(menu)
@@ -488,12 +504,13 @@ async def create_canonical_menu(
 
     # Trigger background translation
     from config import settings
+
     background_tasks.add_task(
         _background_translate_menu,
         menu_id=menu.id,
         menu_name_ko=menu.name_ko,
         description_en=menu_data.explanation_short_en,
-        db_url=settings.DATABASE_URL
+        db_url=settings.DATABASE_URL,
     )
 
     logger.info(f"🚀 Background translation queued: {menu.name_ko}")
@@ -511,7 +528,7 @@ async def create_canonical_menu(
         translation_status=menu.translation_status,
         translation_attempted_at=menu.translation_attempted_at,
         spice_level=menu.spice_level,
-        created_at=menu.created_at
+        created_at=menu.created_at,
     )
 
 
@@ -519,7 +536,8 @@ async def create_canonical_menu(
 async def retranslate_menu(
     menu_id: uuid.UUID,
     background_tasks: BackgroundTasks,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    _: None = Depends(verify_admin_token),
 ):
     """
     Manually re-translate a single menu (Sprint 2 Phase 3)
@@ -527,9 +545,7 @@ async def retranslate_menu(
     Use this to retry failed translations or update translations for existing menus.
     """
     # Get menu
-    result = await db.execute(
-        select(CanonicalMenu).where(CanonicalMenu.id == menu_id)
-    )
+    result = await db.execute(select(CanonicalMenu).where(CanonicalMenu.id == menu_id))
     menu = result.scalar_one_or_none()
 
     if not menu:
@@ -539,7 +555,7 @@ async def retranslate_menu(
     if not menu.explanation_short or not menu.explanation_short.get("en"):
         raise HTTPException(
             status_code=400,
-            detail="Menu must have English description (explanation_short.en) to translate"
+            detail="Menu must have English description (explanation_short.en) to translate",
         )
 
     # Reset status to pending
@@ -549,12 +565,13 @@ async def retranslate_menu(
 
     # Trigger background translation
     from config import settings
+
     background_tasks.add_task(
         _background_translate_menu,
         menu_id=menu.id,
         menu_name_ko=menu.name_ko,
         description_en=menu.explanation_short["en"],
-        db_url=settings.DATABASE_URL
+        db_url=settings.DATABASE_URL,
     )
 
     logger.info(f"🔄 Re-translation queued: {menu.name_ko}")
@@ -563,7 +580,7 @@ async def retranslate_menu(
         "success": True,
         "message": f"Re-translation queued for menu: {menu.name_ko}",
         "menu_id": str(menu.id),
-        "translation_status": "pending"
+        "translation_status": "pending",
     }
 
 
@@ -571,7 +588,8 @@ async def retranslate_menu(
 async def translate_all_menus(
     request: TranslateRequest,
     background_tasks: BackgroundTasks,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    _: None = Depends(verify_admin_token),
 ):
     """
     Bulk re-translate menus by status filter (Sprint 2 Phase 3)
@@ -597,11 +615,11 @@ async def translate_all_menus(
     else:
         raise HTTPException(
             status_code=400,
-            detail=f"Invalid status_filter: {request.status_filter}. Use 'failed', 'pending', or 'all'"
+            detail=f"Invalid status_filter: {request.status_filter}. Use 'failed', 'pending', or 'all'",
         )
 
     # Only translate menus with English description
-    query = query.where(CanonicalMenu.explanation_short.op('?')('en'))
+    query = query.where(CanonicalMenu.explanation_short.op("?")("en"))
 
     result = await db.execute(query)
     menus = result.scalars().all()
@@ -610,11 +628,12 @@ async def translate_all_menus(
         return {
             "success": True,
             "message": f"No menus found with status_filter={request.status_filter}",
-            "count": 0
+            "count": 0,
         }
 
     # Queue background translations
     from config import settings
+
     queued_count = 0
     for menu in menus:
         # Reset status
@@ -627,17 +646,19 @@ async def translate_all_menus(
             menu_id=menu.id,
             menu_name_ko=menu.name_ko,
             description_en=menu.explanation_short.get("en", ""),
-            db_url=settings.DATABASE_URL
+            db_url=settings.DATABASE_URL,
         )
         queued_count += 1
 
     await db.commit()
 
-    logger.info(f"🚀 Bulk translation queued: {queued_count} menus (filter={request.status_filter})")
+    logger.info(
+        f"🚀 Bulk translation queued: {queued_count} menus (filter={request.status_filter})"
+    )
 
     return {
         "success": True,
         "message": f"Queued {queued_count} menus for translation",
         "count": queued_count,
-        "status_filter": request.status_filter
+        "status_filter": request.status_filter,
     }

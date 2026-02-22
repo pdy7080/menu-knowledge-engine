@@ -54,9 +54,9 @@ DB_HOST = "localhost"
 DB_PORT = LOCAL_TUNNEL_PORT
 DB_NAME = "chargeap_menu_knowledge"
 DB_USER = "chargeap_dcclab2022"
-DB_PASS = "eromlab!1228"
+DB_PASS = os.environ.get("DB_PASSWORD", "")
 
-BATCH_SIZE = 3   # 3: JSON 잘림 방지를 위해 소배치 유지
+BATCH_SIZE = 3  # 3: JSON 잘림 방지를 위해 소배치 유지
 SLEEP_BETWEEN_BATCHES = 0.5
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -74,7 +74,7 @@ logging.basicConfig(
     handlers=[
         logging.StreamHandler(sys.stdout),
         logging.FileHandler("translate_deep_content.log", encoding="utf-8"),
-    ]
+    ],
 )
 logger = logging.getLogger(__name__)
 
@@ -92,15 +92,24 @@ def is_port_open(host: str, port: int) -> bool:
 
 def start_ssh_tunnel():
     if is_port_open(DB_HOST, LOCAL_TUNNEL_PORT):
-        logger.info(f"[SSH] 기존 터널 사용 (localhost:{LOCAL_TUNNEL_PORT} 이미 열려있음)")
+        logger.info(
+            f"[SSH] 기존 터널 사용 (localhost:{LOCAL_TUNNEL_PORT} 이미 열려있음)"
+        )
         return None
     cmd = [
-        "ssh", "-i", SSH_KEY,
-        "-L", f"{LOCAL_TUNNEL_PORT}:localhost:5432",
-        "-N", "-o", "StrictHostKeyChecking=no",
-        "-o", "ServerAliveInterval=60",
-        "-o", "ExitOnForwardFailure=yes",
-        f"{SSH_USER}@{SSH_HOST}"
+        "ssh",
+        "-i",
+        SSH_KEY,
+        "-L",
+        f"{LOCAL_TUNNEL_PORT}:localhost:5432",
+        "-N",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "ServerAliveInterval=60",
+        "-o",
+        "ExitOnForwardFailure=yes",
+        f"{SSH_USER}@{SSH_HOST}",
     ]
     proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(4)
@@ -112,9 +121,12 @@ def start_ssh_tunnel():
 
 def connect_db():
     conn = psycopg2.connect(
-        host=DB_HOST, port=DB_PORT,
-        dbname=DB_NAME, user=DB_USER, password=DB_PASS,
-        connect_timeout=10
+        host=DB_HOST,
+        port=DB_PORT,
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASS,
+        connect_timeout=10,
     )
     conn.autocommit = False
     return conn
@@ -157,7 +169,8 @@ def get_menus_needing_deep_translation(conn, limit: Optional[int] = None) -> Lis
 
 def get_translation_stats(conn) -> Dict:
     cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cur.execute("""
+    cur.execute(
+        """
     SELECT
         COUNT(*) as total,
         SUM(CASE WHEN explanation_long IS NOT NULL AND explanation_long ? 'ja' AND (explanation_long->>'ja') != '' THEN 1 ELSE 0 END) as exp_long_ja,
@@ -165,7 +178,8 @@ def get_translation_stats(conn) -> Dict:
         SUM(CASE WHEN cultural_context IS NOT NULL AND cultural_context ? 'ja' AND (cultural_context->>'ja') != '' THEN 1 ELSE 0 END) as cultural_ja,
         SUM(CASE WHEN cultural_context IS NOT NULL AND cultural_context ? 'zh' AND (cultural_context->>'zh') != '' THEN 1 ELSE 0 END) as cultural_zh
     FROM canonical_menus WHERE status = 'active'
-    """)
+    """
+    )
     return dict(cur.fetchone())
 
 
@@ -185,12 +199,14 @@ def build_translation_prompt(menus: List[Dict]) -> str:
         if m.get("cultural_context") and isinstance(m["cultural_context"], dict):
             cultural_en = m["cultural_context"].get("en", "")
 
-        menu_list.append({
-            "id": m["id"],
-            "name_ko": m["name_ko"],
-            "explanation_long_en": exp_long_en or "",
-            "cultural_context_en": cultural_en or "",
-        })
+        menu_list.append(
+            {
+                "id": m["id"],
+                "name_ko": m["name_ko"],
+                "explanation_long_en": exp_long_en or "",
+                "cultural_context_en": cultural_en or "",
+            }
+        )
 
     return f"""You are a professional food writer specializing in Korean cuisine for international travelers.
 Translate the English text fields to Japanese and Chinese (Simplified) for Korean dishes.
@@ -232,7 +248,7 @@ def call_claude(client: anthropic.Anthropic, prompt: str) -> Optional[str]:
         response = client.messages.create(
             model=CLAUDE_MODEL,
             max_tokens=8192,
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
         )
         return response.content[0].text.strip()
     except anthropic.RateLimitError:
@@ -241,7 +257,7 @@ def call_claude(client: anthropic.Anthropic, prompt: str) -> Optional[str]:
         response = client.messages.create(
             model=CLAUDE_MODEL,
             max_tokens=8192,
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
         )
         return response.content[0].text.strip()
     except Exception as e:
@@ -271,23 +287,31 @@ def parse_translation_response(text: str) -> Optional[Dict]:
         return None
 
 
-def update_menu_translations(conn, menu_id: str, exp_long_update: Dict, cultural_update: Dict):
+def update_menu_translations(
+    conn, menu_id: str, exp_long_update: Dict, cultural_update: Dict
+):
     cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     if exp_long_update.get("ja") or exp_long_update.get("zh"):
-        cur.execute("""
+        cur.execute(
+            """
         UPDATE canonical_menus
         SET explanation_long = COALESCE(explanation_long, '{}') || %s::jsonb,
             updated_at = NOW()
         WHERE id = %s::uuid
-        """, (json.dumps(exp_long_update, ensure_ascii=False), menu_id))
+        """,
+            (json.dumps(exp_long_update, ensure_ascii=False), menu_id),
+        )
 
     if cultural_update.get("ja") or cultural_update.get("zh"):
-        cur.execute("""
+        cur.execute(
+            """
         UPDATE canonical_menus
         SET cultural_context = COALESCE(cultural_context, '{}') || %s::jsonb,
             updated_at = NOW()
         WHERE id = %s::uuid
-        """, (json.dumps(cultural_update, ensure_ascii=False), menu_id))
+        """,
+            (json.dumps(cultural_update, ensure_ascii=False), menu_id),
+        )
 
     conn.commit()
 
@@ -327,7 +351,9 @@ def process_batch(conn, client: anthropic.Anthropic, menus: List[Dict]) -> int:
             try:
                 update_menu_translations(conn, menu_id, exp_long_clean, cultural_clean)
                 success += 1
-                logger.info(f"  ✅ {menu_id}: exp_long={list(exp_long_clean.keys())}, cultural={list(cultural_clean.keys())}")
+                logger.info(
+                    f"  ✅ {menu_id}: exp_long={list(exp_long_clean.keys())}, cultural={list(cultural_clean.keys())}"
+                )
             except Exception as e:
                 logger.error(f"  ❌ DB update failed for {menu_id}: {e}")
                 conn.rollback()
@@ -336,7 +362,9 @@ def process_batch(conn, client: anthropic.Anthropic, menus: List[Dict]) -> int:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Claude API로 explanation_long/cultural_context JA/ZH 번역")
+    parser = argparse.ArgumentParser(
+        description="Claude API로 explanation_long/cultural_context JA/ZH 번역"
+    )
     parser.add_argument("--test", action="store_true", help="5개 메뉴 테스트")
     parser.add_argument("--batch", type=int, help="처리할 메뉴 수")
     parser.add_argument("--all", action="store_true", help="전체 처리")
@@ -373,7 +401,7 @@ def main():
 
         total_success = 0
         for i in range(0, total, BATCH_SIZE):
-            batch = menus[i:i + BATCH_SIZE]
+            batch = menus[i : i + BATCH_SIZE]
             names = [m["name_ko"] for m in batch]
             batch_num = i // BATCH_SIZE + 1
             total_batches = (total + BATCH_SIZE - 1) // BATCH_SIZE

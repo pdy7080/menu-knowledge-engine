@@ -1,10 +1,11 @@
 """
 Menu Upload Service - B2B 메뉴 일괄 업로드 처리
 """
+
 import csv
 import json
 import io
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 from datetime import datetime
 import uuid
 
@@ -12,7 +13,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from fastapi import UploadFile, HTTPException
 
-from models.menu_upload import MenuUploadTask, MenuUploadDetail, UploadStatus, MenuItemStatus
+from models.menu_upload import (
+    MenuUploadTask,
+    MenuUploadDetail,
+    UploadStatus,
+    MenuItemStatus,
+)
 from models.restaurant import Restaurant
 from models.canonical_menu import CanonicalMenu
 from utils.retry import async_retry
@@ -28,39 +34,39 @@ class MenuUploadService:
         self.openai_client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
     async def process_upload(
-        self,
-        restaurant_id: uuid.UUID,
-        file: UploadFile
+        self, restaurant_id: uuid.UUID, file: UploadFile
     ) -> MenuUploadTask:
         """
         메뉴 파일 업로드 처리
 
-        1. 파일 검증
-        2. 파싱 (CSV 또는 JSON)
-        3. 각 메뉴 처리 (번역, 저장)
-        4. 결과 반환
+        1. 파일 타입 검증 (DB 불필요)
+        2. 파싱 (CSV 또는 JSON) (DB 불필요)
+        3. Restaurant 존재 확인
+        4. 각 메뉴 처리 (번역, 저장)
+        5. 결과 반환
         """
-        # 1. Restaurant 존재 확인
-        restaurant = await self._verify_restaurant(restaurant_id)
+        # 1. 파일 타입 검증 (DB 접근 불필요, 빠른 실패)
+        file_type = self._get_file_type(file.filename)
 
-        # 2. Upload Task 생성
+        # 2. 파일 읽기 및 파싱 (DB 접근 불필요)
+        content = await file.read()
+        menus = await self._parse_file(content, file_type)
+
+        # 3. Restaurant 존재 확인 (DB 필요)
+        await self._verify_restaurant(restaurant_id)
+
+        # 4. Upload Task 생성
         upload_task = MenuUploadTask(
             restaurant_id=restaurant_id,
             file_name=file.filename,
-            file_type=self._get_file_type(file.filename),
-            status=UploadStatus.pending.value
+            file_type=file_type,
+            status=UploadStatus.pending.value,
         )
         self.db.add(upload_task)
         await self.db.commit()
         await self.db.refresh(upload_task)
 
         try:
-            # 3. 파일 읽기
-            content = await file.read()
-
-            # 4. 파싱
-            menus = await self._parse_file(content, upload_task.file_type)
-
             # 5. Upload Task 업데이트 (처리 시작)
             upload_task.status = UploadStatus.processing.value
             upload_task.started_at = datetime.utcnow()
@@ -77,6 +83,11 @@ class MenuUploadService:
 
             return upload_task
 
+        except HTTPException:
+            upload_task.status = UploadStatus.failed.value
+            upload_task.completed_at = datetime.utcnow()
+            await self.db.commit()
+            raise
         except Exception as e:
             # 실패 처리
             upload_task.status = UploadStatus.failed.value
@@ -93,24 +104,28 @@ class MenuUploadService:
         restaurant = result.scalars().first()
 
         if not restaurant:
-            raise HTTPException(status_code=404, detail=f"Restaurant {restaurant_id} not found")
+            raise HTTPException(
+                status_code=404, detail=f"Restaurant {restaurant_id} not found"
+            )
 
         return restaurant
 
     def _get_file_type(self, filename: str) -> str:
         """파일 확장자로 타입 판별"""
-        if filename.endswith('.csv'):
-            return 'csv'
-        elif filename.endswith('.json'):
-            return 'json'
+        if filename.endswith(".csv"):
+            return "csv"
+        elif filename.endswith(".json"):
+            return "json"
         else:
-            raise HTTPException(status_code=400, detail="Unsupported file type. Use CSV or JSON")
+            raise HTTPException(
+                status_code=400, detail="Unsupported file type. Use CSV or JSON"
+            )
 
     async def _parse_file(self, content: bytes, file_type: str) -> List[Dict[str, Any]]:
         """파일 파싱"""
-        if file_type == 'csv':
+        if file_type == "csv":
             return await self._parse_csv(content)
-        elif file_type == 'json':
+        elif file_type == "json":
             return await self._parse_json(content)
         else:
             raise ValueError(f"Unknown file type: {file_type}")
@@ -119,21 +134,21 @@ class MenuUploadService:
         """CSV 파싱"""
         try:
             # UTF-8 디코딩
-            text = content.decode('utf-8')
+            text = content.decode("utf-8")
             reader = csv.DictReader(io.StringIO(text))
 
             menus = []
             for row_num, row in enumerate(reader, start=1):
                 menu = {
-                    'row_number': row_num,
-                    'name_ko': row.get('name_ko', '').strip(),
-                    'name_en': row.get('name_en', '').strip(),
-                    'description_en': row.get('description_en', '').strip(),
-                    'price': int(row.get('price', 0)) if row.get('price') else None
+                    "row_number": row_num,
+                    "name_ko": row.get("name_ko", "").strip(),
+                    "name_en": row.get("name_en", "").strip(),
+                    "description_en": row.get("description_en", "").strip(),
+                    "price": int(row.get("price", 0)) if row.get("price") else None,
                 }
 
                 # 필수 필드 검증
-                if not menu['name_ko']:
+                if not menu["name_ko"]:
                     raise ValueError(f"Row {row_num}: name_ko is required")
 
                 menus.append(menu)
@@ -141,7 +156,9 @@ class MenuUploadService:
             return menus
 
         except UnicodeDecodeError:
-            raise HTTPException(status_code=400, detail="Invalid CSV encoding. Use UTF-8")
+            raise HTTPException(
+                status_code=400, detail="Invalid CSV encoding. Use UTF-8"
+            )
         except Exception as e:
             raise HTTPException(status_code=400, detail=f"CSV parsing error: {str(e)}")
 
@@ -150,21 +167,21 @@ class MenuUploadService:
         try:
             data = json.loads(content)
 
-            if not isinstance(data, dict) or 'menus' not in data:
+            if not isinstance(data, dict) or "menus" not in data:
                 raise ValueError("JSON must have 'menus' array")
 
             menus = []
-            for row_num, menu_data in enumerate(data['menus'], start=1):
+            for row_num, menu_data in enumerate(data["menus"], start=1):
                 menu = {
-                    'row_number': row_num,
-                    'name_ko': menu_data.get('name_ko', '').strip(),
-                    'name_en': menu_data.get('name_en', '').strip(),
-                    'description_en': menu_data.get('description_en', '').strip(),
-                    'price': menu_data.get('price')
+                    "row_number": row_num,
+                    "name_ko": menu_data.get("name_ko", "").strip(),
+                    "name_en": menu_data.get("name_en", "").strip(),
+                    "description_en": menu_data.get("description_en", "").strip(),
+                    "price": menu_data.get("price"),
                 }
 
                 # 필수 필드 검증
-                if not menu['name_ko']:
+                if not menu["name_ko"]:
                     raise ValueError(f"Menu {row_num}: name_ko is required")
 
                 menus.append(menu)
@@ -177,27 +194,25 @@ class MenuUploadService:
             raise HTTPException(status_code=400, detail=f"JSON parsing error: {str(e)}")
 
     async def _process_menus(
-        self,
-        upload_task: MenuUploadTask,
-        menus: List[Dict[str, Any]]
+        self, upload_task: MenuUploadTask, menus: List[Dict[str, Any]]
     ):
         """각 메뉴 처리"""
         for menu_data in menus:
             try:
                 # 중복 체크
-                is_duplicate = await self._check_duplicate(menu_data['name_ko'])
+                is_duplicate = await self._check_duplicate(menu_data["name_ko"])
 
                 if is_duplicate:
                     # 중복 메뉴 (건너뛰기)
                     detail = MenuUploadDetail(
                         upload_task_id=upload_task.id,
-                        name_ko=menu_data['name_ko'],
-                        name_en=menu_data.get('name_en'),
-                        description_en=menu_data.get('description_en'),
-                        price=menu_data.get('price'),
+                        name_ko=menu_data["name_ko"],
+                        name_en=menu_data.get("name_en"),
+                        description_en=menu_data.get("description_en"),
+                        price=menu_data.get("price"),
                         status=MenuItemStatus.skipped.value,
                         error_message="Duplicate menu",
-                        row_number=menu_data.get('row_number')
+                        row_number=menu_data.get("row_number"),
                     )
                     self.db.add(detail)
                     upload_task.skipped += 1
@@ -208,13 +223,13 @@ class MenuUploadService:
 
                     detail = MenuUploadDetail(
                         upload_task_id=upload_task.id,
-                        name_ko=menu_data['name_ko'],
-                        name_en=menu_data.get('name_en'),
-                        description_en=menu_data.get('description_en'),
-                        price=menu_data.get('price'),
+                        name_ko=menu_data["name_ko"],
+                        name_en=menu_data.get("name_en"),
+                        description_en=menu_data.get("description_en"),
+                        price=menu_data.get("price"),
                         status=MenuItemStatus.success.value,
                         created_menu_id=created_menu_id,
-                        row_number=menu_data.get('row_number')
+                        row_number=menu_data.get("row_number"),
                     )
                     self.db.add(detail)
                     upload_task.successful += 1
@@ -223,11 +238,11 @@ class MenuUploadService:
                 # 실패한 메뉴
                 detail = MenuUploadDetail(
                     upload_task_id=upload_task.id,
-                    name_ko=menu_data['name_ko'],
-                    name_en=menu_data.get('name_en'),
+                    name_ko=menu_data["name_ko"],
+                    name_en=menu_data.get("name_en"),
                     status=MenuItemStatus.failed.value,
                     error_message=str(e),
-                    row_number=menu_data.get('row_number')
+                    row_number=menu_data.get("row_number"),
                 )
                 self.db.add(detail)
                 upload_task.failed += 1
@@ -253,17 +268,18 @@ class MenuUploadService:
         """
         # 1. 기본 메뉴 생성
         menu = CanonicalMenu(
-            name_ko=menu_data['name_ko'],
-            name_en=menu_data.get('name_en', menu_data['name_ko']),  # Default to Korean name if EN missing
-            typical_price_min=menu_data.get('price'),
-            typical_price_max=menu_data.get('price')
+            name_ko=menu_data["name_ko"],
+            name_en=menu_data.get(
+                "name_en", menu_data["name_ko"]
+            ),  # Default to Korean name if EN missing
+            typical_price_min=menu_data.get("price"),
+            typical_price_max=menu_data.get("price"),
         )
 
         # 2. 자동 번역 (description_en이 있으면)
-        if menu_data.get('description_en'):
+        if menu_data.get("description_en"):
             translations = await self._translate_menu(
-                menu_data['name_ko'],
-                menu_data['description_en']
+                menu_data["name_ko"], menu_data["description_en"]
             )
 
             menu.explanation_short = translations
@@ -275,9 +291,7 @@ class MenuUploadService:
         return menu.id
 
     async def _translate_menu(
-        self,
-        name_ko: str,
-        description_en: str
+        self, name_ko: str, description_en: str
     ) -> Dict[str, str]:
         """
         GPT-4o로 자동 번역
@@ -300,26 +314,29 @@ Keep it concise (under 50 words each)."""
         response = self.openai_client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a professional translator specializing in Korean food menus."},
-                {"role": "user", "content": prompt}
+                {
+                    "role": "system",
+                    "content": "You are a professional translator specializing in Korean food menus.",
+                },
+                {"role": "user", "content": prompt},
             ],
-            temperature=0.3
+            temperature=0.3,
         )
 
         # 응답 파싱
         content = response.choices[0].message.content.strip()
 
         # JSON 추출 (```json ... ``` 제거)
-        if content.startswith('```json'):
+        if content.startswith("```json"):
             content = content[7:]
-        if content.startswith('```'):
+        if content.startswith("```"):
             content = content[3:]
-        if content.endswith('```'):
+        if content.endswith("```"):
             content = content[:-3]
 
         translations = json.loads(content.strip())
 
         # EN 추가
-        translations['en'] = description_en
+        translations["en"] = description_en
 
         return translations

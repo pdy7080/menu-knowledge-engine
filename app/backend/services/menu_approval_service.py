@@ -1,6 +1,7 @@
 """
 Menu Approval Service - B2B 메뉴 확정 승인 검증
 """
+
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 import uuid
@@ -22,9 +23,7 @@ class MenuApprovalValidator:
         self.validation_errors: List[str] = []
 
     async def validate_approval(
-        self,
-        restaurant_id: uuid.UUID,
-        selected_menu_ids: List[uuid.UUID]
+        self, restaurant_id: uuid.UUID, selected_menu_ids: List[uuid.UUID]
     ) -> Dict[str, Any]:
         """
         메뉴 승인 7가지 검증 로직
@@ -46,7 +45,7 @@ class MenuApprovalValidator:
                 "valid": False,
                 "errors": self.validation_errors,
                 "restaurant": None,
-                "menus": []
+                "menus": [],
             }
 
         # 2. Status = pending_approval 확인
@@ -64,12 +63,11 @@ class MenuApprovalValidator:
             "valid": is_valid,
             "errors": self.validation_errors,
             "restaurant": restaurant,
-            "menus": menus
+            "menus": menus,
         }
 
     async def _validate_restaurant_exists(
-        self,
-        restaurant_id: uuid.UUID
+        self, restaurant_id: uuid.UUID
     ) -> Optional[Restaurant]:
         """1. Restaurant 존재 확인"""
         result = await self.db.execute(
@@ -78,9 +76,7 @@ class MenuApprovalValidator:
         restaurant = result.scalars().first()
 
         if not restaurant:
-            self.validation_errors.append(
-                f"Restaurant {restaurant_id} not found"
-            )
+            self.validation_errors.append(f"Restaurant {restaurant_id} not found")
             return None
 
         return restaurant
@@ -100,8 +96,7 @@ class MenuApprovalValidator:
             )
 
     async def _validate_menus(
-        self,
-        selected_menu_ids: List[uuid.UUID]
+        self, selected_menu_ids: List[uuid.UUID]
     ) -> List[CanonicalMenu]:
         """4-7. 선택된 메뉴들 검증"""
         if not selected_menu_ids:
@@ -109,9 +104,7 @@ class MenuApprovalValidator:
 
         # 메뉴 조회
         result = await self.db.execute(
-            select(CanonicalMenu).where(
-                CanonicalMenu.id.in_(selected_menu_ids)
-            )
+            select(CanonicalMenu).where(CanonicalMenu.id.in_(selected_menu_ids))
         )
         menus = result.scalars().all()
 
@@ -119,12 +112,9 @@ class MenuApprovalValidator:
         if len(menus) != len(selected_menu_ids):
             found_ids = {str(m.id) for m in menus}
             missing_ids = [
-                str(mid) for mid in selected_menu_ids
-                if str(mid) not in found_ids
+                str(mid) for mid in selected_menu_ids if str(mid) not in found_ids
             ]
-            self.validation_errors.append(
-                f"Menus not found: {', '.join(missing_ids)}"
-            )
+            self.validation_errors.append(f"Menus not found: {', '.join(missing_ids)}")
 
         # 각 메뉴 검증
         for menu in menus:
@@ -150,17 +140,13 @@ class MenuApprovalValidator:
 
     def _validate_translations(self, menu: CanonicalMenu, menu_id: str):
         """4. 번역 완료 확인"""
-        required_langs = ['en', 'ja', 'zh']
+        required_langs = ["en", "ja", "zh"]
 
         # name 필드 확인
         if not menu.name_ko:
-            self.validation_errors.append(
-                f"Menu {menu_id}: name_ko is missing"
-            )
+            self.validation_errors.append(f"Menu {menu_id}: name_ko is missing")
         if not menu.name_en:
-            self.validation_errors.append(
-                f"Menu {menu_id}: name_en is missing"
-            )
+            self.validation_errors.append(f"Menu {menu_id}: name_en is missing")
 
         # explanation_short JSONB 확인
         if not menu.explanation_short or not isinstance(menu.explanation_short, dict):
@@ -179,13 +165,9 @@ class MenuApprovalValidator:
     def _validate_required_fields(self, menu: CanonicalMenu, menu_id: str):
         """5. 필수 필드 존재 확인"""
         if not menu.name_ko:
-            self.validation_errors.append(
-                f"Menu {menu_id}: name_ko is required"
-            )
+            self.validation_errors.append(f"Menu {menu_id}: name_ko is required")
         if not menu.name_en:
-            self.validation_errors.append(
-                f"Menu {menu_id}: name_en is required"
-            )
+            self.validation_errors.append(f"Menu {menu_id}: name_en is required")
         if not menu.explanation_short:
             self.validation_errors.append(
                 f"Menu {menu_id}: explanation_short is required"
@@ -242,7 +224,7 @@ class MenuApprovalService:
         self,
         restaurant_id: uuid.UUID,
         selected_menu_ids: List[uuid.UUID],
-        admin_user_id: str
+        admin_user_id: str,
     ) -> Dict[str, Any]:
         """
         메뉴 승인 처리
@@ -254,8 +236,7 @@ class MenuApprovalService:
         """
         # 1. 검증 실행
         validation_result = await self.validator.validate_approval(
-            restaurant_id,
-            selected_menu_ids
+            restaurant_id, selected_menu_ids
         )
 
         if not validation_result["valid"]:
@@ -263,8 +244,8 @@ class MenuApprovalService:
                 status_code=400,
                 detail={
                     "message": "Menu approval validation failed",
-                    "errors": validation_result["errors"]
-                }
+                    "errors": validation_result["errors"],
+                },
             )
 
         restaurant = validation_result["restaurant"]
@@ -294,5 +275,5 @@ class MenuApprovalService:
         return {
             "restaurant": restaurant,
             "menus": menus,
-            "approved_menu_count": len(menus)
+            "approved_menu_count": len(menus),
         }

@@ -1,7 +1,20 @@
 """
 Canonical Menu Model - 표준 메뉴 (핵심 테이블)
 """
-from sqlalchemy import Column, String, Integer, SmallInteger, Text, ForeignKey, DateTime, ARRAY, CheckConstraint, Float, Numeric
+
+from sqlalchemy import (
+    Column,
+    String,
+    Integer,
+    SmallInteger,
+    Text,
+    ForeignKey,
+    DateTime,
+    ARRAY,
+    CheckConstraint,
+    Float,
+    Numeric,
+)
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -87,7 +100,9 @@ class CanonicalMenu(Base):
     last_nutrition_updated = Column(DateTime(timezone=True))
 
     # Auto-translation tracking (Sprint 2 Phase 3)
-    translation_status = Column(String(20), default="pending")  # pending, completed, failed, partial, disabled
+    translation_status = Column(
+        String(20), default="pending"
+    )  # pending, completed, failed, partial, disabled
     translation_attempted_at = Column(DateTime(timezone=True))
     translation_error = Column(Text)
 
@@ -97,14 +112,26 @@ class CanonicalMenu(Base):
     # 메타
     status = Column(String(20), default="active")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    updated_at = Column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
 
     # Constraints
     __table_args__ = (
-        CheckConstraint("spice_level >= 0 AND spice_level <= 5", name="check_spice_level"),
-        CheckConstraint("difficulty_score >= 1 AND difficulty_score <= 5", name="check_difficulty_score"),
-        CheckConstraint("ai_confidence >= 0 AND ai_confidence <= 1", name="check_ai_confidence"),
-        CheckConstraint("content_completeness >= 0 AND content_completeness <= 100", name="check_content_completeness"),
+        CheckConstraint(
+            "spice_level >= 0 AND spice_level <= 5", name="check_spice_level"
+        ),
+        CheckConstraint(
+            "difficulty_score >= 1 AND difficulty_score <= 5",
+            name="check_difficulty_score",
+        ),
+        CheckConstraint(
+            "ai_confidence >= 0 AND ai_confidence <= 1", name="check_ai_confidence"
+        ),
+        CheckConstraint(
+            "content_completeness >= 0 AND content_completeness <= 100",
+            name="check_content_completeness",
+        ),
     )
 
     # Relationships

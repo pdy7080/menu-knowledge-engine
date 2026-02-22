@@ -13,6 +13,7 @@ Ollama API: http://localhost:11434
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import json
 import logging
 import re
@@ -64,10 +65,7 @@ class OllamaClient:
         target = model_name or self.model
         models = await self.list_models()
         # "qwen2.5:7b" 형태로 비교 (태그 포함/미포함 모두 처리)
-        return any(
-            target in m or m.startswith(target.split(":")[0])
-            for m in models
-        )
+        return any(target in m or m.startswith(target.split(":")[0]) for m in models)
 
     async def generate(
         self,
@@ -107,7 +105,9 @@ class OllamaClient:
                     json=payload,
                 )
                 if response.status_code != 200:
-                    logger.error(f"Ollama API error: {response.status_code} - {response.text[:200]}")
+                    logger.error(
+                        f"Ollama API error: {response.status_code} - {response.text[:200]}"
+                    )
                     return None
 
                 data = response.json()
@@ -143,7 +143,10 @@ class OllamaClient:
             파싱된 JSON dict 또는 None
         """
         # JSON 포맷 지시를 시스템 프롬프트에 추가
-        json_system = (system or "") + "\nIMPORTANT: Output ONLY valid JSON. No markdown, no code blocks, no extra text."
+        json_system = (
+            (system or "")
+            + "\nIMPORTANT: Output ONLY valid JSON. No markdown, no code blocks, no extra text."
+        )
 
         for attempt in range(max_retries):
             response_text = await self.generate(
@@ -169,7 +172,7 @@ class OllamaClient:
             cleaned = cleaned.strip()
 
             # JSON 객체 추출 (첫 번째 { ~ 마지막 } 사이)
-            match = re.search(r'\{.*\}', cleaned, re.DOTALL)
+            match = re.search(r"\{.*\}", cleaned, re.DOTALL)
             if match:
                 cleaned = match.group(0)
 

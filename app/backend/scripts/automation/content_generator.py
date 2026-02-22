@@ -15,13 +15,13 @@ Date: 2026-02-20
 Updated: 2026-02-21 (멀티키 대응, 조기 중단)
 Cost: $0 (Gemini 무료 tier)
 """
+
 import asyncio
 import json
 import logging
 import sys
 import time
 from datetime import datetime
-from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 from .gemini_client import GeminiClient
@@ -34,7 +34,6 @@ from .prompt_templates import (
     validate_enrichment,
 )
 from .state_manager import StateManager
-from .config_auto import auto_settings
 
 logger = logging.getLogger("automation.content")
 
@@ -53,12 +52,12 @@ class ContentGenerator:
     async def check_llm(self) -> bool:
         """LLM 사용 가능 여부 확인"""
         if not await self.client.is_available():
-            logger.error(
-                "Gemini not available. Check GOOGLE_API_KEY_1/2/3 in .env"
-            )
+            logger.error("Gemini not available. Check GOOGLE_API_KEY_1/2/3 in .env")
             return False
 
-        logger.info(f"Gemini ready: {self.client.model} ({self.client.total_keys} keys)")
+        logger.info(
+            f"Gemini ready: {self.client.model} ({self.client.total_keys} keys)"
+        )
         usage = self.client.get_daily_usage()
         logger.info(
             f"Daily RPD: {usage['used']}/{usage['limit']} "
@@ -122,23 +121,42 @@ class ContentGenerator:
         # 검증
         if not validate_enrichment(content_json):
             # 실패 원인 디버그 로그
-            missing = [k for k in ("description_ko", "description_en", "regional_variants",
-                                    "preparation_steps", "nutrition", "flavor_profile",
-                                    "visitor_tips", "similar_dishes", "cultural_background")
-                       if k not in content_json]
+            missing = [
+                k
+                for k in (
+                    "description_ko",
+                    "description_en",
+                    "regional_variants",
+                    "preparation_steps",
+                    "nutrition",
+                    "flavor_profile",
+                    "visitor_tips",
+                    "similar_dishes",
+                    "cultural_background",
+                )
+                if k not in content_json
+            ]
             too_few = []
             if len(content_json.get("regional_variants", [])) < 2:
-                too_few.append(f"regional_variants={len(content_json.get('regional_variants', []))}")
+                too_few.append(
+                    f"regional_variants={len(content_json.get('regional_variants', []))}"
+                )
             if len(content_json.get("preparation_steps", [])) < 3:
-                too_few.append(f"preparation_steps={len(content_json.get('preparation_steps', []))}")
+                too_few.append(
+                    f"preparation_steps={len(content_json.get('preparation_steps', []))}"
+                )
             if len(content_json.get("similar_dishes", [])) < 2:
-                too_few.append(f"similar_dishes={len(content_json.get('similar_dishes', []))}")
+                too_few.append(
+                    f"similar_dishes={len(content_json.get('similar_dishes', []))}"
+                )
             logger.warning(
                 f"  Content validation failed for {name_ko} | "
                 f"missing_keys={missing or 'none'} | too_few={too_few or 'none'}"
             )
             self.fail_count += 1
-            self.state.mark_failed(str(menu_id), f"Validation: missing={missing}, too_few={too_few}")
+            self.state.mark_failed(
+                str(menu_id), f"Validation: missing={missing}, too_few={too_few}"
+            )
             return None
 
         # name_en 추출 (Gemini가 생성한 영문 이름 우선)
@@ -233,7 +251,7 @@ class ContentGenerator:
         logger.info(f"Batch enrichment: {len(menus)} menus")
         logger.info(f"Model: {self.client.model} (Gemini Free Tier)")
         logger.info(f"Daily RPD: {usage['used']}/{usage['limit']} used")
-        logger.info(f"Cost: $0")
+        logger.info("Cost: $0")
         logger.info("=" * 60)
 
         for i, menu in enumerate(menus):
@@ -277,7 +295,7 @@ class ContentGenerator:
         logger.info(f"Failed: {self.fail_count}")
         logger.info(f"Total time: {total_time / 60:.1f} min")
         usage = self.client.get_daily_usage()
-        logger.info(f"Cost: $0 (Gemini Free Tier)")
+        logger.info("Cost: $0 (Gemini Free Tier)")
         logger.info(f"Daily RPD remaining: {usage['remaining']}/{usage['limit']}")
 
         return self.results
@@ -302,11 +320,12 @@ class ContentGenerator:
 async def main():
     """단독 실행용 메인 함수"""
     # Windows console encoding fix
-    if sys.platform == 'win32':
-        sys.stdout.reconfigure(encoding='utf-8')
-        sys.stderr.reconfigure(encoding='utf-8')
+    if sys.platform == "win32":
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
 
     from .logging_config import setup_logging
+
     setup_logging()
 
     print("=" * 60)

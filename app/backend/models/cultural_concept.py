@@ -1,6 +1,7 @@
 """
 Cultural Concept Model - 식당 문화 개념 (반찬, 곱빼기 등)
 """
+
 from sqlalchemy import Column, String, Integer, DateTime, ARRAY
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.sql import func

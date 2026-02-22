@@ -12,9 +12,9 @@ Sources:
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import json
 import logging
-from pathlib import Path
 from typing import List, Set
 
 from .base_collector import BaseCollector, CollectionResult, DiscoveredMenu
@@ -67,7 +67,7 @@ class PublicDataCollector(BaseCollector):
             return menus
 
         try:
-            with open(HIGHWAY_CANDIDATES, 'r', encoding='utf-8') as f:
+            with open(HIGHWAY_CANDIDATES, "r", encoding="utf-8") as f:
                 candidates = json.load(f)
 
             for item in candidates[:limit]:
@@ -76,12 +76,14 @@ class PublicDataCollector(BaseCollector):
                     continue
 
                 self._used_names.add(name_ko)
-                menus.append(DiscoveredMenu(
-                    name_ko=name_ko,
-                    source=self.source_name,
-                    category_hint=item.get("category", ""),
-                    raw_data=item,
-                ))
+                menus.append(
+                    DiscoveredMenu(
+                        name_ko=name_ko,
+                        source=self.source_name,
+                        category_hint=item.get("category", ""),
+                        raw_data=item,
+                    )
+                )
 
         except (json.JSONDecodeError, IOError) as e:
             logger.error(f"Failed to load highway candidates: {e}")
@@ -97,11 +99,13 @@ class PublicDataCollector(BaseCollector):
             return menus
 
         try:
-            with open(HIGHWAY_RAW, 'r', encoding='utf-8') as f:
+            with open(HIGHWAY_RAW, "r", encoding="utf-8") as f:
                 raw_data = json.load(f)
 
             # 데이터 구조: list of items with foodNm field
-            items = raw_data if isinstance(raw_data, list) else raw_data.get("items", [])
+            items = (
+                raw_data if isinstance(raw_data, list) else raw_data.get("items", [])
+            )
 
             seen_names: Set[str] = set()
             for item in items:
@@ -122,14 +126,16 @@ class PublicDataCollector(BaseCollector):
                 seen_names.add(name_ko)
                 self._used_names.add(name_ko)
 
-                menus.append(DiscoveredMenu(
-                    name_ko=name_ko,
-                    source=self.source_name,
-                    raw_data={
-                        "rest_area": item.get("stdRestNm", ""),
-                        "price": item.get("foodCost", ""),
-                    },
-                ))
+                menus.append(
+                    DiscoveredMenu(
+                        name_ko=name_ko,
+                        source=self.source_name,
+                        raw_data={
+                            "rest_area": item.get("stdRestNm", ""),
+                            "price": item.get("foodCost", ""),
+                        },
+                    )
+                )
 
                 if len(menus) >= limit:
                     break
@@ -145,7 +151,7 @@ class PublicDataCollector(BaseCollector):
 
         if HIGHWAY_CANDIDATES.exists():
             try:
-                with open(HIGHWAY_CANDIDATES, 'r', encoding='utf-8') as f:
+                with open(HIGHWAY_CANDIDATES, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     total += len(data)
             except Exception:

@@ -4,6 +4,7 @@ Step 1: Exact Match (DB 직접 매칭)
 Step 2: Modifier Decomposition (수식어 분해)
 Step 3: AI Discovery (GPT-4o fallback)
 """
+
 from typing import Dict, List, Optional, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
@@ -17,6 +18,7 @@ import os
 
 class MatchResult:
     """매칭 결과 데이터 클래스"""
+
     def __init__(
         self,
         input_text: str,
@@ -61,32 +63,45 @@ class MenuMatchingEngine:
     def _normalize_menu_name(self, menu_name: str) -> str:
         """메뉴명 정규화 (공백/특수문자/번호 제거)"""
         import re
+
         s = menu_name.strip()
 
         # 1. 메뉴 번호 제거: "1. 김치찌개", "1) 김치찌개", "1- 김치찌개"
-        s = re.sub(r'^\d+[\.\)\-\s]+', '', s)
+        s = re.sub(r"^\d+[\.\)\-\s]+", "", s)
 
         # 2. 괄호 내용 제거: "삼겹살(200g)", "김치찌개(辛)"
-        s = re.sub(r'\(.*?\)', '', s)
-        s = re.sub(r'\[.*?\]', '', s)
+        s = re.sub(r"\(.*?\)", "", s)
+        s = re.sub(r"\[.*?\]", "", s)
 
         # 3. 공백 제거: "김치 찌개", "뼈 해장국"
-        s = re.sub(r'\s+', '', s)
+        s = re.sub(r"\s+", "", s)
 
         # 4. 특수문자 제거
-        s = re.sub(r'[~!@#$%^&*_+=|\\<>?/:;"\']', '', s)
+        s = re.sub(r'[~!@#$%^&*_+=|\\<>?/:;"\']', "", s)
 
         return s.strip()
 
     def _strip_suffixes(self, menu_name: str) -> tuple:
         """접미사 패턴 제거"""
         SUFFIX_PATTERNS = [
-            "정식", "세트", "셋트",
-            "1인분", "2인분", "3인분", "4인분",
-            "1인", "2인", "3인", "4인",
-            "한상", "상차림",
-            "(대)", "(중)", "(소)",
-            "스페셜", "특선",
+            "정식",
+            "세트",
+            "셋트",
+            "1인분",
+            "2인분",
+            "3인분",
+            "4인분",
+            "1인",
+            "2인",
+            "3인",
+            "4인",
+            "한상",
+            "상차림",
+            "(대)",
+            "(중)",
+            "(소)",
+            "스페셜",
+            "특선",
         ]
 
         found_suffixes = []
@@ -94,7 +109,7 @@ class MenuMatchingEngine:
 
         for suffix in SUFFIX_PATTERNS:
             if cleaned.endswith(suffix):
-                cleaned = cleaned[:-len(suffix)].strip()
+                cleaned = cleaned[: -len(suffix)].strip()
                 found_suffixes.append(suffix)
 
         return cleaned, found_suffixes
@@ -179,8 +194,14 @@ class MenuMatchingEngine:
                 func.similarity(CanonicalMenu.name_ko, menu_name).label("sim"),
                 func.length(CanonicalMenu.name_ko).label("len"),
             )
-            .where(func.similarity(CanonicalMenu.name_ko, menu_name) >= similarity_threshold)
-            .where(func.abs(func.length(CanonicalMenu.name_ko) - len(menu_name)) <= max_length_diff)
+            .where(
+                func.similarity(CanonicalMenu.name_ko, menu_name)
+                >= similarity_threshold
+            )
+            .where(
+                func.abs(func.length(CanonicalMenu.name_ko) - len(menu_name))
+                <= max_length_diff
+            )
             .order_by(func.similarity(CanonicalMenu.name_ko, menu_name).desc())
             .limit(1)
         )
@@ -233,7 +254,7 @@ class MenuMatchingEngine:
         # 예: "한우불고기" → "불고기"가 canonical과 매칭되면, "한우"는 modifier
         for length in range(len(working_name), 1, -1):  # 긴 것부터 시도
             for start in range(len(working_name) - length + 1):
-                substring = working_name[start:start + length]
+                substring = working_name[start : start + length]
 
                 # 이 부분 문자열이 canonical과 매칭되는가?
                 canonical = await self._try_canonical_match(substring)
@@ -241,7 +262,7 @@ class MenuMatchingEngine:
                 if canonical:
                     # 나머지 부분 추출
                     prefix = working_name[:start]
-                    suffix = working_name[start + length:]
+                    suffix = working_name[start + length :]
                     remaining_text = (prefix + suffix).strip()
 
                     # 나머지가 없으면 (전체가 canonical) 이미 Step 1에서 잡혔을 것
@@ -257,13 +278,17 @@ class MenuMatchingEngine:
 
                     for mod in all_mods:
                         if mod.text_ko in temp_remaining:
-                            found_modifiers.append({
-                                "text_ko": mod.text_ko,
-                                "type": mod.type,
-                                "translation_en": mod.translation_en,
-                                "semantic_key": mod.semantic_key,
-                            })
-                            temp_remaining = temp_remaining.replace(mod.text_ko, "", 1).strip()
+                            found_modifiers.append(
+                                {
+                                    "text_ko": mod.text_ko,
+                                    "type": mod.type,
+                                    "translation_en": mod.translation_en,
+                                    "semantic_key": mod.semantic_key,
+                                }
+                            )
+                            temp_remaining = temp_remaining.replace(
+                                mod.text_ko, "", 1
+                            ).strip()
 
                     # 모든 나머지 텍스트가 modifier로 설명되면 성공
                     if not temp_remaining or temp_remaining == "":
@@ -288,7 +313,7 @@ class MenuMatchingEngine:
         # ingredient: 재료 강조 - cooking 다음 (한우불고기, 해물짬뽕 등)
         # taste/size: 메뉴 내부 속성 - 그 다음
         type_priority = {
-            "emotion": 1,   # 최우선 (원조, 할매 등)
+            "emotion": 1,  # 최우선 (원조, 할매 등)
             "cooking": 2,
             "ingredient": 3,  # cooking 다음 (한우, 해물 등)
             "grade": 4,
@@ -304,7 +329,7 @@ class MenuMatchingEngine:
                 type_priority.get(m.type, 50),  # 타입 우선순위
                 -len(m.text_ko),  # 길이 (긴 것부터, 그래서 음수)
                 -m.priority,  # priority (높은 것부터, 그래서 음수)
-            )
+            ),
         )
 
         # 2-2. 메뉴명에서 발견 가능한 수식어 목록 추출
@@ -338,12 +363,14 @@ class MenuMatchingEngine:
                 continue
 
             # 이 수식어를 누적 목록에 추가
-            found_modifiers.append({
-                "text_ko": modifier.text_ko,
-                "type": modifier.type,
-                "translation_en": modifier.translation_en,
-                "semantic_key": modifier.semantic_key,
-            })
+            found_modifiers.append(
+                {
+                    "text_ko": modifier.text_ko,
+                    "type": modifier.type,
+                    "translation_en": modifier.translation_en,
+                    "semantic_key": modifier.semantic_key,
+                }
+            )
             remaining_text = new_remaining
 
             # 매번 canonical 매칭 시도
@@ -435,11 +462,13 @@ class MenuMatchingEngine:
 
         for modifier in modifiers:
             if modifier.text_ko in remaining_text:
-                found_modifiers.append({
-                    "text_ko": modifier.text_ko,
-                    "type": modifier.type,
-                    "translation_en": modifier.translation_en,
-                })
+                found_modifiers.append(
+                    {
+                        "text_ko": modifier.text_ko,
+                        "type": modifier.type,
+                        "translation_en": modifier.translation_en,
+                    }
+                )
                 remaining_text = remaining_text.replace(modifier.text_ko, "", 1)
 
         # OpenAI API 호출 (환경변수 확인)
@@ -485,11 +514,14 @@ Return JSON only:
             response = client.chat.completions.create(
                 model="gpt-4o-mini",  # Cost-effective
                 messages=[
-                    {"role": "system", "content": "You are a Korean food expert. Return only valid JSON."},
-                    {"role": "user", "content": prompt}
+                    {
+                        "role": "system",
+                        "content": "You are a Korean food expert. Return only valid JSON.",
+                    },
+                    {"role": "user", "content": prompt},
                 ],
                 temperature=0.3,
-                max_tokens=500
+                max_tokens=500,
             )
 
             content = response.choices[0].message.content.strip()
@@ -509,7 +541,9 @@ Return JSON only:
                 "name_ko": menu_name,
                 "name_en": ai_result.get("name_en", menu_name),
                 "explanation_short": {
-                    "en": ai_result.get("explanation_short_en", "No description available")
+                    "en": ai_result.get(
+                        "explanation_short_en", "No description available"
+                    )
                 },
                 "main_ingredients": ai_result.get("main_ingredients", []),
                 "allergens": ai_result.get("allergens", []),

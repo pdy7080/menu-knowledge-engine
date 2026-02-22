@@ -1,11 +1,10 @@
 """
 Redis Cache Service - 캐싱 관리 서비스
 """
-import json
+
 import pickle
 from typing import Any, Optional, Callable
 from functools import wraps
-import asyncio
 import logging
 
 import redis.asyncio as redis
@@ -31,7 +30,7 @@ class CacheService:
             self.redis = redis.from_url(
                 settings.redis_url,
                 encoding="utf-8",
-                decode_responses=False  # Binary mode for pickle
+                decode_responses=False,  # Binary mode for pickle
             )
             # Connection test
             await self.redis.ping()
@@ -73,10 +72,7 @@ class CacheService:
             return None
 
     async def set(
-        self,
-        key: str,
-        value: Any,
-        ttl: int = 300  # Default: 5 minutes
+        self, key: str, value: Any, ttl: int = 300  # Default: 5 minutes
     ) -> bool:
         """
         캐시에 값 저장
@@ -187,9 +183,7 @@ cache_service = CacheService()
 
 
 def cached(
-    ttl: int = 300,
-    key_prefix: str = "",
-    key_builder: Optional[Callable] = None
+    ttl: int = 300, key_prefix: str = "", key_builder: Optional[Callable] = None
 ):
     """
     함수 결과를 캐싱하는 데코레이터
@@ -204,6 +198,7 @@ def cached(
         async def get_admin_stats(db):
             ...
     """
+
     def decorator(func: Callable):
         @wraps(func)
         async def wrapper(*args, **kwargs):
@@ -218,8 +213,7 @@ def cached(
                 # Default key: prefix:function_name:args_hash
                 args_str = str(args) + str(sorted(kwargs.items()))
                 cache_key = cache_service.cache_key(
-                    key_prefix or func.__name__,
-                    hash(args_str)
+                    key_prefix or func.__name__, hash(args_str)
                 )
 
             # Try cache
@@ -238,12 +232,13 @@ def cached(
             return result
 
         return wrapper
+
     return decorator
 
 
 # TTL Constants (초)
-TTL_ADMIN_STATS = 300        # 5분
+TTL_ADMIN_STATS = 300  # 5분
 TTL_MENU_TRANSLATION = 86400  # 24시간
-TTL_RESTAURANT_INFO = 3600    # 1시간
-TTL_QR_CODE = 7200            # 2시간
-TTL_NUTRITION = 7776000       # 90일 (영양정보)
+TTL_RESTAURANT_INFO = 3600  # 1시간
+TTL_QR_CODE = 7200  # 2시간
+TTL_NUTRITION = 7776000  # 90일 (영양정보)

@@ -1,6 +1,7 @@
 """
 Image validation utilities
 """
+
 from PIL import Image
 import io
 from typing import Tuple
@@ -10,9 +11,12 @@ ALLOWED_FORMATS = {"JPEG", "PNG", "WEBP"}
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
 MAX_DIMENSIONS = (4096, 4096)  # 4K
 
+
 class ImageValidationError(Exception):
     """Custom exception for image validation failures"""
+
     pass
+
 
 def validate_image(file_bytes: bytes) -> Tuple[str, int, int]:
     """

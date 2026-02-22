@@ -163,14 +163,26 @@ def build_translation_prompt(
 
     lang_instructions = []
     if "en" in languages:
-        lang_instructions.append('"name_en": "English name (romanized Korean preferred, e.g. Kimchi-jjigae)"')
-        lang_instructions.append('"description_en": "English description (150-200 chars)"')
+        lang_instructions.append(
+            '"name_en": "English name (romanized Korean preferred, e.g. Kimchi-jjigae)"'
+        )
+        lang_instructions.append(
+            '"description_en": "English description (150-200 chars)"'
+        )
     if "ja" in languages:
-        lang_instructions.append('"name_ja": "Japanese name (カタカナ or 漢字, e.g. キムチチゲ)"')
-        lang_instructions.append('"description_ja": "Japanese description (150-200 chars)"')
+        lang_instructions.append(
+            '"name_ja": "Japanese name (カタカナ or 漢字, e.g. キムチチゲ)"'
+        )
+        lang_instructions.append(
+            '"description_ja": "Japanese description (150-200 chars)"'
+        )
     if "zh_cn" in languages:
-        lang_instructions.append('"name_zh_cn": "Simplified Chinese name (e.g. 泡菜汤)"')
-        lang_instructions.append('"description_zh_cn": "Chinese description (150-200 chars)"')
+        lang_instructions.append(
+            '"name_zh_cn": "Simplified Chinese name (e.g. 泡菜汤)"'
+        )
+        lang_instructions.append(
+            '"description_zh_cn": "Chinese description (150-200 chars)"'
+        )
 
     fields = ",\n  ".join(lang_instructions)
 
@@ -229,10 +241,14 @@ Rules:
 
 # 검증 함수 (enrich_content_gemini_v2.py 라인 210-235 패턴)
 REQUIRED_ENRICHMENT_KEYS = [
-    "description_ko", "description_en",
-    "regional_variants", "preparation_steps",
-    "nutrition", "flavor_profile",
-    "visitor_tips", "similar_dishes",
+    "description_ko",
+    "description_en",
+    "regional_variants",
+    "preparation_steps",
+    "nutrition",
+    "flavor_profile",
+    "visitor_tips",
+    "similar_dishes",
     "cultural_background",
 ]
 

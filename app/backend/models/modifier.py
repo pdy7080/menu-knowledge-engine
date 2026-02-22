@@ -1,6 +1,7 @@
 """
 Modifier Model - 수식어 사전
 """
+
 from sqlalchemy import Column, String, Integer, SmallInteger, Boolean, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
@@ -14,8 +15,12 @@ class Modifier(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     text_ko = Column(String(30), nullable=False, unique=True)
-    type = Column(String(30), nullable=False)  # taste, size, emotion, ingredient, cooking, grade, origin
-    semantic_key = Column(String(50), nullable=False)  # spicy_variant, large_serving, etc.
+    type = Column(
+        String(30), nullable=False
+    )  # taste, size, emotion, ingredient, cooking, grade, origin
+    semantic_key = Column(
+        String(50), nullable=False
+    )  # spicy_variant, large_serving, etc.
 
     # 번역
     translation_en = Column(String(100))

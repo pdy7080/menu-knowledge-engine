@@ -2,6 +2,7 @@
 Automation-specific settings
 기존 config.py (Pydantic Settings) 패턴을 따름
 """
+
 import sys
 from pathlib import Path
 from pydantic_settings import BaseSettings
@@ -24,13 +25,13 @@ class AutomationSettings(BaseSettings):
 
     # Google Gemini (Primary LLM — 무료 tier)
     # 멀티키 라운드 로빈: 3키 × 20 RPD = 60 RPD/일
-    GOOGLE_API_KEY: str = ""          # 단일키 (하위호환)
+    GOOGLE_API_KEY: str = ""  # 단일키 (하위호환)
     GOOGLE_API_KEY_1: str = ""
     GOOGLE_API_KEY_2: str = ""
     GOOGLE_API_KEY_3: str = ""
     GEMINI_MODEL: str = "gemini-2.5-flash-lite"
-    GEMINI_RPM_LIMIT: int = 15       # 키 당 15 req/min
-    GEMINI_RPD_LIMIT: int = 20       # 키 당 RPD=20 (2026-02-20 실측)
+    GEMINI_RPM_LIMIT: int = 15  # 키 당 15 req/min
+    GEMINI_RPD_LIMIT: int = 20  # 키 당 RPD=20 (2026-02-20 실측)
 
     # Image APIs (무료 tier)
     UNSPLASH_ACCESS_KEY: str = ""

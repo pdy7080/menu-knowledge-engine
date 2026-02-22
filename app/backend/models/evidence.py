@@ -1,6 +1,7 @@
 """
 Evidence Model - 출처/근거 추적
 """
+
 from sqlalchemy import Column, String, Text, Float, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
@@ -13,7 +14,9 @@ class Evidence(Base):
     __tablename__ = "evidences"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    target_type = Column(String(30), nullable=False)  # canonical, variant, modifier, concept
+    target_type = Column(
+        String(30), nullable=False
+    )  # canonical, variant, modifier, concept
     target_id = Column(UUID(as_uuid=True), nullable=False)
 
     source_type = Column(String(30), nullable=False)

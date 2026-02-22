@@ -12,17 +12,15 @@ Author: terminal-developer
 Date: 2026-02-20
 Cost: $0/day (Gemini 2.5 Flash-Lite 무료 tier, 멀티키 라운드 로빈)
 """
-import asyncio
+
 import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any
 
-from .config_auto import auto_settings, BACKEND_DIR
+from .config_auto import auto_settings
 from .logging_config import setup_logging
 from .metrics import DailyMetrics
-from .state_manager import StateManager
 
 logger = logging.getLogger("automation.scheduler")
 
@@ -38,6 +36,7 @@ async def run_menu_collection():
 
     try:
         from .menu_discovery import MenuDiscovery
+
         discovery = MenuDiscovery()
         await discovery.load_existing_names_from_file()
         result = await discovery.discover_daily()
@@ -54,7 +53,10 @@ async def run_menu_collection():
     except Exception as e:
         logger.error(f"Collection job failed: {e}", exc_info=True)
         metrics.record_collection(
-            discovered=0, inserted=0, sources={}, errors=1,
+            discovered=0,
+            inserted=0,
+            sources={},
+            errors=1,
             started_at=started_at,
         )
 
@@ -82,7 +84,7 @@ async def run_content_enrichment():
 
         # 일일 사용량 확인 (멀티키 합산)
         usage = client.get_daily_usage()
-        remaining_rpd = usage['remaining']
+        remaining_rpd = usage["remaining"]
         logger.info(
             f"Daily RPD: {usage['used']}/{usage['limit']} "
             f"({remaining_rpd} remaining, {usage['total_keys']} keys)"
@@ -100,7 +102,7 @@ async def run_content_enrichment():
         if staging_dir.exists():
             for json_file in sorted(staging_dir.glob("discovery_*.json")):
                 try:
-                    with open(json_file, 'r', encoding='utf-8') as f:
+                    with open(json_file, "r", encoding="utf-8") as f:
                         data = json.load(f)
                     for menu in data.get("menus", []):
                         name = menu.get("name_ko", "")
@@ -117,7 +119,9 @@ async def run_content_enrichment():
         # 배치 크기 = 잔여 RPD 기반 (여유 2건/키 확보)
         safe_batch_size = max(1, remaining_rpd - (client.total_keys * 2))
         batch = menus_to_enrich[:safe_batch_size]
-        logger.info(f"Batch size: {len(batch)} (from {len(menus_to_enrich)} candidates)")
+        logger.info(
+            f"Batch size: {len(batch)} (from {len(menus_to_enrich)} candidates)"
+        )
         results = await generator.enrich_batch(batch, checkpoint_interval=10)
 
         metrics.record_enrichment(
@@ -129,7 +133,9 @@ async def run_content_enrichment():
         )
         usage_after = client.get_daily_usage()
         logger.info(f"Enrichment complete: {len(results)} menus enriched")
-        logger.info(f"Daily RPD remaining: {usage_after['remaining']}/{usage_after['limit']}")
+        logger.info(
+            f"Daily RPD remaining: {usage_after['remaining']}/{usage_after['limit']}"
+        )
 
     except Exception as e:
         logger.error(f"Enrichment job failed: {e}", exc_info=True)
@@ -155,15 +161,17 @@ async def run_image_collection():
 
         for json_file in sorted(staging_dir.glob("enrichment_batch_*.json")):
             try:
-                with open(json_file, 'r', encoding='utf-8') as f:
+                with open(json_file, "r", encoding="utf-8") as f:
                     data = json.load(f)
                 for menu in data.get("menus", []):
                     name_en = menu.get("name_en", "")
                     if name_en:  # name_en이 있는 메뉴만
-                        menus_without_images.append({
-                            "name_ko": menu.get("name_ko", ""),
-                            "name_en": name_en,
-                        })
+                        menus_without_images.append(
+                            {
+                                "name_ko": menu.get("name_ko", ""),
+                                "name_en": name_en,
+                            }
+                        )
             except Exception:
                 continue
 

@@ -10,11 +10,12 @@ Strategy:
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import asyncio
 import logging
 import re
 import httpx
-from typing import List, Set, Optional
+from typing import List, Set
 
 from .base_collector import BaseCollector, CollectionResult, DiscoveredMenu
 
@@ -34,14 +35,26 @@ HEADERS = {
 
 # 레시피 제목 → 음식명 추출용 키워드 (제거 대상)
 RECIPE_TITLE_NOISE = [
-    "만들기", "만드는법", "만드는방법", "레시피", "황금레시피",
-    "초간단", "간단한", "간단", "쉬운", "간편", "자취생",
-    "백종원의", "백종원", "이보은의",
-    "밑반찬", "반찬",
+    "만들기",
+    "만드는법",
+    "만드는방법",
+    "레시피",
+    "황금레시피",
+    "초간단",
+    "간단한",
+    "간단",
+    "쉬운",
+    "간편",
+    "자취생",
+    "백종원의",
+    "백종원",
+    "이보은의",
+    "밑반찬",
+    "반찬",
 ]
 
 # 특수문자 패턴
-RECIPE_SPECIAL_CHARS = re.compile(r'[♪♫♬♩~!@#$%^&*]')
+RECIPE_SPECIAL_CHARS = re.compile(r"[♪♫♬♩~!@#$%^&*]")
 
 
 class RecipeCollector(BaseCollector):
@@ -92,10 +105,10 @@ class RecipeCollector(BaseCollector):
         # 카테고리별 수집 (한식 카테고리)
         # 만개의레시피 카테고리: cat4=63 (한식)
         categories = [
-            ("63", "한식"),    # Korean
-            ("56", "반찬"),    # Side dishes
-            ("54", "국/탕"),   # Soups
-            ("55", "찌개"),    # Stews
+            ("63", "한식"),  # Korean
+            ("56", "반찬"),  # Side dishes
+            ("54", "국/탕"),  # Soups
+            ("55", "찌개"),  # Stews
         ]
 
         for cat_id, cat_name in categories:
@@ -162,11 +175,13 @@ class RecipeCollector(BaseCollector):
                         continue
 
                     self._collected_names.add(name_ko)
-                    menus.append(DiscoveredMenu(
-                        name_ko=name_ko,
-                        source=self.source_name,
-                        category_hint=cat_name,
-                    ))
+                    menus.append(
+                        DiscoveredMenu(
+                            name_ko=name_ko,
+                            source=self.source_name,
+                            category_hint=cat_name,
+                        )
+                    )
 
                     if len(menus) >= limit:
                         break
@@ -190,15 +205,15 @@ class RecipeCollector(BaseCollector):
         name = title.strip()
 
         # 특수문자 제거
-        name = RECIPE_SPECIAL_CHARS.sub('', name)
+        name = RECIPE_SPECIAL_CHARS.sub("", name)
 
         # 괄호 내용 제거
-        name = re.sub(r'\(.*?\)', '', name)
-        name = re.sub(r'\[.*?\]', '', name)
+        name = re.sub(r"\(.*?\)", "", name)
+        name = re.sub(r"\[.*?\]", "", name)
 
         # 레시피 노이즈 키워드 제거
         for noise in RECIPE_TITLE_NOISE:
-            name = name.replace(noise, '')
+            name = name.replace(noise, "")
 
         name = name.strip()
 
@@ -211,7 +226,7 @@ class RecipeCollector(BaseCollector):
             for cw in cooking_words:
                 idx = name.find(cw)
                 if idx > 0 and idx + len(cw) <= 10:
-                    name = name[:idx + len(cw)]
+                    name = name[: idx + len(cw)]
                     break
             else:
                 # 조리법 키워드 없으면 처음 8자까지

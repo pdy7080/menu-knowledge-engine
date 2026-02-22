@@ -34,19 +34,16 @@ def get_image_url_map() -> dict:
         "순대국": f"{WC}/Sundaeguk.jpg?width=400",
         "육개장": f"{WC}/Yukgaejang.jpg?width=400",
         "추어탕": f"{WC}/Chueotang.jpg?width=400",
-
         # 찌개
         "김치찌개": f"{WC}/Kimchi_jjigae.jpg?width=400",
         "된장찌개": f"{WC}/Doenjang_jjigae.jpg?width=400",
         "순두부찌개": f"{WC}/Sundubu-jjigae.jpg?width=400",
         "부대찌개": f"{WC}/Budae-jjigae.jpg?width=400",
         "청국장찌개": f"{WC}/Cheonggukjang_jjigae.jpg?width=400",
-
         # 국
         "미역국": f"{WC}/Miyeokguk.jpg?width=400",
         "떡국": f"{WC}/Tteokguk.jpg?width=400",
         "콩나물국": f"{WC}/Kongnamul-guk.jpg?width=400",
-
         # ========================================
         # 밥류 (Rice Dishes)
         # ========================================
@@ -60,7 +57,6 @@ def get_image_url_map() -> dict:
         "카레라이스": f"{WC}/Japanese_curry_rice_002.jpg?width=400",
         "전복죽": f"{WC}/Jeonbok-juk.jpg?width=400",
         "호박죽": f"{WC}/Hobakjuk.jpg?width=400",
-
         # ========================================
         # 면류 (Noodles)
         # ========================================
@@ -76,7 +72,6 @@ def get_image_url_map() -> dict:
         "쫄면": f"{WC}/Jjolmyeon.jpg?width=400",
         "막국수": f"{WC}/Makguksu.jpg?width=400",
         "수제비": f"{WC}/Sujebi.jpg?width=400",
-
         # ========================================
         # 고기구이 (Grilled Meat)
         # ========================================
@@ -94,7 +89,6 @@ def get_image_url_map() -> dict:
         "곱창": f"{WC}/Gopchang-gui.jpg?width=400",
         "막창": f"{WC}/Makchang.jpg?width=400",
         "대창": f"{WC}/Daechang-gui.jpg?width=400",
-
         # ========================================
         # 찜/조림 (Braised/Steamed)
         # ========================================
@@ -108,7 +102,6 @@ def get_image_url_map() -> dict:
         "고등어조림": f"{WC}/Godeungeo-jorim.jpg?width=400",
         "두부조림": f"{WC}/Dubu-jorim.jpg?width=400",
         "장조림": f"{WC}/Jangjorim.jpg?width=400",
-
         # ========================================
         # 전/부침개 (Pancakes)
         # ========================================
@@ -119,7 +112,6 @@ def get_image_url_map() -> dict:
         "녹두전": f"{WC}/Bindaetteok.jpg?width=400",
         "동그랑땡": f"{WC}/Donggeurangttaeng.jpg?width=400",
         "호박전": f"{WC}/Hobakjeon.jpg?width=400",
-
         # ========================================
         # 반찬/나물 (Side Dishes)
         # ========================================
@@ -130,7 +122,6 @@ def get_image_url_map() -> dict:
         "콩나물무침": f"{WC}/Kongnamul-muchim.jpg?width=400",
         "멸치볶음": f"{WC}/Myeolchi-bokkeum.jpg?width=400",
         "어묵볶음": f"{WC}/Eomuk-bokkeum.jpg?width=400",
-
         # ========================================
         # 분식/길거리음식 (Snacks/Street Food)
         # ========================================
@@ -143,7 +134,6 @@ def get_image_url_map() -> dict:
         "계란빵": f"{WC}/Gyeran-ppang.jpg?width=400",
         "토스트": f"{WC}/Korean_street_toast.jpg?width=400",
         "핫도그": f"{WC}/Korean_corn_dog.jpg?width=400",
-
         # ========================================
         # 해산물 (Seafood)
         # ========================================
@@ -155,7 +145,6 @@ def get_image_url_map() -> dict:
         "낙지볶음": f"{WC}/Nakji-bokkeum.jpg?width=400",
         "조개구이": f"{WC}/Jogaegui.jpg?width=400",
         "산낙지": f"{WC}/Sannakji.jpg?width=400",
-
         # ========================================
         # 치킨/튀김 (Fried Chicken)
         # ========================================
@@ -163,7 +152,6 @@ def get_image_url_map() -> dict:
         "양념치킨": f"{WC}/Yangnyeom_chicken.jpg?width=400",
         "간장치킨": f"{WC}/Ganjang_chicken.jpg?width=400",
         "돈까스": f"{WC}/Tonkatsu_by_ayustety_in_Osaka.jpg?width=400",
-
         # ========================================
         # 디저트/음료 (Desserts/Drinks)
         # ========================================
@@ -173,7 +161,6 @@ def get_image_url_map() -> dict:
         "인절미": f"{WC}/Injeolmi.jpg?width=400",
         "약과": f"{WC}/Yakgwa.jpg?width=400",
         "떡": f"{WC}/Tteok.jpg?width=400",
-
         # ========================================
         # 주류/안주 (Drinks/Bar Snacks)
         # ========================================
@@ -182,7 +169,6 @@ def get_image_url_map() -> dict:
         "동동주": f"{WC}/Dongdongju.jpg?width=400",
         "닭발": f"{WC}/Dakbal.jpg?width=400",
         "골뱅이무침": f"{WC}/Golbaengi-muchim.jpg?width=400",
-
         # ========================================
         # 한정식/정식 (Set Meals)
         # ========================================

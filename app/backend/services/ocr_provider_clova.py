@@ -31,9 +31,7 @@ class OcrProviderClova(OcrProvider):
         self.provider_type = OcrProviderType.CLOVA
 
     async def extract(
-        self,
-        image_path: str,
-        enable_preprocessing: bool = True
+        self, image_path: str, enable_preprocessing: bool = True
     ) -> OcrResult:
         """
         CLOVA OCR로 메뉴 이미지 분석
@@ -66,12 +64,12 @@ class OcrProviderClova(OcrProvider):
 
             return OcrResult(
                 provider=self.provider_type,
-                success=clova_result.get('success', False),
+                success=clova_result.get("success", False),
                 menu_items=menu_items,
-                raw_text=clova_result.get('raw_text', ''),
+                raw_text=clova_result.get("raw_text", ""),
                 confidence=confidence,
                 confidence_level=self._get_confidence_level(confidence),
-                has_handwriting=clova_result.get('has_handwriting', False),
+                has_handwriting=clova_result.get("has_handwriting", False),
                 price_parse_errors=[],  # CLOVA는 에러 목록 미제공
                 result_hash=result_hash,
                 processing_time_ms=processing_time,
@@ -135,22 +133,24 @@ class OcrProviderClova(OcrProvider):
 
         try:
             # CLOVA 응답 형식: [{"name_ko": str, "price_ko": str}, ...]
-            for item in clova_result.get('menu_items', []):
+            for item in clova_result.get("menu_items", []):
                 try:
                     # price_ko를 정수로 파싱 (예: "8,000" → 8000)
-                    price_str = item.get('price_ko', '')
+                    price_str = item.get("price_ko", "")
                     price = None
 
                     if price_str:
                         # 콤마, 원 제거
-                        price_clean = price_str.replace(',', '').replace('원', '').strip()
+                        price_clean = (
+                            price_str.replace(",", "").replace("원", "").strip()
+                        )
                         try:
                             price = int(price_clean)
                         except ValueError:
                             price = None
 
                     menu_item = MenuItem(
-                        name_ko=item.get('name_ko', ''),
+                        name_ko=item.get("name_ko", ""),
                         price=price,
                         # CLOVA는 추가 필드 미제공
                     )
@@ -175,11 +175,11 @@ class OcrProviderClova(OcrProvider):
         """신뢰도 계산"""
 
         # CLOVA 실패
-        if not clova_result.get('success', False):
+        if not clova_result.get("success", False):
             return 0.0
 
         # CLOVA 응답에서 신뢰도 점수 추출
-        confidence = clova_result.get('ocr_confidence', 0.0)
+        confidence = clova_result.get("ocr_confidence", 0.0)
 
         # 신뢰도가 없거나 0이면 휴리스틱 사용
         if confidence == 0.0:
@@ -200,7 +200,7 @@ class OcrProviderClova(OcrProvider):
     def _compute_result_hash(self, image_path: str, clova_result: dict) -> str:
         """결과 해시 계산"""
         try:
-            with open(image_path, 'rb') as f:
+            with open(image_path, "rb") as f:
                 image_hash = hashlib.md5(f.read()).hexdigest()
 
             result_text = str(clova_result)

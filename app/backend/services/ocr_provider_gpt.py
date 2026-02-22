@@ -10,7 +10,7 @@ import hashlib
 import time
 import json
 import base64
-from typing import Optional, List
+from typing import List
 
 from openai import AsyncOpenAI
 
@@ -42,9 +42,7 @@ class OcrProviderGpt(OcrProvider):
         self.temperature = 0  # 결정론성 확보 (매번 같은 결과)
 
     async def extract(
-        self,
-        image_path: str,
-        enable_preprocessing: bool = True
+        self, image_path: str, enable_preprocessing: bool = True
     ) -> OcrResult:
         """
         GPT-4o mini Vision으로 메뉴 이미지 분석
@@ -83,7 +81,7 @@ class OcrProviderGpt(OcrProvider):
                             {
                                 "type": "text",
                                 "text": self._build_prompt(),
-                            }
+                            },
                         ],
                     }
                 ],
@@ -175,8 +173,8 @@ JSON Schema:
 
         try:
             # JSON 추출
-            json_start = raw_text.find('{')
-            json_end = raw_text.rfind('}') + 1
+            json_start = raw_text.find("{")
+            json_end = raw_text.rfind("}") + 1
 
             if json_start == -1 or json_end == 0:
                 parse_errors.append("JSON 시작/종료 태그 없음")
@@ -186,19 +184,19 @@ JSON Schema:
             data = json.loads(json_str)
 
             # 메뉴 아이템 변환
-            for item in data.get('menu_items', []):
+            for item in data.get("menu_items", []):
                 try:
                     menu_item = MenuItem(
-                        name_ko=item.get('name_ko', ''),
-                        name_en=item.get('name_en'),
-                        description=item.get('description'),
-                        price=item.get('price'),
-                        prices=item.get('prices'),
-                        is_set=item.get('is_set', False),
-                        original_price=item.get('original_price'),
-                        discount_price=item.get('discount_price'),
-                        ingredients=item.get('ingredients', []),
-                        category=item.get('category'),
+                        name_ko=item.get("name_ko", ""),
+                        name_en=item.get("name_en"),
+                        description=item.get("description"),
+                        price=item.get("price"),
+                        prices=item.get("prices"),
+                        is_set=item.get("is_set", False),
+                        original_price=item.get("original_price"),
+                        discount_price=item.get("discount_price"),
+                        ingredients=item.get("ingredients", []),
+                        category=item.get("category"),
                     )
 
                     # 메뉴명 검증 (필수)
@@ -258,7 +256,7 @@ JSON Schema:
         """결과 해시 계산 (캐싱용)"""
         try:
             # 이미지 파일의 MD5
-            with open(image_path, 'rb') as f:
+            with open(image_path, "rb") as f:
                 image_hash = hashlib.md5(f.read()).hexdigest()
 
             # 이미지 해시 + 출력 텍스트 해시
@@ -269,18 +267,17 @@ JSON Schema:
             return ""
 
     async def _load_and_preprocess(
-        self,
-        image_path: str,
-        enable_preprocessing: bool
+        self, image_path: str, enable_preprocessing: bool
     ) -> bytes:
         """이미지 로드 및 전처리"""
         if enable_preprocessing:
             try:
                 from utils.image_preprocessing import preprocess_menu_image
+
                 preprocessed_path = preprocess_menu_image(image_path)
                 image_path = preprocessed_path
             except Exception as e:
                 logger.warning(f"이미지 전처리 실패: {str(e)}, 원본 이미지 사용")
 
-        with open(image_path, 'rb') as f:
+        with open(image_path, "rb") as f:
             return f.read()

@@ -9,13 +9,14 @@ import io
 
 # Windows에서 UTF-8 출력 설정
 if sys.platform == "win32":
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 from pathlib import Path
 import psycopg2
 import os
 from dotenv import load_dotenv
 from urllib.parse import urlparse
+
 
 def parse_database_url(url: str):
     """PostgreSQL URL 파싱"""
@@ -24,11 +25,11 @@ def parse_database_url(url: str):
     # postgresql+asyncpg://user:pass@host:port/database
     # → host, port, user, password, database 추출
     return {
-        'host': parsed.hostname or 'localhost',
-        'port': parsed.port or 5432,
-        'user': parsed.username,
-        'password': parsed.password,
-        'database': parsed.path.lstrip('/'),
+        "host": parsed.hostname or "localhost",
+        "port": parsed.port or 5432,
+        "user": parsed.username,
+        "password": parsed.password,
+        "database": parsed.path.lstrip("/"),
     }
 
 
@@ -61,16 +62,16 @@ def run_migration():
         print()
 
         # PostgreSQL 연결
-        print(f"🔗 데이터베이스 연결 중...")
+        print("🔗 데이터베이스 연결 중...")
         print(f"   Host: {db_config['host']}:{db_config['port']}")
         print(f"   Database: {db_config['database']}")
 
         conn = psycopg2.connect(
-            host=db_config['host'],
-            port=db_config['port'],
-            user=db_config['user'],
-            password=db_config['password'],
-            database=db_config['database'],
+            host=db_config["host"],
+            port=db_config["port"],
+            user=db_config["user"],
+            password=db_config["password"],
+            database=db_config["database"],
         )
 
         cursor = conn.cursor()
@@ -108,8 +109,7 @@ def run_migration():
 
         # 3. "고씨네" 존재 여부 확인 (TC-10용)
         cursor.execute(
-            "SELECT text_ko, type FROM modifiers WHERE text_ko = %s",
-            ('고씨네',)
+            "SELECT text_ko, type FROM modifiers WHERE text_ko = %s", ("고씨네",)
         )
         gho = cursor.fetchone()
         if gho:
@@ -119,8 +119,7 @@ def run_migration():
 
         # 4. "할머니" 존재 여부 확인 (TC-02용)
         cursor.execute(
-            "SELECT text_ko, type FROM modifiers WHERE text_ko = %s",
-            ('할머니',)
+            "SELECT text_ko, type FROM modifiers WHERE text_ko = %s", ("할머니",)
         )
         grandma = cursor.fetchone()
         if grandma:
@@ -150,10 +149,10 @@ def run_migration():
     except Exception as e:
         print()
         print("=" * 60)
-        print(f"❌ 마이그레이션 실패!")
+        print("❌ 마이그레이션 실패!")
         print(f"오류: {e}")
         print("=" * 60)
-        if 'conn' in locals():
+        if "conn" in locals():
             conn.rollback()
             conn.close()
         return False

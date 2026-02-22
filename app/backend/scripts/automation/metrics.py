@@ -2,6 +2,7 @@
 Daily metrics tracking
 일일 자동화 실행 결과를 JSON으로 기록
 """
+
 import json
 import logging
 from pathlib import Path
@@ -19,14 +20,14 @@ class DailyMetrics:
     def __init__(self):
         self.metrics_dir = Path(auto_settings.AUTOMATION_METRICS_DIR)
         self.metrics_dir.mkdir(parents=True, exist_ok=True)
-        self.today = date.today().strftime('%Y%m%d')
+        self.today = date.today().strftime("%Y%m%d")
         self.metrics_file = self.metrics_dir / f"metrics_{self.today}.json"
         self._metrics = self._load_or_create()
 
     def _load_or_create(self) -> dict:
         """오늘 메트릭 로드 또는 생성"""
         if self.metrics_file.exists():
-            with open(self.metrics_file, 'r', encoding='utf-8') as f:
+            with open(self.metrics_file, "r", encoding="utf-8") as f:
                 return json.load(f)
         return {
             "date": date.today().isoformat(),
@@ -39,12 +40,18 @@ class DailyMetrics:
 
     def save(self):
         """메트릭 저장"""
-        with open(self.metrics_file, 'w', encoding='utf-8') as f:
+        with open(self.metrics_file, "w", encoding="utf-8") as f:
             json.dump(self._metrics, f, ensure_ascii=False, indent=2)
 
-    def record_collection(self, discovered: int, inserted: int,
-                          sources: Dict[str, int], errors: int = 0,
-                          started_at: str = "", completed_at: str = ""):
+    def record_collection(
+        self,
+        discovered: int,
+        inserted: int,
+        sources: Dict[str, int],
+        errors: int = 0,
+        started_at: str = "",
+        completed_at: str = "",
+    ):
         """메뉴 수집 결과 기록"""
         self._metrics["collection"] = {
             "started_at": started_at,
@@ -56,9 +63,15 @@ class DailyMetrics:
         }
         self.save()
 
-    def record_enrichment(self, enriched: int, failed: int,
-                          avg_time_sec: float = 0, model: str = "",
-                          started_at: str = "", completed_at: str = ""):
+    def record_enrichment(
+        self,
+        enriched: int,
+        failed: int,
+        avg_time_sec: float = 0,
+        model: str = "",
+        started_at: str = "",
+        completed_at: str = "",
+    ):
         """콘텐츠 생성 결과 기록"""
         self._metrics["enrichment"] = {
             "started_at": started_at,
@@ -70,9 +83,14 @@ class DailyMetrics:
         }
         self.save()
 
-    def record_images(self, found: int, downloaded: int,
-                      sources: Dict[str, int],
-                      started_at: str = "", completed_at: str = ""):
+    def record_images(
+        self,
+        found: int,
+        downloaded: int,
+        sources: Dict[str, int],
+        started_at: str = "",
+        completed_at: str = "",
+    ):
         """이미지 수집 결과 기록"""
         self._metrics["images"] = {
             "started_at": started_at,
@@ -83,9 +101,14 @@ class DailyMetrics:
         }
         self.save()
 
-    def record_sync(self, menus_synced: int, content_synced: int,
-                    images_synced: int,
-                    started_at: str = "", completed_at: str = ""):
+    def record_sync(
+        self,
+        menus_synced: int,
+        content_synced: int,
+        images_synced: int,
+        started_at: str = "",
+        completed_at: str = "",
+    ):
         """DB 동기화 결과 기록"""
         self._metrics["sync"] = {
             "started_at": started_at,
@@ -96,8 +119,7 @@ class DailyMetrics:
         }
         self.save()
 
-    def record_totals(self, total_menus: int, enriched_count: int,
-                      images_count: int):
+    def record_totals(self, total_menus: int, enriched_count: int, images_count: int):
         """전체 DB 현황 기록"""
         self._metrics["totals"] = {
             "canonical_menus": total_menus,

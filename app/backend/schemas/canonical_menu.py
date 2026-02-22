@@ -1,6 +1,7 @@
 """
 Pydantic schemas for CanonicalMenu API
 """
+
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from uuid import UUID
@@ -14,16 +15,26 @@ class CanonicalMenuCreate(BaseModel):
     concept_id: UUID = Field(..., description="Concept ID (foreign key)")
     name_ko: str = Field(..., min_length=1, max_length=100, description="Korean name")
     name_en: str = Field(..., min_length=1, max_length=200, description="English name")
-    explanation_short_en: str = Field(..., min_length=1, description="Short English description")
+    explanation_short_en: str = Field(
+        ..., min_length=1, description="Short English description"
+    )
 
     # Optional multi-language names
     name_ja: Optional[str] = Field(None, max_length=200, description="Japanese name")
-    name_zh_cn: Optional[str] = Field(None, max_length=200, description="Simplified Chinese name")
-    name_zh_tw: Optional[str] = Field(None, max_length=200, description="Traditional Chinese name")
-    romanization: Optional[str] = Field(None, max_length=200, description="Romanization")
+    name_zh_cn: Optional[str] = Field(
+        None, max_length=200, description="Simplified Chinese name"
+    )
+    name_zh_tw: Optional[str] = Field(
+        None, max_length=200, description="Traditional Chinese name"
+    )
+    romanization: Optional[str] = Field(
+        None, max_length=200, description="Romanization"
+    )
 
     # Optional metadata
-    main_ingredients: Optional[List[Dict[str, str]]] = Field(None, description="Main ingredients")
+    main_ingredients: Optional[List[Dict[str, str]]] = Field(
+        None, description="Main ingredients"
+    )
     allergens: Optional[List[str]] = Field(None, description="Allergens")
     dietary_tags: Optional[List[str]] = Field(None, description="Dietary tags")
     spice_level: Optional[int] = Field(0, ge=0, le=5, description="Spice level (0-5)")
@@ -42,10 +53,10 @@ class CanonicalMenuCreate(BaseModel):
                 "main_ingredients": [
                     {"ko": "김치", "en": "kimchi"},
                     {"ko": "돼지고기", "en": "pork"},
-                    {"ko": "두부", "en": "tofu"}
+                    {"ko": "두부", "en": "tofu"},
                 ],
                 "typical_price_min": 7000,
-                "typical_price_max": 12000
+                "typical_price_max": 12000,
             }
         }
 
@@ -83,18 +94,17 @@ class CanonicalMenuResponse(BaseModel):
                 "name_zh_cn": None,
                 "explanation_short": {"en": "Spicy kimchi stew with pork and tofu"},
                 "translation_status": "pending",
-                "spice_level": 3
+                "spice_level": 3,
             }
         }
 
 
 class TranslateRequest(BaseModel):
     """Request schema for manual re-translation"""
-    status_filter: Optional[str] = Field("failed", description="Filter by status (failed, pending, all)")
+
+    status_filter: Optional[str] = Field(
+        "failed", description="Filter by status (failed, pending, all)"
+    )
 
     class Config:
-        json_schema_extra = {
-            "example": {
-                "status_filter": "failed"
-            }
-        }
+        json_schema_extra = {"example": {"status_filter": "failed"}}

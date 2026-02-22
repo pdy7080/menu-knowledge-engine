@@ -1,6 +1,7 @@
 """
 Base Image Collector - 이미지 수집기 추상 클래스
 """
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import List, Optional
@@ -9,19 +10,21 @@ from typing import List, Optional
 @dataclass
 class ImageResult:
     """수집된 이미지 데이터"""
-    menu_name_ko: str                    # 매칭된 메뉴명
-    url: str                             # 원본 이미지 URL
-    source: str = ""                     # "unsplash", "pixabay", "wikimedia"
-    license: str = ""                    # 라이선스 유형
-    attribution: str = ""               # 저작자 정보
+
+    menu_name_ko: str  # 매칭된 메뉴명
+    url: str  # 원본 이미지 URL
+    source: str = ""  # "unsplash", "pixabay", "wikimedia"
+    license: str = ""  # 라이선스 유형
+    attribution: str = ""  # 저작자 정보
     width: int = 0
     height: int = 0
-    local_path: Optional[str] = None    # 다운로드된 로컬 경로
+    local_path: Optional[str] = None  # 다운로드된 로컬 경로
 
 
 @dataclass
 class ImageCollectionResult:
     """이미지 수집 결과"""
+
     source: str
     found: int = 0
     downloaded: int = 0
@@ -52,9 +55,7 @@ class BaseImageCollector(ABC):
         ...
 
     @abstractmethod
-    async def download_image(
-        self, image: ImageResult, save_dir: str
-    ) -> Optional[str]:
+    async def download_image(self, image: ImageResult, save_dir: str) -> Optional[str]:
         """
         이미지 다운로드
 

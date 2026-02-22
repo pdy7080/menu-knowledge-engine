@@ -2,13 +2,20 @@
 Menu Matching Engine Tests
 8개 테스트 케이스로 3단계 매칭 파이프라인 검증
 """
+
 import asyncio
 import httpx
+import pytest
 import sys
 from pathlib import Path
 
 # 프로젝트 루트를 Python path에 추가
 sys.path.insert(0, str(Path(__file__).parent.parent))
+
+# Integration test requiring a live server on localhost:8002
+pytestmark = pytest.mark.skip(
+    reason="Integration test: requires live server on localhost:8002"
+)
 
 BASE_URL = "http://localhost:8002"
 
@@ -100,7 +107,9 @@ async def test_matching_engine():
                 # 결과 출력
                 print(f"Match Type: {result['match_type']}")
                 if result.get("canonical"):
-                    print(f"Canonical: {result['canonical']['name_ko']} ({result['canonical']['name_en']})")
+                    print(
+                        f"Canonical: {result['canonical']['name_ko']} ({result['canonical']['name_en']})"
+                    )
                 if result.get("modifiers"):
                     modifier_texts = [m["text_ko"] for m in result["modifiers"]]
                     print(f"Modifiers: {', '.join(modifier_texts)}")
@@ -111,7 +120,9 @@ async def test_matching_engine():
 
                 # match_type 검증
                 if result["match_type"] != test["expected_match_type"]:
-                    print(f"[FAIL] Expected match_type '{test['expected_match_type']}', got '{result['match_type']}'")
+                    print(
+                        f"[FAIL] Expected match_type '{test['expected_match_type']}', got '{result['match_type']}'"
+                    )
                     success = False
 
                 # canonical_name 검증 (ai_discovery_needed 제외)
@@ -119,16 +130,24 @@ async def test_matching_engine():
                     if not result.get("canonical"):
                         print("[FAIL] No canonical menu found")
                         success = False
-                    elif result["canonical"]["name_ko"] != test.get("expected_canonical_name"):
-                        print(f"[FAIL] Expected canonical '{test.get('expected_canonical_name')}', got '{result['canonical']['name_ko']}'")
+                    elif result["canonical"]["name_ko"] != test.get(
+                        "expected_canonical_name"
+                    ):
+                        print(
+                            f"[FAIL] Expected canonical '{test.get('expected_canonical_name')}', got '{result['canonical']['name_ko']}'"
+                        )
                         success = False
 
                 # modifiers 검증
                 if "expected_modifiers" in test:
-                    found_modifiers = [m["text_ko"] for m in result.get("modifiers", [])]
+                    found_modifiers = [
+                        m["text_ko"] for m in result.get("modifiers", [])
+                    ]
                     for expected_mod in test["expected_modifiers"]:
                         if expected_mod not in found_modifiers:
-                            print(f"[FAIL] Expected modifier '{expected_mod}' not found")
+                            print(
+                                f"[FAIL] Expected modifier '{expected_mod}' not found"
+                            )
                             success = False
 
                 if success:

@@ -9,7 +9,6 @@ Uses OpenCV for:
 
 import os
 import logging
-from typing import Optional
 
 import cv2
 import numpy as np

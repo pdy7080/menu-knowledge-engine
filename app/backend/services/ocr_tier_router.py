@@ -14,7 +14,6 @@ from enum import Enum
 from services.ocr_provider import (
     OcrProvider,
     OcrResult,
-    OcrProviderType,
     OcrProviderException,
 )
 from services.ocr_provider_gpt import OcrProviderGpt
@@ -25,6 +24,7 @@ logger = logging.getLogger(__name__)
 
 class TierLevel(str, Enum):
     """Tier 레벨"""
+
     TIER_1 = "tier_1"  # Primary
     TIER_2 = "tier_2"  # Fallback
     TIER_3 = "tier_3"  # Growth (미래용)
@@ -123,7 +123,9 @@ class OcrTierRouter:
         # 강제 Tier 선택 (디버깅용)
         if force_tier:
             logger.info(f"강제 Tier 선택: {force_tier}")
-            return await self._execute_tier(force_tier, image_path, enable_preprocessing)
+            return await self._execute_tier(
+                force_tier, image_path, enable_preprocessing
+            )
 
         # Tier 1: GPT Vision
         logger.info(f"Tier 1 (GPT Vision) 시도: {image_path}")
@@ -133,7 +135,9 @@ class OcrTierRouter:
 
         # Tier 1 결과 평가
         if self._should_fallback(result_tier_1, self.tier_1_trigger):
-            fallback_reason = self._get_fallback_reason(result_tier_1, self.tier_1_trigger)
+            fallback_reason = self._get_fallback_reason(
+                result_tier_1, self.tier_1_trigger
+            )
             logger.warning(f"Tier 1 폴백 트리거: {fallback_reason}")
 
             # Tier 2: CLOVA
@@ -227,11 +231,16 @@ class OcrTierRouter:
 
         # 가격 파싱 에러
         if result.price_parse_errors and trigger.allow_on_price_error:
-            logger.debug(f"폴백 이유: 가격 파싱 에러 ({len(result.price_parse_errors)}건)")
+            logger.debug(
+                f"폴백 이유: 가격 파싱 에러 ({len(result.price_parse_errors)}건)"
+            )
             return True
 
         # 아이템 수 이상 감지
-        if self._detect_item_count_anomaly(result) and trigger.allow_on_item_count_anomaly:
+        if (
+            self._detect_item_count_anomaly(result)
+            and trigger.allow_on_item_count_anomaly
+        ):
             logger.debug(f"폴백 이유: 메뉴 개수 이상 ({len(result.menu_items)}개)")
             return True
 
@@ -250,12 +259,12 @@ class OcrTierRouter:
         if result.confidence < trigger.confidence_threshold:
             reasons.append(f"신뢰도 {result.confidence:.2f}")
         if len(result.menu_items) < trigger.min_menu_items:
-            reasons.append(f"메뉴 부족")
+            reasons.append("메뉴 부족")
         if result.has_handwriting and not trigger.allow_on_handwriting:
             reasons.append("손글씨 감지")
         if result.price_parse_errors and trigger.allow_on_price_error:
             reasons.append(f"가격 에러 {len(result.price_parse_errors)}건")
         if self._detect_item_count_anomaly(result):
-            reasons.append(f"메뉴 개수 이상")
+            reasons.append("메뉴 개수 이상")
 
         return ", ".join(reasons) if reasons else "기타 이유로 폴백"

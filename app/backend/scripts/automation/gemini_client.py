@@ -16,6 +16,7 @@ Date: 2026-02-20
 Updated: 2026-02-21 (멀티키 라운드 로빈, 429 조기 중단)
 Cost: $0 (무료 tier)
 """
+
 import asyncio
 import json
 import logging
@@ -134,6 +135,7 @@ class GeminiClient:
             return ks.client
 
         from google import genai
+
         ks.client = genai.Client(api_key=ks.key)
         logger.info(f"Gemini SDK initialized for key #{ks.index + 1}: {self.model}")
         return ks.client
@@ -143,11 +145,11 @@ class GeminiClient:
             return
         try:
             from google import genai  # noqa: F401
+
             self._sdk_imported = True
         except ImportError:
             raise ImportError(
-                "google-genai package not installed. "
-                "Run: pip install google-genai"
+                "google-genai package not installed. " "Run: pip install google-genai"
             )
 
     def is_all_exhausted(self) -> bool:
@@ -311,8 +313,7 @@ class GeminiClient:
             return None
 
         json_system = (
-            (system or "")
-            + "\nIMPORTANT: Output ONLY valid JSON. "
+            (system or "") + "\nIMPORTANT: Output ONLY valid JSON. "
             "No markdown, no code blocks, no extra text."
         )
 
@@ -334,9 +335,7 @@ class GeminiClient:
                 if self.is_all_exhausted():
                     logger.warning("All keys exhausted — stopping retries")
                     return None
-                logger.warning(
-                    f"Empty response (attempt {attempt + 1}/{max_retries})"
-                )
+                logger.warning(f"Empty response (attempt {attempt + 1}/{max_retries})")
                 continue
 
             # JSON 추출
@@ -350,7 +349,7 @@ class GeminiClient:
                 cleaned = cleaned[:-3]
             cleaned = cleaned.strip()
 
-            match = re.search(r'\{.*\}', cleaned, re.DOTALL)
+            match = re.search(r"\{.*\}", cleaned, re.DOTALL)
             if match:
                 cleaned = match.group(0)
 
@@ -375,12 +374,14 @@ class GeminiClient:
             ks.reset_if_new_day()
             total_used += ks.daily_count
             total_limit += self.rpd_limit
-            key_details.append({
-                "key_index": ks.index + 1,
-                "used": ks.daily_count,
-                "remaining": ks.remaining,
-                "exhausted": ks.exhausted,
-            })
+            key_details.append(
+                {
+                    "key_index": ks.index + 1,
+                    "used": ks.daily_count,
+                    "remaining": ks.remaining,
+                    "exhausted": ks.exhausted,
+                }
+            )
 
         return {
             "date": date.today().isoformat(),

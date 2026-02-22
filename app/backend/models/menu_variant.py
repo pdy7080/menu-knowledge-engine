@@ -1,7 +1,18 @@
 """
 Menu Variant Model - 실제 식당 메뉴 변형
 """
-from sqlalchemy import Column, String, Integer, Boolean, Text, ForeignKey, DateTime, ARRAY, Float
+
+from sqlalchemy import (
+    Column,
+    String,
+    Integer,
+    Boolean,
+    Text,
+    ForeignKey,
+    DateTime,
+    ARRAY,
+    Float,
+)
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -14,8 +25,12 @@ class MenuVariant(Base):
     __tablename__ = "menu_variants"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    canonical_id = Column(UUID(as_uuid=True), ForeignKey("canonical_menus.id"), nullable=False)
-    canonical_menu_id = Column(UUID(as_uuid=True), ForeignKey("canonical_menus.id"))  # Alias for QR menu
+    canonical_id = Column(
+        UUID(as_uuid=True), ForeignKey("canonical_menus.id"), nullable=False
+    )
+    canonical_menu_id = Column(
+        UUID(as_uuid=True), ForeignKey("canonical_menus.id")
+    )  # Alias for QR menu
     shop_id = Column(UUID(as_uuid=True), ForeignKey("shops.id"))
 
     # 실제 표시 이름
@@ -52,7 +67,7 @@ class MenuVariant(Base):
     canonical_menu = relationship(
         "CanonicalMenu",
         foreign_keys=[canonical_menu_id],  # Specify which FK to use
-        backref="variants"
+        backref="variants",
     )
     shop = relationship("Shop", backref="menu_variants")
 

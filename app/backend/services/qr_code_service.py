@@ -1,6 +1,7 @@
 """
 QR Code Service - QR 코드 생성 서비스
 """
+
 import qrcode
 from pathlib import Path
 from datetime import datetime
@@ -26,7 +27,7 @@ class QRCodeService:
         restaurant_id: uuid.UUID,
         shop_code: str,
         menu_count: int,
-        languages: List[str]
+        languages: List[str],
     ) -> Dict[str, Any]:
         """
         QR 코드 생성
@@ -55,7 +56,7 @@ class QRCodeService:
             "activation_date": activation_date,
             "menu_count": menu_count,
             "languages": languages,
-            "qr_url": f"/qr/{shop_code}"  # QR 스캔 시 이동할 URL
+            "qr_url": f"/qr/{shop_code}",  # QR 스캔 시 이동할 URL
         }
 
         qr_data_str = json.dumps(qr_data, ensure_ascii=False)
@@ -89,7 +90,7 @@ class QRCodeService:
             "qr_code_data": qr_data_str,
             "activation_date": activation_date,
             "menu_count": menu_count,
-            "languages": languages
+            "languages": languages,
         }
 
     def generate_qr_bytes(
@@ -97,7 +98,7 @@ class QRCodeService:
         restaurant_id: uuid.UUID,
         shop_code: str,
         menu_count: int,
-        languages: List[str]
+        languages: List[str],
     ) -> bytes:
         """
         QR 코드를 바이트로 생성 (파일 저장 없이)
@@ -113,7 +114,7 @@ class QRCodeService:
             "activation_date": activation_date,
             "menu_count": menu_count,
             "languages": languages,
-            "qr_url": f"/qr/{shop_code}"
+            "qr_url": f"/qr/{shop_code}",
         }
 
         qr_data_str = json.dumps(qr_data, ensure_ascii=False)
@@ -133,7 +134,7 @@ class QRCodeService:
 
         # 바이트로 변환
         img_byte_arr = io.BytesIO()
-        img.save(img_byte_arr, format='PNG')
+        img.save(img_byte_arr, format="PNG")
         img_byte_arr.seek(0)
 
         return img_byte_arr.getvalue()

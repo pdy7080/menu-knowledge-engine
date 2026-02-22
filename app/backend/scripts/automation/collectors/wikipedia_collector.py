@@ -9,6 +9,7 @@ Sources:
 Author: terminal-developer
 Date: 2026-02-20
 """
+
 import asyncio
 import logging
 import httpx
@@ -36,9 +37,18 @@ KOREAN_FOOD_CATEGORIES = [
 
 # 제외할 기사 제목 키워드 (개념/재료/문화 페이지)
 EXCLUDED_TITLE_KEYWORDS = [
-    "cuisine", "culture", "wheat", "bean", "rice (grain)",
-    "agriculture", "condiment", "ingredient", "adzuki",
-    "fermentation", "history of", "regional",
+    "cuisine",
+    "culture",
+    "wheat",
+    "bean",
+    "rice (grain)",
+    "agriculture",
+    "condiment",
+    "ingredient",
+    "adzuki",
+    "fermentation",
+    "history of",
+    "regional",
 ]
 
 # User-Agent (Wikimedia 정책 준수)
@@ -131,14 +141,18 @@ class WikipediaCollector(BaseCollector):
                     extract = await self._get_extract(title, client)
 
                     if ko_name:
-                        menus.append(DiscoveredMenu(
-                            name_ko=ko_name,
-                            name_en=title,
-                            source=self.source_name,
-                            category_hint=category.replace("Korean_", "").replace("_", " "),
-                            description_en=extract,
-                            raw_data={"wiki_title": title, "category": category},
-                        ))
+                        menus.append(
+                            DiscoveredMenu(
+                                name_ko=ko_name,
+                                name_en=title,
+                                source=self.source_name,
+                                category_hint=category.replace("Korean_", "").replace(
+                                    "_", " "
+                                ),
+                                description_en=extract,
+                                raw_data={"wiki_title": title, "category": category},
+                            )
+                        )
 
                     await asyncio.sleep(0.5)  # Polite rate limiting
 
@@ -147,9 +161,7 @@ class WikipediaCollector(BaseCollector):
 
         return menus
 
-    async def _get_korean_name(
-        self, en_title: str, client: httpx.AsyncClient
-    ) -> str:
+    async def _get_korean_name(self, en_title: str, client: httpx.AsyncClient) -> str:
         """영문 Wikipedia 기사의 한국어 이름 가져오기 (interlanguage link)"""
         params = {
             "action": "query",
@@ -175,9 +187,7 @@ class WikipediaCollector(BaseCollector):
         # Fallback: 영문 제목에서 한국어 유추 불가
         return ""
 
-    async def _get_extract(
-        self, title: str, client: httpx.AsyncClient
-    ) -> str:
+    async def _get_extract(self, title: str, client: httpx.AsyncClient) -> str:
         """Wikipedia 기사의 첫 문단 추출"""
         params = {
             "action": "query",

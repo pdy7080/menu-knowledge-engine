@@ -3,12 +3,11 @@ OCR Service for Menu Image Recognition
 Integrates CLOVA OCR API + GPT-4o for menu text extraction
 """
 
-import os
 import json
 import base64
 import uuid
 import logging
-from typing import List, Dict, Optional
+from typing import List, Dict
 import requests
 from openai import OpenAI
 
@@ -30,12 +29,12 @@ class OCRService:
     def __init__(self):
         self.clova_api_url = "https://kko5u71wza.apigw.ntruss.com/custom/v1/33367/0ef5b16de3cdd8fb766e13f6a67a0aeb4b5a2c3c9e5a5b0dd79a1d58fe6e5cf6/general"
         self.clova_secret = settings.CLOVA_OCR_SECRET
-        self.openai_client = OpenAI(api_key=settings.OPENAI_API_KEY) if settings.OPENAI_API_KEY else None
+        self.openai_client = (
+            OpenAI(api_key=settings.OPENAI_API_KEY) if settings.OPENAI_API_KEY else None
+        )
 
     def recognize_menu_image(
-        self,
-        image_path: str,
-        enable_preprocessing: bool = True
+        self, image_path: str, enable_preprocessing: bool = True
     ) -> Dict:
         """
         Main entry point: Image → Menu items
@@ -76,15 +75,11 @@ class OCRService:
                 "success": True,
                 "menu_items": menu_items,
                 "raw_text": raw_text,
-                "ocr_confidence": ocr_result.get("confidence", 0.0)
+                "ocr_confidence": ocr_result.get("confidence", 0.0),
             }
 
         except Exception as e:
-            return {
-                "success": False,
-                "error": str(e),
-                "menu_items": []
-            }
+            return {"success": False, "error": str(e), "menu_items": []}
 
     def _call_clova_ocr(self, image_path: str) -> Dict:
         """
@@ -99,20 +94,17 @@ class OCRService:
             }
         """
         if not self.clova_secret:
-            return {
-                "success": False,
-                "error": "CLOVA_OCR_SECRET not configured"
-            }
+            return {"success": False, "error": "CLOVA_OCR_SECRET not configured"}
 
         try:
             # Read image file
-            with open(image_path, 'rb') as f:
+            with open(image_path, "rb") as f:
                 image_data = f.read()
 
             # Prepare request
             headers = {
                 "X-OCR-SECRET": self.clova_secret,
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             }
 
             request_json = {
@@ -123,23 +115,20 @@ class OCRService:
                     {
                         "format": "jpg",  # Auto-detect in production
                         "name": "menu_image",
-                        "data": base64.b64encode(image_data).decode('utf-8')
+                        "data": base64.b64encode(image_data).decode("utf-8"),
                     }
-                ]
+                ],
             }
 
             # Call CLOVA OCR
             response = requests.post(
-                self.clova_api_url,
-                headers=headers,
-                json=request_json,
-                timeout=30
+                self.clova_api_url, headers=headers, json=request_json, timeout=30
             )
 
             if response.status_code != 200:
                 return {
                     "success": False,
-                    "error": f"CLOVA OCR API error: {response.status_code} {response.text}"
+                    "error": f"CLOVA OCR API error: {response.status_code} {response.text}",
                 }
 
             result = response.json()
@@ -162,14 +151,11 @@ class OCRService:
                 "success": True,
                 "text": combined_text,
                 "confidence": avg_confidence,
-                "raw_response": result
+                "raw_response": result,
             }
 
         except Exception as e:
-            return {
-                "success": False,
-                "error": f"CLOVA OCR error: {str(e)}"
-            }
+            return {"success": False, "error": f"CLOVA OCR error: {str(e)}"}
 
     def _parse_menu_with_llm(self, raw_text: str) -> List[Dict]:
         """
@@ -212,11 +198,14 @@ If you cannot parse any menu items, return empty array [].
             response = self.openai_client.chat.completions.create(
                 model="gpt-4o-mini",  # Cost-effective for parsing
                 messages=[
-                    {"role": "system", "content": "You are a precise Korean menu text parser. Return only valid JSON."},
-                    {"role": "user", "content": prompt}
+                    {
+                        "role": "system",
+                        "content": "You are a precise Korean menu text parser. Return only valid JSON.",
+                    },
+                    {"role": "user", "content": prompt},
                 ],
                 temperature=0.1,
-                max_tokens=2000
+                max_tokens=2000,
             )
 
             content = response.choices[0].message.content.strip()
@@ -237,10 +226,12 @@ If you cannot parse any menu items, return empty array [].
             validated_items = []
             for item in menu_items:
                 if isinstance(item, dict) and "name_ko" in item:
-                    validated_items.append({
-                        "name_ko": item["name_ko"],
-                        "price_ko": item.get("price_ko", "")
-                    })
+                    validated_items.append(
+                        {
+                            "name_ko": item["name_ko"],
+                            "price_ko": item.get("price_ko", ""),
+                        }
+                    )
 
             return validated_items
 
@@ -260,7 +251,7 @@ If you cannot parse any menu items, return empty array [].
 
         # Pattern: Korean menu name + price
         # Example: "김치찌개 8,000원" or "순두부찌개          9,500"
-        pattern = r'([가-힣\s]+)\s*([\d,]+)원?'
+        pattern = r"([가-힣\s]+)\s*([\d,]+)원?"
 
         for line in lines:
             match = re.search(pattern, line)
@@ -270,10 +261,7 @@ If you cannot parse any menu items, return empty array [].
 
                 # Filter out too short names (likely not menu items)
                 if len(name) >= 2:
-                    menu_items.append({
-                        "name_ko": name,
-                        "price_ko": price
-                    })
+                    menu_items.append({"name_ko": name, "price_ko": price})
 
         return menu_items
 
