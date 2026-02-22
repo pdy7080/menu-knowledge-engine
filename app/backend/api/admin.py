@@ -3,7 +3,6 @@ Admin API Routes - Sprint 3 P1-1 + Sprint 4 OCR Metrics + Multi-Language Auto-Tr
 신규 메뉴 큐 관리 + 엔진 모니터링 + OCR Tier 메트릭 + 자동 번역
 """
 
-import os
 import uuid
 import logging
 
@@ -16,6 +15,7 @@ from pydantic import BaseModel
 from datetime import datetime, timedelta
 from database import get_db
 from models import ScanLog, CanonicalMenu, Modifier
+from config import settings
 from services.cache_service import cache_service, TTL_ADMIN_STATS
 from services.ocr_orchestrator import ocr_orchestrator
 from services.auto_translate_service import get_auto_translate_service
@@ -37,7 +37,7 @@ def verify_admin_token(
     credentials: HTTPAuthorizationCredentials = Depends(_security),
 ) -> None:
     """Bearer token verification for all admin endpoints"""
-    expected = os.environ.get("ADMIN_SECRET_KEY", "")
+    expected = settings.ADMIN_SECRET_KEY
     if not expected or credentials.credentials != expected:
         raise HTTPException(status_code=403, detail="Forbidden")
 
